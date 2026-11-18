@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation><PMID Version="1">111</PMID><Article>
+<Journal><JournalIssue><PubDate><Year>2023</Year></PubDate></JournalIssue><Title>Cell Rep</Title></Journal>
+<ArticleTitle>ApoE4 lysosomal <i>cholesterol</i> accumulation.</ArticleTitle>
+<Abstract><AbstractText Label="RESULTS">Cholesterol was 35% higher in APOE4 astrocytes (n = 6, P &lt; 0.001).</AbstractText><AbstractText>Lysosomes were enlarged.</AbstractText></Abstract>
+<PublicationTypeList><PublicationType>Journal Article</PublicationType></PublicationTypeList></Article></MedlineCitation>
+<PubmedData><ArticleIdList><ArticleId IdType="pubmed">111</ArticleId><ArticleId IdType="doi">10.1016/j.x.2023.1</ArticleId><ArticleId IdType="pmc">PMC999</ArticleId></ArticleIdList></PubmedData></PubmedArticle>
+<PubmedArticle><MedlineCitation><PMID Version="1">222</PMID><Article>
+<Journal><JournalIssue><PubDate><MedlineDate>2019 Jan-Feb</MedlineDate></PubDate></JournalIssue><Title>J X</Title></Journal>
+<ArticleTitle>No abstract paper</ArticleTitle></Article></MedlineCitation>
+<PubmedData><ArticleIdList><ArticleId IdType="pubmed">222</ArticleId></ArticleIdList></PubmedData></PubmedArticle>
+</PubmedArticleSet>

@@ -1,0 +1,7 @@
+{
+  "H1": "(APOE4 OR ApoE4 OR \"apolipoprotein E4\" OR \"apolipoprotein E e4\") AND (endosom*) AND (pH OR acidif* OR NHE6 OR SLC9A6 OR \"V-ATPase\")",
+  "H2": "(APOE4 OR ApoE4 OR \"apolipoprotein E4\") AND (ARF6 OR Rab11 OR recycling OR ABCA1 OR LRP1 OR ApoER2 OR \"receptor trafficking\") AND (endosom* OR recycling)",
+  "H3": "(APOE4 OR ApoE4 OR \"apolipoprotein E4\" OR ApoE) AND (aggregat* OR oligomer* OR fibril*) AND (lysosom* OR endolysosom* OR endosom* OR microglia)",
+  "H4": "(APOE4 OR ApoE4 OR \"apolipoprotein E4\") AND (ApoER2 OR LRP1 OR LRP8 OR SORL1 OR \"LDL receptor\" OR \"recycling receptor\") AND (binding OR affinity OR \"recycling block\" OR endosom*)",
+  "H5": "(APOE4 OR ApoE4 OR \"apolipoprotein E4\") AND (cholesterol OR lipid OR \"lipid droplet\") AND (lysosom* OR \"late endosome\" OR endolysosom*) AND (astrocyt* OR microglia OR iPSC OR neuron*)"
+}
