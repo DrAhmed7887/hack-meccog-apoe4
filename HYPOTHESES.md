@@ -15,6 +15,26 @@ PubMed hits come from my draft queries in queries.json (`python3 search.py --hyp
 
 Runner-up H1. The Makefile defaults to `HYP=H5`; change with `make dry-run HYP=H1`.
 
+## Data decision, 18 Nov (report run 19 Nov 00:37; `python3 datadecision.py report --hyp H1 --hyp H5`, `out/dd/report.json`)
+
+Rule set 18 Nov: the hypothesis with more full-text papers passing every check goes first; within 5 of each other → H5.
+Checks: C1 human cell model (AD brain + mouse only = fail), C2 APOE4 vs APOE3 compared, C3 the hypothesis readout actually measured,
+C4 free full text (PMC, Europe PMC, Unpaywall, DOI), C5 the text reports a finding that argues against the hypothesis. Each verdict needs a verbatim quote; "unclear" counts as fail.
+
+| | H1 (endosome pH) | H5 (lipid / late endosome) |
+|---|---|---|
+| Screened | 37 | 40 |
+| Pass C1-C3 | 0 | 6 |
+| Pass C1-C4 (free full text) | 0 | 5 |
+| Pass C1-C5 (every check) | 0 | 1 |
+| Papers with a numeric effect (C1-C4) | 0 | 1 |
+
+**Result: H5 goes first** (1 vs 0 on every check; also within 5, so H5 either way). The Makefile default stays `HYP=H5`.
+The H5 pool is thin: only 5 papers pass C1-C4. Hand-check of those 5 against the C3 definition (orchestrator, 19 Nov, from the quotes in report.json):
+- 34919811 (cholesterol in lysosomes elevated), 35750033 (lysosomal cholesterol sequestration), 40457456 (lysosomal membrane permeabilization stronger in APOE4/4; also C5: autophagic flux blocked in both genotypes), 42636814 (impaired degradation of α-synuclein; 2.25-fold effect quote): C3 holds.
+- 39532095: borderline. C3 rests on "lipofuscinosis" and C1 adds exogenous ApoE to human neurons rather than APOE-genotyped cells. Physician review.
+No P value or effect size was estimated; only quoted numbers are kept.
+
 ### 1. H5: Lipid metabolism and late endosome function
 
 > In some types of non-Alzheimer's, non-aged human brain cells, APOE4 disruption of lipid metabolism, compared with APOE3, results in impaired late endosome/lysosome function.
