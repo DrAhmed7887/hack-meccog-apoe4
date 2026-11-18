@@ -133,8 +133,9 @@ def main():
     os.makedirs(os.path.dirname(a.out) or ".", exist_ok=True)
     rows = build_rows(stmt, d["papers"])
     write_xlsx(a.out, [("Submission", rows), ("Method", build_method(method))])
-    print(f"wrote {a.out}: {sum(1 for r in rows[2:] if re.fullmatch(r"P\d+", r[4] or ""))} papers, "
-          f"{sum(1 for r in rows[2:] if re.fullmatch(r"P\d+\.F\d+", r[4] or ""))} findings")
+    npap = sum(1 for r in rows[2:] if re.fullmatch(r"P\d+", r[4] or ""))
+    nfin = sum(1 for r in rows[2:] if re.fullmatch(r"P\d+\.F\d+", r[4] or ""))
+    print(f"wrote {a.out}: {npap} papers, {nfin} findings")
 
 
 if __name__ == "__main__":
