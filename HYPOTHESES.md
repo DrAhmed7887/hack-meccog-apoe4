@@ -35,6 +35,8 @@ The H5 pool is thin: only 5 papers pass C1-C4. Hand-check of those 5 against the
 - 39532095: borderline. C3 rests on "lipofuscinosis" and C1 adds exogenous ApoE to human neurons rather than APOE-genotyped cells. Physician review.
 No P value or effect size was estimated; only quoted numbers are kept.
 
+**Correction, 19 Nov:** C5 was wrongly used as a per-paper inclusion check. The challenge rules say not to exclude evidence against the hypothesis, so C5 is now only a submission-level count of contrary findings (`contrary_C5_yes_among_pass`, `contrary_C5_yes_all`). The pass set is C1-C4. On that corrected rule the decision is unchanged: H5 5, H1 0, so H5 goes first. Widening of the H5 pool (Europe PMC snowball from 37777962 and the 4 confirmed papers, up to 80 new candidates, submission cap 50) is running; its count is added below when done.
+
 ### 1. H5: Lipid metabolism and late endosome function
 
 > In some types of non-Alzheimer's, non-aged human brain cells, APOE4 disruption of lipid metabolism, compared with APOE3, results in impaired late endosome/lysosome function.
