@@ -20,6 +20,7 @@ COLUMNS = ["Hypothesis", "DOI", "Paper/source type", "PubMed ID", "Paper/Finding
            "Effect size", "Effect size provenance", "P value", "P value provenance", "Sample size",
            "Sample size provenance", "Directness class", "Directness strength"]
 STRENGTH = {1: "very strong", 2: "strong", 3: "moderate", 4: "weak", 5: "very weak"}
+REVIEW_MARKER = "[PHYSICIAN REVIEW REQUIRED]"
 METHOD_ROWS = ["Team", "Team leader", "Team leader email", "Method URL", "Commit SHA", "Who did the work", "Model and version"]
 DRY_METHOD = {"Team": "dry-run (no team yet)", "Team leader": "dry run", "Team leader email": "dry-run@example.org",
               "Method URL": "https://github.com/DrAhmed7887/hack-meccog-apoe4", "Commit SHA": "GIT_HEAD",
@@ -82,6 +83,14 @@ def na(v):
     return v if v not in (None, "") else "N/A"
 
 
+def inconsistent_directness_pair(f):
+    """Catch scale pair errors at export too, including older extracted JSON files."""
+    directness_class = f.get("directness_class")
+    directness_strength = f.get("directness_strength")
+    return ((directness_class == 1 and directness_strength in (4, 5)) or
+            (directness_class == 4 and directness_strength in (1, 2)))
+
+
 def build_rows(hyp_statement, papers):
     rows = [COLUMNS, [hyp_statement] + [None] * 18]
     n = 0
@@ -92,6 +101,8 @@ def build_rows(hyp_statement, papers):
         rows.append([None, na(p.get("doi")), "PubMed published", p["pmid"], f"P{n}"] + [None] * 14)
         for j, f in enumerate(p["findings"], 1):
             desc = ("CONTRADICTING: " if f["direction"] == "contradicts" else "") + f["description"]
+            if f.get("physician_review") or inconsistent_directness_pair(f):
+                desc = f"{REVIEW_MARKER} {desc}"
             ft = f.get("source") == "full_text"
             row = [None, None, None, None, f"P{n}.F{j}", desc, na(f["quote"]), na(f["summary"]), f"{f['relevance']:g}",
                    na(f["experimental_system"]), f.get("location") or "Abstract"]

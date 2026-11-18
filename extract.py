@@ -30,9 +30,11 @@ INSTRUCTION = (
     '"p_value": {{"value": "0.03 | <0.001 | null", "quote": "verbatim or null"}}, '
     '"sample_size": {{"value": "12 | 8-12 | null", "quote": "verbatim or null"}}, '
     '"directness_class": 1-5, "directness_strength": 1-5}}\n'
-    "Directness class: 1 = APOE variant itself varied and the hypothesis readout itself measured; 2 = variant varied "
-    "through a surrogate; 3 = readout inferred from a surrogate; 4 = surrogate at both ends; 5 = other. "
-    "Strength: 1 very strong ... 5 very weak. "
+    "Directness class: 1 = A itself varied and B itself measured; 2 = A varied indirectly through A' and B measured; "
+    "3 = A varied and B inferred from B'; 4 = both input and output are indirect; 5 = other. "
+    "Strength: 1 very strong (strongest link), 2 strong, 3 moderate, 4 weak, 5 very weak (weakest link). "
+    "Do not reverse the strength scale. Class 1 with strength 4 or 5 is inconsistent; class 4 with strength 1 or 2 "
+    "is usually inconsistent. Such pairs require physician review. "
     "Use null for any number the abstract does not state. NEVER estimate or compute a number. "
     "If the abstract reports no relevant primary finding return {{\"findings\": []}}."
 )
@@ -43,6 +45,9 @@ RE_FOLD = re.compile(r"^\d+(\.\d+)?x$", re.I)
 RE_STD = re.compile(r"^[a-zA-Z]+\s*=\s*-?\d+(\.\d+)?$")
 RE_P = re.compile(r"^(<|>|<=|>=)?\s*\d+(\.\d+)?([eE][-+]?\d+)?$")
 RE_N = re.compile(r"^\d+(\s*-\s*\d+)?$")
+READOUT_SPLIT = re.compile(r";\s*|,\s*(?=[A-Za-z][A-Za-z0-9_-]{0,30}\s*:)")
+READOUT_LABEL = re.compile(r"^\s*([A-Za-z][A-Za-z0-9_-]{0,30})\s*:")
+STAT_LABELS = {"n", "p", "padj", "t", "f", "d", "r", "ci", "ci95", "sd", "se", "sem", "df"}
 
 
 def norm_text(s):
@@ -75,19 +80,92 @@ def verify_stat(kind, value, quote, abstract):
             return "qualitative"
         if not (RE_PERCENT.match(v) or RE_FOLD.match(v) or RE_STD.match(v)):
             return None
-        target = _nums(v)
+        if RE_PERCENT.match(v) or RE_FOLD.match(v):
+            pattern = re.compile(r"(?<![\w.])" + re.escape(v) + r"(?![\w.])", re.I)
+        else:
+            m = re.fullmatch(r"([a-zA-Z]+)\s*=\s*(-?\d+(?:\.\d+)?(?:[eE][-+]?\d+)?)", v)
+            if not m:
+                return None
+            pattern = re.compile(r"(?<!\w)" + re.escape(m.group(1)) + r"\s*=\s*" +
+                                 re.escape(m.group(2)) + r"(?![\w.])", re.I)
     elif kind == "p_value":
         if not RE_P.match(v):
             return None
-        target = _nums(v)
+        m = re.fullmatch(r"(<=|>=|<|>)?\s*(\d+(?:\.\d+)?(?:[eE][-+]?\d+)?)", v)
+        if not m:
+            return None
+        comparator = re.escape(m.group(1) or "")
+        pattern = re.compile(r"(?<!\w)p(?:\.adj)?\s*=?\s*" + comparator +
+                             r"\s*" + re.escape(m.group(2)) + r"(?![\w.])", re.I)
     elif kind == "sample_size":
         if not RE_N.match(v):
             return None
-        target = _nums(v)
+        m = re.fullmatch(r"(\d+)(?:\s*-\s*(\d+))?", v)
+        pattern = re.compile(r"(?<!\w)n\s*=\s*" + re.escape(m.group(1)) +
+                             (r"\s*-\s*" + re.escape(m.group(2)) if m.group(2) else "") + r"(?![\w.])", re.I)
     else:
         return None
-    have = _nums(quote)
-    return v if target and all(any(abs(t - h) < 1e-12 for h in have) for t in target) else None
+    return v if pattern.search(norm_text(quote)) else None
+
+
+def _readout_segments(text):
+    """Return named readout segments only when text contains multiple labelled measures."""
+    parts = READOUT_SPLIT.split(norm_text(text))
+    labelled = []
+    for part in parts:
+        m = READOUT_LABEL.match(part)
+        if m and m.group(1).lower() not in STAT_LABELS:
+            labelled.append((m.group(1), part.strip()))
+    return labelled if len(labelled) > 1 and len({x[0].lower() for x in labelled}) > 1 else []
+
+
+def _label_in(text, label):
+    return re.search(r"(?<![A-Za-z0-9])" + re.escape(label) + r"(?![A-Za-z0-9])", text, re.I) is not None
+
+
+def _readout_scope(f, stat_quote):
+    """Narrow multireadout quotes to the one label identified by the finding text."""
+    finding_quote = norm_text(f.get("quote") or "")
+    stat_quote = norm_text(stat_quote or "")
+    finding_segments = _readout_segments(finding_quote)
+    stat_segments = _readout_segments(stat_quote)
+    if not finding_segments and not stat_segments:
+        return stat_quote, False
+
+    labels = {label.lower(): label for label, _ in finding_segments + stat_segments}
+    target_text = " ".join((str(f.get("description") or ""), str(f.get("summary") or "")))
+    targets = list({label.lower(): label for label in labels.values() if _label_in(target_text, label)}.values())
+    if len(targets) != 1:
+        return "", True
+    target = targets[0]
+
+    def select(segments):
+        if not segments:
+            return None, False
+        matches = [segment for label, segment in segments if label.lower() == target.lower()]
+        return (matches[0], False) if len(matches) == 1 else (None, True)
+
+    finding_segment, ambiguous = select(finding_segments)
+    if ambiguous:
+        return "", True
+    stat_segment, ambiguous = select(stat_segments)
+    if ambiguous:
+        return "", True
+    one_label = READOUT_LABEL.match(stat_quote)
+    if not stat_segments and one_label and one_label.group(1).lower() not in STAT_LABELS and \
+            one_label.group(1).lower() != target.lower():
+        return "", True
+    if stat_segment:
+        return stat_segment, False
+    if finding_segment:
+        return finding_segment, False
+    return stat_quote, False
+
+
+def _inconsistent_directness_pair(directness_class, directness_strength):
+    """Pairs identified by the official guide/validator as scale inversions or unlikely."""
+    return ((directness_class == 1 and directness_strength in (4, 5)) or
+            (directness_class == 4 and directness_strength in (1, 2)))
 
 
 def clean_finding(f, abstract):
@@ -108,10 +186,28 @@ def clean_finding(f, abstract):
             out[k] = n if 1 <= n <= 5 else None
         except (TypeError, ValueError):
             out[k] = None
+    review_reasons = []
+    if _inconsistent_directness_pair(out["directness_class"], out["directness_strength"]):
+        review_reasons.append("inconsistent_directness_pair")
+    _, ambiguous_finding_readout = _readout_scope(f, "")
+    if ambiguous_finding_readout:
+        review_reasons.append("ambiguous_readout")
     for kind in ("effect_size", "p_value", "sample_size"):
         s = f.get(kind) if isinstance(f.get(kind), dict) else {}
-        val = verify_stat(kind, s.get("value"), s.get("quote"), abstract)
-        out[kind] = {"value": val, "quote": norm_text(s["quote"]) if val else None}
+        scoped_quote, ambiguous = _readout_scope(f, s.get("quote"))
+        if ambiguous:
+            val = None
+            if "ambiguous_readout" not in review_reasons:
+                review_reasons.append("ambiguous_readout")
+        else:
+            val = verify_stat(kind, s.get("value"), scoped_quote, abstract)
+            if (_readout_segments(f.get("quote") or "") or _readout_segments(s.get("quote") or "")) and \
+                    s.get("value") not in (None, "", "null") and val is None:
+                if "readout_stat_mismatch" not in review_reasons:
+                    review_reasons.append("readout_stat_mismatch")
+        out[kind] = {"value": val, "quote": scoped_quote if val else None}
+    out["physician_review"] = bool(review_reasons)
+    out["physician_review_reasons"] = review_reasons
     if not out["description"]:
         return None
     return out
@@ -137,9 +233,11 @@ FT_INSTRUCTION = (
     '"p_value": {{"value": "0.03 | <0.001 | null", "quote": "verbatim from the SAME block, or null"}}, '
     '"sample_size": {{"value": "12 | 8-12 | null", "quote": "verbatim from the SAME block, or null"}}, '
     '"directness_class": 1-5, "directness_strength": 1-5}}\n'
-    "Directness class: 1 = APOE variant itself varied and the hypothesis readout itself measured; 2 = variant varied "
-    "through a surrogate; 3 = readout inferred from a surrogate; 4 = surrogate at both ends; 5 = other. "
-    "Strength: 1 very strong ... 5 very weak. "
+    "Directness class: 1 = A itself varied and B itself measured; 2 = A varied indirectly through A' and B measured; "
+    "3 = A varied and B inferred from B'; 4 = both input and output are indirect; 5 = other. "
+    "Strength: 1 very strong (strongest link), 2 strong, 3 moderate, 4 weak, 5 very weak (weakest link). "
+    "Do not reverse the strength scale. Class 1 with strength 4 or 5 is inconsistent; class 4 with strength 1 or 2 "
+    "is usually inconsistent. Such pairs require physician review. "
     "A number goes in a field ONLY if it is printed in the quote, copied exactly. Use null for anything not printed. "
     "NEVER estimate, convert or compute a number, and NEVER compute a P value. "
     "If the excerpt has no relevant primary finding return {{\"findings\": []}}."
