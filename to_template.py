@@ -3,9 +3,10 @@
 library only (zipfile + XML), so no spreadsheet package is needed to build it.
 Usage: python3 to_template.py --in out/extracted.json --out out/dry_run.xlsx [--method method.json]
 
-Provenance rule in this abstract-only stage: a number printed in the abstract is 'printed_in_text'; a number we
-did not find is N/A with 'full_text_unavailable' (we did not try the full text). Such a file is a DRY RUN, not
-submittable: the real pipeline must read full text first."""
+Provenance: a number quoted verbatim from the source is 'printed_in_text'. A number missing from a finding read
+from FULL TEXT is N/A with 'not_found_in_source' (Data location = the section or table name). A finding read from
+the abstract only (full text unavailable after every route in fulltext.py) is N/A with 'full_text_unavailable'
+and location 'Abstract'. A figure-only value would need visual_only/estimated_from_figure: not done yet."""
 import argparse
 import os
 import re
@@ -91,11 +92,15 @@ def build_rows(hyp_statement, papers):
         rows.append([None, na(p.get("doi")), "PubMed published", p["pmid"], f"P{n}"] + [None] * 14)
         for j, f in enumerate(p["findings"], 1):
             desc = ("CONTRADICTING: " if f["direction"] == "contradicts" else "") + f["description"]
+            ft = f.get("source") == "full_text"
             row = [None, None, None, None, f"P{n}.F{j}", desc, na(f["quote"]), na(f["summary"]), f"{f['relevance']:g}",
-                   na(f["experimental_system"]), "Abstract"]
+                   na(f["experimental_system"]), f.get("location") or "Abstract"]
+            # full text read: a number not quoted there is not_found_in_source (it may sit in a figure only);
+            # abstract only: we cannot say, so full_text_unavailable (legitimate only after fulltext.py tried every route)
+            miss = ["N/A", "not_found_in_source" if ft else "full_text_unavailable"]
             for kind in ("effect_size", "p_value", "sample_size"):
                 v = f[kind]["value"]
-                row += [v, "printed_in_text"] if v else ["N/A", "full_text_unavailable"]
+                row += [v, "printed_in_text"] if v else miss
             row.append(str(f["directness_class"] or 5))
             s = f["directness_strength"] or 5
             row.append(f"{s} {STRENGTH[s]}")

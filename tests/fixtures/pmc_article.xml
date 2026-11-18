@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Archiving and Interchange DTD v1.3 20210610//EN" "JATS-archivearticle1-3.dtd">
+<article><front><article-meta><title-group><article-title>Fixture</article-title></title-group></article-meta></front>
+<body>
+<sec><title>Introduction</title><p>Background text only.</p></sec>
+<sec><title>Results</title>
+<sec><title>Lysosomal cholesterol</title>
+<p>Filipin staining showed a <italic>35%</italic> increase in APOE4 astrocytes (n = 6, P &lt; 0.001). Lysosomes were enlarged.</p>
+</sec>
+<table-wrap id="T2"><label>Table 2</label><caption><p>Lipid species.</p></caption>
+<table><thead><tr><th>Lipid</th><th>Fold</th></tr></thead><tbody><tr><td>CE</td><td>2.5x</td></tr></tbody></table></table-wrap>
+</sec>
+</body>
+<floats-group><fig id="F3"><label>Figure 3</label><caption><p>LAMP1 area was larger in APOE4 (P = 0.01).</p></caption></fig></floats-group>
+</article>

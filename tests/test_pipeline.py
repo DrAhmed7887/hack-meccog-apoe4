@@ -11,11 +11,13 @@ sys.path.insert(0, ROOT)
 import check_schema  # noqa: E402
 import common  # noqa: E402
 import extract  # noqa: E402
+import fulltext  # noqa: E402
 import parse_hypotheses  # noqa: E402
 import screen  # noqa: E402
 import search  # noqa: E402
 import snowball  # noqa: E402
 import to_template  # noqa: E402
+import verify_sample  # noqa: E402
 
 
 def fx(name):
@@ -103,6 +105,137 @@ class Extract(unittest.TestCase):
         self.assertEqual(c["directness_strength"], 2)
         f["quote"] = "fabricated finding sentence"
         self.assertIsNone(extract.clean_finding(f, ABS))
+
+
+class Fulltext(unittest.TestCase):
+    def test_jats_blocks(self):
+        b = fulltext.parse_jats(fx("pmc_article.xml"))
+        locs = [x["loc"] for x in b]
+        self.assertIn("Results > Lysosomal cholesterol", locs)
+        self.assertIn("Table 2", locs)
+        self.assertIn("Figure 3 legend", locs)       # figure in floats-group, outside body
+        t = next(x for x in b if x["loc"] == "Table 2")
+        self.assertIn("CE | 2.5x", t["text"])
+        p = next(x for x in b if x["loc"].startswith("Results >"))
+        self.assertIn("35% increase in APOE4 astrocytes (n = 6, P < 0.001)", p["text"])  # entities decoded, italics merged
+        self.assertEqual(fulltext.parse_jats("<article><front/></article>"), [])
+        self.assertEqual(fulltext.parse_jats("not xml"), [])
+
+    def test_real_body(self):
+        b = fulltext.parse_jats(fx("pmc_article.xml"))
+        self.assertFalse(fulltext.has_real_body(b))  # tiny: front matter / non-OA record
+        big = [{"loc": "Results > A", "kind": "text", "text": "x" * 9000}]
+        self.assertTrue(fulltext.has_real_body(big))
+        landing = [{"loc": "SUMMARY", "kind": "text", "text": "y" * 9000}]
+        self.assertFalse(fulltext.has_real_body(landing))  # long but no Results heading and under 20k
+        dup = [{"loc": "Results", "kind": "text", "text": "z" * 9000}] * 5
+        self.assertTrue(fulltext.has_real_body(dup))      # duplicates counted once, still >= 8000
+
+    def test_id_routes(self):
+        self.assertEqual(fulltext.parse_idconv(fx("idconv.json"))["pmcid"], "PMC999")
+        self.assertEqual(fulltext.parse_idconv(fx("idconv_missing.json"))["pmcid"], "")
+        self.assertEqual(fulltext.parse_idconv("garbage")["pmcid"], "")
+        self.assertEqual(fulltext.parse_epmc_lookup(fx("epmc_lookup.json")), {"pmcid": "PMC999", "open": True})
+        self.assertEqual(fulltext.parse_epmc_lookup('{"resultList":{"result":[]}}')["pmcid"], "")
+
+    def test_unpaywall(self):
+        c = fulltext.parse_unpaywall(fx("unpaywall.json"))
+        self.assertEqual(c[0][0], "html")
+        self.assertIn(("pdf", "https://repo.example.org/a.pdf"), c)
+        self.assertEqual(fulltext.parse_unpaywall(fx("unpaywall_closed.json")), [])
+        self.assertEqual(fulltext.parse_unpaywall("nope"), [])
+
+    def test_contact_is_not_personal(self):
+        self.assertTrue(fulltext.CONTACT.endswith("users.noreply.github.com"))
+
+    def test_html_blocks(self):
+        b = fulltext.parse_html(fx("oa_page.html"))
+        self.assertEqual([x["loc"] for x in b], ["Results", "Methods"])
+        self.assertIn("35% more cholesterol", b[0]["text"])
+        self.assertNotIn("menu", " ".join(x["text"] for x in b))
+
+
+class FulltextExtract(unittest.TestCase):
+    blocks = [{"loc": "Results > Lysosomal cholesterol", "kind": "text",
+               "text": "Filipin staining showed a 35% increase in APOE4 astrocytes (n = 6, P < 0.001). Lysosomes were enlarged."},
+              {"loc": "Table 2", "kind": "table", "text": "Lipid species.\nCE | 2.5x"},
+              {"loc": "Results > Other", "kind": "text", "text": "Mitochondrial respiration fell in APOE4 cells (P = 0.02)."}]
+
+    def finding(self, **kw):
+        f = {"description": "More cholesterol", "quote": "Filipin staining showed a 35% increase in APOE4 astrocytes",
+             "summary": "(E4) -> (more chol)", "direction": "supports", "relevance": 0.9, "experimental_system": "astrocytes",
+             "directness_class": 1, "directness_strength": 2,
+             "effect_size": {"value": "35%", "quote": "a 35% increase in APOE4 astrocytes"},
+             "p_value": {"value": "<0.001", "quote": "(n = 6, P < 0.001)"},
+             "sample_size": {"value": "6", "quote": "(n = 6, P < 0.001)"}}
+        f.update(kw)
+        return f
+
+    def test_verbatim_and_location(self):
+        c = extract.clean_ft_finding(self.finding(), self.blocks)
+        self.assertEqual(c["location"], "Results > Lysosomal cholesterol")
+        self.assertEqual((c["effect_size"]["value"], c["p_value"]["value"], c["sample_size"]["value"]), ("35%", "<0.001", "6"))
+        self.assertEqual(c["source"], "full_text")
+
+    def test_invented_finding_rejected(self):
+        self.assertIsNone(extract.clean_ft_finding(self.finding(quote="Cholesterol doubled in APOE4 astrocytes."), self.blocks))
+
+    def test_numbers_must_be_in_same_block(self):
+        # P value quote exists in the paper, but in another block: refused (null), finding kept
+        f = self.finding(p_value={"value": "0.02", "quote": "fell in APOE4 cells (P = 0.02)"})
+        c = extract.clean_ft_finding(f, self.blocks)
+        self.assertIsNone(c["p_value"]["value"])
+        self.assertEqual(c["effect_size"]["value"], "35%")
+
+    def test_never_estimated_or_computed(self):
+        f = self.finding(p_value={"value": "0.0005", "quote": "(n = 6, P < 0.001)"},     # not the printed digits
+                         effect_size={"value": "~35%", "quote": "a 35% increase in APOE4 astrocytes"},  # estimate marker
+                         sample_size={"value": "6", "quote": "an invented clause about n = 6 mice"})    # quote not in source
+        c = extract.clean_ft_finding(f, self.blocks)
+        for k in ("p_value", "effect_size", "sample_size"):
+            self.assertIsNone(c[k]["value"], k)
+
+    def test_table_location(self):
+        f = self.finding(quote="CE | 2.5x", effect_size={"value": "2.5x", "quote": "CE | 2.5x"},
+                         p_value={"value": None, "quote": None}, sample_size={"value": None, "quote": None})
+        c = extract.clean_ft_finding(f, self.blocks)
+        self.assertEqual(c["location"], "Table 2")
+        self.assertEqual(c["effect_size"]["value"], "2.5x")
+
+    def test_chunking(self):
+        blocks = [{"loc": "Introduction", "kind": "text", "text": "APOE4 cholesterol lysosome. " * 20},
+                  {"loc": "Methods", "kind": "text", "text": "APOE4 cholesterol. " * 20},
+                  {"loc": "Results > A", "kind": "text", "text": "APOE4 cholesterol lysosome. " * 100},
+                  {"loc": "Results > B", "kind": "text", "text": "APOE4 lipid droplet. " * 100},
+                  {"loc": "Results > C", "kind": "text", "text": "nothing relevant here at all. " * 50}]
+        ch = extract.select_chunks(blocks, budget=6000, size=3000)
+        locs = [b["loc"] for c in ch for b in c]
+        self.assertEqual(locs, ["Results > A", "Results > B"])   # only Results, only relevant, document order
+        self.assertTrue(all(sum(len(b["text"]) for b in c) <= 3000 for c in ch))
+        self.assertIn("[[Results > A]]", extract.format_chunk(ch[0]))
+
+    def test_template_full_text_provenance(self):
+        c = extract.clean_ft_finding(self.finding(p_value={"value": None, "quote": None}), self.blocks)
+        paper = {"pmid": "1", "doi": "10.1/x", "findings": [c]}
+        row = to_template.build_rows("HYP", [paper])[3]
+        self.assertEqual(row[10], "Results > Lysosomal cholesterol")
+        self.assertEqual(row[13:15], ["N/A", "not_found_in_source"])
+        self.assertEqual(row[11:13], ["35%", "printed_in_text"])
+
+
+class Verify(unittest.TestCase):
+    blocks = [{"loc": "Results > A", "kind": "text", "text": "Cells grew. Filipin staining showed a 35% increase in APOE4 astrocytes (n = 6, P < 0.001). Done."}]
+
+    def test_found_and_sentence(self):
+        ok, sent, loc = verify_sample.check_field("effect_size", {"value": "35%", "quote": "a 35% increase in APOE4 astrocytes"}, self.blocks)
+        self.assertTrue(ok)
+        self.assertEqual(loc, "Results > A")
+        self.assertEqual(sent, "Filipin staining showed a 35% increase in APOE4 astrocytes (n = 6, P < 0.001).")
+
+    def test_not_found(self):
+        self.assertFalse(verify_sample.check_field("p_value", {"value": "0.05", "quote": "P = 0.05 in all groups"}, self.blocks)[0])
+        # quote present but digits not in it
+        self.assertFalse(verify_sample.check_field("effect_size", {"value": "40%", "quote": "a 35% increase in APOE4 astrocytes"}, self.blocks)[0])
 
 
 class Hypotheses(unittest.TestCase):
