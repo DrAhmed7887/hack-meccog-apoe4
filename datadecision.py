@@ -7,12 +7,13 @@ Stages (each cached in out/dd/, re-runnable):
           downgrade a 'yes' to 'unclear', never upgrade. 'unclear' counts as fail.
   ft      C4 via fulltext.fetch_one (free routes) for papers with no 'no' in C1-C3; Qwen on the best full-text chunk
           re-judges C1-C3 unclear items, C5 and numeric effect sizes (quotes verified verbatim in one block).
-  report  counts table + JSON
-Usage: python3 datadecision.py {pool|screen|ft|report} [--hyp H1 --hyp H5]"""
+  report  counts table + JSON; C5 is a submission-level count, not an inclusion check
+Usage: python3 datadecision.py {pool|screen|ft|report} [--hyp H1 --hyp H5] [--widen]"""
 import argparse
 import json
 import os
 import re
+import shutil
 import sys
 import time
 
@@ -77,7 +78,39 @@ def abs_of(r):
 
 
 # ---------------- pool ----------------
-def build_pool(h):
+def build_pool(h, widen=False):
+    # Widening is an additive H5-only pass over a pool that has already been built.
+    if widen:
+        if h != "H5":
+            raise ValueError("--widen is only supported for H5")
+        path = f"{DD}/pool_H5.json"
+        d = common.load_json(path)
+        if not os.path.exists(f"{DD}/pool_H5.before_widen.json"):  # keep the first, un-widened pool on re-runs
+            shutil.copy2(path, f"{DD}/pool_H5.before_widen.json")
+        old_pmids = {str(r["pmid"]) for r in d["records"]}
+        seeds = ("37777962", "34919811", "35750033", "40457456", "42636814")
+        candidates = {}
+        for seed in seeds:
+            for kind in ("references", "citations"):
+                for item in snowball.fetch(kind, seed, 60):
+                    pmid = str(item.get("pmid") or "")
+                    if pmid and pmid not in old_pmids and pmid not in candidates:
+                        candidates[pmid] = f"widen:{kind}:{seed}"
+        key = common.ncbi_key()
+        fetched = search.efetch(list(candidates), key) if candidates else []
+        additions = []
+        for r in fetched:
+            pmid = str(r.get("pmid") or "")
+            if pmid not in candidates or pmid in old_pmids or not APOE.search(f"{r.get('title', '')}. {r.get('abstract', '')}"):
+                continue
+            additions.append(dict(r, via=candidates[pmid]))
+            if len(additions) >= 80:
+                break
+        d["records"].extend(additions)
+        common.save_json(d, path)
+        print(f"H5: widened pool by {len(additions)} papers (pool {len(d['records'])})")
+        return
+
     key = common.ncbi_key()
     hyps = common.load_json("hypotheses.json")
     q = common.load_json("queries.json")[h]
@@ -179,7 +212,7 @@ def screen(h):
     stmt = common.load_json("hypotheses.json")[h]["statement"]
     instr = INSTR.format(hyp=stmt, c3=DEF[h])
     for i, r in enumerate(d["records"]):
-        if r["pmid"] in done:
+        if str(r["pmid"]) in done:
             continue
         text = abs_of(r)
         if not r["abstract"]:
@@ -213,7 +246,7 @@ def ft(h):
     stmt = common.load_json("hypotheses.json")[h]["statement"]
     instr = FT_INSTR.format(hyp=stmt, c3=DEF[h])
     for r in d["records"]:
-        p = r["pmid"]
+        p = str(r["pmid"])
         c = sc.get(p)
         if not c or p in done:
             continue
@@ -298,13 +331,14 @@ def report(hyps):
                          "route": (f or {}).get("route")})
         ok = lambda x, ks: all(x[k]["v"] == "yes" if k != "C4" else x["C4"] == "yes" for k in ks)
         p14 = [x for x in rows if ok(x, ("C1", "C2", "C3", "C4"))]
-        p15 = [x for x in p14 if x["C5"]["v"] == "yes"]
         p13 = [x for x in rows if ok(x, ("C1", "C2", "C3"))]
-        res[h] = {"c1_rule_removed": removed, "screened": len(rows), "pass_C1_C3": len(p13), "pass_C1_C4": len(p14), "pass_C1_C5": len(p15),
+        contrary_among_pass = sum(1 for x in p14 if x["C5"]["v"] == "yes")
+        res[h] = {"c1_rule_removed": removed, "screened": len(rows), "pass_C1_C3": len(p13), "pass_C1_C4": len(p14),
+                  "n_pass_C1_C4_cap50": min(50, len(p14)),
                   "free_full_text": sum(1 for x in rows if x["C4"] == "yes"),
                   "numeric_effect_papers_C1_C4": sum(1 for x in p14 if x["effects"]),
                   "numeric_effect_quotes_C1_C4": sum(len(x["effects"]) for x in p14),
-                  "contrary_C5_yes_among_C1_C4": len(p15),
+                  "contrary_C5_yes_among_pass": contrary_among_pass,
                   "contrary_C5_yes_all": sum(1 for x in rows if x["C5"]["v"] == "yes"),
                   "rows": rows}
         print(h, {k: v for k, v in res[h].items() if k != "rows"})
@@ -315,11 +349,17 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("stage", choices=["pool", "screen", "ft", "report"])
     ap.add_argument("--hyp", action="append")
+    ap.add_argument("--widen", action="store_true", help="widen the existing H5 pool using fixed Europe PMC seeds")
     a = ap.parse_args()
     ensure()
     hs = a.hyp or ["H1", "H5"]
+    if a.widen and (a.stage != "pool" or hs != ["H5"]):
+        ap.error("--widen requires pool --hyp H5")
     if a.stage == "report":
         report(hs)
     else:
         for h in hs:
-            {"pool": build_pool, "screen": screen, "ft": ft}[a.stage](h)
+            if a.stage == "pool":
+                build_pool(h, widen=a.widen)
+            else:
+                {"screen": screen, "ft": ft}[a.stage](h)
