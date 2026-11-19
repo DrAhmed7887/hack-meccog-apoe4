@@ -37,6 +37,8 @@ No P value or effect size was estimated; only quoted numbers are kept.
 
 **Correction, 19 Nov:** C5 was wrongly used as a per-paper inclusion check. The challenge rules say not to exclude evidence against the hypothesis, so C5 is now only a submission-level count of contrary findings (`contrary_C5_yes_among_pass`, `contrary_C5_yes_all`). The pass set is C1-C4. On that corrected rule the decision is unchanged: H5 5, H1 0, so H5 goes first. Widening of the H5 pool (Europe PMC snowball from 37777962 and the 4 confirmed papers, up to 80 new candidates, submission cap 50) is running; its count is added below when done.
 
+**Widening result, 19 Nov 02:02** (`out/dd/widen_run.log`, `report.json`): the pool grew from 40 to 120 (80 new, APOE-matching, from references and citations of the 5 seeds). Pass C1-C4 stayed at **5** (`n_pass_C1_C4_cap50` = 5); free full text 9 → 19; contrary findings: 1 among passes, 2 in all. Of the 80 new papers, 52 fail C1 (no human cell model) and 15 pass it; none passes C2 + C3 as well. The 4 near misses (C1 and C2 yes, C3 unclear: 41673700, 41102453, 40958776, 39056789) are energy-metabolism or fatty-acid papers. In each, the model judged C3 "no" and the quote failed the verbatim check, so they are not lysosome-function readouts. The limit is the strict C3 definition (a measured late-endosome/lysosome function), not the pool size. Widening C3 (for example, to lipid handling in general) is a scientific call for Ahmed, not an agent change.
+
 ### 1. H5: Lipid metabolism and late endosome function
 
 > In some types of non-Alzheimer's, non-aged human brain cells, APOE4 disruption of lipid metabolism, compared with APOE3, results in impaired late endosome/lysosome function.
