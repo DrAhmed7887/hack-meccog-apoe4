@@ -5,9 +5,15 @@ VENV_PY ?= $(CURDIR)/.venv/bin/python
 VALIDATOR := $(CURDIR)/official/resources/validate_submission.py
 SCRATCH ?= /private/tmp
 
-.PHONY: test dry-run validate
+.PHONY: test dry-run validate verify
 test:
 	$(PY) -W ignore -m unittest discover -s tests
+
+# Offline check of the committed data in data/ (no network, no keys, no rwth-ask). See FREEZE.md.
+# Pre-freeze local check on the git-ignored out/: make verify DATA=out
+DATA ?= data
+verify:
+	$(PY) scripts/verify.py --data $(DATA)
 
 dry-run:
 	mkdir -p out

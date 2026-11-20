@@ -1,5 +1,7 @@
 # hack-meccog-apoe4
 
+> **DRAFT headline (placeholder, no result yet):** [HEADLINE RESULT TO BE WRITTEN AFTER THE SIGNED RUN: papers kept, findings extracted, share checked by a physician]. Nothing in this repo has been validated for submission. See `CLAIMS.md`.
+
 Pipeline for the MecCog Challenge pilot (APOE4 endosome hypotheses, Step 1: papers and findings). Private until the
 method README is final. Python standard library only; `openpyxl` (in a git-ignored `.venv`) is needed only to run the
 official validator.
@@ -28,8 +30,19 @@ Status (18 Nov 2026): pipeline with free full-text fetch (PMC, Europe PMC, Unpay
 
 ```
 make test
-make dry-run            # HYP=H5 by default; max 20 PubMed hits, 5 extractions, writes out/dry_run.xlsx and validates it
+make dry-run            # HYP=H5 by default; max 20 PubMed hits, 13 extractions (Makefile `--max 13`), writes out/dry_run.xlsx and validates it
 ```
+
+## Verify (offline, for a stranger)
+
+```
+make test
+make verify             # checks the committed data/ dir; needs no key, no network, no rwth-ask
+```
+
+Re-running the pipeline is optional: the NCBI key (macOS Keychain, service `NCBI_API_KEY`, never stored in files) and
+`rwth-ask` are only needed to regenerate. What is frozen and why: `FREEZE.md`. Status: `data/` is not committed yet, so
+`make verify` fails until the freeze is done.
 
 ## Known gaps before a real submission
 
