@@ -1,6 +1,6 @@
 # SPEC.md: MecCog APOE4 pilot (Step 1)
 
-Status: DRAFT, 21 Nov 2026. The research question is NOT signed; nothing here changes it.
+Status: SIGNED (25 Nov 2026) on `H5`, `Strict C3`, pool, and figure-estimate policy; January build/submission items open.
 
 ## Buyer line
 The MecCog group (organizers of the MecCog Challenge, a Hugging Face Space) need, for one APOE4 endosome hypothesis, a short list of papers and the experimental findings in them, each traceable to a location in the paper, so that they can compare groups and check the specifics. (Organizer and shape: `official/README.md`, `official/rules.html`.) There is no commercial buyer and no sponsor product; the sponsor-primitive gate is n/a.
@@ -18,17 +18,20 @@ Unrecorded in the repo. `HYPOTHESES.md` states a feasibility target of "~20 h"; 
 - **Submit-by line: Wed 13 Jan 2027 13:00 Valencia** (48 h early, ERR-2026-024).
 - One live submission per hypothesis, replaceable until the deadline; the team leader submits (`official/rules.html:988-990`).
 
-## Register-day-0 check list (all open; none confirmed in the repo)
-- [ ] HF account registered for the challenge (Ahmed's click; use an institutional address)
+## Register-day-0 & January checklist (remaining human/January items open)
+- [ ] HF account registered for the challenge (Ahmed's click; institutional address `ahmed.zayed@rwth-aachen.de`)
 - [ ] Team created, team name recorded: ______
 - [ ] Ahmed set as team leader (only the leader can submit)
 - [ ] Registration receipt saved to `Hackathons/2026-11-meccog-apoe4/submission/`
-- [ ] Rules re-read on the live page and diffed against `official/` (snapshots are from 18 Nov; rules may be amended)
-- [ ] Prize terms checked on the live page; cash prize means "needs lawyer" (NLV)
+- [ ] Rules re-read on the live HF Space page and diffed against `official/` (18 Nov snapshot); verify live rules for any prize terms (challenge products in snapshot: open-source pipeline, scientific paper, co-authorship per `official/rules.html:427`)
 - [ ] Method repo URL decided (repo is private; going public only on Ahmed's click after a history and secrets scan)
-- [ ] Research question and C3 definition signed by Ahmed before any paper goes to NotebookLM
-- [ ] Physician check of class, strength and relevance planned, share to be recorded
-- [ ] AI-use disclosure planned in the Method README (the pipeline uses AI models)
+- [x] Research question (`H5`), `Strict C3`, pool, and `~` / `estimated_from_figure` policy signed by Ahmed (25 Nov 2026)
+- [ ] January pass: extraction (with `~` + `estimated_from_figure` enabled), physician `A3` audit (class, strength, relevance; share recorded), `FREEZE.md`, `make validate`, and submission by `Wed 13 Jan 2027 13:00 Valencia`
+- [ ] AI-use disclosure included in the Method README (the pipeline uses AI models)
 
-## Scope
-Step 1 only: find papers, extract findings. Chosen hypothesis per `HYPOTHESES.md`: H5 (Ahmed's click to confirm). Pool: 5 papers pass C1-C4 per `HYPOTHESES.md`; cap is 50.
+## Signed scope & decisions (25 Nov 2026)
+- **Step 1 only:** find papers, extract experimental findings.
+- **Signed Hypothesis `H5`:** *In some types of non-Alzheimer's, non-aged human brain cells, APOE4 disruption of lipid metabolism, compared with APOE3, results in impaired late endosome/lysosome function.*
+- **Signed `Strict C3`:** Measured late-endosome/lysosome readout only (do NOT widen to general lipid handling or pad per `official/rules.html:429,529-534`).
+- **Signed pool (cap 50):** Focused strict `C1–C4` pool of 5 free-full-text papers (`34919811`, `35750033`, `40457456` [preserving contrary `C5=yes` finding], `42636814`, plus borderline `39532095` kept with its exact exogenous-ApoE human-neuron experimental system and lower directness class per `official/rules.html:469`) + anchor paper `37777962` (if abstract-only/non-OA permitted; note `C4: no`).
+- **Signed Rule `C3` figure-estimate policy (`official/rules.html:537-542`):** Approved enabling `~` prefix + `estimated_from_figure` provenance for bar-chart effect sizes and plotted-point sample sizes (never P values) in the January extraction pass.

@@ -1,6 +1,6 @@
 # FREEZE.md: what is committed, and what is optional to regenerate
 
-Status: PROPOSAL (21 Nov 2026). Nothing has been copied yet. The research question and the C3 definition are not signed, so the final paper pool is not chosen; the files below are options until Ahmed signs.
+Status: SIGNED DIRECTION (25 Nov 2026); `data/` not frozen yet. Ahmed signed `H5`, `Strict C3`, the 5-paper `C1–C4` pool (+ anchor `37777962` if abstract-only/non-OA permitted), and enabling `~` + `estimated_from_figure` in January extraction. Copying into `data/` and freezing wait for the January extraction pass, physician `A3` audit, and `make validate`.
 
 ## Verify path (needs nothing but Python 3 and this repo)
 
@@ -22,7 +22,7 @@ These re-run the pipeline. A reader without them can still verify the frozen dat
 | Screening and extraction | `rwth-ask` (free RWTHgpt CLI, available to the author only). Output is model-dependent, so a re-run will not reproduce the frozen findings exactly. | `screen.py`, `extract.py` |
 | Full-text fetch | Network (PMC, Europe PMC, Unpaywall, DOI) | `fulltext.py` |
 
-## Freeze manifest (proposed; copy only after Ahmed signs the pool)
+## Freeze manifest (execute in January after re-extraction and `A3` audit)
 
 Target dir `data/`, with `data/FREEZE.json` = `{"files": {"<path relative to data/>": "<sha256>"}}`.
 
@@ -42,13 +42,13 @@ Target dir `data/`, with `data/FREEZE.json` = `{"files": {"<path relative to dat
 | `data/validator_output.txt` | `out/validator_output.txt` | 0.5 KB | official validator result | Needed, but rerun on the final workbook |
 | not committed | `out/search.json`, `snowball.json`, `screened.json`, `extracted_abstract_only.json`, `extract_log*.txt` | ~190 KB | superseded dry-run intermediates | Leave ignored |
 
-### Paper pool options (do not choose; Ahmed signs first)
+### Signed paper pool & extraction policy (25 Nov 2026)
 
-- A. Strict: the 5 papers `report.json` counts as passing C1-C4 for H5 (the audit names 34919811, 35750033, 40457456 and 42636814 as confirmed, plus 39532095 as borderline; read the exact five from the rows). Short and accurate; the rules favour relevance over volume.
-- B. Strict plus the borderline 39532095.
-- C. Widened C3 (lipid handling in general): pool unknown until re-run; cap 50.
-
-Two corrections to check against `HYPOTHESES.md` before signing: the audit lists four confirmed passes plus the seed, while `report.json` says `pass_C1_C4` = 5 for H5. The exact five PMIDs must be read from `report.json` rows, not from the audit note.
+- **Hypothesis `H5`:** *In some types of non-Alzheimer's, non-aged human brain cells, APOE4 disruption of lipid metabolism, compared with APOE3, results in impaired late endosome/lysosome function.*
+- **Strict `C3`:** Measured late-endosome/lysosome readout only (do NOT widen to general lipid handling or pad per `official/rules.html:429,529-534`).
+- **Signed pool:** Focused strict `C1–C4` pool of 5 free-full-text papers (`34919811`, `35750033`, `40457456` [preserving contrary `C5=yes` finding], `42636814`, plus borderline `39532095` kept with its exact exogenous-ApoE human-neuron experimental system and lower directness class per `official/rules.html:469`) + anchor paper `37777962` (if abstract-only/non-OA permitted; note `C4: no`). In `out/dd/report.json`, `pass_C1_C4 = 5` corresponds to those exact five `C4=yes` PMIDs while `37777962` has `C4: no`.
+- **Rule `C3` figure-estimate policy (`official/rules.html:537-542`):** Approved enabling `~` prefix + `estimated_from_figure` provenance for bar-chart effect sizes and plotted-point sample sizes (never P values) in the January extraction pass.
+- **Remaining human/January items:** Institutional HF account (`ahmed.zayed@rwth-aachen.de`), team name + Ahmed as leader, live rules check on HF Space, January extraction + physician `A3` audit + `FREEZE.md` + `make validate` (submit-by `Wed 13 Jan 2027 13:00 Valencia`).
 
 ### Full-text licence caveat
 

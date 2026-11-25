@@ -11,9 +11,16 @@ PubMed hits come from my draft queries in queries.json (`python3 search.py --hyp
 | 4 | H3 | APOE4 aggregation in the endo-lysosome | 227 | 82 |
 | 5 | H4 | APOE4 adhesion to recycling receptors | 108 | 107 |
 
-## Top pick: H5 (his click to confirm)
+## Signed pick: H5 (confirmed 25 Nov 2026)
 
 Runner-up H1. The Makefile defaults to `HYP=H5`; change with `make dry-run HYP=H1`.
+
+**Signed decisions (25 Nov 2026):**
+- **Hypothesis `H5`:** *In some types of non-Alzheimer's, non-aged human brain cells, APOE4 disruption of lipid metabolism, compared with APOE3, results in impaired late endosome/lysosome function.*
+- **Strict `C3`:** Measured late-endosome/lysosome readout only (do NOT widen to general lipid handling or pad per `official/rules.html:429,529-534`).
+- **Signed pool:** Focused strict `C1–C4` pool of 5 free-full-text papers (`34919811`, `35750033`, `40457456` [preserving contrary `C5=yes` finding], `42636814`, plus borderline `39532095` kept with its exact exogenous-ApoE human-neuron experimental system and lower directness class per `official/rules.html:469`) + anchor paper `37777962` (if abstract-only/non-OA permitted; note `C4: no`).
+- **Rule `C3` figure-estimate policy (`official/rules.html:537-542`):** Approved enabling `~` prefix + `estimated_from_figure` provenance for bar-chart effect sizes and plotted-point sample sizes (never P values) in the January extraction pass.
+- **Remaining January/HF items:** Institutional HF account (`ahmed.zayed@rwth-aachen.de`), team name + Ahmed as leader, live HF Space rules check, January extraction + physician `A3` audit + `FREEZE.md` + `make validate` (submit-by `Wed 13 Jan 2027 13:00 Valencia`).
 
 ## Data decision, 18 Nov (report run 19 Nov 00:37; `python3 datadecision.py report --hyp H1 --hyp H5`, `out/dd/report.json`)
 
@@ -32,7 +39,7 @@ C4 free full text (PMC, Europe PMC, Unpaywall, DOI), C5 the text reports a findi
 **Result: H5 goes first** (1 vs 0 on every check; also within 5, so H5 either way). The Makefile default stays `HYP=H5`.
 The H5 pool is thin: only 5 papers pass C1-C4. Hand-check of those 5 against the C3 definition (orchestrator, 19 Nov, from the quotes in report.json):
 - 34919811 (cholesterol in lysosomes elevated), 35750033 (lysosomal cholesterol sequestration), 40457456 (lysosomal membrane permeabilization stronger in APOE4/4; also C5: autophagic flux blocked in both genotypes), 42636814 (impaired degradation of α-synuclein; 2.25-fold effect quote): C3 holds.
-- 39532095: borderline. C3 rests on "lipofuscinosis" and C1 adds exogenous ApoE to human neurons rather than APOE-genotyped cells. Physician review.
+- 39532095: borderline. C3 rests on "lipofuscinosis" and C1 adds exogenous ApoE to human neurons rather than APOE-genotyped cells (signed 25 Nov 2026: kept with its exact exogenous-ApoE human-neuron system and lower directness class per `official/rules.html:469`).
 No P value or effect size was estimated; only quoted numbers are kept.
 
 **Correction, 19 Nov:** C5 was wrongly used as a per-paper inclusion check. The challenge rules say not to exclude evidence against the hypothesis, so C5 is now only a submission-level count of contrary findings (`contrary_C5_yes_among_pass`, `contrary_C5_yes_all`). The pass set is C1-C4. On that corrected rule the decision is unchanged: H5 5, H1 0, so H5 goes first. Widening of the H5 pool (Europe PMC snowball from 37777962 and the 4 confirmed papers, up to 80 new candidates, submission cap 50) is running; its count is added below when done.
