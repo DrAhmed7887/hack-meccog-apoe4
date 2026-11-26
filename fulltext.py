@@ -412,8 +412,9 @@ def main():
     ap.add_argument("--cache", default="out/fulltext")
     ap.add_argument("--max", type=int, default=13)
     a = ap.parse_args()
+    import extract
     d = common.load_json(a.inp)
-    inc = sorted((r for r in d["records"] if r["screen"]["include"]), key=lambda r: -r["screen"]["relevance"])[:a.max]
+    inc = extract.select_papers(d["records"], a.max)
     os.makedirs(a.cache, exist_ok=True)
     rep = []
     for r in inc:

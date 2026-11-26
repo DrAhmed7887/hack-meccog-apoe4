@@ -38,9 +38,10 @@ def sentence_around(text, quote):
 def check_field(kind, field, blocks):
     """-> (found: bool, sentence: str, location: str)."""
     v, q = field["value"], field["quote"]
+    prov = field.get("provenance", "printed_in_text")
     for b in blocks:
         if extract.quote_in_text(q, b["text"]):
-            digits_ok = extract.verify_stat(kind, v, q, b["text"]) is not None
+            digits_ok = extract.verify_stat(kind, v, q, b["text"], provenance=prov) is not None
             return digits_ok, sentence_around(b["text"], q), b["loc"]
     return False, "", ""
 

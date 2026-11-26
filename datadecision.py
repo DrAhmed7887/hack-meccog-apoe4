@@ -345,11 +345,64 @@ def report(hyps):
     common.save_json(res, f"{DD}/report.json")
 
 
+DEFAULT_CONSTRAINTS = {
+    "39532095": {
+        "min_directness_class": 2,
+        "min_directness_strength": 3,
+        "system_note": "exogenous PUFA-CE-lipidated ApoE in human neurons/cells",
+    },
+}
+
+
+def select_signed_pool(h, out_path, include_anchor=True, screened_path="out/screened.json", max_papers=50):
+    """Build a relevance-ordered screened JSON from datadecision's C1-C4 pass set (plus optional anchor),
+    preserving contrary C5=yes papers and paper-level constraints, capped <= 50."""
+    pool = common.load_json(f"{DD}/pool_{h}.json")
+    rep = common.load_json(f"{DD}/report.json")[h]
+    hyps = common.load_json("hypotheses.json")
+    anchor_pmid = str(hyps[h]["start_pmid"])
+    rel_map = {}
+    if screened_path and os.path.exists(screened_path):
+        for r in common.load_json(screened_path).get("records", []):
+            rel_map[str(r.get("pmid"))] = r.get("screen", {})
+    by_pmid = {str(r["pmid"]): r for r in pool["records"]}
+    selected = []
+    for row in rep["rows"]:
+        pmid = str(row["pmid"])
+        c13 = all(row[k]["v"] == "yes" for k in ("C1", "C2", "C3"))
+        if not c13:
+            continue
+        is_anchor = include_anchor and pmid == anchor_pmid
+        if row["C4"] != "yes" and not is_anchor:
+            continue
+        rec = dict(by_pmid[pmid])
+        prev = rel_map.get(pmid, {})
+        c5_yes = row["C5"]["v"] == "yes"
+        default_rel = 0.95 if is_anchor else (0.75 if c5_yes else 0.85)
+        rel = float(prev.get("relevance", default_rel))
+        direction = "contradicts" if c5_yes else prev.get("direction", "supports")
+        reason = prev.get("reason") or f"datadecision C1-C3=yes C4={row['C4']} C5={row['C5']['v']}"
+        rec["screen"] = {"include": True, "relevance": rel, "direction": direction, "reason": reason}
+        rec["c4"] = row["C4"]
+        rec["c5"] = row["C5"]["v"]
+        if pmid in DEFAULT_CONSTRAINTS:
+            rec["constraints"] = dict(DEFAULT_CONSTRAINTS[pmid])
+        selected.append(rec)
+    ordered = ex.select_papers(selected, max_papers=max_papers)
+    common.save_json({"hyp": h, "source": f"{DD}/report.json (strict C1-C4 + anchor={include_anchor})",
+                      "records": ordered}, out_path)
+    print(f"{h}: selected {len(ordered)} papers -> {out_path}")
+    return ordered
+
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("stage", choices=["pool", "screen", "ft", "report"])
+    ap.add_argument("stage", choices=["pool", "screen", "ft", "report", "select"])
     ap.add_argument("--hyp", action="append")
     ap.add_argument("--widen", action="store_true", help="widen the existing H5 pool using fixed Europe PMC seeds")
+    ap.add_argument("--include-anchor", action="store_true", help="for select: include hypothesis start_pmid even if C4=no")
+    ap.add_argument("--out", default="out/screened_signed.json", help="output path for select stage")
+    ap.add_argument("--max", type=int, default=50, help="max papers for select stage (capped <= 50)")
     a = ap.parse_args()
     ensure()
     hs = a.hyp or ["H1", "H5"]
@@ -357,6 +410,9 @@ if __name__ == "__main__":
         ap.error("--widen requires pool --hyp H5")
     if a.stage == "report":
         report(hs)
+    elif a.stage == "select":
+        for h in hs:
+            select_signed_pool(h, a.out, include_anchor=a.include_anchor, max_papers=a.max)
     else:
         for h in hs:
             if a.stage == "pool":

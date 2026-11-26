@@ -11,6 +11,15 @@ from to_template import COLUMNS
 NS = {"m": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
 PROV = {"printed_in_text", "visual_only", "estimated_from_figure", "supplement_only", "not_found_in_source",
         "full_text_unavailable", "ambiguous_panel"}
+PROV_ABSENT = {"not_found_in_source", "full_text_unavailable", "ambiguous_panel"}
+MAX_PAPERS = 50
+EST = r"~?\s*"
+RE_STAT_SHAPES = {
+    11: (re.compile(EST + r"(?:\d+(?:\.\d+)?%|\d+(?:\.\d+)?x|[a-zA-Z]+\s*=\s*-?\d+(?:\.\d+)?)$", re.I),
+         re.compile(r"qualitative$", re.I)),
+    13: (re.compile(r"(?:[<>]=?\s*)?\d+(?:\.\d+)?(?:[eE][-+]?\d+)?$"), None),
+    15: (re.compile(EST + r"\d+(?:\s*-\s*\d+)?$"), None),
+}
 
 
 def read_rows(path):
@@ -67,15 +76,35 @@ def check(path):
                 errs.append(f"row {r}: {i} out of sequence")
             if any(row[k] in (None, "") for k in range(5, 19)):
                 errs.append(f"row {r}: empty cell (use N/A)")
-            for k in (12, 14, 16):
-                if row[k] not in PROV:
-                    errs.append(f"row {r}: bad provenance {row[k]!r}")
+            for vcol, pcol, label in ((11, 12, "Effect size"), (13, 14, "P value"), (15, 16, "Sample size")):
+                val = str(row[vcol] or "").strip()
+                prov = str(row[pcol] or "").strip()
+                if prov not in PROV:
+                    errs.append(f"row {r}: bad provenance {row[pcol]!r}")
+                    continue
+                is_na = val.upper() == "N/A"
+                if prov in PROV_ABSENT and not is_na:
+                    errs.append(f"row {r}: {label} is {val!r} with absent provenance {prov!r}")
+                elif prov not in PROV_ABSENT and is_na:
+                    errs.append(f"row {r}: {label} is N/A with value provenance {prov!r}")
+                if vcol == 13 and (prov == "estimated_from_figure" or val.startswith("~")):
+                    errs.append(f"row {r}: P value cannot use ~ or estimated_from_figure")
+                elif prov == "estimated_from_figure" and not val.startswith("~"):
+                    errs.append(f"row {r}: {label} provenance 'estimated_from_figure' requires leading ~ (got {val!r})")
+                elif val.startswith("~") and prov != "estimated_from_figure":
+                    errs.append(f"row {r}: {label} {val!r} starts with ~ without estimated_from_figure provenance")
+                if not is_na:
+                    pat_num, pat_qual = RE_STAT_SHAPES[vcol]
+                    if not (pat_num.match(val) or (pat_qual and pat_qual.match(val))):
+                        errs.append(f"row {r}: {label} {val!r} has invalid shape")
             if row[17] not in {"1", "2", "3", "4", "5"}:
                 errs.append(f"row {r}: bad directness class")
         else:
             errs.append(f"row {r}: bad ID {i!r}")
     if pn == 0:
         errs.append("no papers")
+    elif pn > MAX_PAPERS:
+        errs.append(f"{pn} papers exceeds {MAX_PAPERS}-paper cap")
     return errs
 
 

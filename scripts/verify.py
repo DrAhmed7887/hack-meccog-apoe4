@@ -127,10 +127,46 @@ def check_extracted(data: Path):
                     fail(f"{tag}: finding missing {need}")
             for key in ("effect_size", "p_value", "sample_size"):
                 blk = f.get(key) or {}
-                if blk.get("value") not in (None, "") and not blk.get("quote"):
+                val = blk.get("value")
+                prov = blk.get("provenance")
+                if val not in (None, "") and not blk.get("quote"):
                     fail(f"{tag}: {key} value kept without a verbatim quote")
+                vs = str(val or "").strip()
+                if key == "p_value" and (prov == "estimated_from_figure" or vs.startswith("~")):
+                    fail(f"{tag}: p_value cannot use ~ or estimated_from_figure")
+                elif prov == "estimated_from_figure" and not vs.startswith("~"):
+                    fail(f"{tag}: {key} estimated_from_figure must start with ~")
+                elif vs.startswith("~") and prov != "estimated_from_figure":
+                    fail(f"{tag}: {key} value starts with ~ without estimated_from_figure provenance")
     ok(f"extracted.json: {len(papers)} papers ({with_findings} with findings), {nf} findings")
     return with_findings, nf
+
+
+def check_id_verification(data: Path, strict: bool = True) -> None:
+    p = data / "id_verification.json"
+    if not p.exists():
+        if strict:
+            warn(f"{p.name} missing (run verify_ids.py)")
+        return
+    log = load(p)
+    if log is None:
+        return
+    if not log.get("verified_all") or log.get("n_failed", 1) != 0:
+        fail(f"{p.name}: n_failed={log.get('n_failed')}, verified_all={log.get('verified_all')}")
+        return
+    by_pmid = {str(x.get("pmid")): x for x in log.get("papers", [])}
+    ext = load(data / "extracted.json") if (data / "extracted.json").exists() else None
+    if isinstance(ext, dict):
+        for paper in ext.get("papers", []):
+            pmid = str(paper.get("pmid", ""))
+            entry = by_pmid.get(pmid)
+            if not entry or not entry.get("verified"):
+                fail(f"{p.name}: PMID {pmid} missing or unverified")
+                return
+            if (paper.get("doi") or "").lower() != (entry.get("doi") or "").lower():
+                fail(f"{p.name}: PMID {pmid} DOI mismatch")
+                return
+    ok(f"id_verification.json: {log.get('n_verified', 0)}/{log.get('n_papers', 0)} papers verified")
 
 
 def check_workbook(data: Path, counts, strict: bool = True) -> None:
@@ -186,6 +222,7 @@ def main() -> int:
         check_freeze(data, strict=strict)
         check_report(data)
         counts = check_extracted(data)
+        check_id_verification(data, strict=strict)
         check_workbook(data, counts, strict=strict)
     check_claims(data, ROOT / a.claims)
     print(f"\nverify: {len(FAILS)} FAIL, {len(WARNS)} WARN")

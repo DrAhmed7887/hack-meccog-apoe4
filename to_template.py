@@ -79,8 +79,36 @@ def write_xlsx(path, sheets):
             z.writestr(f"xl/worksheets/sheet{i}.xml", sheet_xml(rows))
 
 
+ALLOWED_VALUE_PROVENANCE = {"printed_in_text", "estimated_from_figure", "visual_only", "supplement_only"}
+
+
 def na(v):
     return v if v not in (None, "") else "N/A"
+
+
+def stat_cells(kind, blk, ft):
+    """Return [value, provenance] for one statistic cell pair, enforcing Rule C3 provenance guards."""
+    blk = blk if isinstance(blk, dict) else {}
+    raw_v = blk.get("value")
+    prov = blk.get("provenance")
+    if raw_v in (None, "") or str(raw_v).strip().upper() == "N/A":
+        if prov == "estimated_from_figure":
+            raise ValueError(f"{kind}: provenance 'estimated_from_figure' cannot accompany N/A")
+        return ["N/A", "not_found_in_source" if ft else "full_text_unavailable"]
+    vs = str(raw_v).strip()
+    prov = prov or "printed_in_text"
+    if prov not in ALLOWED_VALUE_PROVENANCE:
+        raise ValueError(f"{kind}: invalid provenance {prov!r} for non-empty value {vs!r}")
+    if kind == "p_value" and (prov == "estimated_from_figure" or vs.startswith("~")):
+        raise ValueError(f"p_value cannot use '~' or 'estimated_from_figure' (got {vs!r}, {prov!r})")
+    if prov == "estimated_from_figure":
+        if not vs.startswith("~"):
+            raise ValueError(f"{kind} with provenance 'estimated_from_figure' must start with '~' (got {vs!r})")
+        if vs.lstrip("~").strip().lower() == "qualitative":
+            raise ValueError(f"{kind} with provenance 'estimated_from_figure' cannot be qualitative")
+    elif vs.startswith("~"):
+        raise ValueError(f"{kind} starting with '~' must use provenance 'estimated_from_figure' (got {prov!r})")
+    return [vs, prov]
 
 
 def inconsistent_directness_pair(f):
@@ -106,12 +134,8 @@ def build_rows(hyp_statement, papers):
             ft = f.get("source") == "full_text"
             row = [None, None, None, None, f"P{n}.F{j}", desc, na(f["quote"]), na(f["summary"]), f"{f['relevance']:g}",
                    na(f["experimental_system"]), f.get("location") or "Abstract"]
-            # full text read: a number not quoted there is not_found_in_source (it may sit in a figure only);
-            # abstract only: we cannot say, so full_text_unavailable (legitimate only after fulltext.py tried every route)
-            miss = ["N/A", "not_found_in_source" if ft else "full_text_unavailable"]
             for kind in ("effect_size", "p_value", "sample_size"):
-                v = f[kind]["value"]
-                row += [v, "printed_in_text"] if v else miss
+                row += stat_cells(kind, f.get(kind), ft)
             row.append(str(f["directness_class"] or 5))
             s = f["directness_strength"] or 5
             row.append(f"{s} {STRENGTH[s]}")

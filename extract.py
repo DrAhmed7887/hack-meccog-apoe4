@@ -45,6 +45,8 @@ RE_FOLD = re.compile(r"^\d+(\.\d+)?x$", re.I)
 RE_STD = re.compile(r"^[a-zA-Z]+\s*=\s*-?\d+(\.\d+)?$")
 RE_P = re.compile(r"^(<|>|<=|>=)?\s*\d+(\.\d+)?([eE][-+]?\d+)?$")
 RE_N = re.compile(r"^\d+(\s*-\s*\d+)?$")
+MAX_PAPERS = 50
+ALLOWED_STAT_PROVENANCE = {"printed_in_text", "estimated_from_figure"}
 READOUT_SPLIT = re.compile(r";\s*|,\s*(?=[A-Za-z][A-Za-z0-9_-]{0,30}\s*:)")
 READOUT_LABEL = re.compile(r"^\s*([A-Za-z][A-Za-z0-9_-]{0,30})\s*:")
 STAT_LABELS = {"n", "p", "padj", "t", "f", "d", "r", "ci", "ci95", "sd", "se", "sem", "df"}
@@ -65,15 +67,35 @@ def _nums(s):
     return [float(x) for x in NUM.findall(norm_text(s).replace(",", ""))]
 
 
-def verify_stat(kind, value, quote, abstract):
-    """Return the value (str) if it is a printed, correctly shaped number whose digits appear in a verbatim
-    quote from the abstract; else None."""
+def verify_stat(kind, value, quote, abstract, provenance="printed_in_text"):
+    """Return the value (str) if it passes provenance and shape checks against a verbatim quote from the source;
+    else None. Rule C3: 'estimated_from_figure' is allowed ONLY on effect_size or sample_size with a leading '~',
+    NEVER on p_value."""
     if value is None or quote is None:
         return None
+    prov = provenance or "printed_in_text"
+    if prov not in ALLOWED_STAT_PROVENANCE:
+        return None
     v = norm_text(str(value))
-    if not v or v.lower() in ("null", "none", "n/a") or v.startswith("~"):
+    if not v or v.lower() in ("null", "none", "n/a"):
         return None
     if not quote_in_text(quote, abstract):
+        return None
+    if prov == "estimated_from_figure":
+        if kind not in ("effect_size", "sample_size"):
+            return None
+        if not v.startswith("~"):
+            return None
+        inner = norm_text(v[1:])
+        if not inner or inner.lower() == "qualitative":
+            return None
+        if kind == "effect_size":
+            if not (RE_PERCENT.match(inner) or RE_FOLD.match(inner) or RE_STD.match(inner)):
+                return None
+        elif not RE_N.match(inner):
+            return None
+        return f"~{inner}"
+    if v.startswith("~"):
         return None
     if kind == "effect_size":
         if v.lower() == "qualitative":
@@ -168,7 +190,30 @@ def _inconsistent_directness_pair(directness_class, directness_strength):
             (directness_class == 4 and directness_strength in (1, 2)))
 
 
-def clean_finding(f, abstract):
+def is_contrary_record(rec):
+    """True when screening or datadecision flagged a finding against the hypothesis (Rule C1/C5)."""
+    scr = rec.get("screen") or {}
+    return (scr.get("direction") == "contradicts" or rec.get("c5") == "yes" or
+            (isinstance(rec.get("C5"), dict) and rec["C5"].get("v") == "yes"))
+
+
+def select_papers(records, max_papers=MAX_PAPERS):
+    """Rule C1 selection: order included papers by relevance descending, cap at <= 50,
+    and preserve contrary-finding papers rather than dropping them at the cutoff."""
+    cap = min(max(0, int(max_papers)), MAX_PAPERS)
+    if cap == 0:
+        return []
+    inc = [r for r in records if (r.get("screen") or {}).get("include")]
+    ordered = sorted(inc, key=lambda r: (-float((r.get("screen") or {}).get("relevance", 0)), str(r.get("pmid", ""))))
+    if len(ordered) <= cap:
+        return ordered
+    contrary = [r for r in ordered if is_contrary_record(r)]
+    non_contrary = [r for r in ordered if not is_contrary_record(r)]
+    kept = contrary[:cap] + non_contrary[:max(0, cap - len(contrary))]
+    return sorted(kept, key=lambda r: (-float((r.get("screen") or {}).get("relevance", 0)), str(r.get("pmid", ""))))
+
+
+def clean_finding(f, abstract, constraints=None):
     """Normalise one model finding. Returns None if the finding quote is not verbatim in the abstract."""
     if not isinstance(f, dict) or not quote_in_text(f.get("quote"), abstract):
         return None
@@ -187,6 +232,19 @@ def clean_finding(f, abstract):
         except (TypeError, ValueError):
             out[k] = None
     review_reasons = []
+    if constraints:
+        min_cls = constraints.get("min_directness_class")
+        if min_cls and (out["directness_class"] is None or out["directness_class"] < min_cls):
+            out["directness_class"] = min_cls
+            review_reasons.append("exogenous_apoe_directness_adjusted")
+        min_str = constraints.get("min_directness_strength")
+        if min_str and (out["directness_strength"] is None or out["directness_strength"] < min_str):
+            out["directness_strength"] = min_str
+            review_reasons.append("exogenous_apoe_strength_adjusted")
+        sys_note = constraints.get("system_note")
+        if sys_note and "exogenous" not in out["experimental_system"].lower():
+            out["experimental_system"] = f"{sys_note}; {out['experimental_system']}".strip("; ")
+            review_reasons.append("exogenous_apoe_system_annotated")
     if _inconsistent_directness_pair(out["directness_class"], out["directness_strength"]):
         review_reasons.append("inconsistent_directness_pair")
     _, ambiguous_finding_readout = _readout_scope(f, "")
@@ -194,18 +252,28 @@ def clean_finding(f, abstract):
         review_reasons.append("ambiguous_readout")
     for kind in ("effect_size", "p_value", "sample_size"):
         s = f.get(kind) if isinstance(f.get(kind), dict) else {}
+        raw_prov = s.get("provenance") or "printed_in_text"
+        raw_val = s.get("value")
         scoped_quote, ambiguous = _readout_scope(f, s.get("quote"))
         if ambiguous:
             val = None
             if "ambiguous_readout" not in review_reasons:
                 review_reasons.append("ambiguous_readout")
         else:
-            val = verify_stat(kind, s.get("value"), scoped_quote, abstract)
-            if (_readout_segments(f.get("quote") or "") or _readout_segments(s.get("quote") or "")) and \
-                    s.get("value") not in (None, "", "null") and val is None:
-                if "readout_stat_mismatch" not in review_reasons:
-                    review_reasons.append("readout_stat_mismatch")
+            if kind == "p_value" and (raw_prov == "estimated_from_figure" or
+                                      (raw_val is not None and str(raw_val).strip().startswith("~"))):
+                val = None
+                if "estimated_p_value_rejected" not in review_reasons:
+                    review_reasons.append("estimated_p_value_rejected")
+            else:
+                val = verify_stat(kind, raw_val, scoped_quote, abstract, provenance=raw_prov)
+                if (_readout_segments(f.get("quote") or "") or _readout_segments(s.get("quote") or "")) and \
+                        raw_val not in (None, "", "null") and val is None:
+                    if "readout_stat_mismatch" not in review_reasons:
+                        review_reasons.append("readout_stat_mismatch")
         out[kind] = {"value": val, "quote": scoped_quote if val else None}
+        if val:
+            out[kind]["provenance"] = raw_prov
     out["physician_review"] = bool(review_reasons)
     out["physician_review_reasons"] = review_reasons
     if not out["description"]:
@@ -216,8 +284,17 @@ def clean_finding(f, abstract):
 CHUNK_CHARS = 6000       # fits the model context with the instruction and a JSON answer
 PAPER_CHARS = 9000       # at most 2 chunks per paper: Qwen takes ~2 min per 6k-char chunk, ~45 min total
 KEYWORDS = re.compile(r"apoe|apolipoprotein|cholesterol|lipid|lysosom|endosom|lamp[12]|rab\d|npc1|ldl|oxidative|"
-                      r"mitochond|droplet|astrocyt|microgli|ipsc|trafficking|sterol|ceramide", re.I)
+                      r"mitochond|droplet|astrocyt|microgli|ipsc|trafficking|sterol|ceramide|lipofuscin|cathepsin|"
+                      r"autophag|macropinocyt|pinocyt|permeabiliz|p62|sqstm1|lc3|dq-bsa|filipin|proteoly|degrad|"
+                      r"egress|sequestrat|neuron|ineuron|mibrain", re.I)
 SKIP_LOC = re.compile(r"key resources|methods|star|material|reagent|acknowledg|reference|author|declaration", re.I)
+
+FIG_EST_NOTE = (
+    "\nFigure-estimate policy (Rule C3): For bar-chart effect sizes or plotted-point sample sizes NOT printed in text, "
+    "you may include \"provenance\": \"estimated_from_figure\" ONLY if the value starts with \"~\" (e.g. \"~40%\", \"~12\") "
+    "and \"quote\" is the verbatim figure/panel legend sentence; NEVER guess numbers not observable and NEVER use "
+    "\"~\" or \"estimated_from_figure\" for p_value."
+)
 
 FT_INSTRUCTION = (
     "Extract primary experimental findings that bear on this hypothesis from ONE excerpt of a paper's Results, "
@@ -240,6 +317,7 @@ FT_INSTRUCTION = (
     "is usually inconsistent. Such pairs require physician review. "
     "A number goes in a field ONLY if it is printed in the quote, copied exactly. Use null for anything not printed. "
     "NEVER estimate, convert or compute a number, and NEVER compute a P value. "
+    "Include findings that argue against the hypothesis or show NO APOE4-vs-APOE3 difference (direction: \"contradicts\"), as well as supporting findings. "
     "If the excerpt has no relevant primary finding return {{\"findings\": []}}."
 )
 
@@ -254,7 +332,9 @@ def select_chunks(blocks, budget=PAPER_CHARS, size=CHUNK_CHARS):
         in_results = b["kind"] in ("table", "legend") or re.search(r"result", b["loc"], re.I)
         if not in_results:
             continue
-        sc = len(KEYWORDS.findall(b["text"])) + (2 if re.search(r"apoe4|e4", b["text"], re.I) else 0)
+        sc = (len(KEYWORDS.findall(b["text"])) +
+              (8 if re.search(r"lysosom|endosom|lipofuscin|autophag|proteoly", b["loc"], re.I) else (3 if KEYWORDS.search(b["loc"]) else 0)) +
+              (2 if re.search(r"apoe4|e4", b["text"], re.I) else 0))
         if sc:
             cand.append((sc / (1 + len(b["text"]) / 3000), i))
     cand.sort(reverse=True)
@@ -303,7 +383,7 @@ def ask_with_backoff(instruction, data, tries=3):
     raise last
 
 
-def clean_ft_finding(f, blocks):
+def clean_ft_finding(f, blocks, constraints=None):
     """Full-text version of clean_finding: the finding quote must sit in one block; every number quote must sit in
     that same block. Adds location (block section or table name)."""
     if not isinstance(f, dict):
@@ -311,7 +391,7 @@ def clean_ft_finding(f, blocks):
     b = find_block(f.get("quote"), blocks)
     if not b:
         return None
-    c = clean_finding(f, b["text"])
+    c = clean_finding(f, b["text"], constraints=constraints)
     if not c:
         return None
     c["location"] = b["loc"]
@@ -319,9 +399,11 @@ def clean_ft_finding(f, blocks):
     return c
 
 
-def extract_fulltext(rec, ft, hyp_statement, deadline):
+def extract_fulltext(rec, ft, hyp_statement, deadline, allow_figure_estimates=False):
     blocks = ft["blocks"]
     chunks = select_chunks(blocks)
+    constraints = rec.get("constraints")
+    instr = FT_INSTRUCTION.format(hyp=hyp_statement) + (FIG_EST_NOTE if allow_figure_estimates else "")
     found, n_model, n_rej, errs = [], 0, 0, 0
     for ch in chunks:
         if time.monotonic() > deadline:
@@ -330,7 +412,7 @@ def extract_fulltext(rec, ft, hyp_statement, deadline):
         data = f"PMID {rec['pmid']}\nTITLE: {rec['title']}\n{format_chunk(ch)}"
         t0 = time.monotonic()
         try:
-            reply = ask_with_backoff(FT_INSTRUCTION.format(hyp=hyp_statement), data)
+            reply = ask_with_backoff(instr, data)
             print(f"    chunk {len(data)} chars ok in {time.monotonic() - t0:.0f}s", flush=True)
         except Exception:  # noqa
             errs += 1
@@ -338,7 +420,7 @@ def extract_fulltext(rec, ft, hyp_statement, deadline):
         items = reply.get("findings", []) if isinstance(reply, dict) else []
         n_model += len(items[:3])
         for f in items[:3]:
-            c = clean_ft_finding(f, ch)
+            c = clean_ft_finding(f, ch, constraints=constraints)
             if c:
                 found.append(c)
             else:
@@ -352,14 +434,16 @@ def extract_fulltext(rec, ft, hyp_statement, deadline):
             "n_chunks": len(chunks), "chunk_errors": errs}
 
 
-def extract_paper(rec, hyp_statement):
+def extract_paper(rec, hyp_statement, allow_figure_estimates=False):
     data = f"PMID {rec['pmid']}\nTITLE: {rec['title']}\nABSTRACT: {rec['abstract']}"
+    instr = INSTRUCTION.format(hyp=hyp_statement) + (FIG_EST_NOTE if allow_figure_estimates else "")
     try:
-        reply = common.rwth_json(INSTRUCTION.format(hyp=hyp_statement), data)
+        reply = common.rwth_json(instr, data)
     except Exception as e:  # noqa
         return {"error": str(e)[:100], "findings": []}
     items = reply.get("findings", []) if isinstance(reply, dict) else []
-    fs = [c for c in (clean_finding(f, rec["abstract"]) for f in items[:3]) if c]
+    constraints = rec.get("constraints")
+    fs = [c for c in (clean_finding(f, rec["abstract"], constraints=constraints) for f in items[:3]) if c]
     return {"findings": fs, "n_model_findings": len(items), "n_rejected_quote": len(items[:3]) - len(fs)}
 
 
@@ -370,10 +454,12 @@ def main():
     ap.add_argument("--max", type=int, default=5)
     ap.add_argument("--fulltext", default="out/fulltext", help="cache dir written by fulltext.py ('' = abstract only)")
     ap.add_argument("--budget-min", type=float, default=40.0)
+    ap.add_argument("--allow-figure-estimates", action="store_true")
+    ap.add_argument("--no-cache", action="store_true", help="ignore out/extract_cache and re-extract")
     a = ap.parse_args()
     d = common.load_json(a.inp)
     hyp = common.load_json("hypotheses.json")[d["hyp"]]["statement"]
-    inc = sorted((r for r in d["records"] if r["screen"]["include"]), key=lambda r: -r["screen"]["relevance"])[:a.max]
+    inc = select_papers(d["records"], a.max)
     deadline = time.monotonic() + a.budget_min * 60
     papers = []
     for r in inc:
@@ -383,15 +469,15 @@ def main():
             ft = common.load_json(p)
         meta = {k: r[k] for k in ("pmid", "doi", "title", "year", "journal", "abstract")}
         cp = os.path.join("out", "extract_cache", f"{r['pmid']}.json")
-        if ft and ft["status"] == "full_text" and os.path.exists(cp):
+        if not a.no_cache and ft and ft["status"] == "full_text" and os.path.exists(cp):
             e = common.load_json(cp)  # resume: this paper was already extracted from the same cached full text
         elif ft and ft["status"] == "full_text":
-            e = extract_fulltext(r, ft, hyp, deadline)
+            e = extract_fulltext(r, ft, hyp, deadline, allow_figure_estimates=a.allow_figure_estimates)
             e["fulltext"] = {"status": "full_text", "route": ft["route"]}
             if not e["chunk_errors"]:
                 common.save_json(e, cp)
         else:
-            e = extract_paper(r, hyp)
+            e = extract_paper(r, hyp, allow_figure_estimates=a.allow_figure_estimates)
             e["fulltext"] = {"status": ft["status"] if ft else "not_tried", "routes_tried": ft["routes_tried"] if ft else []}
         papers.append(meta | e)
         print(f"PMID {r['pmid']}: {len(e['findings'])} findings ({e['fulltext']['status']})", flush=True)
