@@ -1,8 +1,8 @@
 {
-  "checked_at": "2026-11-26T10:56:27Z",
+  "checked_at": "2026-11-26T14:20:26Z",
   "mode": "live_pubmed_epmc",
-  "n_papers": 6,
-  "n_verified": 6,
+  "n_papers": 7,
+  "n_verified": 7,
   "n_failed": 0,
   "verified_all": true,
   "papers": [
@@ -80,6 +80,20 @@
       "pmid": "40457456",
       "doi": "10.1186/s12974-025-03470-y",
       "title": "Inflammation-induced lysosomal dysfunction in human iPSC-derived microglia is exacerbated by APOE 4/4 genotype.",
+      "pmid_valid_format": true,
+      "doi_valid_format": true,
+      "cache_match": true,
+      "pubmed_exists": true,
+      "pubmed_doi_match": true,
+      "epmc_exists": true,
+      "epmc_doi_match": true,
+      "verified": true,
+      "errors": []
+    },
+    {
+      "pmid": "29861287",
+      "doi": "10.1016/j.neuron.2018.05.008",
+      "title": "APOE4 Causes Widespread Molecular and Cellular Alterations Associated with Alzheimer's Disease Phenotypes in Human iPSC-Derived Brain Cell Types.",
       "pmid_valid_format": true,
       "doi_valid_format": true,
       "cache_match": true,

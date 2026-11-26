@@ -685,6 +685,80 @@
         "status": "full_text",
         "route": "pmc_oa"
       }
+    },
+    {
+      "pmid": "29861287",
+      "doi": "10.1016/j.neuron.2018.05.008",
+      "title": "APOE4 Causes Widespread Molecular and Cellular Alterations Associated with Alzheimer's Disease Phenotypes in Human iPSC-Derived Brain Cell Types.",
+      "year": "2018",
+      "journal": "Neuron",
+      "abstract": "The apolipoprotein E4 (APOE4) variant is the single greatest genetic risk factor for sporadic Alzheimer's disease (sAD). However, the cell-type-specific functions of APOE4 in relation to AD pathology remain understudied. Here, we utilize CRISPR/Cas9 and induced pluripotent stem cells (iPSCs) to examine APOE4 effects on human brain cell types. Transcriptional profiling identified hundreds of differentially expressed genes in each cell type, with the most affected involving synaptic function (neurons), lipid metabolism (astrocytes), and immune response (microglia-like cells). APOE4 neurons exhibited increased synapse number and elevated Aβ42 secretion relative to isogenic APOE3 cells while APOE4 astrocytes displayed impaired Aβ uptake and cholesterol accumulation. Notably, APOE4 microglia-like cells exhibited altered morphologies, which correlated with reduced Aβ phagocytosis. Consistently, converting APOE4 to APOE3 in brain cell types from sAD iPSCs was sufficient to attenuate multiple AD-related pathologies. Our study establishes a reference for human cell-type-specific changes associated with the APOE4 variant. VIDEO ABSTRACT.",
+      "findings": [
+        {
+          "description": "In isogenic human iPSC-derived astrocytes generated from an unaffected APOE3 subject (Coriell #AG09173), APOE4 astrocytes showed higher intracellular cholesterol accumulation than APOE3 astrocytes by filipin III staining (Figure 3E) and flow cytometry (Figure 3F; parallel phenotype with Fig. S3D).",
+          "quote": "We observed stronger signals of fluorescent filipin III in APOE4 vs. APOE3 astrocytes (Figure 3E). We next used flow cytometry analysis to better quantify the filipin III signal in individual cells, finding higher average fluorescent intensity in APOE4 compared to APOE3 astrocytes (Figure 3F).",
+          "summary": "(APOE4 vs isogenic APOE3 hiPSC astrocytes, unaffected #AG09173) -> (increased intracellular cholesterol by filipin III)",
+          "direction": "supports",
+          "experimental_system": "isogenic human iPSC-derived astrocytes from unaffected donor (Coriell #AG09173), APOE4 vs APOE3 (parallel phenotype)",
+          "relevance": 0.8,
+          "directness_class": 3,
+          "directness_strength": 3,
+          "effect_size": {
+            "value": "qualitative",
+            "quote": "stronger signals of fluorescent filipin III in APOE4 vs. APOE3 astrocytes",
+            "provenance": "printed_in_text"
+          },
+          "p_value": {
+            "value": null,
+            "quote": null
+          },
+          "sample_size": {
+            "value": null,
+            "quote": null
+          },
+          "physician_review": false,
+          "physician_review_reasons": [],
+          "location": "Results > APOE4 astrocytes exhibit compromised Aβ uptake",
+          "source": "full_text",
+          "physician_audited": "2026-11-26"
+        },
+        {
+          "description": "In isogenic human iPSC-derived astrocytes from an unaffected APOE3 subject (Coriell #AG09173), lysosome-dependent Aβ42 degradation assayed with lysosomal inhibitors (leupeptin 50 uM, chloroquine 50 uM, NH4Cl 10 mM for 48 h) was reduced in APOE4 vs APOE3 astrocytes (Figure S3D), alongside elevated cholesterol (parallel phenotypes without cholesterol-depletion rescue in this paper).",
+          "quote": "Since lysosomal activity can affect Aβ levels, we also examined lysosome-dependent degradation of Aβ42 by measuring intracellular Aβ with or without lysosomal inhibitors following Aβ42 treatment. We observed increased Aβ42 accumulation following lysosome inhibition in APOE3 astrocytes compared to APOE4 astrocytes, suggesting reduced lysosome-dependent Aβ42 degradation in APOE4 astrocytes (Figure S3D).",
+          "summary": "(APOE4 vs isogenic APOE3 hiPSC astrocytes, unaffected #AG09173, leupeptin+chloroquine+NH4Cl) -> (reduced lysosome-dependent Aβ42 degradation)",
+          "direction": "supports",
+          "experimental_system": "isogenic human iPSC-derived astrocytes from unaffected donor (Coriell #AG09173), APOE4 vs APOE3, leupeptin (50 uM) + chloroquine (50 uM) + NH4Cl (10 mM) 48 h (parallel phenotype)",
+          "relevance": 0.85,
+          "directness_class": 2,
+          "directness_strength": 3,
+          "effect_size": {
+            "value": "qualitative",
+            "quote": "reduced lysosome-dependent Aβ42 degradation in APOE4 astrocytes",
+            "provenance": "printed_in_text"
+          },
+          "p_value": {
+            "value": null,
+            "quote": null
+          },
+          "sample_size": {
+            "value": null,
+            "quote": null
+          },
+          "physician_review": false,
+          "physician_review_reasons": [],
+          "location": "Results > APOE4 astrocytes exhibit compromised Aβ uptake",
+          "source": "full_text",
+          "physician_audited": "2026-11-26"
+        }
+      ],
+      "n_model_findings": 2,
+      "n_rejected_quote": 0,
+      "n_chunks": 1,
+      "chunk_errors": 0,
+      "fulltext": {
+        "status": "full_text",
+        "route": "pmc_oa"
+      }
     }
   ]
 }

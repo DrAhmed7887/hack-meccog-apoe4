@@ -1,6 +1,6 @@
 # FREEZE.md: what is committed, and what is optional to regenerate
 
-Status: **FROZEN (26 Nov 2026).** Ahmed signed `H5`, `Strict C3`, the 5-paper `C1–C4` pool (+ anchor `37777962`), and the 100% physician `A3` audit (`docs/PHYSICIAN_AUDIT_H5.md`). Frozen outputs live in `data/` with SHA-256 verification in `data/FREEZE.json`, and `make verify` passes **0 FAIL, 0 WARN** offline.
+Status: **FROZEN (26 Nov 2026).** Ahmed signed `H5`, `Strict C3`, the 6-paper `C1–C4` pool (`34919811`, `35750033`, `40457456`, `42636814`, `39532095`, `29861287`) + anchor `37777962`, and the 100% physician `A3` audit (`docs/PHYSICIAN_AUDIT_H5.md`). Frozen outputs live in `data/` with SHA-256 verification in `data/FREEZE.json`, and `make verify` passes **0 FAIL, 0 WARN** offline.
 
 ## Verify path (needs nothing but Python 3 and this repo)
 
@@ -32,9 +32,9 @@ Target dir `data/`, with `data/FREEZE.json` = `{"files": {"<path relative to dat
 | `data/dd/pool_H5.json` | `out/dd/pool_H5.json` | 120-paper candidate pool behind H5 counts | Frozen |
 | `data/dd/screen_H5.json`, `data/dd/ft_H5.json` | `out/dd/` | Screening and full-text route log for the H5 pool | Frozen |
 | `data/dd/widen_run.log` | `out/dd/widen_run.log` | Widening run log (cited by `CLAIMS.md`) | Frozen |
-| `data/extracted.json` | `out/extracted.json` | Audited 6-paper, 21-finding extraction (`H5`) | Frozen |
-| `data/id_verification.json` | `out/id_verification.json` | Live PubMed + Europe PMC Rule C4 verification (`6/6`) | Frozen |
-| `data/fulltext_report.json` | `out/fulltext_report.json` | Free full-text route log per PMID | Frozen |
+| `data/extracted.json` | `out/extracted.json` | Audited 7-paper, 23-finding extraction (`H5`) | Frozen |
+| `data/id_verification.json` | `out/id_verification.json` | Live PubMed + Europe PMC Rule C4 verification (`7/7`) | Frozen |
+| `data/fulltext_report.json` | `out/fulltext_report.json` | Free full-text route log per PMID (`6/7` signed `pmc_oa`) | Frozen |
 | `data/verify_sample.md` | `out/verify_sample.md` | `6/6` verbatim numeric field verification output | Frozen |
 | `data/dry_run.xlsx` | `out/dry_run.xlsx` | Validated 19-column submission workbook (`Method` pinned to commit SHA) | Frozen |
 | `data/validator_output.txt` | `out/validator_output.txt` | Official validator result (`SUBMISSION VALID — no problems found.`) | Frozen |
@@ -45,6 +45,6 @@ Target dir `data/`, with `data/FREEZE.json` = `{"files": {"<path relative to dat
 
 - **Hypothesis `H5`:** *In some types of non-Alzheimer's, non-aged human brain cells, APOE4 disruption of lipid metabolism, compared with APOE3, results in impaired late endosome/lysosome function.*
 - **Strict `C3`:** Measured late-endosome/lysosome readout only (do NOT widen to general lipid handling or pad per `official/rules.html:429,529-534`).
-- **Signed pool:** Focused strict `C1–C4` pool of 5 free-full-text papers (`34919811`, `35750033`, `40457456` [preserving contrary `C5=yes` finding], `42636814`, plus borderline `39532095` kept with its exact exogenous-ApoE human-neuron experimental system and lower directness class per `official/rules.html:469`) + anchor paper `37777962` (abstract-only; note `C4: no`).
+- **Signed pool:** Focused strict `C1–C4` pool of 6 free-full-text papers (`34919811`, `35750033`, `40457456` [preserving contrary `C5=yes` finding], `42636814`, `29861287` [rescued from abstract miss via `PMC6023751`], plus borderline `39532095` kept with its exact exogenous-ApoE human-neuron experimental system and lower directness class per `official/rules.html:469`) + anchor paper `37777962` (Gold OA CC BY at *Cell Reports*, `10.1016/j.celrep.2023.113183`, no PMCID; automated fetch blocked HTTP 403 so kept abstract-only `full_text_unavailable`).
 - **Rule `C3` figure-estimate policy (`official/rules.html:537-542`):** Pipeline guards for `~` + `estimated_from_figure` are active and tested; `0` visual figure estimates were added in this text-only extraction pass.
 - **Full-text licence compliance:** Cached raw full text (`out/fulltext/`) is never committed to the public repository; readers can re-fetch open-access text via `fulltext.py` using `data/fulltext_report.json`.

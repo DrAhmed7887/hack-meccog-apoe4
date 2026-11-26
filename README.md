@@ -1,6 +1,6 @@
 # hack-meccog-apoe4
 
-**Status (26 Nov 2026, frozen):** Hypothesis `H5` submission built and verified offline (**6 papers, 21 findings** including **1 `CONTRADICTING:`** row in `data/dry_run.xlsx`), **6/6** PMIDs/DOIs verified (`data/id_verification.json`), **6/6** numeric findings verified verbatim (`data/verify_sample.md`), **57** unit tests passing (`make test`), `make verify` (**0 FAIL, 0 WARN**), and **`SUBMISSION VALID — no problems found.`** (`data/validator_output.txt`).
+**Status (26 Nov 2026, frozen):** Hypothesis `H5` submission built and verified offline (**7 papers, 23 findings** including **1 `CONTRADICTING:`** row in `data/dry_run.xlsx`), **7/7** PMIDs/DOIs verified (`data/id_verification.json`), **6/6** numeric findings verified verbatim (`data/verify_sample.md`), **57** unit tests passing (`make test`), `make verify` (**0 FAIL, 0 WARN**), and **`SUBMISSION VALID — no problems found.`** (`data/validator_output.txt`).
 
 - **Team:** `Khepri` (leader `DrZayed` / Dr Ahmed Zayed on `meccog-meccogchallenge.hf.space`)
 - **Hypothesis:** `H5` — *In some types of non-Alzheimer's, non-aged human brain cells, APOE4 disruption of lipid metabolism, compared with APOE3, results in impaired late endosome/lysosome function.*
@@ -11,7 +11,7 @@
 ## 1. Who did the work
 
 **Both** (`Who did the work: both` in the workbook `Method` sheet) — a physician-engineer (**Dr Ahmed Zayed**) and AI agents worked together, with deterministic Python scripts enforcing verbatim-quote, provenance, identifier, and schema guards:
-- **Human (`Dr Ahmed Zayed`):** Signed hypothesis selection (`H5`), `Strict C3` scope, borderline-paper constraints (`39532095`), and completed a **100% physician `A3` audit** across all 6 papers and extracted findings (`docs/PHYSICIAN_AUDIT_H5.md`).
+- **Human (`Dr Ahmed Zayed`):** Signed hypothesis selection (`H5`), `Strict C3` scope, borderline-paper constraints (`39532095`), and completed a **100% physician `A3` audit** across all 7 papers and extracted findings (`docs/PHYSICIAN_AUDIT_H5.md`).
 - **AI agents (`qwen3.8-27b` via `rwth-ask`; coding/audit orchestration):** Ran batch abstract screening, full-text checklist evaluation (`C1`–`C5`), and per-finding extraction (`extract.py`), plus pipeline tests, verification scripts, and freeze packaging.
 
 ## 2. Model and version
@@ -21,18 +21,19 @@
 
 ## 3. How papers were found
 
-Draft PubMed queries (`queries.json`, `search.py`) sized all 5 hypotheses (`H5`: 71 hits; `H1`: 47; `H2`: 33; `H3`: 227; `H4`: 108 on 18 Nov 2026). For `H1` vs `H5` (`datadecision.py`), an initial pool of 40 papers per hypothesis (PubMed hits + Europe PMC reference/citation snowballing from anchor PMIDs) was screened against `C1` (non-AD, non-aged human brain cells), `C2` (APOE4 vs APOE3), `C3` (measured late-endosome/lysosome function), `C4` (free full text), and `C5` (contrary evidence). `H1` passed `0`; `H5` passed `5` (`C1`–`C4`). Widening `H5` via Europe PMC snowballing (`pool_H5.json`: 40 -> 120 papers, 80 new APOE-matching candidates) yielded 0 additional `C1`–`C4` passes (`n_pass_C1_C4_cap50 = 5`, plus 4 non-lysosomal near misses). The signed `H5` pool keeps those 5 free-full-text passes (`42636814`, `34919811`, `35750033`, `39532095`, `40457456`) plus anchor paper `37777962`.
+Draft PubMed queries (`queries.json`, `search.py`) sized all 5 hypotheses (`H5`: 71 hits; `H1`: 47; `H2`: 33; `H3`: 227; `H4`: 108 on 18 Nov 2026). For `H1` vs `H5` (`datadecision.py`), an initial pool of 40 papers per hypothesis (PubMed hits + Europe PMC reference/citation snowballing from anchor PMIDs) was screened against `C1` (non-AD, non-aged human brain cells), `C2` (APOE4 vs APOE3), `C3` (measured late-endosome/lysosome function), `C4` (free full text), and `C5` (contrary evidence). `H1` passed `0`; `H5` passed `5` (`C1`–`C4`). Widening `H5` via Europe PMC snowballing (`pool_H5.json`: 40 -> 120 papers, 80 new APOE-matching candidates) initially yielded `5` `C1`–`C4` passes (`n_pass_C1_C4_cap50 = 5`, plus 4 non-lysosomal near misses); a full-text audit of `29861287` (`PMC6023751`, previously flagged `C3="no"` from its abstract) rescued a 6th `C1`–`C4` pass (`pass_C1_C3 = 7`, `pass_C1_C4 = 6`, `free_full_text = 20`). The signed `H5` pool keeps all 6 `pmc_oa` free-full-text passes (`42636814`, `34919811`, `35750033`, `39532095`, `40457456`, `29861287`) plus anchor paper `37777962`.
 
 ## 4. How full text was obtained
 
-`fulltext.py` tries free open-access routes strictly in order: (1) PMC OA JATS XML (`efetch`), (2) Europe PMC OA XML, (3) Unpaywall OA HTML/PDF, and (4) direct DOI HTML. Across the 6 signed `H5` papers (`data/fulltext_report.json`), **5/6 (83%)** were obtained as full text via `pmc_oa`, and **1/6 (17%, anchor `37777962`)** remained abstract-only (`full_text_unavailable`, `C4: no`) after exhausting all free routes. Extraction (`extract.py`) scores Results, tables, and figure-legend blocks and reads up to `9,000` characters per paper (`6,000`-char chunks).
+`fulltext.py` tries free open-access routes strictly in order: (1) PMC OA JATS XML (`efetch`), (2) Europe PMC OA XML, (3) Unpaywall OA HTML/PDF, and (4) direct DOI HTML. Across the 7 signed `H5` papers (`data/fulltext_report.json`), **6/7 (86%)** were obtained as full text via `pmc_oa`, and **1/7 (14%, anchor `37777962`)** remained abstract-only (`full_text_unavailable`, `unavailable` in automated fetch because *Cell Reports* `10.1016/j.celrep.2023.113183`, though Gold OA CC BY, lacks a PMCID and returns HTTP 403 to automated clients). Extraction (`extract.py`) scores Results, tables, and figure-legend blocks and reads up to `9,000` characters per paper (`6,000`-char chunks).
 
 ## 5. What a human checked
 
-**100% of papers (6/6) and findings (21/21)** were audited by Dr Ahmed Zayed (`A3` physician audit, `docs/PHYSICIAN_AUDIT_H5.md`, signed 26 Nov 2026):
+**100% of papers (7/7) and findings (23/23)** were audited by Dr Ahmed Zayed (`A3` physician audit, `docs/PHYSICIAN_AUDIT_H5.md`, signed 26 Nov 2026):
 - Fixed `P5.F4` (`39532095`) experimental system from `H4 cells (human iPSC-derived neurons)` to `H4 human neuroblastoma cells`, confirmed exogenous-ApoE lower directness clamping (`class >= 2`, `strength >= 3`), and cleared `[PHYSICIAN REVIEW REQUIRED]` markers.
 - Added `P6.F5` (`40457456`) `CONTRADICTING:` autophagic-flux finding verbatim from Results (`Fig. 1C-E`) per Rule B1/C1.
 - Replaced 3 lipid-only rows (`P3.F2`–`P3.F4`, `34919811`) with the verbatim lysosomal LAMP2 / lysosomal-activity finding (`Figures 4D-F`) to preserve `Strict C3`.
+- Rescued `P7` (`29861287`, `PMC6023751`, unaffected `#AG09173` isogenic APOE4 vs APOE3 hiPSC astrocytes) with verbatim Fig. 3E–F Filipin III cholesterol (`P7.F1`) and Fig. S3D lysosome-dependent Aβ42 degradation under `leupeptin + chloroquine + NH4Cl` (`P7.F2`).
 
 ## 6. Anything else
 

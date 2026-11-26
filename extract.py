@@ -97,6 +97,53 @@ H5_AUDIT_AUTOPHAGY_CONTRARY_FINDING = {
 
 _STRICT_C3_34919811 = re.compile(r"lysosom|endosom|lamp2|dextran-alexa 555|cathepsin|autophag", re.I)
 
+H5_AUDIT_29861287_FINDINGS = [
+    {
+        "description": "In isogenic human iPSC-derived astrocytes generated from an unaffected APOE3 subject (Coriell #AG09173), APOE4 astrocytes showed higher intracellular cholesterol accumulation than APOE3 astrocytes by filipin III staining (Figure 3E) and flow cytometry (Figure 3F; parallel phenotype with Fig. S3D).",
+        "quote": "We observed stronger signals of fluorescent filipin III in APOE4 vs. APOE3 astrocytes (Figure 3E). We next used flow cytometry analysis to better quantify the filipin III signal in individual cells, finding higher average fluorescent intensity in APOE4 compared to APOE3 astrocytes (Figure 3F).",
+        "summary": "(APOE4 vs isogenic APOE3 hiPSC astrocytes, unaffected #AG09173) -> (increased intracellular cholesterol by filipin III)",
+        "direction": "supports",
+        "experimental_system": "isogenic human iPSC-derived astrocytes from unaffected donor (Coriell #AG09173), APOE4 vs APOE3 (parallel phenotype)",
+        "relevance": 0.80,
+        "directness_class": 3,
+        "directness_strength": 3,
+        "effect_size": {
+            "value": "qualitative",
+            "quote": "stronger signals of fluorescent filipin III in APOE4 vs. APOE3 astrocytes",
+            "provenance": "printed_in_text",
+        },
+        "p_value": {"value": None, "quote": None},
+        "sample_size": {"value": None, "quote": None},
+        "physician_review": False,
+        "physician_review_reasons": [],
+        "physician_audited": "2026-11-26",
+        "location": "Results > APOE4 astrocytes exhibit compromised Aβ uptake",
+        "source": "full_text",
+    },
+    {
+        "description": "In isogenic human iPSC-derived astrocytes from an unaffected APOE3 subject (Coriell #AG09173), lysosome-dependent Aβ42 degradation assayed with lysosomal inhibitors (leupeptin 50 uM, chloroquine 50 uM, NH4Cl 10 mM for 48 h) was reduced in APOE4 vs APOE3 astrocytes (Figure S3D), alongside elevated cholesterol (parallel phenotypes without cholesterol-depletion rescue in this paper).",
+        "quote": "Since lysosomal activity can affect Aβ levels, we also examined lysosome-dependent degradation of Aβ42 by measuring intracellular Aβ with or without lysosomal inhibitors following Aβ42 treatment. We observed increased Aβ42 accumulation following lysosome inhibition in APOE3 astrocytes compared to APOE4 astrocytes, suggesting reduced lysosome-dependent Aβ42 degradation in APOE4 astrocytes (Figure S3D).",
+        "summary": "(APOE4 vs isogenic APOE3 hiPSC astrocytes, unaffected #AG09173, leupeptin+chloroquine+NH4Cl) -> (reduced lysosome-dependent Aβ42 degradation)",
+        "direction": "supports",
+        "experimental_system": "isogenic human iPSC-derived astrocytes from unaffected donor (Coriell #AG09173), APOE4 vs APOE3, leupeptin (50 uM) + chloroquine (50 uM) + NH4Cl (10 mM) 48 h (parallel phenotype)",
+        "relevance": 0.85,
+        "directness_class": 2,
+        "directness_strength": 3,
+        "effect_size": {
+            "value": "qualitative",
+            "quote": "reduced lysosome-dependent Aβ42 degradation in APOE4 astrocytes",
+            "provenance": "printed_in_text",
+        },
+        "p_value": {"value": None, "quote": None},
+        "sample_size": {"value": None, "quote": None},
+        "physician_review": False,
+        "physician_review_reasons": [],
+        "physician_audited": "2026-11-26",
+        "location": "Results > APOE4 astrocytes exhibit compromised Aβ uptake",
+        "source": "full_text",
+    },
+]
+
 
 def apply_h5_physician_audit(papers):
     """Deterministic post-rules encoding Ahmed's 26 Nov 2026 A3 physician audit across the signed H5 pool."""
@@ -123,6 +170,13 @@ def apply_h5_physician_audit(papers):
             if norm_text(H5_AUDIT_AUTOPHAGY_CONTRARY_FINDING["quote"]) not in quotes:
                 findings.append(dict(H5_AUDIT_AUTOPHAGY_CONTRARY_FINDING))
                 p["findings"] = findings
+        elif pmid == "29861287":
+            quotes = {norm_text(f.get("quote", "")) for f in findings}
+            for item in H5_AUDIT_29861287_FINDINGS:
+                if norm_text(item["quote"]) not in quotes:
+                    findings.append(dict(item))
+                    quotes.add(norm_text(item["quote"]))
+            p["findings"] = findings
     return papers
 
 

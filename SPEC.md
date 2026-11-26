@@ -1,6 +1,6 @@
 # SPEC.md: MecCog APOE4 pilot (Step 1)
 
-Status: FROZEN (`26 Nov 2026`) on `H5`, `Strict C3`, 6-paper pool (21 findings), 100% physician `A3` audit, `data/` SHA-256 manifest, public repo, team `Khepri` (`DrZayed`), and `make validate`; ready for HF Space workbook upload.
+Status: FROZEN (`26 Nov 2026`) on `H5`, `Strict C3`, 7-paper pool (23 findings), 100% physician `A3` audit, `data/` SHA-256 manifest, public repo, team `Khepri` (`DrZayed`), and `make validate`; ready for HF Space workbook upload.
 
 ## Buyer line
 The MecCog group (organizers of the MecCog Challenge, a Hugging Face Space) need, for one APOE4 endosome hypothesis, a short list of papers and the experimental findings in them, each traceable to a location in the paper, so that they can compare groups and check the specifics. (Organizer and shape: `official/README.md`, `official/rules.html`.) There is no commercial buyer and no sponsor product; the sponsor-primitive gate is n/a.
@@ -34,5 +34,5 @@ Unrecorded in the repo. `HYPOTHESES.md` states a feasibility target of "~20 h"; 
 - **Step 1 only:** find papers, extract experimental findings.
 - **Signed Hypothesis `H5`:** *In some types of non-Alzheimer's, non-aged human brain cells, APOE4 disruption of lipid metabolism, compared with APOE3, results in impaired late endosome/lysosome function.*
 - **Signed `Strict C3`:** Measured late-endosome/lysosome readout only (do NOT widen to general lipid handling or pad per `official/rules.html:429,529-534`).
-- **Signed pool (cap 50):** Focused strict `C1–C4` pool of 5 free-full-text papers (`34919811`, `35750033`, `40457456` [preserving contrary `C5=yes` finding], `42636814`, plus borderline `39532095` kept with its exact exogenous-ApoE human-neuron experimental system and lower directness class per `official/rules.html:469`) + anchor paper `37777962` (abstract-only; note `C4: no`).
+- **Signed pool (cap 50):** Focused strict `C1–C4` pool of 6 free-full-text papers (`34919811`, `35750033`, `40457456` [preserving contrary `C5=yes` finding], `42636814`, `29861287` [rescued via `PMC6023751` full text], plus borderline `39532095` kept with its exact exogenous-ApoE human-neuron experimental system and lower directness class per `official/rules.html:469`) + anchor paper `37777962` (Gold OA CC BY at *Cell Reports* `10.1016/j.celrep.2023.113183`, no PMCID, HTTP 403 automated fetch -> kept abstract-only `full_text_unavailable`).
 - **Signed Rule `C3` figure-estimate policy (`official/rules.html:537-542`):** Support for `~` prefix + `estimated_from_figure` provenance implemented and tested (`0` visual figure estimates used in this text-only pass).

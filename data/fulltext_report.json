@@ -296,6 +296,25 @@
         }
       ],
       "chars": 51275
+    },
+    {
+      "pmid": "29861287",
+      "doi": "10.1016/j.neuron.2018.05.008",
+      "status": "full_text",
+      "route": "pmc_oa",
+      "routes_tried": [
+        "pmc_oa"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": true,
+          "pmcid": "PMC6023751",
+          "chars": 72242,
+          "why": ""
+        }
+      ],
+      "chars": 72242
     }
   ]
 }

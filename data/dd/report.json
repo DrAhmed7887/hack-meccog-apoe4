@@ -1244,10 +1244,10 @@
   "H5": {
     "c1_rule_removed": [],
     "screened": 120,
-    "pass_C1_C3": 6,
-    "pass_C1_C4": 5,
-    "n_pass_C1_C4_cap50": 5,
-    "free_full_text": 19,
+    "pass_C1_C3": 7,
+    "pass_C1_C4": 6,
+    "n_pass_C1_C4_cap50": 6,
+    "free_full_text": 20,
     "numeric_effect_papers_C1_C4": 1,
     "numeric_effect_quotes_C1_C4": 1,
     "contrary_C5_yes_among_pass": 1,
@@ -2633,10 +2633,10 @@
           "q": "elevated Aβ42 secretion relative to isogenic APOE3 cells"
         },
         "C3": {
-          "v": "no",
-          "q": "impaired Aβ uptake and cholesterol accumulation"
+          "v": "yes",
+          "q": "We observed increased Aβ42 accumulation following lysosome inhibition in APOE3 astrocytes compared to APOE4 astrocytes, suggesting reduced lysosome-dependent Aβ42 degradation in APOE4 astrocytes (Figure S3D)."
         },
-        "C4": "unclear",
+        "C4": "yes",
         "C5": {
           "v": "unclear",
           "q": null,
@@ -2645,11 +2645,11 @@
         "src": {
           "C1": "abstract",
           "C2": "abstract",
-          "C3": "abstract",
+          "C3": "full_text",
           "C5": "abstract"
         },
         "effects": [],
-        "route": null
+        "route": "pmc_oa"
       },
       {
         "pmid": "35931030",

@@ -563,5 +563,34 @@
     },
     "effects": [],
     "chunk_chars": 5139
+  },
+  "29861287": {
+    "status": "full_text",
+    "route": "pmc_oa",
+    "routes_tried": [
+      "pmc_oa"
+    ],
+    "chars": 72242,
+    "ft": {
+      "C1": {
+        "v": "yes",
+        "q": "we used CRISPR/Cas9 gene editing to generate APOE4 iPSCs from parental APOE3 cells derived from an unaffected subject"
+      },
+      "C2": {
+        "v": "yes",
+        "q": "We observed stronger signals of fluorescent filipin III in APOE4 vs. APOE3 astrocytes (Figure 3E)."
+      },
+      "C3": {
+        "v": "yes",
+        "q": "We observed increased Aβ42 accumulation following lysosome inhibition in APOE3 astrocytes compared to APOE4 astrocytes, suggesting reduced lysosome-dependent Aβ42 degradation in APOE4 astrocytes (Figure S3D)."
+      },
+      "C5": {
+        "v": "unclear",
+        "q": null,
+        "why": "not argued against"
+      }
+    },
+    "effects": [],
+    "chunk_chars": 72242
   }
 }

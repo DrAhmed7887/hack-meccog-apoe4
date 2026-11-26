@@ -811,8 +811,9 @@
       "q": "elevated Aβ42 secretion relative to isogenic APOE3 cells"
     },
     "C3": {
-      "v": "no",
-      "q": "impaired Aβ uptake and cholesterol accumulation"
+      "v": "unclear",
+      "q": null,
+      "why": "abstract states Aβ uptake and cholesterol accumulation; lysosomal assay checked in PMC6023751 full text"
     },
     "C5": {
       "v": "unclear",
