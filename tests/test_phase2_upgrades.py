@@ -69,6 +69,9 @@ class Phase2FulltextAndExtractTests(unittest.TestCase):
         self.assertEqual(extract.extract_panel_location("No fig here.", "Results", proposed_loc="Fig 99Z"), "Results")
         self.assertEqual(extract.extract_panel_location("Figure 6 legend shows filipin.", "Figure 6 legend", proposed_loc="Fig 6Z"), "Fig 6")
         self.assertEqual(extract.extract_panel_location("See Figures 6D-F.", "Figure 6 legend", proposed_loc="Fig 6E"), "Fig 6E")
+        self.assertEqual(extract.extract_panel_location("See Figures 6D and F.", "Figure 6 legend", proposed_loc="Fig 6E"), "Fig 6D-F")
+        self.assertEqual(extract.extract_panel_location("Point (i) increased in Figure 6.", "Figure 6 legend", proposed_loc="Fig 6I"), "Fig 6")
+        self.assertEqual(extract.extract_panel_location("No differences in DQ BSA (Fig. 2, G and H).", "Results"), "Fig 2G-H")
 
         # merge_figure_estimates requires human_verified=True and full_text status
         p_unverified = [{"pmid": "1", "fulltext": {"status": "full_text"}, "findings": [{"quote": q, "effect_size": {"value": None}}]}]

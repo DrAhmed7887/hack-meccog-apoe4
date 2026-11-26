@@ -1,26 +1,26 @@
-# JUDGES.md: assessment criteria and status (26 Nov 2026)
+# JUDGES.md: assessment criteria and status (27 Nov 2026)
 
 Criteria summarize `official/rules.html` and `official/official-rules.html` (snapshot 2026-11-18). No explicit ranking formula exists (`official/rules.html:960-962`); organizer decisions are final (`official/official-rules.html:314-322`).
 
-## Signed & frozen decisions (26 Nov 2026)
+## Frozen H5 v3 status (27 Nov 2026)
 - **Hypothesis `H5`:** *In some types of non-Alzheimer's, non-aged human brain cells, APOE4 disruption of lipid metabolism, compared with APOE3, results in impaired late endosome/lysosome function.*
-- **Strict `C3` & pool (cap 50):** Measured late-endosome/lysosome readout only; 6 free-full-text `C1–C4` passes (`42636814`, `34919811`, `35750033`, borderline `39532095` with exogenous-ApoE clamping, `40457456`, `29861287`) + anchor `37777962` (Gold OA CC BY at *Cell Reports* `10.1016/j.celrep.2023.113183`, no PMCID, HTTP 403 automated fetch -> kept abstract-only `full_text_unavailable`).
-- **100% `A3` audit & freeze:** Signed `docs/PHYSICIAN_AUDIT_H5.md`; `data/` frozen with SHA-256 manifest (`data/FREEZE.json`); `make verify` passes **0 FAIL, 0 WARN**.
+- **Tiered Pool (19 papers, cap 50):** 10 Tier 1 human non-AD cells ordered first + 9 Tier 2 APOE-TR/rescue/exogenous models with explicit caveats (`17/19` OA full text [`15 pmc_oa`, `1 unpaywall`, `1 doi_direct`], `2/19` honest `unavailable` [`37777962` Turnstile-gated, `41785939` paywalled]); `0` reviews, `0` retractions.
+- **100% Physician `A3` Audit (`docs/PHYSICIAN_AUDIT_H5.md`):** 68 findings (`54 supports`, `14 CONTRADICTING:`), 0 unresolved `[PHYSICIAN REVIEW REQUIRED]` flags, `Method` sheet uses `Who did the work: collab`.
 
 ## Assessment criteria (`official/rules.html:963-981,429,527-548`)
 
 | ID | Criterion | Our evidence / status |
 |---|---|---|
-| A1 | Cross-evaluation by participants | Post-submission; public repo + six-section `README.md` live. |
-| A2 | Cross-group paper & experiment comparison | Frozen 7-paper `H5` workbook (`23` findings in `data/dry_run.xlsx`); `make validate` valid (0 errors, 0 warnings). |
-| A3 | Finding relevance via directness criteria | 100% physician `A3` audit (`docs/PHYSICIAN_AUDIT_H5.md`): `P5.F4` fixed, `P3` strict-C3 LAMP2 replaced, `P7` (`29861287`) added, review flags cleared. |
-| A4 | Specifics vs source paper | `verify_sample.py`: `6/6` numeric findings & `6/6` number fields verbatim (`data/verify_sample.md`). |
-| A5 | Manual inspection where necessary | Post-submission (`n/a` before upload). |
-| B1 / C1 | Relevance over volume; cap 50; contrary evidence | `7` papers (`<= 50`); `P6.F5` (`40457456`) `CONTRADICTING:` autophagic-flux row explicitly included. |
-| C2 | No fabrication; panel-level location | Verbatim quote guard per block (`data/extracted.json`); `1` non-verbatim finding rejected. |
-| C3 | Estimates `~` + `estimated_from_figure`; never P values | Guards tested (`tests/test_upgrades.py`); `0` visual estimates in text-only pass (`printed_in_text` only). |
-| C4 | Real DOIs and PubMed IDs | `verify_ids.py`: `7/7` PMIDs/DOIs verified live against PubMed + Europe PMC (`data/id_verification.json`). |
-| C5 | Step 1 only | Pipeline stops at papers and findings by design. |
+| A1 | Cross-evaluation by participants | Public repo + six-section `README.md` (`collab` model versions documented). |
+| A2 | Cross-group paper & experiment comparison | Frozen 19-paper `H5` workbook (`68` findings in `data/dry_run.xlsx`); `--strict` validator PASS (`0` errors, `0` warnings). |
+| A3 | Finding relevance via directness criteria | 100% physician `A3` audit (`docs/PHYSICIAN_AUDIT_H5.md`); exogenous ApoE clamped (`class >= 2`, `strength >= 3`). |
+| A4 | Specifics vs source paper | `verify_sample.py`: `15/15` sampled numeric findings (`22/22` fields) verbatim (`data/verify_sample.md`). |
+| A5 | Manual inspection where necessary | Verified OA figures (`PMC8758949`, `PMC13260029`, `PMC12041514`); stopped on Turnstile (`37777962`). |
+| B1 / C1 | Relevance over volume; cap 50; contrary | `19` papers (`<= 50`); **14 `CONTRADICTING:`** findings preserved; non-lysosomal candidates excluded. |
+| C2 | No fabrication; panel-level location | Single-block verbatim quote guard (`68/68`); `63/68` panel/table IDs + strict grounding (`extract.py`). |
+| C3 | Provenance & no estimated P values | `62 printed_in_text`, `2 visual_only` (`PMC8758949` Fig 4E, `PMC13260029` Fig 4D); P-estimate guards in `tests/`. |
+| C4 | Real DOIs and PubMed IDs | `19/19` verified live against PubMed, Europe PMC `core`, and `doi-check --json` (`data/id_verification.json`). |
+| C5 | Step 1 only | `.xlsx` and `extracted.json` contain strictly Step 1 papers & findings (`RULE_C5_LEAK = 0`). |
 
 ## Remaining human items before upload
-- **HF Space registration & Method team cells:** Team `Khepri` created on `meccog-meccogchallenge.hf.space` (leader `DrZayed`); verify live Space rules and upload workbook before `Wed 13 Jan 2027 13:00 Valencia` (`Sat 16 Jan 2027 13:00 Valencia` official deadline).
+- Final release workbook generation (`Team`, real email, final `origin/main` `Commit SHA` in local gitignored `out/release_method.json`) and HF Space upload by `Wed 13 Jan 2027 13:00 Valencia` (`Sat 16 Jan 2027` deadline).

@@ -2,6 +2,139 @@
   "hyp": "H5",
   "papers": [
     {
+      "pmid": "34919811",
+      "doi": "10.1016/j.stemcr.2021.11.007",
+      "status": "full_text",
+      "route": "pmc_oa",
+      "routes_tried": [
+        "pmc_oa"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": true,
+          "pmcid": "PMC8758949",
+          "chars": 55533,
+          "why": ""
+        }
+      ],
+      "chars": 55533
+    },
+    {
+      "pmid": "40457456",
+      "doi": "10.1186/s12974-025-03470-y",
+      "status": "full_text",
+      "route": "pmc_oa",
+      "routes_tried": [
+        "pmc_oa"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": true,
+          "pmcid": "PMC12131611",
+          "chars": 63198,
+          "why": ""
+        }
+      ],
+      "chars": 63198
+    },
+    {
+      "pmid": "42636814",
+      "doi": "10.1016/j.stem.2026.08.001",
+      "status": "full_text",
+      "route": "pmc_oa",
+      "routes_tried": [
+        "pmc_oa"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": true,
+          "pmcid": "PMC13528747",
+          "chars": 96320,
+          "why": ""
+        }
+      ],
+      "chars": 96320
+    },
+    {
+      "pmid": "35750033",
+      "doi": "10.1016/j.cell.2022.05.017",
+      "status": "full_text",
+      "route": "pmc_oa",
+      "routes_tried": [
+        "pmc_oa"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": true,
+          "pmcid": "PMC9340815",
+          "chars": 104783,
+          "why": ""
+        }
+      ],
+      "chars": 104783
+    },
+    {
+      "pmid": "38480892",
+      "doi": "10.1038/s41586-024-07185-7",
+      "status": "full_text",
+      "route": "pmc_oa",
+      "routes_tried": [
+        "pmc_oa"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": true,
+          "pmcid": "PMC10990924",
+          "chars": 102133,
+          "why": ""
+        }
+      ],
+      "chars": 102133
+    },
+    {
+      "pmid": "42182449",
+      "doi": "10.64898/2026.05.12.724612",
+      "status": "full_text",
+      "route": "pmc_oa",
+      "routes_tried": [
+        "pmc_oa"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": true,
+          "pmcid": "PMC13192593",
+          "chars": 90000,
+          "why": ""
+        }
+      ],
+      "chars": 90000
+    },
+    {
+      "pmid": "29861287",
+      "doi": "10.1016/j.neuron.2018.05.008",
+      "status": "full_text",
+      "route": "pmc_oa",
+      "routes_tried": [
+        "pmc_oa"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": true,
+          "pmcid": "PMC6023751",
+          "chars": 74299,
+          "why": ""
+        }
+      ],
+      "chars": 74299
+    },
+    {
       "pmid": "37777962",
       "doi": "10.1016/j.celrep.2023.113183",
       "status": "unavailable",
@@ -9,7 +142,6 @@
       "routes_tried": [
         "pmc_oa",
         "europepmc",
-        "unpaywall_html",
         "unpaywall_html",
         "doi_direct_html"
       ],
@@ -31,11 +163,6 @@
           "why": "page had no readable article body (landing page or paywall)"
         },
         {
-          "route": "unpaywall_html",
-          "ok": false,
-          "why": "HTTP Error 403: Forbidden"
-        },
-        {
           "route": "doi_direct_html",
           "ok": false,
           "chars": 0,
@@ -45,16 +172,166 @@
       "chars": 0
     },
     {
+      "pmid": "41867897",
+      "doi": "10.1093/pnasnexus/pgag053",
+      "status": "full_text",
+      "route": "pmc_oa",
+      "routes_tried": [
+        "pmc_oa"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": true,
+          "pmcid": "PMC13003211",
+          "chars": 55722,
+          "why": ""
+        }
+      ],
+      "chars": 55722
+    },
+    {
+      "pmid": "42749735",
+      "doi": "10.1038/s41467-026-76565-6",
+      "status": "full_text",
+      "route": "pmc_oa",
+      "routes_tried": [
+        "pmc_oa"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": true,
+          "pmcid": "PMC13582944",
+          "chars": 79529,
+          "why": ""
+        }
+      ],
+      "chars": 79529
+    },
+    {
+      "pmid": "40675218",
+      "doi": "10.1016/j.jbc.2025.110479",
+      "status": "full_text",
+      "route": "pmc_oa",
+      "routes_tried": [
+        "pmc_oa"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": true,
+          "pmcid": "PMC12357307",
+          "chars": 94407,
+          "why": ""
+        }
+      ],
+      "chars": 94407
+    },
+    {
+      "pmid": "39532095",
+      "doi": "10.1016/j.cell.2024.10.027",
+      "status": "full_text",
+      "route": "pmc_oa",
+      "routes_tried": [
+        "pmc_oa"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": true,
+          "pmcid": "PMC11724755",
+          "chars": 120615,
+          "why": ""
+        }
+      ],
+      "chars": 120615
+    },
+    {
+      "pmid": "32517777",
+      "doi": "10.1186/s13024-020-00382-8",
+      "status": "full_text",
+      "route": "pmc_oa",
+      "routes_tried": [
+        "pmc_oa"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": true,
+          "pmcid": "PMC7285605",
+          "chars": 84514,
+          "why": ""
+        }
+      ],
+      "chars": 84514
+    },
+    {
+      "pmid": "39901180",
+      "doi": "10.1186/s13024-025-00802-7",
+      "status": "full_text",
+      "route": "pmc_oa",
+      "routes_tried": [
+        "pmc_oa"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": true,
+          "pmcid": "PMC11792374",
+          "chars": 93478,
+          "why": ""
+        }
+      ],
+      "chars": 93478
+    },
+    {
+      "pmid": "40571761",
+      "doi": "10.1007/s11064-025-04463-2",
+      "status": "full_text",
+      "route": "doi_direct",
+      "routes_tried": [
+        "pmc_oa",
+        "europepmc",
+        "unpaywall",
+        "doi_direct_html"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": false,
+          "why": "no PMCID"
+        },
+        {
+          "route": "europepmc",
+          "ok": false,
+          "why": "no PMCID at Europe PMC"
+        },
+        {
+          "route": "unpaywall",
+          "ok": false,
+          "why": "no open-access location"
+        },
+        {
+          "route": "doi_direct_html",
+          "ok": true,
+          "chars": 65701,
+          "why": ""
+        }
+      ],
+      "chars": 65701
+    },
+    {
       "pmid": "41338186",
       "doi": "10.1016/j.neuron.2025.10.040",
-      "status": "unavailable",
-      "route": null,
+      "status": "full_text",
+      "route": "unpaywall",
       "routes_tried": [
         "pmc_oa",
         "europepmc",
         "unpaywall_html",
         "unpaywall_html",
-        "doi_direct_html"
+        "unpaywall_pdf"
       ],
       "log": [
         {
@@ -80,6 +357,80 @@
           "why": "page had no readable article body (landing page or paywall)"
         },
         {
+          "route": "unpaywall_pdf",
+          "ok": true,
+          "chars": 109445,
+          "why": ""
+        }
+      ],
+      "chars": 109445
+    },
+    {
+      "pmid": "40301465",
+      "doi": "10.1038/s41598-025-96531-4",
+      "status": "full_text",
+      "route": "pmc_oa",
+      "routes_tried": [
+        "pmc_oa"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": true,
+          "pmcid": "PMC12041514",
+          "chars": 81845,
+          "why": ""
+        }
+      ],
+      "chars": 81845
+    },
+    {
+      "pmid": "42274838",
+      "doi": "10.1007/s12035-026-05996-5",
+      "status": "full_text",
+      "route": "pmc_oa",
+      "routes_tried": [
+        "pmc_oa"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": true,
+          "pmcid": "PMC13260029",
+          "chars": 44073,
+          "why": ""
+        }
+      ],
+      "chars": 44073
+    },
+    {
+      "pmid": "41785939",
+      "doi": "10.1016/j.bbadis.2026.168211",
+      "status": "unavailable",
+      "route": null,
+      "routes_tried": [
+        "pmc_oa",
+        "europepmc",
+        "unpaywall",
+        "doi_direct_html"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": false,
+          "why": "no PMCID"
+        },
+        {
+          "route": "europepmc",
+          "ok": false,
+          "why": "no PMCID at Europe PMC"
+        },
+        {
+          "route": "unpaywall",
+          "ok": false,
+          "why": "no open-access location"
+        },
+        {
           "route": "doi_direct_html",
           "ok": false,
           "chars": 0,
@@ -87,234 +438,6 @@
         }
       ],
       "chars": 0
-    },
-    {
-      "pmid": "42636814",
-      "doi": "10.1016/j.stem.2026.08.001",
-      "status": "full_text",
-      "route": "pmc_oa",
-      "routes_tried": [
-        "pmc_oa"
-      ],
-      "log": [
-        {
-          "route": "pmc_oa",
-          "ok": true,
-          "pmcid": "PMC13528747",
-          "chars": 94389,
-          "why": ""
-        }
-      ],
-      "chars": 94389
-    },
-    {
-      "pmid": "35750033",
-      "doi": "10.1016/j.cell.2022.05.017",
-      "status": "full_text",
-      "route": "pmc_oa",
-      "routes_tried": [
-        "pmc_oa"
-      ],
-      "log": [
-        {
-          "route": "pmc_oa",
-          "ok": true,
-          "pmcid": "PMC9340815",
-          "chars": 103350,
-          "why": ""
-        }
-      ],
-      "chars": 103350
-    },
-    {
-      "pmid": "34919811",
-      "doi": "10.1016/j.stemcr.2021.11.007",
-      "status": "full_text",
-      "route": "pmc_oa",
-      "routes_tried": [
-        "pmc_oa"
-      ],
-      "log": [
-        {
-          "route": "pmc_oa",
-          "ok": true,
-          "pmcid": "PMC8758949",
-          "chars": 55466,
-          "why": ""
-        }
-      ],
-      "chars": 55466
-    },
-    {
-      "pmid": "37857825",
-      "doi": "10.1038/s41590-023-01640-9",
-      "status": "full_text",
-      "route": "pmc_oa",
-      "routes_tried": [
-        "pmc_oa"
-      ],
-      "log": [
-        {
-          "route": "pmc_oa",
-          "ok": true,
-          "pmcid": "PMC11980647",
-          "chars": 87076,
-          "why": ""
-        }
-      ],
-      "chars": 87076
-    },
-    {
-      "pmid": "35031484",
-      "doi": "10.1016/j.nbd.2022.105615",
-      "status": "full_text",
-      "route": "pmc_oa",
-      "routes_tried": [
-        "pmc_oa"
-      ],
-      "log": [
-        {
-          "route": "pmc_oa",
-          "ok": true,
-          "pmcid": "PMC8934202",
-          "chars": 101929,
-          "why": ""
-        }
-      ],
-      "chars": 101929
-    },
-    {
-      "pmid": "37995685",
-      "doi": "10.1016/j.neuron.2023.10.023",
-      "status": "full_text",
-      "route": "pmc_oa",
-      "routes_tried": [
-        "pmc_oa"
-      ],
-      "log": [
-        {
-          "route": "pmc_oa",
-          "ok": true,
-          "pmcid": "PMC10922706",
-          "chars": 84441,
-          "why": ""
-        }
-      ],
-      "chars": 84441
-    },
-    {
-      "pmid": "39532095",
-      "doi": "10.1016/j.cell.2024.10.027",
-      "status": "full_text",
-      "route": "pmc_oa",
-      "routes_tried": [
-        "pmc_oa"
-      ],
-      "log": [
-        {
-          "route": "pmc_oa",
-          "ok": true,
-          "pmcid": "PMC11724755",
-          "chars": 107094,
-          "why": ""
-        }
-      ],
-      "chars": 107094
-    },
-    {
-      "pmid": "39901180",
-      "doi": "10.1186/s13024-025-00802-7",
-      "status": "full_text",
-      "route": "pmc_oa",
-      "routes_tried": [
-        "pmc_oa"
-      ],
-      "log": [
-        {
-          "route": "pmc_oa",
-          "ok": true,
-          "pmcid": "PMC11792374",
-          "chars": 93478,
-          "why": ""
-        }
-      ],
-      "chars": 93478
-    },
-    {
-      "pmid": "39468688",
-      "doi": "10.1186/s40035-024-00445-6",
-      "status": "full_text",
-      "route": "pmc_oa",
-      "routes_tried": [
-        "pmc_oa"
-      ],
-      "log": [
-        {
-          "route": "pmc_oa",
-          "ok": true,
-          "pmcid": "PMC11520887",
-          "chars": 88561,
-          "why": ""
-        }
-      ],
-      "chars": 88561
-    },
-    {
-      "pmid": "40457456",
-      "doi": "10.1186/s12974-025-03470-y",
-      "status": "full_text",
-      "route": "pmc_oa",
-      "routes_tried": [
-        "pmc_oa"
-      ],
-      "log": [
-        {
-          "route": "pmc_oa",
-          "ok": true,
-          "pmcid": "PMC12131611",
-          "chars": 63198,
-          "why": ""
-        }
-      ],
-      "chars": 63198
-    },
-    {
-      "pmid": "32632205",
-      "doi": "10.1038/s41380-020-0824-3",
-      "status": "full_text",
-      "route": "pmc_oa",
-      "routes_tried": [
-        "pmc_oa"
-      ],
-      "log": [
-        {
-          "route": "pmc_oa",
-          "ok": true,
-          "pmcid": "PMC7785685",
-          "chars": 51275,
-          "why": ""
-        }
-      ],
-      "chars": 51275
-    },
-    {
-      "pmid": "29861287",
-      "doi": "10.1016/j.neuron.2018.05.008",
-      "status": "full_text",
-      "route": "pmc_oa",
-      "routes_tried": [
-        "pmc_oa"
-      ],
-      "log": [
-        {
-          "route": "pmc_oa",
-          "ok": true,
-          "pmcid": "PMC6023751",
-          "chars": 72242,
-          "why": ""
-        }
-      ],
-      "chars": 72242
     }
   ]
 }
