@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 """Deterministic PR pre-review verification bundle for hack-meccog-apoe4.
 
-Checks every extracted JSON and workbook under a target data directory across:
+Audits every extracted JSON and workbook under a target data directory:
   (a) Verbatim finding & stat quotes against a single block in out/fulltext/ or abstract
-  (b) Panel-level Data location precision & Rule C3 stat provenance
-  (c) Identifier validity (PMID/DOI), optional live Europe PMC pubType review purge,
-      title match, and doi-check retraction status
-  (d) Rule B1/C1 (contrary findings, <= 50 papers) & Rule C5 Step 1 boundary
-  (e) Repo hygiene (no PDFs, out/fulltext/, method.json, .licenses/, or >2 MB structure assets)
+      (requires --require-fulltext-cache locally; CI offline mode marks missing gitignored caches as WARN)
+  (b) Panel-level Data location precision & Rule C3 stat provenance against check_schema.PROV
+  (c) Identifier validity (PMID/DOI), plus live (--online) Europe PMC core pubType
+      review/meta-analysis purge, title match, and doi-check retraction status
+  (d1) Rule B1/C1 (contrary findings, <= 50 papers)
+  (d2) Rule C5 Step 1 boundary across extracted JSON and workbook Submission cells
+  (e) Repo hygiene & secret scan (no PDFs, .env, out/fulltext/, method.json, .licenses/, keys, or >2 MB structures)
 """
 import argparse
 import json
@@ -34,6 +36,10 @@ RULE_C5_LEAK = re.compile(
     r"\b(?:plddt|pae|predicted aligned error|alphafold|experiment proposal|mechanism confidence score)\b",
     re.I,
 )
+SECRET_RE = re.compile(
+    r"-----BEGIN (?:RSA |EC |OPENSSH |PGP )?PRIVATE KEY-----|"
+    r"\bghp_[A-Za-z0-9]{20,}\b|\bsk-[A-Za-z0-9]{20,}\b|\bAIza[0-9A-Za-z\-_]{30,}\b"
+)
 EPMC_SEARCH = "https://www.ebi.ac.uk/europepmc/webservices/rest/search"
 
 
@@ -47,10 +53,17 @@ def check_hygiene(repo_root: Path = ROOT) -> list[str]:
             bad.append(f"tracked PDF: {rel}")
         elif rel.startswith("out/fulltext/"):
             bad.append(f"tracked fulltext cache: {rel}")
-        elif rel == "method.json" or rel.startswith(".licenses/"):
+        elif rel == "method.json" or rel == ".env" or rel.startswith(".env.") or rel.startswith(".licenses/"):
             bad.append(f"forbidden tracked file: {rel}")
         elif rel.startswith("docs/structures/") and p.exists() and p.stat().st_size > 2 * 1024 * 1024:
             bad.append(f"oversized structure (>2MB): {rel}")
+        elif p.exists() and p.is_file() and p.suffix.lower() not in (".xlsx", ".docx", ".png", ".jpg", ".cif", ".gz", ".mp4"):
+            try:
+                txt = p.read_text(encoding="utf-8", errors="ignore")
+                if SECRET_RE.search(txt):
+                    bad.append(f"potential secret pattern in tracked file: {rel}")
+            except OSError:
+                pass
     return bad
 
 
@@ -115,14 +128,18 @@ def audit_extracted_file(ext_path: Path, fulltext_dir: Path, require_fulltext_ca
                 elif not RE_PANEL_LOC.search(loc):
                     warnings.append(f"{fid}: prose-only Data location ({loc!r})")
 
-            text_blob = " ".join(str(f.get(k) or "") for k in ("description", "summary", "experimental_system"))
+            text_blob = " ".join(str(f.get(k) or "") for k in ("description", "summary", "experimental_system", "location"))
             if RULE_C5_LEAK.search(text_blob):
                 issues.append(f"{fid}: Rule C5 Step 1 boundary leak detected in finding text")
 
             for kind in ("effect_size", "p_value", "sample_size"):
                 blk = f.get(kind) or {}
                 val = blk.get("value")
-                prov = blk.get("provenance") or "printed_in_text"
+                raw_prov = blk.get("provenance")
+                if raw_prov is not None and raw_prov not in check_schema.PROV:
+                    issues.append(f"{fid}.{kind}: invalid provenance code {raw_prov!r}")
+                    continue
+                prov = raw_prov or "printed_in_text"
                 vs = str(val or "").strip()
                 if kind == "p_value" and (prov == "estimated_from_figure" or vs.startswith("~")):
                     issues.append(f"{fid}.p_value: P value cannot use '~' or 'estimated_from_figure'")
@@ -141,6 +158,9 @@ def audit_extracted_file(ext_path: Path, fulltext_dir: Path, require_fulltext_ca
                     issues.append(f"{fid}.{kind}: stat quote not in same block as finding quote")
                 elif extract.verify_stat(kind, val, squote, matched_block["text"], provenance=prov) is None:
                     issues.append(f"{fid}.{kind}: stat {val!r} ({prov}) failed verify_stat")
+
+    if n_findings > 0 and n_contrary == 0:
+        warnings.append(f"{ext_path.name}: 0 contradicting findings recorded (verify Rule B1 search)")
 
     return {
         "file": str(ext_path),
@@ -174,9 +194,15 @@ def check_live_ids(papers: list[dict]) -> list[str]:
     for p in papers:
         pmid = str(p.get("pmid") or "").strip()
         doi = str(p.get("doi") or "").strip()
+        st = str(p.get("source_type") or "PubMed published").lower()
         if doi and doi.lower() != "n/a":
             dois.append(doi)
+        if not pmid or pmid.upper() == "N/A":
+            if st.startswith("pubmed"):
+                issues.append(f"DOI {doi or '?'}: PubMed source missing numeric PMID")
+            continue
         if not pmid.isdigit():
+            issues.append(f"invalid non-numeric PMID {pmid!r}")
             continue
         try:
             raw = common.http_get(
@@ -193,8 +219,8 @@ def check_live_ids(papers: list[dict]) -> list[str]:
             continue
         hit = hits[0]
         pub_types = _extract_epmc_pub_types(hit)
-        if any("review" in t for t in pub_types):
-            issues.append(f"PMID {pmid}: flagged as review article ({pub_types})")
+        if any(("review" in t or "meta-analysis" in t) for t in pub_types):
+            issues.append(f"PMID {pmid}: flagged as review/meta-analysis ({pub_types})")
         if not verify_ids._title_match(p.get("title", ""), hit.get("title", "")):
             issues.append(f"PMID {pmid}: title mismatch vs Europe PMC ({hit.get('title', '')[:60]})")
 
@@ -218,7 +244,7 @@ def check_live_ids(papers: list[dict]) -> list[str]:
 
 
 def check_workbooks(data_dir: Path) -> list[str]:
-    """Check every .xlsx under data_dir with check_schema and Method/README consistency."""
+    """Check every .xlsx under data_dir with check_schema, Rule C5 scan, and Method/README consistency."""
     issues = []
     readme = (ROOT / "README.md").read_text(encoding="utf-8") if (ROOT / "README.md").exists() else ""
     books = sorted(list(data_dir.glob("*.xlsx")) + list(data_dir.glob("*/*.xlsx")))
@@ -227,7 +253,13 @@ def check_workbooks(data_dir: Path) -> list[str]:
         if errs:
             issues.extend(f"{b.name}: {e}" for e in errs)
             continue
-        method_rows = check_schema.read_rows(str(b)).get("Method", [])
+        sheets = check_schema.read_rows(str(b))
+        for r_idx, row in enumerate(sheets.get("Submission", [])[2:], 3):
+            for col_idx in (5, 7, 9, 10):
+                val = row[col_idx] if col_idx < len(row) else None
+                if val and RULE_C5_LEAK.search(str(val)):
+                    issues.append(f"{b.name} row {r_idx}: Rule C5 Step 1 boundary leak in Submission cell")
+        method_rows = sheets.get("Method", [])
         m = {r[0]: r[1] for r in method_rows if len(r) >= 2}
         if m.get("Who did the work") == "collab":
             models = m.get("Model and version") or ""
@@ -281,6 +313,7 @@ def main() -> int:
 
     summary = {
         "pr": a.pr,
+        "mode": "full_premerge" if (a.require_fulltext_cache and a.online) else "ci_offline",
         "hygiene_issues": hygiene,
         "workbook_issues": wb_issues,
         "live_id_issues": live_issues,
@@ -290,7 +323,7 @@ def main() -> int:
     if a.out:
         Path(a.out).write_text(json.dumps(summary, indent=2), encoding="utf-8")
 
-    print(f"=== PR Review Bundle ({'PR #' + a.pr if a.pr else 'local'}) ===")
+    print(f"=== PR Review Bundle ({'PR #' + a.pr if a.pr else 'local'}, mode={summary['mode']}) ===")
     print(f"Hygiene issues: {len(hygiene)} | Workbook issues: {len(wb_issues)} | Live ID issues: {len(live_issues)}")
     for rep in ext_reports:
         print(f"Extracted {Path(rep['file']).name}: {rep['n_papers']} papers, {rep['n_findings']} findings "
@@ -301,7 +334,7 @@ def main() -> int:
     for iss in total_issues:
         print(f"  FAIL: {iss}")
     print(f"GATE STATUS: {'PASS' if summary['pass'] else 'FAIL'}")
-    return 0 if summary['pass'] else 1
+    return 0 if summary["pass"] else 1
 
 
 if __name__ == "__main__":

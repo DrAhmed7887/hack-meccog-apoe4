@@ -35,7 +35,7 @@ class TestPrReviewBundle(unittest.TestCase):
                         {
                             "description": "Cholesterol increased in lysosomes.",
                             "quote": "Filipin increased 3x (p < 0.001) in Fig 6H across APOE4 astrocytes.",
-                            "direction": "supports",
+                            "direction": "contradicts",
                             "location": "Fig 6H",
                             "source": "full_text",
                             "effect_size": {"value": "3x", "quote": "Filipin increased 3x (p < 0.001)", "provenance": "printed_in_text"},
@@ -50,7 +50,7 @@ class TestPrReviewBundle(unittest.TestCase):
             self.assertEqual(rep["warnings"], [])
             self.assertEqual(rep["n_stats"], 3)
 
-    def test_audit_blocks_estimated_p_value_and_missing_cache_flag(self):
+    def test_audit_blocks_estimated_p_value_bad_prov_and_missing_cache(self):
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
             ft = root / "ft"
@@ -68,7 +68,7 @@ class TestPrReviewBundle(unittest.TestCase):
                         "direction": "supports",
                         "location": "Fig 4",
                         "source": "full_text",
-                        "effect_size": {"value": None, "quote": None},
+                        "effect_size": {"value": "10%", "quote": "Abstract only.", "provenance": "guessed_up"},
                         "p_value": {"value": "~0.01", "quote": "Abstract only.", "provenance": "estimated_from_figure"},
                         "sample_size": {"value": None, "quote": None},
                     }],
@@ -76,6 +76,7 @@ class TestPrReviewBundle(unittest.TestCase):
             }), encoding="utf-8")
             rep_ci = pr_review_bundle.audit_extracted_file(ext, ft, require_fulltext_cache=False)
             self.assertTrue(any("P value cannot use" in i for i in rep_ci["issues"]))
+            self.assertTrue(any("invalid provenance" in i for i in rep_ci["issues"]))
             self.assertTrue(any("fulltext cache missing" in w for w in rep_ci["warnings"]))
             self.assertTrue(any("whole-figure" in w for w in rep_ci["warnings"]))
 
@@ -124,10 +125,10 @@ class TestPrReviewBundle(unittest.TestCase):
         })
         papers = [{"pmid": "42927732", "doi": "10.1000/rev", "title": "APOE4 lipid review"}]
         with mock.patch("common.http_get", return_value=fake_epmc), \
-             mock.patch("shutil.which", return_value=None), \
-             mock.patch("os.path.exists", return_value=False):
+             mock.patch("scripts.pr_review_bundle.shutil.which", return_value=None), \
+             mock.patch("scripts.pr_review_bundle.os.path.exists", return_value=False):
             issues = pr_review_bundle.check_live_ids(papers)
-        self.assertTrue(any("review article" in i for i in issues))
+        self.assertTrue(any("review/meta-analysis" in i for i in issues))
         self.assertTrue(any("doi-check binary missing" in i for i in issues))
 
 
