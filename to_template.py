@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Write the MecCog submission workbook (sheets Submission + Method, 19 official columns) with the standard
 library only (zipfile + XML), so no spreadsheet package is needed to build it.
-Usage: python3 to_template.py --in out/extracted.json --out out/dry_run.xlsx [--method method.json]
+Usage: python3 to_template.py --in out/extracted.json --out out/dry_run.xlsx [--method method.json] [--release]
 
-Provenance: a number quoted verbatim from the source is 'printed_in_text'. A number missing from a finding read
-from FULL TEXT is N/A with 'not_found_in_source' (Data location = the section or table name). A finding read from
-the abstract only (full text unavailable after every route in fulltext.py) is N/A with 'full_text_unavailable'
-and location 'Abstract'. A figure-only value would need visual_only/estimated_from_figure: not done yet."""
+Provenance: a number quoted verbatim from the source is 'printed_in_text' (or 'supplement_only' / 'visual_only').
+A number missing from a finding read from FULL TEXT is N/A with 'not_found_in_source' (or 'ambiguous_panel').
+A finding read from the abstract only (full text unavailable after every route in fulltext.py) is N/A with
+'full_text_unavailable' and location 'Abstract'. A bar/dot estimate uses leading '~' with 'estimated_from_figure'."""
 import argparse
 import os
 import re
@@ -25,6 +25,7 @@ METHOD_ROWS = ["Team", "Team leader", "Team leader email", "Method URL", "Commit
 DRY_METHOD = {"Team": "Khepri", "Team leader": "dry run", "Team leader email": "dry-run@example.org",
               "Method URL": "https://github.com/DrAhmed7887/hack-meccog-apoe4", "Commit SHA": "GIT_HEAD",
               "Who did the work": "both", "Model and version": "qwen3.8-27b (RWTHgpt KI:connect, via rwth-ask)"}
+ALLOWED_WHO = {"person", "agent", "both", "collab"}
 
 
 def col_letter(i):
@@ -94,6 +95,8 @@ def stat_cells(kind, blk, ft):
     if raw_v in (None, "") or str(raw_v).strip().upper() == "N/A":
         if prov == "estimated_from_figure":
             raise ValueError(f"{kind}: provenance 'estimated_from_figure' cannot accompany N/A")
+        if prov == "ambiguous_panel":
+            return ["N/A", "ambiguous_panel"]
         return ["N/A", "not_found_in_source" if ft else "full_text_unavailable"]
     vs = str(raw_v).strip()
     prov = prov or "printed_in_text"
@@ -126,7 +129,9 @@ def build_rows(hyp_statement, papers):
         if not p.get("findings"):
             continue
         n += 1
-        rows.append([None, na(p.get("doi")), "PubMed published", p["pmid"], f"P{n}"] + [None] * 14)
+        st = p.get("source_type") or "PubMed published"
+        pmid = na(p.get("pmid"))
+        rows.append([None, na(p.get("doi")), st, pmid, f"P{n}"] + [None] * 14)
         for j, f in enumerate(p["findings"], 1):
             desc = ("CONTRADICTING: " if f["direction"] == "contradicts" else "") + f["description"]
             if f.get("physician_review") or inconsistent_directness_pair(f):
@@ -154,10 +159,33 @@ def git_head():
         return "N/A"
 
 
-def build_method(method):
+def validate_method_dict(m, release=False):
+    """Validate the 7 Method-sheet cells; when release=True, forbid dry-run placeholders."""
+    who = (m.get("Who did the work") or "").strip().lower()
+    if who not in ALLOWED_WHO:
+        raise ValueError(f"Method Who did the work must be one of {sorted(ALLOWED_WHO)}, got {who!r}")
+    model = (m.get("Model and version") or "").strip()
+    if who != "person" and (not model or model.lower() in ("none", "n/a")):
+        raise ValueError(f"Method Model and version required when Who did the work={who!r}")
+    if who == "collab" and not any(sep in model for sep in (",", ";", "/", "\n")):
+        raise ValueError("Method Who did the work='collab' requires comma/semicolon-separated model per agent")
+    if release:
+        leader = (m.get("Team leader") or "").strip()
+        email = (m.get("Team leader email") or "").strip()
+        if not leader or leader.lower() == "dry run":
+            raise ValueError("Release Method sheet cannot use 'dry run' as Team leader")
+        if not email or email.lower() == "dry-run@example.org" or "@" not in email:
+            raise ValueError("Release Method sheet requires a real Team leader email")
+        sha = (m.get("Commit SHA") or "").strip()
+        if "github.com" in (m.get("Method URL") or "").lower() and not re.fullmatch(r"[0-9a-f]{7,40}", sha, re.I):
+            raise ValueError(f"Release Method sheet requires valid git Commit SHA, got {sha!r}")
+
+
+def build_method(method, release=False):
     m = dict(method)
     if m.get("Commit SHA") == "GIT_HEAD":
         m["Commit SHA"] = git_head()
+    validate_method_dict(m, release=release)
     return [[k, m.get(k, "")] for k in METHOD_ROWS]
 
 
@@ -166,13 +194,14 @@ def main():
     ap.add_argument("--in", dest="inp", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--method", help="JSON with the 7 Method-sheet fields; default is dry-run placeholders")
+    ap.add_argument("--release", action="store_true", help="Forbid dry-run placeholders in Method sheet")
     a = ap.parse_args()
     d = common.load_json(a.inp)
     stmt = common.load_json("hypotheses.json")[d["hyp"]]["statement"]
     method = common.load_json(a.method) if a.method else DRY_METHOD
     os.makedirs(os.path.dirname(a.out) or ".", exist_ok=True)
     rows = build_rows(stmt, d["papers"])
-    write_xlsx(a.out, [("Submission", rows), ("Method", build_method(method))])
+    write_xlsx(a.out, [("Submission", rows), ("Method", build_method(method, release=a.release))])
     npap = sum(1 for r in rows[2:] if re.fullmatch(r"P\d+", r[4] or ""))
     nfin = sum(1 for r in rows[2:] if re.fullmatch(r"P\d+\.F\d+", r[4] or ""))
     print(f"wrote {a.out}: {npap} papers, {nfin} findings")

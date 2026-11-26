@@ -4,9 +4,9 @@
 Checks:
   1. data/FREEZE.json exists and every listed file matches its sha256 (skipped with --data out).
   2. data/dd/report.json: per-hypothesis counts agree with the rows (C1-C4 passes).
-  3. data/extracted.json: every paper has a PMID, every finding has the required fields,
-     directness class 1-5, and every kept number carries a verbatim quote.
-  4. data/*.xlsx (if present): own schema check (check_schema.py) and paper/finding counts equal extracted.json.
+  3. data/extracted.json (and optional data/<HYP>/extracted.json): required fields, directness 1-5,
+     stat provenance rules, and data/<HYP>/id_verification.json + *.xlsx alignment.
+  4. data/*.xlsx and data/<HYP>/*.xlsx: own schema check (check_schema.py) and counts match extracted.json.
   5. CLAIMS.md: every backticked file path in the table resolves (out/ paths map to the data dir).
 
 Usage: python3 scripts/verify.py [--data data] [--claims CLAIMS.md]
@@ -111,20 +111,24 @@ def check_extracted(data: Path):
     if len(papers) > 50:
         fail(f"{len(papers)} papers exceeds the 50-paper cap")
     nf = 0
-    with_findings = 0  # to_template.build_rows skips papers without findings
+    with_findings = 0
     for p in papers:
         if p.get("findings"):
             with_findings += 1
-        if not str(p.get("pmid", "")).isdigit():
+        st = str(p.get("source_type") or "PubMed published").lower()
+        pmid = str(p.get("pmid") or "").strip()
+        if st.startswith("pubmed") and not pmid.isdigit():
             fail(f"paper without numeric PMID: {p.get('title', '?')[:40]}")
         for f in p.get("findings", []):
             nf += 1
-            tag = f"{p.get('pmid')}"
+            tag = f"{pmid or p.get('doi') or '?'}"
             if f.get("directness_class") not in (1, 2, 3, 4, 5):
                 fail(f"{tag}: bad directness_class")
             for need in ("description", "quote", "direction"):
                 if not f.get(need):
                     fail(f"{tag}: finding missing {need}")
+            if f.get("source") == "full_text" and not f.get("location"):
+                fail(f"{tag}: full_text finding missing location")
             for key in ("effect_size", "p_value", "sample_size"):
                 blk = f.get(key) or {}
                 val = blk.get("value")
@@ -138,7 +142,7 @@ def check_extracted(data: Path):
                     fail(f"{tag}: {key} estimated_from_figure must start with ~")
                 elif vs.startswith("~") and prov != "estimated_from_figure":
                     fail(f"{tag}: {key} value starts with ~ without estimated_from_figure provenance")
-    ok(f"extracted.json: {len(papers)} papers ({with_findings} with findings), {nf} findings")
+    ok(f"{data.name}/extracted.json: {len(papers)} papers ({with_findings} with findings), {nf} findings")
     return with_findings, nf
 
 
@@ -159,6 +163,8 @@ def check_id_verification(data: Path, strict: bool = True) -> None:
     if isinstance(ext, dict):
         for paper in ext.get("papers", []):
             pmid = str(paper.get("pmid", ""))
+            if not pmid.isdigit():
+                continue
             entry = by_pmid.get(pmid)
             if not entry or not entry.get("verified"):
                 fail(f"{p.name}: PMID {pmid} missing or unverified")
@@ -201,7 +207,6 @@ def check_claims(data: Path, claims: Path) -> None:
         for path in re.findall(r"`([^`\s]+\.[A-Za-z0-9]+)(?::\d+(?:-\d+)?)?`", line):
             if path.startswith("--") or "*" in path or path.startswith("http"):
                 continue
-            # out/ is git-ignored scratch: map it to the data dir only, never to the local out/
             cand = [data / path[4:]] if path.startswith("out/") else [ROOT / path]
             n += 1
             if not any(c.exists() for c in cand):
@@ -224,6 +229,11 @@ def main() -> int:
         counts = check_extracted(data)
         check_id_verification(data, strict=strict)
         check_workbook(data, counts, strict=strict)
+        for sub in sorted(data.glob("H[1-5]")):
+            if sub.is_dir() and (sub / "extracted.json").exists():
+                sc = check_extracted(sub)
+                check_id_verification(sub, strict=strict)
+                check_workbook(sub, sc, strict=strict)
     check_claims(data, ROOT / a.claims)
     print(f"\nverify: {len(FAILS)} FAIL, {len(WARNS)} WARN")
     return 1 if FAILS else 0
