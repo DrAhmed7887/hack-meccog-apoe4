@@ -24,7 +24,7 @@ REVIEW_MARKER = "[PHYSICIAN REVIEW REQUIRED]"
 METHOD_ROWS = ["Team", "Team leader", "Team leader email", "Method URL", "Commit SHA", "Who did the work", "Model and version"]
 DRY_METHOD = {"Team": "dry-run (no team yet)", "Team leader": "dry run", "Team leader email": "dry-run@example.org",
               "Method URL": "https://github.com/DrAhmed7887/hack-meccog-apoe4", "Commit SHA": "GIT_HEAD",
-              "Who did the work": "agent", "Model and version": "qwen3.8-27b (RWTHgpt KI:connect, via rwth-ask)"}
+              "Who did the work": "both", "Model and version": "qwen3.8-27b (RWTHgpt KI:connect, via rwth-ask)"}
 
 
 def col_letter(i):

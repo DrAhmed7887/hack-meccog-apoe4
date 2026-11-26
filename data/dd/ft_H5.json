@@ -1,0 +1,567 @@
+{
+  "35750033": {
+    "status": "full_text",
+    "route": "pmc_oa",
+    "routes_tried": [
+      "pmc_oa"
+    ],
+    "chars": 103350,
+    "ft": {
+      "C1": {
+        "v": "yes",
+        "q": "APOE4 hiPSC-astrocytes and microglia"
+      },
+      "C2": {
+        "v": "yes",
+        "q": "in APOE4 compared to APOE3 astrocytes"
+      },
+      "C3": {
+        "v": "yes",
+        "q": "Filipin and TRITC-Dextran co-localization (yellow puncta), a measure of lysosomal cholesterol"
+      },
+      "C5": {
+        "v": "unclear",
+        "q": null,
+        "why": "model said no but quote not verbatim"
+      }
+    },
+    "effects": [],
+    "chunk_chars": 5271
+  },
+  "37777962": {
+    "status": "unavailable",
+    "route": null,
+    "routes_tried": [
+      "pmc_oa",
+      "europepmc",
+      "unpaywall_html",
+      "unpaywall_html",
+      "doi_direct_html"
+    ],
+    "chars": 0
+  },
+  "39532095": {
+    "status": "full_text",
+    "route": "pmc_oa",
+    "routes_tried": [
+      "pmc_oa"
+    ],
+    "chars": 107094,
+    "ft": {
+      "C1": {
+        "v": "unclear",
+        "q": null,
+        "why": "no valid item"
+      },
+      "C2": {
+        "v": "unclear",
+        "q": null,
+        "why": "no valid item"
+      },
+      "C3": {
+        "v": "unclear",
+        "q": null,
+        "why": "no valid item"
+      },
+      "C5": {
+        "v": "unclear",
+        "q": null,
+        "why": "no valid item"
+      }
+    },
+    "effects": [],
+    "chunk_chars": 4642
+  },
+  "41338186": {
+    "status": "unavailable",
+    "route": null,
+    "routes_tried": [
+      "pmc_oa",
+      "europepmc",
+      "unpaywall_html",
+      "unpaywall_html",
+      "doi_direct_html"
+    ],
+    "chars": 0
+  },
+  "34919811": {
+    "status": "full_text",
+    "route": "pmc_oa",
+    "routes_tried": [
+      "pmc_oa"
+    ],
+    "chars": 55466,
+    "ft": {
+      "C1": {
+        "v": "unclear",
+        "q": null,
+        "why": "no valid item"
+      },
+      "C2": {
+        "v": "unclear",
+        "q": null,
+        "why": "no valid item"
+      },
+      "C3": {
+        "v": "unclear",
+        "q": null,
+        "why": "no valid item"
+      },
+      "C5": {
+        "v": "unclear",
+        "q": null,
+        "why": "no valid item"
+      }
+    },
+    "effects": [],
+    "chunk_chars": 5153
+  },
+  "39901180": {
+    "status": "full_text",
+    "route": "pmc_oa",
+    "routes_tried": [
+      "pmc_oa"
+    ],
+    "chars": 93478,
+    "ft": {
+      "C1": {
+        "v": "no",
+        "q": "higher p21 intensity was also found in the brains of APOE4-TR mice than in APOE3-TR mice"
+      },
+      "C2": {
+        "v": "yes",
+        "q": "greater colocalization of LAMP1 with ABCA1 in APOE4-TR mice than in APOE3-TR mice"
+      },
+      "C3": {
+        "v": "yes",
+        "q": "greater colocalization of LAMP1 with ABCA1 in APOE4-TR mice than in APOE3-TR mice"
+      },
+      "C5": {
+        "v": "unclear",
+        "q": null,
+        "why": "model said no but quote not verbatim"
+      }
+    },
+    "effects": [],
+    "chunk_chars": 5047
+  },
+  "42636814": {
+    "status": "full_text",
+    "route": "pmc_oa",
+    "routes_tried": [
+      "pmc_oa"
+    ],
+    "chars": 94389,
+    "ft": {
+      "C1": {
+        "v": "yes",
+        "q": "APOE4/4 astrocytes showed significantly reduced lysosomal DQ-BSA signal compared to isogenic control APOE3/3 astrocytes"
+      },
+      "C2": {
+        "v": "yes",
+        "q": "compared to isogenic control APOE3/3 astrocytes across two isogenic donor pairs"
+      },
+      "C3": {
+        "v": "yes",
+        "q": "Lysosomal proteolytic capacity was assessed using DQ-BSA, a self-quenched substrate that fluoresces upon lysosomal cleavage"
+      },
+      "C5": {
+        "v": "unclear",
+        "q": null,
+        "why": "model said no but quote not verbatim"
+      }
+    },
+    "effects": [
+      "2.25-fold increase (± 0.30 SEM) in α-Syn phosphorylation"
+    ],
+    "chunk_chars": 5018
+  },
+  "32632205": {
+    "status": "full_text",
+    "route": "pmc_oa",
+    "routes_tried": [
+      "pmc_oa"
+    ],
+    "chars": 51275,
+    "ft": {
+      "C1": {
+        "v": "no",
+        "q": "ApoE4+/+ AD subjects and ApoE3+/+ normal aging subjects"
+      },
+      "C2": {
+        "v": "yes",
+        "q": "ApoE4+/+ neurons (human iPSC or mouse) manifested enlarged lysosomes and increased numbers of lysosomes within each cell when compared to ApoE3+/+ counterparts"
+      },
+      "C3": {
+        "v": "no",
+        "q": "The average size of lysosomes measured by area was 163.5 μm2 in ApoE4+/+ versus 90.4 μm2 in ApoE3+/+ neurons"
+      },
+      "C5": {
+        "v": "unclear",
+        "q": null,
+        "why": "model said no but quote not verbatim"
+      }
+    },
+    "effects": [
+      "There were 18.4% ApoE4+/+ neurons with >10 lysosomes/cell, whereas only 1.6% ApoE3+/+ neurons with >10 lysosomes/cell",
+      "46.7% of ApoE4+/+ neurons with the diameter of lysosomes ranged from 10 to 20 μm, whereas 66.1% of ApoE3+/+"
+    ],
+    "chunk_chars": 5592
+  },
+  "40457456": {
+    "status": "full_text",
+    "route": "pmc_oa",
+    "routes_tried": [
+      "pmc_oa"
+    ],
+    "chars": 63198,
+    "ft": {
+      "C1": {
+        "v": "yes",
+        "q": "E4/E4 iMGs exhibited significantly lower lysosomal degradation activity compared to E3/E3 cells"
+      },
+      "C2": {
+        "v": "yes",
+        "q": "pinocytosis was significantly reduced in E4/E4 iMGs compared to E3/E3 iMGs"
+      },
+      "C3": {
+        "v": "yes",
+        "q": "E4/E4 iMGs exhibited significantly lower lysosomal degradation activity compared to E3/E3 cells"
+      },
+      "C5": {
+        "v": "unclear",
+        "q": null,
+        "why": "model said no but quote not verbatim"
+      }
+    },
+    "effects": [],
+    "chunk_chars": 5137
+  },
+  "42694561": {
+    "status": "full_text",
+    "route": "pmc_oa",
+    "routes_tried": [
+      "pmc_oa"
+    ],
+    "chars": 32337,
+    "ft": {
+      "C1": {
+        "v": "unclear",
+        "q": "iPSC-derived microglia | Human microglial-like cells generated in vitro"
+      },
+      "C2": {
+        "v": "unclear",
+        "q": "APOE3/APOE4 comparison in matched background"
+      },
+      "C3": {
+        "v": "unclear",
+        "q": null,
+        "why": "model said no but quote not verbatim"
+      },
+      "C5": {
+        "v": "unclear",
+        "q": null,
+        "why": "model said no but quote not verbatim"
+      }
+    },
+    "effects": [],
+    "chunk_chars": 4322
+  },
+  "42692000": {
+    "status": "unavailable",
+    "route": null,
+    "routes_tried": [
+      "pmc_oa",
+      "europepmc",
+      "unpaywall",
+      "doi_direct_html"
+    ],
+    "chars": 0
+  },
+  "41673700": {
+    "status": "full_text",
+    "route": "pmc_oa",
+    "routes_tried": [
+      "pmc_oa"
+    ],
+    "chars": 70906,
+    "ft": {
+      "C1": {
+        "v": "yes",
+        "q": "isogenic E3/E3 and E4/E4 iPSC-derived astrocytes from TCW et al."
+      },
+      "C2": {
+        "v": "yes",
+        "q": "E4-expressing iPSC-derived astrocytes had lower oxygen consumption rates and increased glycolysis compared to E3 cells"
+      },
+      "C3": {
+        "v": "unclear",
+        "q": null,
+        "why": "model said no but quote not verbatim"
+      },
+      "C5": {
+        "v": "unclear",
+        "q": null,
+        "why": "model said no but quote not verbatim"
+      }
+    },
+    "effects": [],
+    "chunk_chars": 5168
+  },
+  "30699343": {
+    "status": "full_text",
+    "route": "pmc_oa",
+    "routes_tried": [
+      "pmc_oa"
+    ],
+    "chars": 84702,
+    "ft": {
+      "C1": {
+        "v": "no",
+        "q": "a homozygous APOE3 iPSC line from a normal aged donor was edited to APOE4/E4"
+      },
+      "C2": {
+        "v": "yes",
+        "q": "parental APOE4 and isogenic APOE3 cerebral organoids after 46 days of maturation"
+      },
+      "C3": {
+        "v": "unclear",
+        "q": null,
+        "why": "model said no but quote not verbatim"
+      },
+      "C5": {
+        "v": "unclear",
+        "q": null,
+        "why": "model said no but quote not verbatim"
+      }
+    },
+    "effects": [],
+    "chunk_chars": 4990
+  },
+  "41102453": {
+    "status": "full_text",
+    "route": "pmc_oa",
+    "routes_tried": [
+      "pmc_oa"
+    ],
+    "chars": 122430,
+    "ft": {
+      "C1": {
+        "v": "yes",
+        "q": "human iPS cell lines homozygous for APOE ε3 or APOE ε4"
+      },
+      "C2": {
+        "v": "yes",
+        "q": "E3WT n = 8, E3KO n = 5; E4WT and E4KO n = 7 mice"
+      },
+      "C3": {
+        "v": "unclear",
+        "q": null,
+        "why": "model said no but quote not verbatim"
+      },
+      "C5": {
+        "v": "unclear",
+        "q": null,
+        "why": "model said no but quote not verbatim"
+      }
+    },
+    "effects": [],
+    "chunk_chars": 5146
+  },
+  "40958776": {
+    "status": "full_text",
+    "route": "pmc_oa",
+    "routes_tried": [
+      "pmc_oa"
+    ],
+    "chars": 49637,
+    "ft": {
+      "C1": {
+        "v": "yes",
+        "q": "we differentiated APOE-isogenic iPS cell lines (APOE-KO, APOE2, APOE3 and APOE4) into functional iAstrocytes"
+      },
+      "C2": {
+        "v": "yes",
+        "q": "while 7 pathways were identified in APOE4 compared to APOE3"
+      },
+      "C3": {
+        "v": "unclear",
+        "q": null,
+        "why": "model said no but quote not verbatim"
+      },
+      "C5": {
+        "v": "unclear",
+        "q": null,
+        "why": "model said no but quote not verbatim"
+      }
+    },
+    "effects": [],
+    "chunk_chars": 5091
+  },
+  "23620513": {
+    "status": "full_text",
+    "route": "unpaywall",
+    "routes_tried": [
+      "pmc_oa",
+      "europepmc",
+      "unpaywall_html",
+      "unpaywall_html"
+    ],
+    "chars": 73245
+  },
+  "32971461": {
+    "status": "unavailable",
+    "route": null,
+    "routes_tried": [
+      "pmc_oa",
+      "europepmc",
+      "unpaywall_html",
+      "unpaywall_html",
+      "unpaywall_html",
+      "doi_direct_html"
+    ],
+    "chars": 0
+  },
+  "33027662": {
+    "status": "full_text",
+    "route": "pmc_oa",
+    "routes_tried": [
+      "pmc_oa"
+    ],
+    "chars": 36396,
+    "ft": {
+      "C1": {
+        "v": "yes",
+        "q": "We used two independent pairs of cells which are isogenic at all loci except for APOE where they are either APOE3 or APOE4"
+      },
+      "C2": {
+        "v": "unclear",
+        "q": null,
+        "why": "model said yes but quote not verbatim"
+      },
+      "C3": {
+        "v": "no",
+        "q": "APOE4 astrocytes also exhibited a trend towards lower late endosomal and lysosomal number when compared to APOE3 astrocytes in both isogenic pairs"
+      },
+      "C5": {
+        "v": "unclear",
+        "q": null,
+        "why": "model said no but quote not verbatim"
+      }
+    },
+    "effects": [],
+    "chunk_chars": 5189
+  },
+  "31641056": {
+    "status": "full_text",
+    "route": "unpaywall",
+    "routes_tried": [
+      "pmc_oa",
+      "europepmc",
+      "unpaywall_html",
+      "unpaywall_html"
+    ],
+    "chars": 65353
+  },
+  "29563219": {
+    "status": "full_text",
+    "route": "unpaywall",
+    "routes_tried": [
+      "pmc_oa",
+      "europepmc",
+      "unpaywall_html",
+      "unpaywall_html"
+    ],
+    "chars": 58295
+  },
+  "42728404": {
+    "status": "full_text",
+    "route": "pmc_oa",
+    "routes_tried": [
+      "pmc_oa"
+    ],
+    "chars": 163079,
+    "ft": {
+      "C1": {
+        "v": "unclear",
+        "q": "postmortem human brain samples from AD cases"
+      },
+      "C2": {
+        "v": "yes",
+        "q": "APOE ε4/ε4 astrocytes also exhibited significantly higher APOE protein levels than APOE ε3/ε3 astrocytes"
+      },
+      "C3": {
+        "v": "unclear",
+        "q": null,
+        "why": "model said no but quote not verbatim"
+      },
+      "C5": {
+        "v": "unclear",
+        "q": null,
+        "why": "model said no but quote not verbatim"
+      }
+    },
+    "effects": [],
+    "chunk_chars": 5112
+  },
+  "42216420": {
+    "status": "full_text",
+    "route": "pmc_oa",
+    "routes_tried": [
+      "pmc_oa"
+    ],
+    "chars": 164107,
+    "ft": {
+      "C1": {
+        "v": "no",
+        "q": "serum lipid levels, and the interactions with sex or lifestyle factors"
+      },
+      "C2": {
+        "v": "yes",
+        "q": "APOE4>E3>E2 is associated with increased serum low-density lipoprotein-associated cholesterol"
+      },
+      "C3": {
+        "v": "unclear",
+        "q": null,
+        "why": "model said no but quote not verbatim"
+      },
+      "C5": {
+        "v": "unclear",
+        "q": null,
+        "why": "model said no but quote not verbatim"
+      }
+    },
+    "effects": [],
+    "chunk_chars": 2540
+  },
+  "39056789": {
+    "status": "full_text",
+    "route": "pmc_oa",
+    "routes_tried": [
+      "pmc_oa"
+    ],
+    "chars": 35519,
+    "ft": {
+      "C1": {
+        "v": "yes",
+        "q": "APOE-isogenic iPS cell lines BIONi010-C3 (APOE-KO), BIONi010-C6 (APOE2), BIONi010-C2 (APOE3), and BIONi010-C4 (APOE4) were used for differentiation into iN cells"
+      },
+      "C2": {
+        "v": "yes",
+        "q": "Both APOE4 iPSCs and iN cells displayed the highest glycoATP production, while no difference was observed between APOE2, -E3, and -KO"
+      },
+      "C3": {
+        "v": "unclear",
+        "q": null,
+        "why": "model said no but quote not verbatim"
+      },
+      "C5": {
+        "v": "unclear",
+        "q": null,
+        "why": "model said no but quote not verbatim"
+      }
+    },
+    "effects": [],
+    "chunk_chars": 5139
+  }
+}

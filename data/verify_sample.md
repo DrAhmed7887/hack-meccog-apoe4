@@ -1,0 +1,12 @@
+# Verification sample (seed 7, 6 of 6 findings with a number)
+
+| finding | field | quoted value | found in source? | location | sentence |
+|---|---|---|---|---|---|
+| PMID 35750033 F4 | sample_size | 6 | yes | Figure 6 legend | (N=6, 3 independent experiments).(H) Representative images and % co-localization of filipin and endocytosed TRITC-Dextran in isogenic APOE astrocytes (N=4, 3 independent experiments, each image=an independent line). |
+| PMID 42636814 F1 | p_value | 0.0002 | yes | Results > Cholesterol accumulation in APOE4/4 astrocytes leads to lysosomal dysfunction and pathogenic α-Syn processing. | Treatment with 2-hydroxypropyl-β-cyclodextrin (2HβCD) and methyl-β-cyclodextrin (MβCD) significantly increased lysosomal proteolysis (2HβCD: p = 0.0002; MβCD: p = 0.019) (Figure 5b), whereas the other interventions had neutral or negative effects on APOE4/4 lysosomal proteolytic activity (Figure 5b). |
+| PMID 40457456 F3 | p_value | 0.01 | yes | Results > Basal levels of lipidated LC3 and macropinocytosis are reduced in E4/E4 iMGs | Under basal conditions, pinocytosis was significantly reduced in E4/E4 iMGs compared to E3/E3 iMGs (two-way repeated measures ANOVA, time x genotype p = 0.01; Fig. |
+| PMID 35750033 F2 | sample_size | 4 | yes | Figure 6 legend | (N=6, 3 independent experiments).(H) Representative images and % co-localization of filipin and endocytosed TRITC-Dextran in isogenic APOE astrocytes (N=4, 3 independent experiments, each image=an independent line). |
+| PMID 42636814 F4 | p_value | 0.0167 | yes | Results > Cholesterol accumulation in APOE4/4 astrocytes leads to lysosomal dysfunction and pathogenic α-Syn processing. | Filipin staining revealed a significant increase in endogenous free cholesterol in APOE4/4 astrocytes compared to APOE3/3 astrocytes, which was significantly reduced following MβCD treatment (p = 0.0167) to levels comparable to APOE3/3 astrocytes (Figure S5b). |
+| PMID 35750033 F1 | p_value | <0.001 | yes | Results > Impaired cholesterol trafficking in APOE4 astrocytes and microglia | Filipin and TRITC-Dextran co-localization (yellow puncta), a measure of lysosomal cholesterol (Majumdar et al., 2007), was significantly increased (3-fold, p<0.001) in APOE4 compared to APOE3 astrocytes, indicating that intracellular free cholesterol accumulates in lysosomes (Figure 6H). |
+
+Findings with every number found verbatim: 6/6. Number fields found verbatim: 6/6.

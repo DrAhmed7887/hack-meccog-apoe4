@@ -1,0 +1,301 @@
+{
+  "hyp": "H5",
+  "papers": [
+    {
+      "pmid": "37777962",
+      "doi": "10.1016/j.celrep.2023.113183",
+      "status": "unavailable",
+      "route": null,
+      "routes_tried": [
+        "pmc_oa",
+        "europepmc",
+        "unpaywall_html",
+        "unpaywall_html",
+        "doi_direct_html"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": false,
+          "why": "no PMCID"
+        },
+        {
+          "route": "europepmc",
+          "ok": false,
+          "why": "no PMCID at Europe PMC"
+        },
+        {
+          "route": "unpaywall_html",
+          "ok": false,
+          "chars": 0,
+          "why": "page had no readable article body (landing page or paywall)"
+        },
+        {
+          "route": "unpaywall_html",
+          "ok": false,
+          "why": "HTTP Error 403: Forbidden"
+        },
+        {
+          "route": "doi_direct_html",
+          "ok": false,
+          "chars": 0,
+          "why": "page had no readable article body (landing page or paywall)"
+        }
+      ],
+      "chars": 0
+    },
+    {
+      "pmid": "41338186",
+      "doi": "10.1016/j.neuron.2025.10.040",
+      "status": "unavailable",
+      "route": null,
+      "routes_tried": [
+        "pmc_oa",
+        "europepmc",
+        "unpaywall_html",
+        "unpaywall_html",
+        "doi_direct_html"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": false,
+          "why": "no PMCID"
+        },
+        {
+          "route": "europepmc",
+          "ok": false,
+          "why": "no PMCID at Europe PMC"
+        },
+        {
+          "route": "unpaywall_html",
+          "ok": false,
+          "chars": 4415,
+          "why": "page had no readable article body (landing page or paywall)"
+        },
+        {
+          "route": "unpaywall_html",
+          "ok": false,
+          "chars": 8258,
+          "why": "page had no readable article body (landing page or paywall)"
+        },
+        {
+          "route": "doi_direct_html",
+          "ok": false,
+          "chars": 0,
+          "why": "page had no readable article body (landing page or paywall)"
+        }
+      ],
+      "chars": 0
+    },
+    {
+      "pmid": "42636814",
+      "doi": "10.1016/j.stem.2026.08.001",
+      "status": "full_text",
+      "route": "pmc_oa",
+      "routes_tried": [
+        "pmc_oa"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": true,
+          "pmcid": "PMC13528747",
+          "chars": 94389,
+          "why": ""
+        }
+      ],
+      "chars": 94389
+    },
+    {
+      "pmid": "35750033",
+      "doi": "10.1016/j.cell.2022.05.017",
+      "status": "full_text",
+      "route": "pmc_oa",
+      "routes_tried": [
+        "pmc_oa"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": true,
+          "pmcid": "PMC9340815",
+          "chars": 103350,
+          "why": ""
+        }
+      ],
+      "chars": 103350
+    },
+    {
+      "pmid": "34919811",
+      "doi": "10.1016/j.stemcr.2021.11.007",
+      "status": "full_text",
+      "route": "pmc_oa",
+      "routes_tried": [
+        "pmc_oa"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": true,
+          "pmcid": "PMC8758949",
+          "chars": 55466,
+          "why": ""
+        }
+      ],
+      "chars": 55466
+    },
+    {
+      "pmid": "37857825",
+      "doi": "10.1038/s41590-023-01640-9",
+      "status": "full_text",
+      "route": "pmc_oa",
+      "routes_tried": [
+        "pmc_oa"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": true,
+          "pmcid": "PMC11980647",
+          "chars": 87076,
+          "why": ""
+        }
+      ],
+      "chars": 87076
+    },
+    {
+      "pmid": "35031484",
+      "doi": "10.1016/j.nbd.2022.105615",
+      "status": "full_text",
+      "route": "pmc_oa",
+      "routes_tried": [
+        "pmc_oa"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": true,
+          "pmcid": "PMC8934202",
+          "chars": 101929,
+          "why": ""
+        }
+      ],
+      "chars": 101929
+    },
+    {
+      "pmid": "37995685",
+      "doi": "10.1016/j.neuron.2023.10.023",
+      "status": "full_text",
+      "route": "pmc_oa",
+      "routes_tried": [
+        "pmc_oa"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": true,
+          "pmcid": "PMC10922706",
+          "chars": 84441,
+          "why": ""
+        }
+      ],
+      "chars": 84441
+    },
+    {
+      "pmid": "39532095",
+      "doi": "10.1016/j.cell.2024.10.027",
+      "status": "full_text",
+      "route": "pmc_oa",
+      "routes_tried": [
+        "pmc_oa"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": true,
+          "pmcid": "PMC11724755",
+          "chars": 107094,
+          "why": ""
+        }
+      ],
+      "chars": 107094
+    },
+    {
+      "pmid": "39901180",
+      "doi": "10.1186/s13024-025-00802-7",
+      "status": "full_text",
+      "route": "pmc_oa",
+      "routes_tried": [
+        "pmc_oa"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": true,
+          "pmcid": "PMC11792374",
+          "chars": 93478,
+          "why": ""
+        }
+      ],
+      "chars": 93478
+    },
+    {
+      "pmid": "39468688",
+      "doi": "10.1186/s40035-024-00445-6",
+      "status": "full_text",
+      "route": "pmc_oa",
+      "routes_tried": [
+        "pmc_oa"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": true,
+          "pmcid": "PMC11520887",
+          "chars": 88561,
+          "why": ""
+        }
+      ],
+      "chars": 88561
+    },
+    {
+      "pmid": "40457456",
+      "doi": "10.1186/s12974-025-03470-y",
+      "status": "full_text",
+      "route": "pmc_oa",
+      "routes_tried": [
+        "pmc_oa"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": true,
+          "pmcid": "PMC12131611",
+          "chars": 63198,
+          "why": ""
+        }
+      ],
+      "chars": 63198
+    },
+    {
+      "pmid": "32632205",
+      "doi": "10.1038/s41380-020-0824-3",
+      "status": "full_text",
+      "route": "pmc_oa",
+      "routes_tried": [
+        "pmc_oa"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": true,
+          "pmcid": "PMC7785685",
+          "chars": 51275,
+          "why": ""
+        }
+      ],
+      "chars": 51275
+    }
+  ]
+}

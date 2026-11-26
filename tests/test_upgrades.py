@@ -267,5 +267,94 @@ class RuleC3FigureEstimateTests(unittest.TestCase):
             self.assertTrue(any("starts with ~ without estimated_from_figure" in e for e in errs))
 
 
+class PhysicianAuditPostRulesTests(unittest.TestCase):
+    def test_apply_h5_physician_audit_cleanups(self):
+        papers = [
+            {
+                "pmid": "34919811",
+                "doi": "10.1016/j.stemcr.2021.11.007",
+                "findings": [
+                    {
+                        "description": "Lysosomal cholesterol colocalization.",
+                        "quote": "Further colocalization of Filipin III with Dextran-Alexa 555 was highest in APOE4 iAstrocytes.",
+                        "summary": "(APOE4) -> (lysosomal cholesterol)",
+                        "direction": "supports",
+                        "relevance": 0.82,
+                        "experimental_system": "iAstrocytes",
+                        "directness_class": 3,
+                        "directness_strength": 3,
+                        "effect_size": {"value": "qualitative", "quote": "highest in APOE4 iAstrocytes", "provenance": "printed_in_text"},
+                        "p_value": {"value": None, "quote": None},
+                        "sample_size": {"value": None, "quote": None},
+                    },
+                    {
+                        "description": "Lipid GSEA only.",
+                        "quote": "Total cholesterol and CE were lowest in APOE4 and highest in APOE3 iAstrocytes.",
+                        "summary": "(APOE4) -> (total cholesterol)",
+                        "direction": "neutral",
+                        "relevance": 0.4,
+                        "experimental_system": "iAstrocytes",
+                        "directness_class": 5,
+                        "directness_strength": 5,
+                        "effect_size": {"value": None, "quote": None},
+                        "p_value": {"value": None, "quote": None},
+                        "sample_size": {"value": None, "quote": None},
+                    },
+                ],
+            },
+            {
+                "pmid": "39532095",
+                "doi": "10.1016/j.cell.2024.10.027",
+                "findings": [
+                    {
+                        "description": "LDL inhibition in H4.",
+                        "quote": "both lipApoE3 and lipApoE4 led to 60-65% inhibition of DiI-LDL uptake",
+                        "summary": "(lipApoE3/4) -> (inhibited LDL uptake)",
+                        "direction": "neutral",
+                        "relevance": 0.45,
+                        "experimental_system": "exogenous PUFA-CE-lipidated ApoE in human neurons/cells; H4 cells (human iPSC-derived neurons); APOE3/APOE4 grouped vs APOE2",
+                        "directness_class": 4,
+                        "directness_strength": 4,
+                        "effect_size": {"value": None, "quote": None},
+                        "p_value": {"value": None, "quote": None},
+                        "sample_size": {"value": None, "quote": None},
+                        "physician_review": True,
+                    }
+                ],
+            },
+            {
+                "pmid": "40457456",
+                "doi": "10.1186/s12974-025-03470-y",
+                "findings": [
+                    {
+                        "description": "Lower lysosomal degradation.",
+                        "quote": "E4/E4 iMGs exhibited significantly lower lysosomal degradation activity compared to E3/E3 cells",
+                        "summary": "(E4/E4) -> (lower lysosomal degradation)",
+                        "direction": "supports",
+                        "relevance": 0.92,
+                        "experimental_system": "iMGs",
+                        "directness_class": 2,
+                        "directness_strength": 2,
+                        "effect_size": {"value": "qualitative", "quote": "significantly lower", "provenance": "printed_in_text"},
+                        "p_value": {"value": None, "quote": None},
+                        "sample_size": {"value": None, "quote": None},
+                    }
+                ],
+            },
+        ]
+        extract.apply_h5_physician_audit(papers)
+        self.assertEqual(len(papers[0]["findings"]), 2)
+        self.assertIn("LAMP2", papers[0]["findings"][1]["quote"])
+        self.assertIn("H4 human neuroblastoma cells", papers[1]["findings"][0]["experimental_system"])
+        self.assertFalse(papers[1]["findings"][0]["physician_review"])
+        self.assertEqual(len(papers[2]["findings"]), 2)
+        self.assertEqual(papers[2]["findings"][1]["direction"], "contradicts")
+
+        rows = to_template.build_rows("HYP", papers)
+        descs = [r[5] for r in rows[2:] if r[5]]
+        self.assertFalse(any(to_template.REVIEW_MARKER in d for d in descs))
+        self.assertTrue(any(d.startswith("CONTRADICTING: ") for d in descs))
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -51,6 +51,80 @@ READOUT_SPLIT = re.compile(r";\s*|,\s*(?=[A-Za-z][A-Za-z0-9_-]{0,30}\s*:)")
 READOUT_LABEL = re.compile(r"^\s*([A-Za-z][A-Za-z0-9_-]{0,30})\s*:")
 STAT_LABELS = {"n", "p", "padj", "t", "f", "d", "r", "ci", "ci95", "sd", "se", "sem", "df"}
 
+H5_AUDIT_LAMP2_FINDING = {
+    "description": "In isogenic human iPSC-derived astrocytes, LAMP2 protein levels by western blot were higher in APOE3 than in APOE4, APOE2, and APOE-KO (E3 > E2 = E4 = KO; Figures 4D-E), while lysosomal activity was lower in APOE3 and APOE4 than in APOE2 and APOE-KO (KO = E2 > E3 = E4; Figure 4F).",
+    "quote": "However, protein levels of LAMP2 detected by western blot were significantly higher in APOE3 compared with APOE2, APOE4, and APOE-KO (E3 > E2 = E4 = KO) (Figures 4D and 4E). Lysosomal activity in APOE3 and APOE4 was significantly lower than in APOE2 and APOE-KO cells (KO = E2 > E3 = E4) (Figure 4F).",
+    "summary": "(APOE4 vs APOE3 iAstrocytes) -> (lower LAMP2 protein levels in APOE4; equally reduced lysosomal activity vs APOE2/KO)",
+    "direction": "supports",
+    "experimental_system": "human iPSC-derived astrocytes (iAstrocytes), APOE4 vs APOE3, APOE2, and APOE-KO (isogenic)",
+    "relevance": 0.78,
+    "directness_class": 3,
+    "directness_strength": 3,
+    "effect_size": {
+        "value": "qualitative",
+        "quote": "protein levels of LAMP2 detected by western blot were significantly higher in APOE3 compared with APOE2, APOE4, and APOE-KO (E3 > E2 = E4 = KO)",
+        "provenance": "printed_in_text",
+    },
+    "p_value": {"value": None, "quote": None},
+    "sample_size": {"value": None, "quote": None},
+    "physician_review": False,
+    "physician_review_reasons": [],
+    "location": "Results > Lysosomal but not endosomal function is affected by APOE genotype",
+    "source": "full_text",
+}
+
+H5_AUDIT_AUTOPHAGY_CONTRARY_FINDING = {
+    "description": "In human iPSC-derived microglia (iMGs), E4/E4 and E3/E3 genotypes showed no significant differences in basal (bafilomycin A) or rapamycin-induced autophagic flux (Fig. 1C-E), indicating that autophagic flux is not affected by APOE genotype.",
+    "quote": "Collectively, these results suggest that, compared to E3/E3 iMGs, E4/E4 iMGs exhibit reduced basal levels of LC3-II but no significant differences in basal or rapamycin-induced autophagic flux, indicating that autophagy is not affected by the APOE genotype.",
+    "summary": "(APOE4/4 vs APOE3/3 genotype in human iMGs) -> (no significant difference in basal or rapamycin-induced autophagic flux)",
+    "direction": "contradicts",
+    "experimental_system": "human iPSC-derived microglia (iMGs), E4/E4 vs E3/E3 genotype, basal/bafilomycin A and rapamycin treatment",
+    "relevance": 0.68,
+    "directness_class": 3,
+    "directness_strength": 3,
+    "effect_size": {
+        "value": "qualitative",
+        "quote": "no significant differences in basal or rapamycin-induced autophagic flux, indicating that autophagy is not affected by the APOE genotype",
+        "provenance": "printed_in_text",
+    },
+    "p_value": {"value": None, "quote": None},
+    "sample_size": {"value": None, "quote": None},
+    "physician_review": False,
+    "physician_review_reasons": [],
+    "location": "Results > Basal levels of lipidated LC3 and macropinocytosis are reduced in E4/E4 iMGs (Fig. 1C-E)",
+    "source": "full_text",
+}
+
+_STRICT_C3_34919811 = re.compile(r"lysosom|endosom|lamp2|dextran-alexa 555|cathepsin|autophag", re.I)
+
+
+def apply_h5_physician_audit(papers):
+    """Deterministic post-rules encoding Ahmed's 26 Nov 2026 A3 physician audit across the signed H5 pool."""
+    for p in papers:
+        pmid = str(p.get("pmid") or "")
+        findings = p.get("findings") or []
+        if pmid == "39532095":
+            for f in findings:
+                sys_txt = f.get("experimental_system") or ""
+                if "H4 cells (human iPSC-derived neurons)" in sys_txt:
+                    f["experimental_system"] = sys_txt.replace(
+                        "H4 cells (human iPSC-derived neurons)", "H4 human neuroblastoma cells"
+                    )
+                f["physician_review"] = False
+                f["physician_audited"] = "2026-11-26"
+        elif pmid == "34919811":
+            kept = [f for f in findings if _STRICT_C3_34919811.search(f"{f.get('quote', '')} {f.get('description', '')}")]
+            quotes = {norm_text(f.get("quote", "")) for f in kept}
+            if norm_text(H5_AUDIT_LAMP2_FINDING["quote"]) not in quotes:
+                kept.append(dict(H5_AUDIT_LAMP2_FINDING))
+            p["findings"] = kept
+        elif pmid == "40457456":
+            quotes = {norm_text(f.get("quote", "")) for f in findings}
+            if norm_text(H5_AUDIT_AUTOPHAGY_CONTRARY_FINDING["quote"]) not in quotes:
+                findings.append(dict(H5_AUDIT_AUTOPHAGY_CONTRARY_FINDING))
+                p["findings"] = findings
+    return papers
+
 
 def norm_text(s):
     s = unicodedata.normalize("NFKC", s or "")
@@ -481,6 +555,8 @@ def main():
             e["fulltext"] = {"status": ft["status"] if ft else "not_tried", "routes_tried": ft["routes_tried"] if ft else []}
         papers.append(meta | e)
         print(f"PMID {r['pmid']}: {len(e['findings'])} findings ({e['fulltext']['status']})", flush=True)
+    if d.get("hyp") == "H5":
+        apply_h5_physician_audit(papers)
     d2 = {"hyp": d["hyp"], "source": "full text where available (out/fulltext), else abstract", "papers": papers}
     common.save_json(d2, a.out)
     fs = [f for p in papers for f in p["findings"]]

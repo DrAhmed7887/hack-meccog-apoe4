@@ -1,0 +1,5199 @@
+{
+  "H1": {
+    "c1_rule_removed": [],
+    "screened": 37,
+    "pass_C1_C3": 0,
+    "pass_C1_C4": 0,
+    "n_pass_C1_C4_cap50": 0,
+    "free_full_text": 4,
+    "numeric_effect_papers_C1_C4": 0,
+    "numeric_effect_quotes_C1_C4": 0,
+    "contrary_C5_yes_among_pass": 0,
+    "contrary_C5_yes_all": 3,
+    "rows": [
+      {
+        "pmid": "29861287",
+        "title": "APOE4 Causes Widespread Molecular and Cellular Alterations Associated with Alzheimer's Disease Phenotypes in Human iPSC-Derived Brain Cell Types.",
+        "year": "2018",
+        "via": "query",
+        "C1": {
+          "v": "yes",
+          "q": "CRISPR/Cas9 and induced pluripotent stem cells (iPSCs) to examine APOE4 effects on human brain cell types"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "relative to isogenic APOE3 cells"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "yes",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": "pmc_oa"
+      },
+      {
+        "pmid": "28057414",
+        "title": "ApoE, ApoE Receptors, and the Synapse in Alzheimer's Disease.",
+        "year": "2017",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "AD patients",
+          "why": "rule: AD brain + animal model"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [
+          "(abstract) et AD is the ɛ4 isoform of apolipoprotein E (ApoE4), which is present in almost 20% of the population. In this review we discuss the contributi"
+        ],
+        "route": null
+      },
+      {
+        "pmid": "34982109",
+        "title": "Isoform-dependent lysosomal degradation and internalization of apolipoprotein E requires autophagy proteins.",
+        "year": "2022",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "in immortalized neuron-like and hepatic cells, and in mouse brain tissue"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null,
+          "why": "rule: APOE4 and APOE3 not both named"
+        },
+        "C3": {
+          "v": "no",
+          "q": "alters the proteomic contents of lysosomes following internalization"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "33550528",
+        "title": "Defective Lysosomal Lipid Catabolism as a Common Pathogenic Mechanism for Dementia.",
+        "year": "2021",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "Research from mouse and cell culture models, and neuropathological evidence from lysosomal storage diseases"
+        },
+        "C2": {
+          "v": "no",
+          "q": "the most significant being inheritance of the ε4 allele of the APOE gene, encoding apolipoprotein E"
+        },
+        "C3": {
+          "v": "no",
+          "q": "impaired cholesterol or sphingolipid catabolism is sufficient to produce the pathological hallmarks of dementia"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "38777335",
+        "title": "Apolipoprotein E2 Expression Alters Endosomal Pathways in a Mouse Model With Increased Brain Exosome Levels During Aging.",
+        "year": "2024",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "we detected similar morphology and abundance of early endosomes and retromer-associated vesicles within cortical neurons of aged APOE2 targeted-replacement mice compared with APOE3"
+        },
+        "C2": {
+          "v": "no",
+          "q": "we detected similar morphology and abundance of early endosomes and retromer-associated vesicles within cortical neurons of aged APOE2 targeted-replacement mice compared with APOE3"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "28663518",
+        "title": "Amyloid precursor protein and endosomal-lysosomal dysfunction in Alzheimer's disease: inseparable partners in a multifactorial disease.",
+        "year": "2017",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "The striking amelioration of diverse deficits in animal AD models by remediating ELN dysfunction"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "39600269",
+        "title": "Exosomes, Endosomes, and Caveolae as Encouraging Targets with Favorable Gut Microbiota for the Innovative Treatment of Alzheimer's Diseases.",
+        "year": "2024",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "Collectively, this research direction has the potential to improve clinical care through disease-modifying treatment strategies with benefits for patients with neurodegenerative diseases"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "29704008",
+        "title": "Impact of late-onset Alzheimer's genetic risk factors on beta-amyloid endocytic production.",
+        "year": "2018",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "AD patients",
+          "why": "rule: AD brain"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "30375977",
+        "title": "Reversal of ApoE4-induced recycling block as a novel prevention approach for Alzheimer's disease.",
+        "year": "2018",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "inhibition of NHE6, the primary proton leak channel in the early endosome, in rodents completely reverses"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "ApoE4 differs from the most common ApoE3 isoform by a single amino acid"
+        },
+        "C3": {
+          "v": "no",
+          "q": "promotes unfolding of ApoE4 upon endosomal vesicle acidification"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "40675218",
+        "title": "Neuronal endolysosomal alterations induced by Apolipoprotein E4 emerge over time in primary neurons.",
+        "year": "2025",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "mature primary neurons from ApoE knockout (KO), ApoE3, and ApoE4 mice"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "ApoE knockout (KO), ApoE3, and ApoE4 mice"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "yes",
+          "q": "mature primary neurons from ApoE knockout (KO), ApoE3, and ApoE4 mice show no major differences in endosomal appearance and function"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "34068576",
+        "title": "Differences in Recycling of Apolipoprotein E3 and E4-LDL Receptor Complexes-A Mechanistic Hypothesis.",
+        "year": "2021",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "We hope that this proposal will stimulate experimental research in this direction that allows the testing of our hypothesis."
+        },
+        "C2": {
+          "v": "no",
+          "q": "We here propose that the differences between ApoE isoforms can be explained by differences in the pH-dependence"
+        },
+        "C3": {
+          "v": "no",
+          "q": "the differences between ApoE isoforms can be explained by differences in the pH-dependence of the association"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "34617884",
+        "title": "NHE6 depletion corrects ApoE4-mediated synaptic impairments and reduces amyloid plaque load.",
+        "year": "2021",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "loss of NHE6 (encoded by the gene Slc9a6) in mice effectively suppressed amyloid deposition"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "35351864",
+        "title": "Effects of APOE4 allelic dosage on lipidomic signatures in the entorhinal cortex of aged mice.",
+        "year": "2022",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "14-15 month-old APOE3/3, APOE3/4, and APOE4/4 targeted replacement mice"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "neurons cultured with conditioned media from APOE3/3 or APOE4/4 astrocytes"
+        },
+        "C3": {
+          "v": "no",
+          "q": "We performed a targeted lipidomic analysis"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "37726747",
+        "title": "Regulation of the hippocampal translatome by Apoer2-ICD release.",
+        "year": "2023",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "AD patients",
+          "why": "rule: AD brain + animal model"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "29311783",
+        "title": "The Endosomal-Lysosomal Pathway Is Dysregulated by APOE4 Expression in Vivo.",
+        "year": "2017",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "aged APOE targeted replacement mice"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null,
+          "why": "rule: APOE4 and APOE3 not both named"
+        },
+        "C3": {
+          "v": "no",
+          "q": "number and size of early endosomes in APOE4 mice"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "32737755",
+        "title": "Endosomal Acid-Base Homeostasis in Neurodegenerative Diseases.",
+        "year": "2023",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "We present recent advances on the role of endosomal acid-base homeostasis in neurodegeneration and discuss evidence for converging mechanisms"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": "limits endosomal acidification and regulates β-secretase"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "yes",
+          "q": "the Na+/H+ exchanger activity of NHE6 limits endosomal acidification"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "24154541",
+        "title": "Human APOE genotype affects intraneuronal Aβ1-42 accumulation in a lentiviral gene transfer model.",
+        "year": "2014",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "we introduced lentiviral Aβ1-42 into the cortex of APOE targeted replacement (TR) mice"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": "significant isoform-dependent effect of human APOE, with dramatically enhanced intracellular Aβ1-42 deposits in the cerebral cortex of APOE4-TR mice"
+        },
+        "C3": {
+          "v": "no",
+          "q": "localized to late endosomes/lysosomes"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "11246228",
+        "title": "Synthesis and processing of apolipoprotein E in human brain cultures.",
+        "year": "2001",
+        "via": "query",
+        "C1": {
+          "v": "yes",
+          "q": "human neurons can synthesize apoE in the presence of astrocytes"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "no",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "37290814",
+        "title": "Apolipoprotein E intersects with amyloid-β within neurons.",
+        "year": "2023",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "N2a cells treated with recombinant ApoE3 or ApoE4 for 4 h"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "recombinant ApoE3, ApoE4 or vehicle control in N2a cells"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "yes",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "full_text",
+          "C2": "full_text",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": "pmc_oa"
+      },
+      {
+        "pmid": "38306054",
+        "title": "The Contributions of the Endolysosomal Compartment and Autophagy to APOEɛ4 Allele-Mediated Increase in Alzheimer's Disease Risk.",
+        "year": "2024",
+        "via": "query",
+        "C1": {
+          "v": "unclear",
+          "q": "this review summarizes the dysregulations in the endosome-lysosome and autophagy pathways in APOE4 individuals and non-human models"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null
+        },
+        "C3": {
+          "v": "yes",
+          "q": "increases endosomal acidification"
+        },
+        "C4": "no",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "29567836",
+        "title": "Histone deacetylase-mediated regulation of endolysosomal pH.",
+        "year": "2018",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "an apoE4 astrocyte model of Alzheimer's disease"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C3": {
+          "v": "yes",
+          "q": "helped regulate endosomal pH and correct defective clearance of amyloid Aβ in an apoE4 astrocyte model"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "37594184",
+        "title": "ApoE4 exacerbates the senescence of hippocampal neurons and spatial cognitive impairment by downregulating acetyl-CoA level.",
+        "year": "2023",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "Using humanized ApoE4- and ApoE3- target replacement mice"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "Using humanized ApoE4- and ApoE3- target replacement mice"
+        },
+        "C3": {
+          "v": "no",
+          "q": "activation of mTOR and endosome-lysosome-autophagy (ELA) system"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "37482615",
+        "title": "Carboxyl truncation of α-synuclein occurs early and is influenced by human APOE genotype in transgenic mouse models of α-synuclein pathogenesis.",
+        "year": "2023",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "a seeded and progressive mouse model of synucleinopathy"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "mice that are altered to express either the human APOE3 or APOE4 isoforms"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "10818506",
+        "title": "Apolipoprotein E, smooth muscle cells and the pathogenesis of cerebral amyloid angiopathy: the potential role of impaired cerebrovascular A beta clearance.",
+        "year": "2000",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "Alzheimer disease brains",
+          "why": "rule: AD brain"
+        },
+        "C2": {
+          "v": "no",
+          "q": "It has been recently shown for different cell types that the cellular uptake of ApoE is more efficient for the ApoE3 isoform when compared to ApoE4"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "23132858",
+        "title": "Differential regulation of amyloid-β endocytic trafficking and lysosomal degradation by apolipoprotein E isoforms.",
+        "year": "2012",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "we incubated N2a cells with Aβ42, together with vehicle control, apoE3, or apoE4"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "apoE3 more efficiently facilitating Aβ trafficking and degradation than apoE4"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "yes",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "full_text",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [
+          "apoE3 enhanced Aβ42 lysosomal degradation by 1.75-fold when compared with apoE4"
+        ],
+        "route": "unpaywall"
+      },
+      {
+        "pmid": "11162242",
+        "title": "The endosomal trafficking of apolipoprotein E3 and E4 in cultured human brain neurons and astrocytes.",
+        "year": "2001",
+        "via": "query",
+        "C1": {
+          "v": "yes",
+          "q": "cell culture model using human brain tissue to characterize exogenous apoE transport"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "We have tracked the association of apoE3 and E4 with CD63, the GTP-binding protein rab5a and the acidic hydrolase cathepsin D"
+        },
+        "C3": {
+          "v": "no",
+          "q": "Double immunostaining and confocal laser scanning microscopy revealed by z-series that after 30 min most intraneuronal apoE colocalized with rab5a"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [
+          "(abstract) ven after 1 h, but was colocalized in astrocytes. Also, there was approximately 9% apoE3 colocalization with cathepsin D in neurons, whereas u",
+          "(abstract) pproximately 9% apoE3 colocalization with cathepsin D in neurons, whereas up to 87% of apoE4 vesicles were colocalized. In astrocytes, the prop"
+        ],
+        "route": null
+      },
+      {
+        "pmid": "28957663",
+        "title": "Apolipoprotein E4 Impairs Neuronal Insulin Signaling by Trapping Insulin Receptor in the Endosomes.",
+        "year": "2017",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "human apoE-targeted replacement (TR) mice"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "15639316",
+        "title": "Endosome function and dysfunction in Alzheimer's disease and other neurodegenerative diseases.",
+        "year": "2005",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "In Alzheimer's disease (AD), endosome abnormalities are among the earliest neuropathologic features to develop"
+        },
+        "C2": {
+          "v": "no",
+          "q": "ApoE4 genotype in sporadic AD"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "19793104",
+        "title": "Effects of hydrogen peroxide and apolipoprotein E isoforms on apolipoprotein E trafficking in HepG2 cells.",
+        "year": "2009",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "HepG2 liver tumour cell line"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null,
+          "why": "rule: APOE4 and APOE3 not both named"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "15485881",
+        "title": "Impaired recycling of apolipoprotein E4 is associated with intracellular cholesterol accumulation.",
+        "year": "2004",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "cell-surface binding and internalization of TRL-derived apoE4 are increased compared with apoE3 in hepatoma cells"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "we investigated whether the intracellular processing of TRL-derived apoE4 differs from apoE3-TRL"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "29946028",
+        "title": "Amyloid clearance defect in ApoE4 astrocytes is reversed by epigenetic correction of endosomal pH.",
+        "year": "2018",
+        "via": "anchor",
+        "C1": {
+          "v": "unclear",
+          "q": "aberrant endosomal acidification in ApoE4 astrocytes"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "Increased nuclear translocation of histone deacetylase 4 (HDAC4) in ApoE4 astrocytes, compared with the nonpathogenic ApoE3 allele"
+        },
+        "C3": {
+          "v": "yes",
+          "q": "HDAC inhibitors that restored NHE6 expression normalized ApoE4-specific defects in endosomal pH"
+        },
+        "C4": "yes",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": "unpaywall"
+      },
+      {
+        "pmid": "41103078",
+        "title": "Lysosomal proteomics reveals mechanisms of neuronal APOE4-associated lysosomal dysfunction.",
+        "year": "2025",
+        "via": "snowball:citations",
+        "C1": {
+          "v": "no",
+          "q": "expression of APOE4 in neuronal cell lines results in lysosomal alkalinization"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "rule: no readout keyword"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "yes",
+          "q": "expression of APOE4 in neuronal cell lines results in lysosomal alkalinization"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "40845853",
+        "title": "ApoE4 disrupts intracellular trafficking and iron homeostasis in a reproducible iPSC-based model of human brain endothelial cells.",
+        "year": "2025",
+        "via": "snowball:citations",
+        "C1": {
+          "v": "yes",
+          "q": "iPSC-based model of human brain endothelial cells"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null
+        },
+        "C3": {
+          "v": "no",
+          "q": "impaired endosome maturation, increased transferrin receptor expression, and reduced cytoplasmic iron"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "39528861",
+        "title": "APOE from astrocytes restores Alzheimer's Aβ-pathology and DAM-like responses in APOE deficient microglia.",
+        "year": "2024",
+        "via": "snowball:citations",
+        "C1": {
+          "v": "no",
+          "q": "We express here the human APOE isoforms in astrocytes in an Apoe-deficient AD mouse model"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": "both APOE4 and the protective APOE2 from astrocytes increase fibrillar plaque deposition"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "38301863",
+        "title": "Repetitive head trauma and apoE4 induce chronic cerebrovascular alterations that impair tau elimination from the brain.",
+        "year": "2024",
+        "via": "snowball:citations",
+        "C1": {
+          "v": "no",
+          "q": "Following intracortical injection of biotin-labeled tau into humanized apoE-Tr mice"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null,
+          "why": "rule: APOE4 and APOE3 not both named"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "21699199",
+        "title": "Self-association and stability of the ApoE isoforms at low pH: implications for ApoE-lipid interactions.",
+        "year": "2011",
+        "via": "snowball:references",
+        "C1": {
+          "v": "no",
+          "q": "turbidity clearance of unilamellar vesicles of DMPC"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null,
+          "why": "rule: APOE4 and APOE3 not both named"
+        },
+        "C3": {
+          "v": "no",
+          "q": "At pH 4.5, approximating the pH of the lysosome, rate constants for association and dissociation are 2-10 times faster than those at pH 7.4."
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "27559087",
+        "title": "Novel allele-dependent role for APOE in controlling the rate of synapse pruning by astrocytes.",
+        "year": "2016",
+        "via": "snowball:references",
+        "C1": {
+          "v": "no",
+          "q": "C1q accumulation was significantly reduced in APOE2 knock-in (KI) animals and was significantly increased in APOE4 KI animals compared with APOE3 KI animals"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "APOE4 KI animals compared with APOE3 KI animals"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [
+          "(abstract)  E2, E3, and E4. The presence of two copies of the E4 allele increases risk by ∼12-fold whereas E2 allele is associated with an ∼twofold decreased "
+        ],
+        "route": null
+      }
+    ]
+  },
+  "H5": {
+    "c1_rule_removed": [],
+    "screened": 120,
+    "pass_C1_C3": 6,
+    "pass_C1_C4": 5,
+    "n_pass_C1_C4_cap50": 5,
+    "free_full_text": 19,
+    "numeric_effect_papers_C1_C4": 1,
+    "numeric_effect_quotes_C1_C4": 1,
+    "contrary_C5_yes_among_pass": 1,
+    "contrary_C5_yes_all": 2,
+    "rows": [
+      {
+        "pmid": "35750033",
+        "title": "Cholesterol and matrisome pathways dysregulated in astrocytes and microglia.",
+        "year": "2022",
+        "via": "query",
+        "C1": {
+          "v": "yes",
+          "q": "human induced pluripotent stem cells, post-mortem brain, and APOE targeted replacement mice"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "population and isogenic human induced pluripotent stem cells"
+        },
+        "C3": {
+          "v": "yes",
+          "q": "elevated intracellular cholesterol due to lysosomal cholesterol sequestration in astrocytes"
+        },
+        "C4": "yes",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": "pmc_oa"
+      },
+      {
+        "pmid": "37805344",
+        "title": "The cell biology of APOE in the brain.",
+        "year": "2024",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "In this review, we collate these developments and suggest testable mechanistic hypotheses"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": "defects in endolysosomal trafficking"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "37995685",
+        "title": "Amelioration of Tau and ApoE4-linked glial lipid accumulation and neurodegeneration with an LXR agonist.",
+        "year": "2024",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "In the P301S mouse model of tauopathy"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "ApoE4 increases tau pathology and neurodegeneration when compared with ApoE3 or the absence of ApoE"
+        },
+        "C3": {
+          "v": "yes",
+          "q": "perturbations in cholesterol metabolism and lysosomal function"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "37777962",
+        "title": "ApoE4-dependent lysosomal cholesterol accumulation impairs mitochondrial homeostasis and oxidative phosphorylation in human astrocytes.",
+        "year": "2023",
+        "via": "query",
+        "C1": {
+          "v": "yes",
+          "q": "isogenic ApoE3 and ApoE4 astrocytes derived from human induced pluripotent stem cells"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "isogenic ApoE3 and ApoE4 astrocytes derived from human induced pluripotent stem cells"
+        },
+        "C3": {
+          "v": "yes",
+          "q": "ApoE4-induced cholesterol accumulation impairs lysosome-dependent removal of damaged mitochondria"
+        },
+        "C4": "no",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "39532095",
+        "title": "Decreased lipidated ApoE-receptor interactions confer protection against pathogenicity of ApoE and its lipid cargoes in lysosomes.",
+        "year": "2025",
+        "via": "query",
+        "C1": {
+          "v": "yes",
+          "q": "In human neurons, the addition of ApoE carrying polyunsaturated fatty acids (PUFAs)-CE revealed an allelic series"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "an allelic series (ApoE4 > ApoE3 > ApoE2)"
+        },
+        "C3": {
+          "v": "yes",
+          "q": "associated with lipofuscinosis, an age-related lysosomal pathology resulting from lipid peroxidation"
+        },
+        "C4": "yes",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": "pmc_oa"
+      },
+      {
+        "pmid": "36888713",
+        "title": "Brain injury accelerates the onset of a reversible age-related microglial phenotype associated with inflammatory neurodegeneration.",
+        "year": "2023",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "microglia in the brain of old C57BL/6 mice (>18 months old)"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": "were modified by APOE4 genotype"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": "increased phagocytic activity, lysosomal burden, and lipid accumulation in microglia"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "40835432",
+        "title": "APOE4 reprograms microglial lipid metabolism in Alzheimer's disease: Mechanisms and therapeutic implications.",
+        "year": "2026",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "in Alzheimer's disease"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null
+        },
+        "C3": {
+          "v": "no",
+          "q": "promote lipid droplet accumulation and cholesterol overload, impair lysosomal function"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "41338186",
+        "title": "Protective ApoE variants support neuronal function by effluxing oxidized phospholipids.",
+        "year": "2026",
+        "via": "query",
+        "C1": {
+          "v": "unclear",
+          "q": "ApoE2 and ApoE3Ch particles protect neurons from ferroptosis"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": "ApoE2 and ApoE3 Christchurch (ApoE3Ch) confer resistance to disease"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": "exacerbate the effects of these toxic lipids, leading to endolysosomal dysfunction"
+        },
+        "C4": "no",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "34919811",
+        "title": "APOE2, E3, and E4 differentially modulate cellular homeostasis, cholesterol metabolism, and inflammatory response in isogenic iPSC-derived astrocytes.",
+        "year": "2022",
+        "via": "query",
+        "C1": {
+          "v": "yes",
+          "q": "human APOE-isogenic induced pluripotent stem cells (iPSCs) (APOE4, E3, E2, and APOE knockout [APOE-KO]) to functional \"iAstrocytes\""
+        },
+        "C2": {
+          "v": "yes",
+          "q": "genotype-dependent reductions of cholesterol and lipid metabolic and biosynthetic pathways (reduction: APOE4 >E3 >E2)"
+        },
+        "C3": {
+          "v": "yes",
+          "q": "subcellular localization of cholesterol in lysosomes was elevated"
+        },
+        "C4": "yes",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": "pmc_oa"
+      },
+      {
+        "pmid": "39901180",
+        "title": "Cellular senescence induced by cholesterol accumulation is mediated by lysosomal ABCA1 in APOE4 and AD.",
+        "year": "2025",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "higher p21 intensity was also found in the brains of APOE4-TR mice than in APOE3-TR mice"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "greater colocalization of LAMP1 with ABCA1 in APOE4-TR mice than in APOE3-TR mice"
+        },
+        "C3": {
+          "v": "yes",
+          "q": "Oxysterol induced mTORC1 activation and senescence were regulated by ABCA1 lysosomal trapping"
+        },
+        "C4": "yes",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "full_text",
+          "C2": "full_text",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": "pmc_oa"
+      },
+      {
+        "pmid": "39468688",
+        "title": "TRPV1 alleviates APOE4-dependent microglial antigen presentation and T cell infiltration in Alzheimer's disease.",
+        "year": "2024",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "APOE4 microglia derived from induced pluripotent stem cells of AD patients"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "showed significantly increased cholesterol biosynthesis and accumulation compared to their APOE3 counterparts"
+        },
+        "C3": {
+          "v": "yes",
+          "q": "reduced lysosomal cholesterol accumulation"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "37857825",
+        "title": "Cell-autonomous effects of APOE4 in restricting microglial response in brain homeostasis and Alzheimer's disease.",
+        "year": "2023",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "using conditional mouse models expressing apoE isoforms in microglia and central nervous system-associated macrophages (CAMs)"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "Expression of apoE3 in microglia/CAMs improves cognitive function, increases microglia surrounding amyloid plaque and reduces amyloid pathology and associated toxicity, whereas apoE4 expression either compromises or has no effects"
+        },
+        "C3": {
+          "v": "no",
+          "q": "apoE4 expression downregulates complement and lysosomal pathways, and promotes stress-related responses"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "no",
+          "q": "apoE4 expression downregulates complement and lysosomal pathways, and promotes stress-related responses"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "40669336",
+        "title": "APOE4-driven lipid metabolic dysregulation in Alzheimer's disease: Multi-pathway mechanisms and therapeutic perspectives.",
+        "year": "2025",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "This article summarized the evidence that APOE4 affects lipid metabolism through various pathways and proposed the potential therapeutic strategies to alleviate the progression of AD"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": "Due to its relatively lower lipid-binding efficiency compared to APOE3, APOE4 impairs cholesterol efflux"
+        },
+        "C3": {
+          "v": "no",
+          "q": "lipid droplet (LD) accumulation and lysosomal dysfunction in neurons and glial cells"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "29353455",
+        "title": "The Interplay Between Apolipoprotein E4 and the Autophagic-Endocytic-Lysosomal Axis.",
+        "year": "2018",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "the detrimental effects of APOE4 on the endocytic-autophagic-lysosomal axis in the context of Alzheimer's disease"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C3": {
+          "v": "no",
+          "q": "This review discusses the detrimental effects of APOE4 on the endocytic-autophagic-lysosomal axis"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "no",
+          "q": "This review discusses the detrimental effects of APOE4 on the endocytic-autophagic-lysosomal axis in the context of Alzheimer's disease, as well as the various mechanisms underlying them."
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "42636814",
+        "title": "Cholesterol dysregulation in APOE4 astrocytes promotes α-synuclein pathology in miBrains.",
+        "year": "2026",
+        "via": "query",
+        "C1": {
+          "v": "yes",
+          "q": "we developed an iPSC-based 3D model that integrates neurons, glia, myelin, and cerebrovascular cells into a human brain-like tissue"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "compared to isogenic control APOE3/3 astrocytes across two isogenic donor pairs"
+        },
+        "C3": {
+          "v": "yes",
+          "q": "impairs the degradation of soluble α-synuclein"
+        },
+        "C4": "yes",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "full_text",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [
+          "2.25-fold increase (± 0.30 SEM) in α-Syn phosphorylation"
+        ],
+        "route": "pmc_oa"
+      },
+      {
+        "pmid": "40301465",
+        "title": "ApoE4 requires lipidation enhancement to resolve cellular lipid and protein abnormalities following NPC1 inhibition.",
+        "year": "2025",
+        "via": "query",
+        "C1": {
+          "v": "yes",
+          "q": "In human fibroblasts and astrocytes, NPC1 inhibition caused a 4-fold cholesterol accumulation"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "ApoE2 and ApoE3, but not ApoE4, reduced intracellular cholesterol levels by 67% and 62%"
+        },
+        "C3": {
+          "v": "no",
+          "q": "reduced intracellular cholesterol levels by 67% and 62%, respectively, normalized APP, BACE, CTF"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [
+          "(abstract)  and Niemann-Pick disease type C (NPC). The ApoE4 variant elevates AD risk by 3-15-fold. ApoE's normal function in lipid transport is known. The qu",
+          "(abstract) transporter NPC1. In human fibroblasts and astrocytes, NPC1 inhibition caused a 4-fold cholesterol accumulation and mis-localization with altered ",
+          "(abstract) lycerides. Total APP, APP C-terminal fragments (CTF) and BACE1 levels increased 3-fold. Remarkably, the intracellular neutral lipids co-localized ",
+          "(abstract) ts. ApoE2 and ApoE3, but not ApoE4, reduced intracellular cholesterol levels by 67% and 62%, respectively, normalized APP, BACE, CTF, and impro",
+          "(abstract) 2 and ApoE3, but not ApoE4, reduced intracellular cholesterol levels by 67% and 62%, respectively, normalized APP, BACE, CTF, and improved cell"
+        ],
+        "route": null
+      },
+      {
+        "pmid": "32632205",
+        "title": "MicroRNA-195 rescues ApoE4-induced cognitive deficits and lysosomal defects in Alzheimer's disease pathogenesis.",
+        "year": "2021",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "ApoE4+/+ AD subjects and ApoE3+/+ normal aging subjects"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "ApoE4+/+ neurons (human iPSC or mouse) manifested enlarged lysosomes and increased numbers of lysosomes within each cell when compared to ApoE3+/+ counterparts"
+        },
+        "C3": {
+          "v": "no",
+          "q": "The average size of lysosomes measured by area was 163.5 μm2 in ApoE4+/+ versus 90.4 μm2 in ApoE3+/+ neurons"
+        },
+        "C4": "yes",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "full_text",
+          "C2": "full_text",
+          "C3": "full_text",
+          "C5": "abstract"
+        },
+        "effects": [
+          "There were 18.4% ApoE4+/+ neurons with >10 lysosomes/cell, whereas only 1.6% ApoE3+/+ neurons with >10 lysosomes/cell",
+          "46.7% of ApoE4+/+ neurons with the diameter of lysosomes ranged from 10 to 20 μm, whereas 66.1% of ApoE3+/+"
+        ],
+        "route": "pmc_oa"
+      },
+      {
+        "pmid": "35031484",
+        "title": "APOE4 confers transcriptomic and functional alterations to primary mouse microglia.",
+        "year": "2022",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "we cultured primary microglia from mice in which both alleles of the mouse Apoe gene have been humanized"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "Relative to E3 microglia, E4 microglia exhibit altered morphology, increased endolysosomal mass"
+        },
+        "C3": {
+          "v": "no",
+          "q": "increased endolysosomal mass, increased cytokine/chemokine production, and increased lipid and lipid droplet accumulation"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [
+          "(abstract)  genotype, with the ε4/ε4 (E4) genotype increasing risk for AD by approximately 15 fold compared to the most common ε3/ε3 (E3) genotype. However, t"
+        ],
+        "route": null
+      },
+      {
+        "pmid": "40457456",
+        "title": "Inflammation-induced lysosomal dysfunction in human iPSC-derived microglia is exacerbated by APOE 4/4 genotype.",
+        "year": "2025",
+        "via": "query",
+        "C1": {
+          "v": "yes",
+          "q": "microglia-like cells (iMGs) from eight APOE3/3 and six APOE4/4 human induced pluripotent stem cell (iPSC) lines"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "microglia-like cells (iMGs) from eight APOE3/3 and six APOE4/4 human induced pluripotent stem cell (iPSC) lines were used"
+        },
+        "C3": {
+          "v": "yes",
+          "q": "Exposure to Aβ42 furthermore caused lysosomal membrane permeabilization, which was significantly stronger in APOE4/4 iMGs"
+        },
+        "C4": "yes",
+        "C5": {
+          "v": "yes",
+          "q": "blocked autophagic flux, leading to the accumulation of sequestosome 1 (p62) in both APOE4/4 and APOE3/3 iMGs"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": "pmc_oa"
+      },
+      {
+        "pmid": "33550528",
+        "title": "Defective Lysosomal Lipid Catabolism as a Common Pathogenic Mechanism for Dementia.",
+        "year": "2021",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "Research from mouse and cell culture models, and neuropathological evidence from lysosomal storage diseases"
+        },
+        "C2": {
+          "v": "no",
+          "q": "the most significant being inheritance of the ε4 allele of the APOE gene, encoding apolipoprotein E"
+        },
+        "C3": {
+          "v": "no",
+          "q": "defective lipid catabolism is a common mechanism in the etiology of dementia"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "no",
+          "q": "defective lipid catabolism is a common mechanism in the etiology of dementia"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "31911768",
+        "title": "Exosome Production Is Key to Neuronal Endosomal Pathway Integrity in Neurodegenerative Diseases.",
+        "year": "2019",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "the greatest genetic risk factor for late-onset AD"
+        },
+        "C2": {
+          "v": "no",
+          "q": "expression of the apolipoprotein E ε4 allele (APOE4)"
+        },
+        "C3": {
+          "v": "no",
+          "q": "compromised cargo turnover within lysosomes can affect the production, secretion, and content of exosomes"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "40164781",
+        "title": "APOE4 impairs autophagy and Aβ clearance by microglial cells.",
+        "year": "2025",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "clearance of Aβ plaques from brain sections of transgenic 5xFAD mice by the APOE expressing microglia"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "microglia expressing APOE4 exhibit reduced autophagic flux as compared to those expressing APOE3"
+        },
+        "C3": {
+          "v": "yes",
+          "q": "autophagy, a major degradation pathway trough the lysosome, may be compromised in AD"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "41278977",
+        "title": "APOE3 astrocytes can rescue lipid abnormalities and dystrophic neurites of APOE4 human neurons.",
+        "year": "2025",
+        "via": "query",
+        "C1": {
+          "v": "yes",
+          "q": "human neuron-astrocyte co-cultures"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "APOE3, but not APOE4 or APOEKO, astrocytes prevented cholesterol and lipid induced neurite damage in APOE4 neurons"
+        },
+        "C3": {
+          "v": "no",
+          "q": "HDL-like particles were larger and presumably more lipidated than equivalent APOE4 co-cultures"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "no",
+          "q": "APOE3, but not APOE4 or APOEKO, astrocytes prevented cholesterol and lipid induced neurite damage in APOE4 neurons"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "42694561",
+        "title": "The APOE4-estrogen-microglia axis in perimenopausal cognitive changes: mechanisms and therapeutic implications.",
+        "year": "2026",
+        "via": "query",
+        "C1": {
+          "v": "unclear",
+          "q": "human induced pluripotent stem cell-derived microglia"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": "disrupts lipid handling and lysosomal function"
+        },
+        "C4": "yes",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": "pmc_oa"
+      },
+      {
+        "pmid": "40675218",
+        "title": "Neuronal endolysosomal alterations induced by Apolipoprotein E4 emerge over time in primary neurons.",
+        "year": "2025",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "mature primary neurons from ApoE knockout (KO), ApoE3, and ApoE4 mice"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "mature primary neurons from ApoE knockout (KO), ApoE3, and ApoE4 mice show no major differences"
+        },
+        "C3": {
+          "v": "yes",
+          "q": "neurons with ApoE4 show reduced degradative ability, along with a decreased number of active lysosomal compartments"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "yes",
+          "q": "mature primary neurons from ApoE knockout (KO), ApoE3, and ApoE4 mice show no major differences in endosomal appearance and function"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "33716161",
+        "title": "ApoE4 activates C/EBPβ/δ-secretase with 27-hydroxycholesterol, driving the pathogenesis of Alzheimer's disease.",
+        "year": "2021",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "27-OHC strongly activates C/EBPβ/δ-secretase pathway in human ApoE4-TR mice"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C3": {
+          "v": "yes",
+          "q": "ApoE4 and 27-OHC also mediate lysosomal δ-secretase leakage, activation, secretion and endocytosis"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "42692000",
+        "title": "APOE4 astrocytes call the shots on neuronal α-synuclein pathology.",
+        "year": "2026",
+        "via": "query",
+        "C1": {
+          "v": "unclear",
+          "q": "use a multi-cellular integrated brain (miBrain) system to uncover mechanisms underlying the accumulation of neuronal α-synuclein (α-Syn) inclusions in APOE4 carriers"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": "APOE4 increases cholesterol levels and impairs lysosomal function in astrocytes"
+        },
+        "C4": "no",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "38891941",
+        "title": "Temporal Characterization of the Amyloidogenic APPswe/PS1dE9;hAPOE4 Mouse Model of Alzheimer's Disease.",
+        "year": "2024",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "we selected an APPswe/PS1dE9 transgenic mouse model bearing the human APOE4 gene"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "compared it with the same APP/PS1 mouse model bearing the human APOE3 gene"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": "astrocytes, microglia, inflammation, lysosomal dysfunction, and neuritic dystrophy"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "no",
+          "q": "APOE4 carriers showed elevated Aβ, apoE, reactive astrocytes, pro-inflammatory cytokines, microglial response, and neuritic dystrophy compared to APOE3 carriers"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "41103078",
+        "title": "Lysosomal proteomics reveals mechanisms of neuronal APOE4-associated lysosomal dysfunction.",
+        "year": "2025",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "expression of APOE4 in neuronal cell lines results in lysosomal alkalinization and impaired lysosomal function"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": "correlating with APOE allele status and disease severity in AD brains"
+        },
+        "C3": {
+          "v": "yes",
+          "q": "lysosomal TMED5 accumulation and LGALS3BP depletion manifesting as lysosomal alkalinization in APOE4 neurons"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "no",
+          "q": "We additionally validated that these lysosomal protein changes can be targeted to modulate lysosomal function"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "35351864",
+        "title": "Effects of APOE4 allelic dosage on lipidomic signatures in the entorhinal cortex of aged mice.",
+        "year": "2022",
+        "via": "query",
+        "C1": {
+          "v": "no",
+          "q": "14-15 month-old APOE3/3, APOE3/4, and APOE4/4 targeted replacement mice"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "conditioned media from APOE3/3 or APOE4/4 astrocytes"
+        },
+        "C3": {
+          "v": "no",
+          "q": "We performed a targeted lipidomic analysis"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "42927732",
+        "title": "Glial lipid reprogramming in brain aging: Lipid identity, organelle stress, and redox vulnerability.",
+        "year": "2026",
+        "via": "snowball:citations",
+        "C1": {
+          "v": "no",
+          "q": "This review advances a chemistry-resolved integrative framework"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "42621038",
+        "title": "Astrocyte-blood-brain barrier crosstalk in cerebral small vessel disease: linking barrier dysfunction to neurovascular failure.",
+        "year": "2026",
+        "via": "snowball:citations",
+        "C1": {
+          "v": "no",
+          "q": "much of the current evidence is derived from animal models and in vitro systems, and direct human data-particularly from longitudinal imaging and biomarker cohorts-remain limited"
+        },
+        "C2": {
+          "v": "no",
+          "q": "APOE4-related vulnerability"
+        },
+        "C3": {
+          "v": "no",
+          "q": "impaired glymphatic clearance, disrupted cerebral blood flow regulation, and white matter and cognitive impairment"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "42443967",
+        "title": "Microglial mitophagy as an immunometabolic checkpoint in alzheimer's disease: linking mitochondrial quality control to neuroinflammation.",
+        "year": "2026",
+        "via": "snowball:citations",
+        "C1": {
+          "v": "no",
+          "q": "This review systematically summarizes the molecular regulatory network of microglial mitophagy, with a particular focus on the mechanisms by which AD-associated pathological factors impair this process."
+        },
+        "C2": {
+          "v": "no",
+          "q": "genetic risk variants such as TREM2 and APOE4 disrupt mitophagy at multiple levels"
+        },
+        "C3": {
+          "v": "no",
+          "q": "disrupt mitophagy at multiple levels-from initiation and recognition to lysosomal degradation"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "no",
+          "q": "genetic risk variants such as TREM2 and APOE4 disrupt mitophagy at multiple levels-from initiation and recognition to lysosomal degradation"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "42393750",
+        "title": "Microglial checkpoint collapse in Alzheimer's disease: a tri-axial framework for biomarker-informed neuroimmune therapy.",
+        "year": "2026",
+        "via": "snowball:citations",
+        "C1": {
+          "v": "no",
+          "q": "Microglial checkpoint collapse in Alzheimer's disease"
+        },
+        "C2": {
+          "v": "no",
+          "q": "APOE-biased cholesterol trafficking"
+        },
+        "C3": {
+          "v": "no",
+          "q": "impaired lysosomal flux"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "42253927",
+        "title": "Beyond the Known and Established Neurodegenerative Effects: Roles of APOE Across a Wide Spectrum of Pathophysiological Condition.",
+        "year": "2026",
+        "via": "snowball:citations",
+        "C1": {
+          "v": "no",
+          "q": "their impact on peripheral physiology is far less clearly defined"
+        },
+        "C2": {
+          "v": "no",
+          "q": "variation in ApoE may shape traits such as adiposity, fat and lean mass distribution, bone density, muscle function, and cardiovascular risk"
+        },
+        "C3": {
+          "v": "no",
+          "q": "its role in lipid trafficking and the coordination of lipoprotein metabolism"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "42061654",
+        "title": "Apolipoprotein E4 and synaptic dysfunction in Alzheimer's disease: Mechanisms and therapeutic implications.",
+        "year": "2026",
+        "via": "snowball:citations",
+        "C1": {
+          "v": "no",
+          "q": "Apolipoprotein E4 and synaptic dysfunction in Alzheimer's disease"
+        },
+        "C2": {
+          "v": "no",
+          "q": "In this review, we synthesize current evidence on the molecular mechanisms by which ApoE4 compromises synaptic function"
+        },
+        "C3": {
+          "v": "no",
+          "q": "These ApoE4-driven mechanisms impair presynaptic vesicle trafficking, destabilize postsynaptic receptor and scaffolding networks"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "41797922",
+        "title": "APOE4 drives widespread changes to the hepatic proteome and alters metabolic function.",
+        "year": "2026",
+        "via": "snowball:citations",
+        "C1": {
+          "v": "no",
+          "q": "isogenic-induced pluripotent stem cell (iPSC)-derived hepatocyte-like cells (iHLCs)"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "young APOE3 and APOE4-targeted replacement mice and isogenic-induced pluripotent stem cell (iPSC)-derived hepatocyte-like cells"
+        },
+        "C3": {
+          "v": "no",
+          "q": "APOE4 also impairs mitochondrial function in iHLCs, shifts metabolism towards glycolysis, increases reliance on fatty acid utilization, and drives lipid accumulation"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "41673700",
+        "title": "APOE4 drives maladaptive heterogeneity and immunometabolic responses of astrocytes.",
+        "year": "2026",
+        "via": "snowball:citations",
+        "C1": {
+          "v": "yes",
+          "q": "isogenic human iPSC astrocytes"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "E4-expressing iPSC-derived astrocytes had lower oxygen consumption rates and increased glycolysis compared to E3 cells"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "yes",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "full_text",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": "pmc_oa"
+      },
+      {
+        "pmid": "41653210",
+        "title": "Circ-FoxO3 alleviates APOE4-induced brain pathology through FoxO3-mediated autophagy.",
+        "year": "2026",
+        "via": "snowball:citations",
+        "C1": {
+          "v": "no",
+          "q": "transgenic mice expressing human APOE4 exhibited elevated levels of p-tau and Aβ"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "41466445",
+        "title": "The association between APOE allele variants and inflammatory markers in a large-scale Chinese population.",
+        "year": "2025",
+        "via": "snowball:citations",
+        "C1": {
+          "v": "no",
+          "q": "SII was calculated as (platelet count × neutrophil count)/lymphocyte count"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null,
+          "why": "rule: APOE4 and APOE3 not both named"
+        },
+        "C3": {
+          "v": "no",
+          "q": "SII was calculated as (platelet count × neutrophil count)/lymphocyte count"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [
+          "(abstract) 3 as the reference. RESULTS: The frequencies of APOE alleles ɛ3, ɛ2, and ɛ4 were70.7%, 13.8%, and 15.5% respectively in 13,926 Chinese patients. ",
+          "(abstract) e reference. RESULTS: The frequencies of APOE alleles ɛ3, ɛ2, and ɛ4 were70.7%, 13.8%, and 15.5% respectively in 13,926 Chinese patients. The mea",
+          "(abstract) . RESULTS: The frequencies of APOE alleles ɛ3, ɛ2, and ɛ4 were70.7%, 13.8%, and 15.5% respectively in 13,926 Chinese patients. The mean SII was l",
+          "(abstract) arriers showed a significantly elevated SII versus ε3 in all models (β = 0.059, 95% CI: 0.041–0.077, p < 0.05), independent of the covariates. ",
+          "(abstract) t of the covariates. Conversely, ε2 carriers exhibited a reduced SII (β=-0.077, 95% CI: -0.096 to -0.058, p < 0.05). The SII correlated signifi"
+        ],
+        "route": null
+      },
+      {
+        "pmid": "16585474",
+        "title": "Perceived loss of memory ability and cerebral metabolic decline in persons with the apolipoprotein E-IV genetic risk for Alzheimer disease.",
+        "year": "2006",
+        "via": "widen:references:37777962",
+        "C1": {
+          "v": "no",
+          "q": "Regional cerebral glucose metabolism was determined using fluorodeoxyglucose F18-positron emission tomography at baseline and after 2 years"
+        },
+        "C2": {
+          "v": "no",
+          "q": "APOE4 carriers and noncarriers did not differ significantly on objective memory measures"
+        },
+        "C3": {
+          "v": "no",
+          "q": "Regional cerebral glucose metabolism was determined using fluorodeoxyglucose F18-positron emission tomography at baseline and after 2 years"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "34488832",
+        "title": "APOΕ4 lowers energy expenditure in females and impairs glucose oxidation by increasing flux through aerobic glycolysis.",
+        "year": "2021",
+        "via": "widen:references:37777962",
+        "C1": {
+          "v": "no",
+          "q": "Single-cell analysis of brain tissue from mice expressing human APOE"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null,
+          "why": "rule: APOE4 and APOE3 not both named"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "29861287",
+        "title": "APOE4 Causes Widespread Molecular and Cellular Alterations Associated with Alzheimer's Disease Phenotypes in Human iPSC-Derived Brain Cell Types.",
+        "year": "2018",
+        "via": "widen:references:37777962",
+        "C1": {
+          "v": "yes",
+          "q": "we utilize CRISPR/Cas9 and induced pluripotent stem cells (iPSCs) to examine APOE4 effects on human brain cell types"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "elevated Aβ42 secretion relative to isogenic APOE3 cells"
+        },
+        "C3": {
+          "v": "no",
+          "q": "impaired Aβ uptake and cholesterol accumulation"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "35931030",
+        "title": "Lipid accumulation induced by APOE4 impairs microglial surveillance of neuronal-network activity.",
+        "year": "2022",
+        "via": "widen:references:37777962",
+        "C1": {
+          "v": "yes",
+          "q": "CRISPR-edited induced pluripotent stem cells (iPSCs) to dissect the impact of APOE4 in neuron-microglia communication",
+          "partial": "iPSC findings only; AD-brain/animal parts out of scope"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "transcriptional signatures of APOE3 versus APOE4 microglia in response to neuronal conditioned media"
+        },
+        "C3": {
+          "v": "no",
+          "q": "decreased uptake of extracellular fatty acids and lipoproteins"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "33406436",
+        "title": "ApoE4 Impairs Neuron-Astrocyte Coupling of Fatty Acid Metabolism.",
+        "year": "2021",
+        "via": "widen:references:37777962",
+        "C1": {
+          "v": "unclear",
+          "q": "ApoE4 lowers FA oxidation and leads to lipid accumulation in both astrocyte and the hippocampus"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": "ApoE4 diminishes the transport efficiency"
+        },
+        "C3": {
+          "v": "no",
+          "q": "decreasing FA sequestering in lipid droplets (LDs)"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "34450034",
+        "title": "APOE4-carrying human astrocytes oversupply cholesterol to promote neuronal lipid raft expansion and Aβ generation.",
+        "year": "2021",
+        "via": "widen:references:37777962",
+        "C1": {
+          "v": "yes",
+          "q": "isogenic human induced pluripotent stem cells (hiPSCs) carrying either APOE ε3 or APOE ε4 allele"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "carrying either APOE ε3 or APOE ε4 allele"
+        },
+        "C3": {
+          "v": "no",
+          "q": "increased cholesterol secretion from ApoE4 astrocytes was necessary and sufficient to induce the formation of lipid rafts"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "29967007",
+        "title": "Human ApoE Isoforms Differentially Modulate Brain Glucose and Ketone Body Metabolism: Implications for Alzheimer's Disease Risk Reduction and Early Intervention.",
+        "year": "2018",
+        "via": "widen:references:37777962",
+        "C1": {
+          "v": "no",
+          "q": "human ApoE gene-targeted replacement female mice"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "ApoE2 and ApoE4 brains showed a similar level of robustness, whereas ApoE3 brains presented a relatively deficient profile"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "29317609",
+        "title": "Apolipoprotein-E (Apoe) ε4 and cognitive decline over the adult life course.",
+        "year": "2018",
+        "via": "widen:references:37777962",
+        "C1": {
+          "v": "no",
+          "q": "a population-based birth cohort"
+        },
+        "C2": {
+          "v": "no",
+          "q": "compared to non-carriers"
+        },
+        "C3": {
+          "v": "no",
+          "q": "processing speed (using a timed letter search task) and episodic memory (a 15-item word learning test)"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "32739002",
+        "title": "APOE and metabolic dysfunction in Alzheimer's disease.",
+        "year": "2020",
+        "via": "widen:references:37777962",
+        "C1": {
+          "v": "no",
+          "q": "AD patients",
+          "why": "rule: AD brain"
+        },
+        "C2": {
+          "v": "no",
+          "q": "Possession of E4 also appears to alter several other aspects of cerebral glucose metabolism, fatty acid metabolism"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "31780819",
+        "title": "Amyloid-β-independent regulators of tau pathology in Alzheimer disease.",
+        "year": "2020",
+        "via": "widen:references:37777962",
+        "C1": {
+          "v": "no",
+          "q": "patient-derived human induced pluripotent stem cell models"
+        },
+        "C2": {
+          "v": "no",
+          "q": "apolipoprotein E, the endocytic system, cholesterol metabolism and microglial activation"
+        },
+        "C3": {
+          "v": "no",
+          "q": "the endocytic system, cholesterol metabolism"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "19357304",
+        "title": "Distinct patterns of brain activity in young carriers of the APOE-epsilon4 allele.",
+        "year": "2009",
+        "via": "widen:references:37777962",
+        "C1": {
+          "v": "no",
+          "q": "Brain activity was studied both at rest and during an encoding memory paradigm using blood oxygen level-dependent fMRI"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": "18 young healthy APOE epsilon4-carriers and 18 matched noncarriers"
+        },
+        "C3": {
+          "v": "no",
+          "q": "Resting fMRI revealed increased \"default mode network\""
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "30699343",
+        "title": "REST and Neural Gene Network Dysregulation in iPSC Models of Alzheimer's Disease.",
+        "year": "2019",
+        "via": "widen:references:37777962",
+        "C1": {
+          "v": "no",
+          "q": "a homozygous APOE3 iPSC line from a normal aged donor was edited to APOE4/E4"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "parental APOE4 and isogenic APOE3 cerebral organoids after 46 days of maturation"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "yes",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "full_text",
+          "C2": "full_text",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": "pmc_oa"
+      },
+      {
+        "pmid": "42751576",
+        "title": "APOE-Glia Crosstalk in Epilepsy: Mechanisms, Controversies, and Therapeutic Perspectives.",
+        "year": "2026",
+        "via": "widen:citations:37777962",
+        "C1": {
+          "v": "no",
+          "q": "This review summarizes current knowledge on the role of APOE in epilepsy"
+        },
+        "C2": {
+          "v": "no",
+          "q": "This review summarizes current knowledge on the role of APOE in epilepsy"
+        },
+        "C3": {
+          "v": "no",
+          "q": "lipid metabolism disorders"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "41812941",
+        "title": "CRISPR-based correction of apolipoprotein E4 in Alzheimer's disease: Therapeutic strategies and macromolecular delivery innovations.",
+        "year": "2026",
+        "via": "widen:citations:37777962",
+        "C1": {
+          "v": "no",
+          "q": "CRISPR-based correction of apolipoprotein E4 in Alzheimer's disease"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": "evaluate relevant in vitro and in vivo model systems"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [
+          "(abstract) approximately two- to three-fold, and homozygous carriers facing up to a 10- to 15-fold higher risk compared to APOE3 carriers. APOE4 contributes t"
+        ],
+        "route": null
+      },
+      {
+        "pmid": "41596649",
+        "title": "Apolipoprotein E4 in Alzheimer's Disease: Role in Pathology, Lipid Metabolism, and Drug Treatment.",
+        "year": "2026",
+        "via": "widen:citations:37777962",
+        "C1": {
+          "v": "no",
+          "q": "the role of centrally and peripherally produced ApoE in AD"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null
+        },
+        "C3": {
+          "v": "no",
+          "q": "lipid changes caused by carrying the ApoE4 isoform"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "41388301",
+        "title": "Human iPSC-derived APOE4/4 Alzheimer´s disease astrocytes exhibit a senescent and pro-inflammatory state that compromises neuronal support.",
+        "year": "2025",
+        "via": "widen:citations:37777962",
+        "C1": {
+          "v": "no",
+          "q": "from AD patients harboring the APOE4/4 genotype"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "41382275",
+        "title": "Microglia-derived APOE2 improves remyelination even in the presence of endogenous APOE4.",
+        "year": "2025",
+        "via": "widen:citations:37777962",
+        "C1": {
+          "v": "no",
+          "q": "mice that underwent either lysophosphatidylcholine (LPC) or cuprizone (CPZ)-induced demyelination"
+        },
+        "C2": {
+          "v": "no",
+          "q": "induce a replacement of E4 with E2 exclusively in microglia"
+        },
+        "C3": {
+          "v": "no",
+          "q": "astrocytic lipid droplet load following CPZ-remyelination"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "41266593",
+        "title": "APOE ε4 potentiates tau related reactive astrogliosis assessed by cerebrospinal fluid YKL40 in Alzheimer's disease.",
+        "year": "2025",
+        "via": "widen:citations:37777962",
+        "C1": {
+          "v": "no",
+          "q": "We used data from the Translational Biomarkers of Alzheimer's Disease (TRIAD) cohort"
+        },
+        "C2": {
+          "v": "no",
+          "q": "exploring the involvement of APOE ε4 carriership"
+        },
+        "C3": {
+          "v": "no",
+          "q": "the association between YKL-40, a marker of reactive astrogliosis, and tau burden measured with PET imaging"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "41198597",
+        "title": "Bioenergetics and lipid metabolism in Alzheimer's disease: From cell biology to systemic health.",
+        "year": "2026",
+        "via": "widen:citations:37777962",
+        "C1": {
+          "v": "no",
+          "q": "This integrated perspective highlights lipid and bioenergetic pathways as promising therapeutic targets"
+        },
+        "C2": {
+          "v": "no",
+          "q": "These processes are further modulated by apolipoprotein E (APOE) genotype, sex differences and systemic metabolic states"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "no",
+          "q": "Although findings are sometimes conflicting, an emerging theme is that lipid and energy metabolisms are central"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "41120278",
+        "title": "APOE4 promotes nigral tau hyperphosphorylation through cholesterol in atherosclerosis.",
+        "year": "2025",
+        "via": "widen:citations:37777962",
+        "C1": {
+          "v": "unclear",
+          "q": "APOE4 carried and non-APOE4 carried AS patients postmortem brain substantia nigra pars compacta"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": "APOE4-carried AS patients exhibited elevated nigral p-tau level relative to non-APOE4 carriers"
+        },
+        "C3": {
+          "v": "no",
+          "q": "The tau-related neuropathology and behavioral performances were analyzed"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "41102453",
+        "title": "Interaction of sortilin with apolipoprotein E3 enables neurons to use long-chain fatty acids as alternative metabolic fuel.",
+        "year": "2025",
+        "via": "widen:citations:37777962",
+        "C1": {
+          "v": "yes",
+          "q": "induced pluripotent stem cell-based cell models of brain lipid homeostasis"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "This pathway works with apoE3 but cannot operate with the Alzheimer disease risk factor apoE4"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "yes",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": "pmc_oa"
+      },
+      {
+        "pmid": "41035826",
+        "title": "Free-water imaging of the nucleus basalis of Meynert in apolipoprotein E4 carriers.",
+        "year": "2025",
+        "via": "widen:citations:37777962",
+        "C1": {
+          "v": "no",
+          "q": "This cross-sectional study included 167 cognitively unimpaired older adults from the Arizona APOE Cohort"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "Participants were stratified by genotype: APOE ε4 non-carriers (N = 83), heterozygous carriers (N = 51), and homozygous carriers (N = 33)"
+        },
+        "C3": {
+          "v": "no",
+          "q": "Participants underwent comprehensive neuropsychological assessments, structural MRI, diffusion MRI, and Pittsburgh Compound-B (PiB) Positron Emission Tomography imaging"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [
+          "(abstract) ascular risk category. Furthermore, elevated NBM FW accounted for approximately 25% of the variance in systolic blood pressure, homocysteine, a"
+        ],
+        "route": null
+      },
+      {
+        "pmid": "40958776",
+        "title": "APOE genotype-dependent differences in human astrocytic energy metabolism.",
+        "year": "2025",
+        "via": "widen:citations:37777962",
+        "C1": {
+          "v": "yes",
+          "q": "we generated astrocytes (iAstrocytes) from APOE-isogenic human induced pluripotent stem cells (iPSCs)"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "expressing either APOE2, APOE3, APOE4 or carrying an APOE knockout (APOE-KO)"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "yes",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": "pmc_oa"
+      },
+      {
+        "pmid": "40855008",
+        "title": "Fueling the brain - the role of apolipoprotein E in brain energy metabolism and its implications for Alzheimer's disease.",
+        "year": "2025",
+        "via": "widen:citations:37777962",
+        "C1": {
+          "v": "no",
+          "q": "This review highlights the recent evidence of how APOE isoforms differentially affect the bioenergetic homeostasis of the brain"
+        },
+        "C2": {
+          "v": "no",
+          "q": "This review highlights the recent evidence of how APOE isoforms differentially affect the bioenergetic homeostasis of the brain"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "40959270",
+        "title": "Altered Heme and Redox Homeostasis Underpin Late-onset Alzheimer's Disease.",
+        "year": "2025",
+        "via": "widen:citations:37777962",
+        "C1": {
+          "v": "no",
+          "q": "neurons differentiated from human EOAD and LOAD iPSC-derived neural stem cells"
+        },
+        "C2": {
+          "v": "no",
+          "q": "relative to their respective control neurons"
+        },
+        "C3": {
+          "v": "no",
+          "q": "biochemical measurements of energy metabolism, heme and redox homeostasis"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "40813385",
+        "title": "Astrocyte priming enhances microglial Aβ clearance and is compromised by APOE4.",
+        "year": "2025",
+        "via": "widen:citations:37777962",
+        "C1": {
+          "v": "yes",
+          "q": "human astrocytes derived from the induced pluripotent stem cells of healthy female donors"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": "In contrast, astrocytes carrying the Alzheimer's disease (AD) risk allele APOE4 exhibit reduced priming"
+        },
+        "C3": {
+          "v": "no",
+          "q": "promote microglial Aβ uptake"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "40660381",
+        "title": "Pathological mechanisms and treatment progression of Alzheimer's disease.",
+        "year": "2025",
+        "via": "widen:citations:37777962",
+        "C1": {
+          "v": "no",
+          "q": "By synthesizing evidence from molecular studies, animal models, and clinical trials"
+        },
+        "C2": {
+          "v": "no",
+          "q": "genetic risk factors (particularly APOE ε4)"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "40628716",
+        "title": "The multifaceted roles of apolipoprotein E4 in Alzheimer's disease pathology and potential therapeutic strategies.",
+        "year": "2025",
+        "via": "widen:citations:37777962",
+        "C1": {
+          "v": "no",
+          "q": "This review examines ApoE4's multifaceted contributions to AD pathogenesis"
+        },
+        "C2": {
+          "v": "no",
+          "q": "Apolipoprotein E4 (ApoE4), the strongest genetic risk factor for AD"
+        },
+        "C3": {
+          "v": "no",
+          "q": "impaired glucose utilization, mitochondrial deficits"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "no",
+          "q": "its precise pathogenic mechanisms remain unclear"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "23296339",
+        "title": "Apolipoprotein E and Alzheimer disease: risk, mechanisms and therapy.",
+        "year": "2013",
+        "via": "widen:references:34919811",
+        "C1": {
+          "v": "no",
+          "q": "In this Review, we describe current knowledge on Apo-E in the CNS"
+        },
+        "C2": {
+          "v": "no",
+          "q": "In this Review, we describe current knowledge on Apo-E in the CNS"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "29311783",
+        "title": "The Endosomal-Lysosomal Pathway Is Dysregulated by APOE4 Expression in Vivo.",
+        "year": "2017",
+        "via": "widen:references:34919811",
+        "C1": {
+          "v": "no",
+          "q": "aged APOE targeted replacement mice"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": "APOE4-specific endosomal-lysosomal pathway dysregulation in the brains of APOE4 mice"
+        },
+        "C3": {
+          "v": "no",
+          "q": "an age-dependent increase in the number and size of early endosomes in APOE4 mice"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "33658354",
+        "title": "APOE4 disrupts intracellular lipid homeostasis in human iPSC-derived glia.",
+        "year": "2021",
+        "via": "widen:references:34919811",
+        "C1": {
+          "v": "yes",
+          "q": "human induced pluripotent stem cell (iPSC)-derived astrocytes generated from fibroblasts of APOE4 or APOE3 carriers"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "APOE4, but not APOE3, disrupted the cellular lipidomes of human induced pluripotent stem cell (iPSC)-derived astrocytes"
+        },
+        "C3": {
+          "v": "no",
+          "q": "These changes resulted in increased unsaturation of fatty acids and accumulation of intracellular lipid droplets"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "27174096",
+        "title": "Central Nervous System Lipoproteins: ApoE and Regulation of Cholesterol Metabolism.",
+        "year": "2016",
+        "via": "widen:references:34919811",
+        "C1": {
+          "v": "unclear",
+          "q": "ApoE4-expressing cultured astrocytes and neurons have reduced cholesterol and phospholipid secretion"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "Unlike apoE2 and apoE3, apoE4 has markedly altered CNS metabolism"
+        },
+        "C3": {
+          "v": "no",
+          "q": "increased intracellular degradation"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "32587511",
+        "title": "APOE Alleles and Diet in Brain Aging and Alzheimer's Disease.",
+        "year": "2020",
+        "via": "widen:references:34919811",
+        "C1": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C2": {
+          "v": "no",
+          "q": "The age-accelerating APOE4 allele alters the endosomal trafficking of cell surface receptors that mediate lipid and glucose metabolism"
+        },
+        "C3": {
+          "v": "no",
+          "q": "The age-accelerating APOE4 allele alters the endosomal trafficking of cell surface receptors that mediate lipid and glucose metabolism"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "30660866",
+        "title": "Generation of a set of isogenic, gene-edited iPSC lines homozygous for all main APOE variants and an APOE knock-out line.",
+        "year": "2019",
+        "via": "widen:references:34919811",
+        "C1": {
+          "v": "no",
+          "q": "we report the use of CRISPR/Cas9 technology employed on iPSCs from a healthy individual with an APOE-ε3/ε4 genotype to obtain isogenic APOE-ε2/ε2, APOE-ε3/ε3, APOE-ε4/ε4 lines as well as an APOE-knock-out line"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "22383525",
+        "title": "Low-density lipoprotein receptor represents an apolipoprotein E-independent pathway of Aβ uptake and degradation by astrocytes.",
+        "year": "2012",
+        "via": "widen:references:34919811",
+        "C1": {
+          "v": "unclear",
+          "q": "altered both the uptake and degradation of Aβ by astrocytes"
+        },
+        "C2": {
+          "v": "no",
+          "q": "the effect of LDLR on Aβ uptake and clearance occurred in the absence of apoE"
+        },
+        "C3": {
+          "v": "yes",
+          "q": "facilitated the vesicular transport of Aβ to lysosomes"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "23620513",
+        "title": "ApoE influences amyloid-β (Aβ) clearance despite minimal apoE/Aβ association in physiological conditions.",
+        "year": "2013",
+        "via": "widen:references:34919811",
+        "C1": {
+          "v": "unclear",
+          "q": "apoE isoforms regulate the metabolism of sAβ by astrocytes and in the interstitial fluid of mice"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "producing apoE3 and apoE4 isoforms as assessed by multiple biochemical and analytical techniques"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "yes",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": "unpaywall"
+      },
+      {
+        "pmid": "29516132",
+        "title": "Cell-specific production, secretion, and function of apolipoprotein E.",
+        "year": "2018",
+        "via": "widen:references:34919811",
+        "C1": {
+          "v": "no",
+          "q": "we summarize recent insights into the differential regulation apoE production and secretion"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "25217293",
+        "title": "APOE ε4: the most prevalent yet understudied risk factor for Alzheimer's disease.",
+        "year": "2014",
+        "via": "widen:references:34919811",
+        "C1": {
+          "v": "no",
+          "q": "AD patients",
+          "why": "rule: AD brain"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "22862561",
+        "title": "APOE genotype affects the pre-synaptic compartment of glutamatergic nerve terminals.",
+        "year": "2013",
+        "via": "widen:references:34919811",
+        "C1": {
+          "v": "no",
+          "q": "Using APOE knock-in mice, we have previously shown that APOE-ε4 Targeted Replacement (TR) mice"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "compared with APOE-ε3 TR mice, APOE-ε4 TR mice had decreased glutaminase levels"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [
+          "(abstract) ompared with APOE-ε3 TR mice, APOE-ε4 TR mice had decreased glutaminase levels (18%, p < 0.05), suggesting decreased conversion of glutamine to",
+          "(abstract) -ε4 TR mice also had increased levels of the vesicular glutamate transporter 1 (20%, p < 0.05), suggesting that APOE genotype affects pre-synap"
+        ],
+        "route": null
+      },
+      {
+        "pmid": "9265639",
+        "title": "Interaction of nascent ApoE2, ApoE3, and ApoE4 isoforms expressed in mammalian cells with amyloid peptide beta (1-40). Relevance to Alzheimer's disease.",
+        "year": "1997",
+        "via": "widen:references:34919811",
+        "C1": {
+          "v": "no",
+          "q": "brain of patients with AD",
+          "why": "rule: AD brain"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "Analysis of the interaction of nascent apoE2, apoE3, and apoE4 produced by BHK-21 cells with Abeta (1-40)"
+        },
+        "C3": {
+          "v": "no",
+          "q": "the efficiency of the apoE monomer-Abeta complex formation follows the order apoE2 > apoE3 >> apoE4"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "32971461",
+        "title": "Corrigendum to \"Generation of a set of isogenic, gene-edited iPSC lines homozygous for all main APOE variants and an APOE knock-out line\" [Stem Cell Res. 34/1873-5061 (2019) 101349-55].",
+        "year": "2020",
+        "via": "widen:references:34919811",
+        "C1": {
+          "v": "unclear",
+          "q": null,
+          "why": "no abstract"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null,
+          "why": "no abstract"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "no abstract"
+        },
+        "C4": "no",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "no abstract"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "33027662",
+        "title": "PICALM Rescues Endocytic Defects Caused by the Alzheimer's Disease Risk Factor APOE4.",
+        "year": "2020",
+        "via": "widen:references:34919811",
+        "C1": {
+          "v": "yes",
+          "q": "We investigate the cellular consequences of APOE4 in human iPSC-derived astrocytes"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "an endocytic defect in APOE4 astrocytes compared with their isogenic APOE3 counterparts"
+        },
+        "C3": {
+          "v": "no",
+          "q": "APOE4 astrocytes also exhibited a trend towards lower late endosomal and lysosomal number when compared to APOE3 astrocytes in both isogenic pairs"
+        },
+        "C4": "yes",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "full_text",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": "pmc_oa"
+      },
+      {
+        "pmid": "31641056",
+        "title": "ApoE4 Alters ABCA1 Membrane Trafficking in Astrocytes.",
+        "year": "2019",
+        "via": "widen:references:34919811",
+        "C1": {
+          "v": "unclear",
+          "q": "ApoE4 promoted greater expression of ARF6 compared with ApoE3, trapping ABCA1 in late-endosomes"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "ApoE4 promoted greater expression of ARF6 compared with ApoE3"
+        },
+        "C3": {
+          "v": "yes",
+          "q": "trapping ABCA1 in late-endosomes and impairing its recycling to the cell membrane"
+        },
+        "C4": "yes",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": "unpaywall"
+      },
+      {
+        "pmid": "30804776",
+        "title": "The Role of APOE4 in Disrupting the Homeostatic Functions of Astrocytes and Microglia in Aging and Alzheimer's Disease.",
+        "year": "2019",
+        "via": "widen:references:34919811",
+        "C1": {
+          "v": "no",
+          "q": "AD and the aging brain",
+          "why": "rule: AD brain"
+        },
+        "C2": {
+          "v": "no",
+          "q": "This review article will summarize how APOE4 alters specific pathways in astrocytes and microglia in the context of AD and the aging brain."
+        },
+        "C3": {
+          "v": "no",
+          "q": "This review article will summarize how APOE4 alters specific pathways in astrocytes and microglia in the context of AD and the aging brain."
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [
+          "(abstract) nset Alzheimer's disease (AD), increasing the risk of developing the disease by 3-fold in the 14% of the population that are carriers. Despite 25 ",
+          "(abstract) 's disease (AD), increasing the risk of developing the disease by 3-fold in the 14% of the population that are carriers. Despite 25 years of re"
+        ],
+        "route": null
+      },
+      {
+        "pmid": "30646251",
+        "title": "Association of Chronic Low-grade Inflammation With Risk of Alzheimer Disease in ApoE4 Carriers.",
+        "year": "2018",
+        "via": "widen:references:34919811",
+        "C1": {
+          "v": "no",
+          "q": "AD and brain",
+          "why": "rule: AD brain"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "This phenomenon was not observed among ApoE3 and ApoE2 carriers with chronic low-grade inflammation"
+        },
+        "C3": {
+          "v": "no",
+          "q": "Development of AD and brain volumes"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [
+          "(abstract) ment of AD and brain volumes. RESULTS: Of the 3130 eligible participants, 2656 (84.9%; 1227 men and 1429 women; mean [SD] age at last CRP measure",
+          "(abstract)  ApoE3 then ApoE2 genotypes. During the 17 years of follow-up, 194 individuals (7.3%) developed dementia, 152 (78.4%) of whom had AD. ApoE4 coup",
+          "(abstract) ring the 17 years of follow-up, 194 individuals (7.3%) developed dementia, 152 (78.4%) of whom had AD. ApoE4 coupled with chronic low-grade infla",
+          "(abstract) f AD, especially in the absence of cardiovascular diseases (hazard ratio, 6.63; 95% CI, 1.80-24.50; P = .005), as well as an increased risk of ",
+          "(abstract)  compared with ApoE4 carriers without chronic inflammation (hazard ratio, 3.52; 95% CI, 1.27-9.75; P = .009). This phenomenon was not observed ",
+          "(abstract) ers with chronic low-grade inflammation. Finally, a subset of 1761 individuals (66.3%) underwent brain magnetic resonance imaging, and the intera"
+        ],
+        "route": null
+      },
+      {
+        "pmid": "29563219",
+        "title": "Small molecule inducers of ABCA1 and apoE that act through indirect activation of the LXR pathway.",
+        "year": "2018",
+        "via": "widen:references:34919811",
+        "C1": {
+          "v": "yes",
+          "q": "upregulate ABCA1 across multiple CNS cell types, including human astrocytes, pericytes, and microglia"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "yes",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": "unpaywall"
+      },
+      {
+        "pmid": "42700370",
+        "title": "Entorhinal cortex astrocytes in early Alzheimer disease: Human evidence, cross-species circuit rationale, and translational boundaries.",
+        "year": "2026",
+        "via": "widen:citations:34919811",
+        "C1": {
+          "v": "no",
+          "q": "This narrative review evaluates EC astrocytes through an explicit evidence hierarchy"
+        },
+        "C2": {
+          "v": "no",
+          "q": "APOE-related lipid handling"
+        },
+        "C3": {
+          "v": "no",
+          "q": "APOE-related lipid handling"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "42728404",
+        "title": "Fibronectin mediates APOE4-driven blood-brain barrier dysfunction in Alzheimer's disease.",
+        "year": "2026",
+        "via": "widen:citations:34919811",
+        "C1": {
+          "v": "unclear",
+          "q": "Using postmortem human brain tissue, human three-dimensional vascular models and in vivo models"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "APOE ε4/ε4 astrocytes also exhibited significantly higher APOE protein levels than APOE ε3/ε3 astrocytes"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "yes",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "full_text",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": "pmc_oa"
+      },
+      {
+        "pmid": "42660456",
+        "title": "Apolipoprotein E lipidation, rather than isoform identity, determines amyloid-β binding and astrocyte clearance.",
+        "year": "2026",
+        "via": "widen:citations:34919811",
+        "C1": {
+          "v": "unclear",
+          "q": "Aβ uptake and cytotoxicity in human astrocytes"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "APOEε4>APOEε3>APOEε2"
+        },
+        "C3": {
+          "v": "no",
+          "q": "Aβ uptake and cytotoxicity in human astrocytes"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "42653368",
+        "title": "Human Stem Cell-Derived Models of the Alzheimer's Disease Neuroimmune System.",
+        "year": "2026",
+        "via": "widen:citations:34919811",
+        "C1": {
+          "v": "no",
+          "q": "we provide an overview of modern techniques for generating 2-dimensional (2D) monocultures"
+        },
+        "C2": {
+          "v": "no",
+          "q": "we highlight recent studies that have utilized hiPSC-derived neuroimmune models to investigate AD risk variants in genes encoding apolipoprotein E (APOE)"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "42297933",
+        "title": "NTPDase2 suppresses hippocampal astrocyte-supplied cholesterol through hydrolyzing eATP in depression.",
+        "year": "2026",
+        "via": "widen:citations:34919811",
+        "C1": {
+          "v": "no",
+          "q": "depressed rats exposing to chronic unpredictable mild stress (CUMS)"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "42337953",
+        "title": "HDL-mimetic peptide treatment reverses APOE4-induced transcriptomic and lipidomic alterations in the brain of humanized APOE mice.",
+        "year": "2026",
+        "via": "widen:citations:34919811",
+        "C1": {
+          "v": "no",
+          "q": "APOE4/4 and APOE3/3 mice treated intraperitoneally with D-enantiomer of 4F"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "APOE4/4 and APOE3/3 mice treated intraperitoneally"
+        },
+        "C3": {
+          "v": "no",
+          "q": "increased ceramides, sphingomyelins, and cholesteryl esters, with decreased diglycerides and triglycerides"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "42216420",
+        "title": "The physiological effects of APOE genotype in healthy young/middle-aged individuals.",
+        "year": "2026",
+        "via": "widen:citations:34919811",
+        "C1": {
+          "v": "no",
+          "q": "serum lipid levels, and the interactions with sex or lifestyle factors"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "APOE4>E3>E2 is associated with increased serum low-density lipoprotein-associated cholesterol"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "yes",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "full_text",
+          "C2": "full_text",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": "pmc_oa"
+      },
+      {
+        "pmid": "42180184",
+        "title": "Association between serum lipid-apolipoprotein alterations and soluble syndecan-1 dynamics in sepsis: impact of apolipoprotein E isoforms.",
+        "year": "2026",
+        "via": "widen:citations:34919811",
+        "C1": {
+          "v": "no",
+          "q": "Serum levels of sSDC1, lipids, and apolipoproteins were measured and compared between patients with sepsis (n = 259) and non-septic controls (n = 57)"
+        },
+        "C2": {
+          "v": "no",
+          "q": "Correlation analysis revealed a negative correlation between sSDC1 and HDL-C or apoAI in patients with the apoE2/E3"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "42140183",
+        "title": "Cell-type-specific APOE4 cascade across the Alzheimer's disease continuum.",
+        "year": "2026",
+        "via": "widen:citations:34919811",
+        "C1": {
+          "v": "no",
+          "q": "In this review, we synthesize current findings and propose a temporal model linking cell-type-specific APOE4 expression to AD progression"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "41867897",
+        "title": "APOE3 astrocytes can rescue lipid abnormalities and dystrophic neurites of APOE4 human neurons.",
+        "year": "2026",
+        "via": "widen:citations:34919811",
+        "C1": {
+          "v": "yes",
+          "q": "CRISPR-edited APOE3 and APOE4 human astrocytes on the rescue of dystrophic neurites"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "APOE3, but not APOE4 or APOE knockout, astrocytes prevented cholesterol- and lipid-induced neurite damage in APOE4 neurons"
+        },
+        "C3": {
+          "v": "no",
+          "q": "live-cell imaging and objective neurite imaging techniques"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "41760425",
+        "title": "Lithium chloride suppresses ferroptosis of induced pluripotent stem cells with ApoE4/E4 from a sporadic Alzheimer's disease patient.",
+        "year": "2026",
+        "via": "widen:citations:34919811",
+        "C1": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "compared effects with those of isogenic gene-edited ApoE3/E3 control"
+        },
+        "C3": {
+          "v": "no",
+          "q": "elevated cytosolic Fe2+, increased expression of divalent metal transporter 1, reduced level of glutathione peroxidase 4"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [
+          "(abstract) Alzheimer's disease (AD), particularly its sporadic form (SAD, 95 % AD patients), is strongly associated with the apolipoprotei"
+        ],
+        "route": null
+      },
+      {
+        "pmid": "41768790",
+        "title": "Plasmalogen deficiency and the Alzheimer's disease risk of apolipoprotein E4.",
+        "year": "2026",
+        "via": "widen:citations:34919811",
+        "C1": {
+          "v": "no",
+          "q": "Alzheimer's disease brain",
+          "why": "rule: AD brain"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null,
+          "why": "rule: APOE4 and APOE3 not both named"
+        },
+        "C3": {
+          "v": "no",
+          "q": "conducted lipidomic and proteomic analyses of the precipitates by mass spectrometry"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [
+          "(abstract) E4, n = 5). The molar ratio of ethanolamine plasmalogen to apolipoprotein E was 29.5% lower for E4E4 than for E3E3 (P = 0.007) with a biological "
+        ],
+        "route": null
+      },
+      {
+        "pmid": "41657199",
+        "title": "Cortical Oscillations as an Endophenotype Mediating ApoE-ε2 Effects on Poststroke Functional Status.",
+        "year": "2026",
+        "via": "widen:citations:34919811",
+        "C1": {
+          "v": "no",
+          "q": "In 33 patients with recent stroke, resting EEG activity (3 minutes), APOE genotype, and functional outcome (GG scores) were measured"
+        },
+        "C2": {
+          "v": "no",
+          "q": "The aim of this cohort study was to determine whether cortical oscillations could represent an endophenotype mediating the effects of ApoE-ε2 on poststroke function"
+        },
+        "C3": {
+          "v": "no",
+          "q": "resting EEG activity (3 minutes), APOE genotype, and functional outcome (GG scores) were measured"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [
+          "(abstract) ome via ipsilesional M1 beta power (ACME, 14.79 [0.9-34.6], P=0.03), explaining 14% of the average outcome. Exploratory mediation analyses furt",
+          "(abstract) e via ipsilesional M1 theta power (ACME, 48.2 [13.3-89.6], P=0.017), explaining 43% of the average outcome. Ipsilesional M1 power in other freq"
+        ],
+        "route": null
+      },
+      {
+        "pmid": "41121315",
+        "title": "Dual inhibition of IRAK1/TAK1 signaling in astrocytes reduces accelerated mortality in human APOE4 knock-in APPswe/PSEN1dE9/P301S-Tau triple transgenic mouse model.",
+        "year": "2025",
+        "via": "widen:citations:34919811",
+        "C1": {
+          "v": "no",
+          "q": "human APOE4 knock-in APPswe/PSEN1dE9/P301S-Tau triple transgenic mouse model"
+        },
+        "C2": {
+          "v": "no",
+          "q": "compared its phenotypes with the human APOE4 knock-in P301S-Tau (TE4) mouse model"
+        },
+        "C3": {
+          "v": "no",
+          "q": "tau-related mitochondrial dysfunction and cellular senescence"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "40983680",
+        "title": "The Neurolipid Atlas: a lipidomics resource for neurodegenerative diseases.",
+        "year": "2025",
+        "via": "widen:citations:34919811",
+        "C1": {
+          "v": "unclear",
+          "q": "isogenic induced pluripotent stem cell (iPS cell)-derived lipidomics data for different brain diseases"
+        },
+        "C2": {
+          "v": "unclear",
+          "q": "The Alzheimer disease (AD) risk gene ApoE4 drives cholesterol ester (CE) accumulation specifically in human astrocytes"
+        },
+        "C3": {
+          "v": "no",
+          "q": "cholesterol ester (CE) accumulation specifically in human astrocytes"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "40962686",
+        "title": "CRISPR-edited iPSCs reveal BSN gene mutations induce neuronal hyperexcitability via astrocyte lipid accumulation.",
+        "year": "2025",
+        "via": "widen:citations:34919811",
+        "C1": {
+          "v": "yes",
+          "q": "we introduced patient-derived BSN mutations (p.M1903V and c.5672insCG) into human induced pluripotent stem cells (iPSCs) and differentiated them into astrocytes"
+        },
+        "C2": {
+          "v": "no",
+          "q": "Proteomic analysis revealed upregulation of lipid metabolism regulators, such as APOE and FASN"
+        },
+        "C3": {
+          "v": "no",
+          "q": "evidenced by elevated free cholesterol, reduced arginase activity, and increased lipid droplets"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "40964962",
+        "title": "Protective mechanisms against Alzheimer's disease in APOE3-Christchurch homozygous astrocytes.",
+        "year": "2025",
+        "via": "widen:citations:34919811",
+        "C1": {
+          "v": "yes",
+          "q": "Human induced pluripotent stem cell-derived astrocytes"
+        },
+        "C2": {
+          "v": "no",
+          "q": "APOE3-Ch and wild type"
+        },
+        "C3": {
+          "v": "yes",
+          "q": "superior clearance through lysosomal and proteasomal degradation"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "40571761",
+        "title": "APOE Genotype Impacts Polyunsaturated Neutral Lipid Storage and Ferroptosis Vulnerability in Astrocytes.",
+        "year": "2025",
+        "via": "widen:citations:34919811",
+        "C1": {
+          "v": "yes",
+          "q": "APOE2 astrocytes are also enriched in polyunsaturated lipids but are less vulnerable to lipid peroxidation"
+        },
+        "C2": {
+          "v": "no",
+          "q": "APOE4 and APOE knockout astrocytes accumulate cholesterol and polyunsaturated lipid-rich droplets in lysosomes"
+        },
+        "C3": {
+          "v": "yes",
+          "q": "accumulate cholesterol and polyunsaturated lipid-rich droplets in lysosomes"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "40553976",
+        "title": "Can cognitive reserve offset APOE-related Alzheimer's risk? A systematic review.",
+        "year": "2025",
+        "via": "widen:citations:34919811",
+        "C1": {
+          "v": "no",
+          "q": "we systematically investigated research that explored the interaction between APOE-related AD outcomes and CR"
+        },
+        "C2": {
+          "v": "no",
+          "q": "Genetic susceptibility to AD can be influenced by allele variants of the APOE gene"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "40164234",
+        "title": "New insight into the role of altered brain cholesterol metabolism in the pathogenesis of AD: A unifying cholesterol hypothesis and new therapeutic approach for AD.",
+        "year": "2025",
+        "via": "widen:citations:34919811",
+        "C1": {
+          "v": "no",
+          "q": "reduction of brain cholesterol biosynthesis and/or disorder of brain cholesterol trafficking in a variety of sporadic AD (SAD) animals and patients"
+        },
+        "C2": {
+          "v": "no",
+          "q": "such as ApoE4, ATP binding cassette (ABC) transporters, low-density lipoprotein receptor (LDLR) family"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "40145985",
+        "title": "Neuropsychiatric symptoms and apolipoprotein E genotypes in neurocognitive disorders.",
+        "year": "2026",
+        "via": "widen:citations:34919811",
+        "C1": {
+          "v": "no",
+          "q": "In the present review article, we analyzed the links existing between APOE genotypes and the neurobiology of neuropsychiatric symptoms in neurodegenerative and vascular diseases."
+        },
+        "C2": {
+          "v": "no",
+          "q": "In the present review article, we analyzed the links existing between APOE genotypes and the neurobiology of neuropsychiatric symptoms in neurodegenerative and vascular diseases."
+        },
+        "C3": {
+          "v": "no",
+          "q": "These shared pathways often involved neuroinflammation, abnormal protein accumulation, or responses to acute detrimental events."
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "40026419",
+        "title": "Stools from a human APOEe2 donor reduces amyloid and tau pathology and increases neuroinflammation in a 3xTg AD mouse model.",
+        "year": "2025",
+        "via": "widen:citations:34919811",
+        "C1": {
+          "v": "no",
+          "q": "FMT of bacteria isolated from stools of untreated 3xTgAD mice (M-FMT) or e2-FMT were transplanted in 15-month-old 3xTgAD mice"
+        },
+        "C2": {
+          "v": "no",
+          "q": "FMT of bacteria isolated from stools of untreated 3xTgAD mice (M-FMT) or e2-FMT were transplanted in 15-month-old 3xTgAD mice"
+        },
+        "C3": {
+          "v": "no",
+          "q": "hippocampal amyloid, tau pathology and neuroinflammation were assessed at the end of the treatment"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "39749840",
+        "title": "Retinal dysfunction in APOE4 knock-in mouse model of Alzheimer's disease.",
+        "year": "2025",
+        "via": "widen:citations:34919811",
+        "C1": {
+          "v": "no",
+          "q": "All the experiments were performed on 52- to 57-week-old mice"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "APOE4-KI mice showed impaired retinal structure, vasculature, function, vision, increased gliosis and neuroinflammation"
+        },
+        "C3": {
+          "v": "no",
+          "q": "The retina was assessed by optical coherence tomography, fundoscopy, fluorescein angiography, electroretinography, optomotor response, gliosis, and neuroinflammation"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "39745195",
+        "title": "Deciphering the role of APOE in cerebral amyloid angiopathy: from genetic insights to therapeutic horizons.",
+        "year": "2025",
+        "via": "widen:citations:34919811",
+        "C1": {
+          "v": "no",
+          "q": "This review not only deepens our understanding of the impact of APOE on the pathogenesis of CAA"
+        },
+        "C2": {
+          "v": "no",
+          "q": "its variants have been implicated in more than half of all patients with CAA"
+        },
+        "C3": {
+          "v": "no",
+          "q": "The primary physiological role of APOE is to mediate lipid transport in the brain and periphery"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "39666759",
+        "title": "Quantitative and Kinetic Proteomics Reveal ApoE Isoform-dependent Proteostasis Adaptations in Mouse Brain.",
+        "year": "2024",
+        "via": "widen:citations:34919811",
+        "C1": {
+          "v": "no",
+          "q": "we measured changes in proteome homeostasis in transgenic mice expressing a human ApoE gene"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "ApoE4 and ApoE2 both lead to modified regulation of mitochondrial membrane proteins relative to the wild-type control ApoE3"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "39586400",
+        "title": "Lipid trajectories improve risk models for Alzheimer's disease and mild cognitive impairment.",
+        "year": "2025",
+        "via": "widen:citations:34919811",
+        "C1": {
+          "v": "no",
+          "q": "In this retrospective, case-control study, we tested the hypothesis that blood-lipid concentrations during the decade prior to cognitive symptom onset can inform risk prediction"
+        },
+        "C2": {
+          "v": "no",
+          "q": "Inclusion of lipid-trajectory and VIM groups improved risk-model predictive performance independent of APOE and AD or lipid-level PRSs"
+        },
+        "C3": {
+          "v": "no",
+          "q": "total cholesterol, HDL-C, low-density lipoprotein cholesterol, non-HDL-C, and ln(triglycerides)"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "39394110",
+        "title": "iPSC-derived blood-brain barrier modeling reveals APOE isoform-dependent interactions with amyloid beta.",
+        "year": "2024",
+        "via": "widen:citations:34919811",
+        "C1": {
+          "v": "unclear",
+          "q": "brain microvascular endothelial cell-like cells (BMEC-like cells) and brain pericyte-like cells"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "we differentiated isogenic human induced pluripotent stem cell (iPSC) lines with different APOE genotypes"
+        },
+        "C3": {
+          "v": "no",
+          "q": "recombinant APOE4 protein significantly impeded the \"brain-to-blood\" amyloid beta 1-40 (Aβ40) transport capabilities"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "39056789",
+        "title": "APOE4 Increases Energy Metabolism in APOE-Isogenic iPSC-Derived Neurons.",
+        "year": "2024",
+        "via": "widen:citations:34919811",
+        "C1": {
+          "v": "yes",
+          "q": "pure human neurons (iN cells) from APOE-isogenic induced pluripotent stem cells (iPSCs)",
+          "partial": "iPSC findings only; AD-brain/animal parts out of scope"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "expressing either APOE2, APOE3, APOE4, or carrying an APOE knockout (KO)"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "yes",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": "pmc_oa"
+      },
+      {
+        "pmid": "38958888",
+        "title": "From Lab Bench to Hope: Emerging Gene Therapies in Clinical Trials for Alzheimer's Disease.",
+        "year": "2025",
+        "via": "widen:citations:34919811",
+        "C1": {
+          "v": "no",
+          "q": "AD patients",
+          "why": "rule: AD brain"
+        },
+        "C2": {
+          "v": "no",
+          "q": "apolipoprotein E2 (APOE2)"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "38649269",
+        "title": "Inhibitory Roles of Apolipoprotein E Christchurch Astrocytes in Curbing Tau Propagation Using Human Pluripotent Stem Cell-Derived Models.",
+        "year": "2024",
+        "via": "widen:citations:34919811",
+        "C1": {
+          "v": "yes",
+          "q": "isogenic APOE3Ch/3Ch human-induced pluripotent stem cells (iPSCs) from APOE3/3 healthy control female iPSCs"
+        },
+        "C2": {
+          "v": "no",
+          "q": "APOE3Ch/3Ch astrocytes reduced complexity compared with APOE3/3 astrocytes"
+        },
+        "C3": {
+          "v": "no",
+          "q": "APOE3Ch/3Ch astrocytes effectively mitigated tau propagation within iPSC-derived neurons"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "24162737",
+        "title": "Meta-analysis of 74,046 individuals identifies 11 new susceptibility loci for Alzheimer's disease.",
+        "year": "2013",
+        "via": "widen:references:35750033",
+        "C1": {
+          "v": "no",
+          "q": "meta-analysis of genome-wide association studies (GWAS) in individuals of European ancestry"
+        },
+        "C2": {
+          "v": "no",
+          "q": "In addition to the APOE locus (encoding apolipoprotein E), 19 loci reached genome-wide significance"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "15509658",
+        "title": "ApoE-mediated cholesterol efflux from macrophages: separation of autocrine and paracrine effects.",
+        "year": "2005",
+        "via": "widen:references:35750033",
+        "C1": {
+          "v": "no",
+          "q": "Macrophages in the vessel wall secrete high levels of apolipoprotein E (apoE)."
+        },
+        "C2": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [
+          "(abstract) ator of efflux. However, at saturating concentrations, paracrine apoE causes 80-90% of the apoE-mediated cholesterol efflux, whereas autocrine ",
+          "(abstract)  cholesterol efflux, whereas autocrine apoE is responsible for the remaining 10-20%. These results suggest that the relative importance of auto"
+        ],
+        "route": null
+      },
+      {
+        "pmid": "23347841",
+        "title": "25-Hydroxycholesterol regulates cholesterol homeostasis in the murine CATH.a neuronal cell line.",
+        "year": "2013",
+        "via": "widen:references:35750033",
+        "C1": {
+          "v": "no",
+          "q": "murine CATH.a neuronal cell line"
+        },
+        "C2": {
+          "v": "no",
+          "q": "apolipoprotein E (apoE) in CATH.a neurons"
+        },
+        "C3": {
+          "v": "no",
+          "q": "25-HC downregulated cholesterol biosynthesis in CATH.a neurons"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      },
+      {
+        "pmid": "32376954",
+        "title": "APOE4 leads to blood-brain barrier dysfunction predicting cognitive decline.",
+        "year": "2020",
+        "via": "widen:references:35750033",
+        "C1": {
+          "v": "no",
+          "q": "measured in cerebrospinal fluid or by positron emission tomography"
+        },
+        "C2": {
+          "v": "yes",
+          "q": "individuals bearing APOE4 (with the ε3/ε4 or ε4/ε4 alleles) are distinguished from those without APOE4 (ε3/ε3)"
+        },
+        "C3": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "C4": "unclear",
+        "C5": {
+          "v": "unclear",
+          "q": null,
+          "why": "model said no but quote not verbatim"
+        },
+        "src": {
+          "C1": "abstract",
+          "C2": "abstract",
+          "C3": "abstract",
+          "C5": "abstract"
+        },
+        "effects": [],
+        "route": null
+      }
+    ]
+  }
+}

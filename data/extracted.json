@@ -1,0 +1,690 @@
+{
+  "hyp": "H5",
+  "source": "full text where available (out/fulltext), else abstract",
+  "papers": [
+    {
+      "pmid": "37777962",
+      "doi": "10.1016/j.celrep.2023.113183",
+      "title": "ApoE4-dependent lysosomal cholesterol accumulation impairs mitochondrial homeostasis and oxidative phosphorylation in human astrocytes.",
+      "year": "2023",
+      "journal": "Cell reports",
+      "abstract": "Recent developments in genome sequencing have expanded the knowledge of genetic factors associated with late-onset Alzheimer's disease (AD). Among them, genetic variant ε4 of the APOE gene (APOE4) confers the greatest disease risk. Dysregulated glucose metabolism is an early pathological feature of AD. Using isogenic ApoE3 and ApoE4 astrocytes derived from human induced pluripotent stem cells, we find that ApoE4 increases glycolytic activity but impairs mitochondrial respiration in astrocytes. Ultrastructural and autophagy flux analyses show that ApoE4-induced cholesterol accumulation impairs lysosome-dependent removal of damaged mitochondria. Acute treatment with cholesterol-depleting agents restores autophagic activity, mitochondrial dynamics, and associated proteomes, and extended treatment rescues mitochondrial respiration in ApoE4 astrocytes. Taken together, our study provides a direct link between ApoE4-induced lysosomal cholesterol accumulation and abnormal oxidative phosphorylation.",
+      "findings": [
+        {
+          "description": "In isogenic human iPSC-derived astrocytes, ApoE4-induced cholesterol accumulation impairs lysosome-dependent removal of damaged mitochondria compared with ApoE3.",
+          "quote": "Ultrastructural and autophagy flux analyses show that ApoE4-induced cholesterol accumulation impairs lysosome-dependent removal of damaged mitochondria.",
+          "summary": "(ApoE4-induced cholesterol accumulation in astrocytes) -> (impaired lysosome-dependent mitophagy)",
+          "direction": "supports",
+          "experimental_system": "human iPSC-derived astrocytes, ApoE4 vs ApoE3 isogenic",
+          "relevance": 0.9,
+          "directness_class": 1,
+          "directness_strength": 2,
+          "effect_size": {
+            "value": null,
+            "quote": null
+          },
+          "p_value": {
+            "value": null,
+            "quote": null
+          },
+          "sample_size": {
+            "value": null,
+            "quote": null
+          },
+          "physician_review": false,
+          "physician_review_reasons": []
+        },
+        {
+          "description": "In human ApoE4 astrocytes, acute treatment with cholesterol-depleting agents restores autophagic activity, confirming that the lipid-metabolism disruption is causally upstream of the lysosomal/autophagic defect.",
+          "quote": "Acute treatment with cholesterol-depleting agents restores autophagic activity, mitochondrial dynamics, and associated proteomes",
+          "summary": "(cholesterol depletion in ApoE4 astrocytes) -> (restored autophagic/lysosomal activity)",
+          "direction": "supports",
+          "experimental_system": "human iPSC-derived ApoE4 astrocytes, cholesterol-depleting agent vs untreated",
+          "relevance": 0.75,
+          "directness_class": 1,
+          "directness_strength": 2,
+          "effect_size": {
+            "value": null,
+            "quote": null
+          },
+          "p_value": {
+            "value": null,
+            "quote": null
+          },
+          "sample_size": {
+            "value": null,
+            "quote": null
+          },
+          "physician_review": false,
+          "physician_review_reasons": []
+        }
+      ],
+      "n_model_findings": 2,
+      "n_rejected_quote": 0,
+      "fulltext": {
+        "status": "unavailable",
+        "routes_tried": [
+          "pmc_oa",
+          "europepmc",
+          "unpaywall_html",
+          "unpaywall_html",
+          "doi_direct_html"
+        ]
+      }
+    },
+    {
+      "pmid": "42636814",
+      "doi": "10.1016/j.stem.2026.08.001",
+      "title": "Cholesterol dysregulation in APOE4 astrocytes promotes α-synuclein pathology in miBrains.",
+      "year": "2026",
+      "journal": "Cell stem cell",
+      "abstract": "The pathological hallmarks of neurodegeneration are the aberrant post-translational modification and aggregation of proteins. Genetic factors, like APOE4, increase the prevalence and severity of tau, amyloid, and α-synuclein pathologies. However, the human brain is largely inaccessible during this process, limiting mechanistic understanding. Here, we developed an iPSC-based 3D model that integrates neurons, glia, myelin, and cerebrovascular cells into a human brain-like tissue (\"miBrain\"). Single-nucleus RNA sequencing of miBrains confirmed the presence of diverse cell populations and revealed transcriptional responses to α-synuclein pathology. Like the human brain, pathogenic α-synuclein is increased in APOE4/4 miBrains. Combinatorial experiments revealed that endolysosomal dysfunction caused by cholesterol accumulation in APOE4/4 astrocytes impairs the degradation of soluble α-synuclein leading to a pathogenic transformation that seeds α-synuclein inclusions in neurons. Collectively, this study establishes a robust model for investigating protein inclusions in human iPSC-derived brain tissue and highlights the role of astrocytes and cholesterol in APOE4-mediated pathologies.",
+      "findings": [
+        {
+          "description": "In APOE4/4 human astrocytes, treatment with cholesterol-lowering cyclodextrins (2HβCD, MβCD) significantly increased lysosomal proteolytic activity (DQ-BSA cleavage), indicating that the lipid accumulation associated with APOE4 is causally linked to impaired lysosomal function.",
+          "quote": "Treatment with 2-hydroxypropyl-β-cyclodextrin (2HβCD) and methyl-β-cyclodextrin (MβCD) significantly increased lysosomal proteolysis (2HβCD: p = 0.0002; MβCD: p = 0.019) (Figure 5b)",
+          "summary": "(Reduced intracellular cholesterol via cyclodextrins in APOE4/4 astrocytes) -> (increased lysosomal proteolytic activity)",
+          "direction": "supports",
+          "experimental_system": "APOE4/4 human astrocytes (isogenic, non-Alzheimer's/Parkinson's context), within-genotype drug intervention vs untreated",
+          "relevance": 0.95,
+          "directness_class": 2,
+          "directness_strength": 2,
+          "effect_size": {
+            "value": null,
+            "quote": null
+          },
+          "p_value": {
+            "value": "0.0002",
+            "quote": "2HβCD: p = 0.0002; MβCD: p = 0.019",
+            "provenance": "printed_in_text"
+          },
+          "sample_size": {
+            "value": null,
+            "quote": null
+          },
+          "physician_review": false,
+          "physician_review_reasons": [],
+          "location": "Results > Cholesterol accumulation in APOE4/4 astrocytes leads to lysosomal dysfunction and pathogenic α-Syn processing.",
+          "source": "full_text"
+        },
+        {
+          "description": "After normalizing DQ-BSA fluorescence to co-internalized dextran to control for lysosome number, APOE4/4 astrocytes still showed significantly lower proteolytic activity than APOE3/3 controls, indicating a functional (per-organelle) lysosomal impairment rather than solely reduced lysosome abundance.",
+          "quote": "Even after dextran normalization, APOE4/4 astrocytes retained significantly lower proteolytic activity (p = 0.0098; Figure S4e), indicating functional impairment rather than solely reduced lysosome abundance.",
+          "summary": "(APOE4/4 genotype in human astrocytes, dextran-normalized) -> (persistently reduced per-lysosome proteolytic function vs APOE3/3)",
+          "direction": "supports",
+          "experimental_system": "iPSC-derived human astrocytes, APOE4/4 vs isogenic APOE3/3",
+          "relevance": 0.92,
+          "directness_class": 2,
+          "directness_strength": 2,
+          "effect_size": {
+            "value": null,
+            "quote": null
+          },
+          "p_value": {
+            "value": null,
+            "quote": null
+          },
+          "sample_size": {
+            "value": null,
+            "quote": null
+          },
+          "physician_review": false,
+          "physician_review_reasons": [],
+          "location": "Results > APOE4/4 astrocytes exhibit impaired lysosomal proteolytic function.",
+          "source": "full_text"
+        },
+        {
+          "description": "In iPSC-derived human APOE4/4 astrocytes compared to isogenic APOE3/3 astrocytes, lysosomal proteolytic activity (measured by DQ-BSA cleavage) was significantly reduced across two isogenic donor pairs.",
+          "quote": "APOE4/4 astrocytes showed significantly reduced lysosomal DQ-BSA signal compared to isogenic control APOE3/3 astrocytes across two isogenic donor pairs (Donor #1: p= 0.0032; Donor #2: p < 0.0001, Figure 4d), indicating decreased lysosomal proteolytic activity.",
+          "summary": "(APOE4/4 genotype in human astrocytes) -> (reduced lysosomal proteolytic activity vs APOE3/3)",
+          "direction": "supports",
+          "experimental_system": "iPSC-derived human astrocytes, APOE4/4 vs isogenic APOE3/3 (two donor pairs)",
+          "relevance": 0.9,
+          "directness_class": 2,
+          "directness_strength": 3,
+          "effect_size": {
+            "value": null,
+            "quote": null
+          },
+          "p_value": {
+            "value": null,
+            "quote": null
+          },
+          "sample_size": {
+            "value": null,
+            "quote": null
+          },
+          "physician_review": false,
+          "physician_review_reasons": [],
+          "location": "Results > APOE4/4 astrocytes exhibit impaired lysosomal proteolytic function.",
+          "source": "full_text"
+        },
+        {
+          "description": "APOE4/4 human astrocytes exhibit significantly higher endogenous free cholesterol than APOE3/3 astrocytes, and MβCD treatment reduces APOE4/4 cholesterol to levels comparable to APOE3/3, establishing the lipid-metabolism disruption specific to the APOE4 genotype.",
+          "quote": "Filipin staining revealed a significant increase in endogenous free cholesterol in APOE4/4 astrocytes compared to APOE3/3 astrocytes, which was significantly reduced following MβCD treatment (p = 0.0167) to levels comparable to APOE3/3 astrocytes (Figure S5b).",
+          "summary": "(APOE4/4 genotype) -> (increased intracellular free cholesterol relative to APOE3/3)",
+          "direction": "supports",
+          "experimental_system": "APOE4/4 vs APOE3/3 isogenic human astrocytes, non-Alzheimer's (α-synuclein/Parkinson's) context",
+          "relevance": 0.8,
+          "directness_class": 3,
+          "directness_strength": 3,
+          "effect_size": {
+            "value": null,
+            "quote": null
+          },
+          "p_value": {
+            "value": "0.0167",
+            "quote": "significantly reduced following MβCD treatment (p = 0.0167)",
+            "provenance": "printed_in_text"
+          },
+          "sample_size": {
+            "value": null,
+            "quote": null
+          },
+          "physician_review": false,
+          "physician_review_reasons": [],
+          "location": "Results > Cholesterol accumulation in APOE4/4 astrocytes leads to lysosomal dysfunction and pathogenic α-Syn processing.",
+          "source": "full_text"
+        }
+      ],
+      "n_model_findings": 6,
+      "n_rejected_quote": 1,
+      "n_chunks": 2,
+      "chunk_errors": 0,
+      "fulltext": {
+        "status": "full_text",
+        "route": "pmc_oa"
+      }
+    },
+    {
+      "pmid": "34919811",
+      "doi": "10.1016/j.stemcr.2021.11.007",
+      "title": "APOE2, E3, and E4 differentially modulate cellular homeostasis, cholesterol metabolism, and inflammatory response in isogenic iPSC-derived astrocytes.",
+      "year": "2022",
+      "journal": "Stem cell reports",
+      "abstract": "The apolipoprotein E4 (APOE4) variant is the strongest genetic risk factor for Alzheimer disease (AD), while the APOE2 allele is protective. A major question is how different APOE genotypes affect the physiology of astrocytes, the main APOE-producing brain cells. Here, we differentiated human APOE-isogenic induced pluripotent stem cells (iPSCs) (APOE4, E3, E2, and APOE knockout [APOE-KO]) to functional \"iAstrocytes\". Mass-spectrometry-based proteomic analysis showed genotype-dependent reductions of cholesterol and lipid metabolic and biosynthetic pathways (reduction: APOE4 >E3 >E2). Cholesterol efflux and biosynthesis were reduced in APOE4 iAstrocytes, while subcellular localization of cholesterol in lysosomes was elevated. An increase in immunoregulatory proteomic pathways (APOE4 >E3 >E2) was accompanied by elevated cytokine release in APOE4 cells (APOE4 >E3 >E2 >KO). Activation of iAstrocytes exacerbated proteomic changes and cytokine secretion mostly in APOE4 iAstrocytes, while APOE2 and APOE-KO iAstrocytes were least affected. Taken together, APOE4 iAstrocytes reveal a disease-relevant phenotype, causing dysregulated cholesterol/lipid homeostasis, increased inflammatory signaling, and reduced β-amyloid uptake, while APOE2 iAstrocytes show opposing effects.",
+      "findings": [
+        {
+          "description": "Filipin III colocalization with the lysosomal marker Dextran-Alexa 555 was highest in APOE4 iPSC-derived astrocytes, indicating increased cholesterol levels specifically within lysosomes compared with other APOE genotypes.",
+          "quote": "Further colocalization of Filipin III with Dextran-Alexa 555 was highest in APOE4 iAstrocytes, indicating higher cholesterol levels in lysosomes of APOE4 iAstrocytes (E4 > E2) (Figure 3G).",
+          "summary": "(APOE4 genotype with disrupted lipid metabolism) -> (increased cholesterol accumulation in lysosomes, implying impaired lysosomal cholesterol processing)",
+          "direction": "supports",
+          "experimental_system": "iPSC-derived astrocytes, APOE4 vs APOE3/APOE2 (isogenic)",
+          "relevance": 0.82,
+          "directness_class": 3,
+          "directness_strength": 3,
+          "effect_size": {
+            "value": "qualitative",
+            "quote": "highest in APOE4 iAstrocytes, indicating higher cholesterol levels in lysosomes of APOE4 iAstrocytes (E4 > E2)",
+            "provenance": "printed_in_text"
+          },
+          "p_value": {
+            "value": null,
+            "quote": null
+          },
+          "sample_size": {
+            "value": null,
+            "quote": null
+          },
+          "physician_review": false,
+          "physician_review_reasons": [],
+          "location": "Results > Cholesterol and lipid metabolism show APOE allele-dependent regulation",
+          "source": "full_text"
+        },
+        {
+          "description": "In isogenic human iPSC-derived astrocytes, LAMP2 protein levels by western blot were higher in APOE3 than in APOE4, APOE2, and APOE-KO (E3 > E2 = E4 = KO; Figures 4D-E), while lysosomal activity was lower in APOE3 and APOE4 than in APOE2 and APOE-KO (KO = E2 > E3 = E4; Figure 4F).",
+          "quote": "However, protein levels of LAMP2 detected by western blot were significantly higher in APOE3 compared with APOE2, APOE4, and APOE-KO (E3 > E2 = E4 = KO) (Figures 4D and 4E). Lysosomal activity in APOE3 and APOE4 was significantly lower than in APOE2 and APOE-KO cells (KO = E2 > E3 = E4) (Figure 4F).",
+          "summary": "(APOE4 vs APOE3 iAstrocytes) -> (lower LAMP2 protein levels in APOE4; equally reduced lysosomal activity vs APOE2/KO)",
+          "direction": "supports",
+          "experimental_system": "human iPSC-derived astrocytes (iAstrocytes), APOE4 vs APOE3, APOE2, and APOE-KO (isogenic)",
+          "relevance": 0.78,
+          "directness_class": 3,
+          "directness_strength": 3,
+          "effect_size": {
+            "value": "qualitative",
+            "quote": "protein levels of LAMP2 detected by western blot were significantly higher in APOE3 compared with APOE2, APOE4, and APOE-KO (E3 > E2 = E4 = KO)",
+            "provenance": "printed_in_text"
+          },
+          "p_value": {
+            "value": null,
+            "quote": null
+          },
+          "sample_size": {
+            "value": null,
+            "quote": null
+          },
+          "physician_review": false,
+          "physician_review_reasons": [],
+          "location": "Results > Lysosomal but not endosomal function is affected by APOE genotype",
+          "source": "full_text"
+        }
+      ],
+      "n_model_findings": 4,
+      "n_rejected_quote": 0,
+      "n_chunks": 2,
+      "chunk_errors": 0,
+      "fulltext": {
+        "status": "full_text",
+        "route": "pmc_oa"
+      }
+    },
+    {
+      "pmid": "35750033",
+      "doi": "10.1016/j.cell.2022.05.017",
+      "title": "Cholesterol and matrisome pathways dysregulated in astrocytes and microglia.",
+      "year": "2022",
+      "journal": "Cell",
+      "abstract": "The impact of apolipoprotein E ε4 (APOE4), the strongest genetic risk factor for Alzheimer's disease (AD), on human brain cellular function remains unclear. Here, we investigated the effects of APOE4 on brain cell types derived from population and isogenic human induced pluripotent stem cells, post-mortem brain, and APOE targeted replacement mice. Population and isogenic models demonstrate that APOE4 local haplotype, rather than a single risk allele, contributes to risk. Global transcriptomic analyses reveal human-specific, APOE4-driven lipid metabolic dysregulation in astrocytes and microglia. APOE4 enhances de novo cholesterol synthesis despite elevated intracellular cholesterol due to lysosomal cholesterol sequestration in astrocytes. Further, matrisome dysregulation is associated with upregulated chemotaxis, glial activation, and lipid biosynthesis in astrocytes co-cultured with neurons, which recapitulates altered astrocyte matrisome signaling in human brain. Thus, APOE4 initiates glia-specific cell and non-cell autonomous dysregulation that may contribute to increased AD risk.",
+      "findings": [
+        {
+          "description": "Lysosomal cholesterol (measured by Filipin and TRITC-Dextran co-localization) was significantly increased in APOE4 vs APOE3 human hiPSC-derived astrocytes, indicating impaired lysosomal cholesterol clearance.",
+          "quote": "Filipin and TRITC-Dextran co-localization (yellow puncta), a measure of lysosomal cholesterol (Majumdar et al., 2007), was significantly increased (3-fold, p<0.001) in APOE4 compared to APOE3 astrocytes, indicating that intracellular free cholesterol accumulates in lysosomes (Figure 6H).",
+          "summary": "(APOE4 genotype) -> (3-fold increase in lysosomal cholesterol accumulation)",
+          "direction": "supports",
+          "experimental_system": "human hiPSC-derived astrocytes, APOE4 vs APOE3",
+          "relevance": 0.95,
+          "directness_class": 1,
+          "directness_strength": 2,
+          "effect_size": {
+            "value": null,
+            "quote": null
+          },
+          "p_value": {
+            "value": "<0.001",
+            "quote": "was significantly increased (3-fold, p<0.001) in APOE4 compared to APOE3 astrocytes",
+            "provenance": "printed_in_text"
+          },
+          "sample_size": {
+            "value": null,
+            "quote": null
+          },
+          "physician_review": false,
+          "physician_review_reasons": [],
+          "location": "Results > Impaired cholesterol trafficking in APOE4 astrocytes and microglia",
+          "source": "full_text"
+        },
+        {
+          "description": "Filipin (cholesterol marker) co-localized with endocytosed TRITC-Dextran (a classic late endosome/lysosome marker) in isogenic APOE astrocytes, indicating that APOE4 leads to lysosomal cholesterol sequestration linking lipid metabolism disruption to late endosome/lysosome compartment.",
+          "quote": "Representative images and % co-localization of filipin and endocytosed TRITC-Dextran in isogenic APOE astrocytes (N=4, 3 independent experiments, each image=an independent line). Yellow puncta labeled arrows in overlays indicate lysosomal cholesterol localization.",
+          "summary": "APOE4 genotype -> increased cholesterol sequestration within late endosome/lysosome (filipin–TRITC-Dextran co-localization) in astrocytes",
+          "direction": "supports",
+          "experimental_system": "isogenic human APOE astrocytes (non-AD, non-aged), APOE4 vs APOE3",
+          "relevance": 0.92,
+          "directness_class": 1,
+          "directness_strength": 2,
+          "effect_size": {
+            "value": null,
+            "quote": null
+          },
+          "p_value": {
+            "value": null,
+            "quote": null
+          },
+          "sample_size": {
+            "value": "4",
+            "quote": "(N=4, 3 independent experiments, each image=an independent line)",
+            "provenance": "printed_in_text"
+          },
+          "physician_review": false,
+          "physician_review_reasons": [],
+          "location": "Figure 6 legend",
+          "source": "full_text"
+        },
+        {
+          "description": "In APOE4 vs APOE3 human hiPSC-derived microglia, downregulated lysosome genes (LAMP1/2, NPC1/2, SMPD1, LIPA) predict enhanced cholesterol accumulation and decreased lipid clearance and catabolism.",
+          "quote": "Downregulated DEGs in Lysosome (e.g., LAMP1/2, NPC1/2, SMPD1 and LIPA) predicts enhanced cholesterol accumulation, decreased lipid clearance and catabolism.",
+          "summary": "(APOE4 genotype) -> (decreased lysosomal gene expression predicting impaired lipid clearance/catabolism)",
+          "direction": "supports",
+          "experimental_system": "human hiPSC-derived microglia, APOE4 vs APOE3",
+          "relevance": 0.85,
+          "directness_class": 3,
+          "directness_strength": 3,
+          "effect_size": {
+            "value": null,
+            "quote": null
+          },
+          "p_value": {
+            "value": null,
+            "quote": null
+          },
+          "sample_size": {
+            "value": null,
+            "quote": null
+          },
+          "physician_review": false,
+          "physician_review_reasons": [],
+          "location": "Results > Altered lipid metabolism in human APOE4 microglia and astrocytes",
+          "source": "full_text"
+        },
+        {
+          "description": "pHrodo-red-myelin internalization (a fluorescent probe active only in acidic late endosome/lysosome compartments) was quantified in isogenic APOE4 vs APOE3 astrocytes and microglia, revealing genotype-dependent differences in late endosome/lysosome acidification/function.",
+          "quote": "Mean fluorescent intensity (MFIxμm2) of internalized pHrodo-red-myelin normalized by cell density for 90h (top) and 24h (bottom) in isogenic APOE astrocytes (F) and for 36h in microglia (G).",
+          "summary": "APOE4 genotype -> altered late endosome/lysosome acidic compartment function (pHrodo-red-myelin signal) in astrocytes and microglia",
+          "direction": "supports",
+          "experimental_system": "isogenic human APOE astrocytes and microglia (non-AD, non-aged), APOE4 vs APOE3",
+          "relevance": 0.85,
+          "directness_class": 1,
+          "directness_strength": 2,
+          "effect_size": {
+            "value": null,
+            "quote": null
+          },
+          "p_value": {
+            "value": null,
+            "quote": null
+          },
+          "sample_size": {
+            "value": "6",
+            "quote": "(N=6, 3 independent experiments)",
+            "provenance": "printed_in_text"
+          },
+          "physician_review": false,
+          "physician_review_reasons": [],
+          "location": "Figure 6 legend",
+          "source": "full_text"
+        }
+      ],
+      "n_model_findings": 6,
+      "n_rejected_quote": 0,
+      "n_chunks": 2,
+      "chunk_errors": 0,
+      "fulltext": {
+        "status": "full_text",
+        "route": "pmc_oa"
+      }
+    },
+    {
+      "pmid": "39532095",
+      "doi": "10.1016/j.cell.2024.10.027",
+      "title": "Decreased lipidated ApoE-receptor interactions confer protection against pathogenicity of ApoE and its lipid cargoes in lysosomes.",
+      "year": "2025",
+      "journal": "Cell",
+      "abstract": "While apolipoprotein E (APOE) is the strongest genetic modifier for late-onset Alzheimer's disease (LOAD), the molecular mechanisms underlying isoform-dependent risk and the relevance of ApoE-associated lipids remain elusive. Here, we report that impaired low-density lipoprotein (LDL) receptor (LDLR) binding of lipidated ApoE2 (lipApoE2) avoids LDLR recycling defects observed with lipApoE3/E4 and decreases the uptake of cholesteryl esters (CEs), which are lipids linked to neurodegeneration. In human neurons, the addition of ApoE carrying polyunsaturated fatty acids (PUFAs)-CE revealed an allelic series (ApoE4 > ApoE3 > ApoE2) associated with lipofuscinosis, an age-related lysosomal pathology resulting from lipid peroxidation. Lipofuscin increased lysosomal accumulation of tau fibrils and was elevated in the APOE4 mouse brain with exacerbation by tau pathology. Intrahippocampal injection of PUFA-CE-lipApoE4 was sufficient to induce lipofuscinosis in wild-type mice. Finally, the protective Christchurch mutation also reduced LDLR binding and phenocopied ApoE2. Collectively, our data strongly suggest decreased lipApoE-LDLR interactions minimize LOAD risk by reducing the deleterious effects of endolysosomal targeting of ApoE and associated pathogenic lipids.",
+      "findings": [
+        {
+          "description": "In human iPSC-derived neurons (iNeurons), CE(20:4)-lipApoE4 induced a progressively larger accumulation of lipofuscin than CE(20:4)-lipApoE3 at 14 and 21 days, with lipofuscin localized in LAMP1-positive lysosomes.",
+          "quote": "After longer incubation (14 d and 21 d), a progressively larger difference between ApoE4 and ApoE3 emerged (Figure S5G, Figure 5B).",
+          "summary": "(APOE4 vs APOE3 CE(20:4)-lipApoE treatment) -> (increased lipofuscin in LAMP1+ lysosomes over time)",
+          "direction": "supports",
+          "experimental_system": "exogenous PUFA-CE-lipidated ApoE in human neurons/cells; human iPSC-derived neurons (iNeurons), H4, HAP1 cells; APOE4 vs APOE3 lipoparticle comparison",
+          "relevance": 0.92,
+          "directness_class": 2,
+          "directness_strength": 3,
+          "effect_size": {
+            "value": "qualitative",
+            "quote": "a progressively larger difference between ApoE4 and ApoE3 emerged",
+            "provenance": "printed_in_text"
+          },
+          "p_value": {
+            "value": null,
+            "quote": null
+          },
+          "sample_size": {
+            "value": null,
+            "quote": null
+          },
+          "physician_review": false,
+          "physician_review_reasons": [
+            "exogenous_apoe_directness_adjusted",
+            "exogenous_apoe_strength_adjusted",
+            "exogenous_apoe_system_annotated"
+          ],
+          "location": "RESULTS > ApoE isoforms carrying CE(20:4) differentially induce lipofuscin in cultured cells",
+          "source": "full_text",
+          "physician_audited": "2026-11-26"
+        },
+        {
+          "description": "In H4 neuroblastoma cells and APOE KO iAstrocytes, POPC-lipidated ApoE3 and ApoE4 altered cellular LDLR distribution, impaired LDL uptake, and ApoE4 was detected within LAMP1-positive (lysosomal) vesicles, linking ApoE4 lipid delivery to lysosomal compartment involvement.",
+          "quote": "Lipidated ApoE3 and ApoE4 alter cellular distribution of LDLR and impair LDL uptake",
+          "summary": "POPC-lipidated ApoE4 (vs ApoE3) in human brain cells -> altered LDLR distribution, impaired LDL uptake, and ApoE4 colocalized with LAMP1-positive lysosomal vesicles",
+          "direction": "supports",
+          "experimental_system": "exogenous PUFA-CE-lipidated ApoE in human neurons/cells; H4 human neuroblastoma cells and APOE KO iAstrocytes, POPC-lipidated ApoE3 vs ApoE4",
+          "relevance": 0.6,
+          "directness_class": 2,
+          "directness_strength": 3,
+          "effect_size": {
+            "value": null,
+            "quote": null
+          },
+          "p_value": {
+            "value": null,
+            "quote": null
+          },
+          "sample_size": {
+            "value": null,
+            "quote": null
+          },
+          "physician_review": false,
+          "physician_review_reasons": [
+            "exogenous_apoe_directness_adjusted",
+            "exogenous_apoe_system_annotated"
+          ],
+          "location": "Figure 2. legend",
+          "source": "full_text",
+          "physician_audited": "2026-11-26"
+        },
+        {
+          "description": "In human cell systems, CE(20:4)-lipidated Christchurch (R136S) mutants of ApoE4 (and ApoE3) showed significantly attenuated lipofuscinosis compared to their wild-type counterparts, indicating that reduced LDLR-dependent lipid delivery alleviates lysosomal lipid accumulation.",
+          "quote": "CE(20:4)-lipidated Christchurch mutants showed significantly attenuated lipofuscinosis (Figure 7F-G)",
+          "summary": "Reduced LDLR-dependent ApoE lipid delivery (Christchurch R136S mutation) -> attenuated lipofuscinosis (reduced lysosomal lipid accumulation)",
+          "direction": "supports",
+          "experimental_system": "exogenous PUFA-CE-lipidated ApoE in human neurons/cells; human cells (context: H4 neuroblastoma / iAstrocytes per paper), ApoE4-ch/ApoE3-ch (Christchurch) vs wild-type ApoE4/ApoE3, CE(20:4)-lipidated",
+          "relevance": 0.55,
+          "directness_class": 2,
+          "directness_strength": 3,
+          "effect_size": {
+            "value": "qualitative",
+            "quote": "significantly attenuated lipofuscinosis",
+            "provenance": "printed_in_text"
+          },
+          "p_value": {
+            "value": null,
+            "quote": null
+          },
+          "sample_size": {
+            "value": null,
+            "quote": null
+          },
+          "physician_review": false,
+          "physician_review_reasons": [
+            "exogenous_apoe_system_annotated"
+          ],
+          "location": "RESULTS > Christchurch mutation R136S reduces LDLR binding and decreases lipid burden",
+          "source": "full_text",
+          "physician_audited": "2026-11-26"
+        },
+        {
+          "description": "In H4 cells, co-treatment with lipApoE3 or lipApoE4 (but not lipApoE2) caused 60–65% inhibition of DiI-LDL uptake and redistribution of surface LDLR to endolysosomes, impairing subsequent LDL uptake.",
+          "quote": "both lipApoE3 and lipApoE4 led to 60-65% inhibition of DiI-LDL uptake, likely via a direct competition with LDL for LDLR binding, whereas lipApoE2 had no effect (Figure 2J, L)",
+          "summary": "(APOE3/APOE4 lipApoE co-treatment) -> (60–65% reduced LDL uptake; LDLR redistributed to endolysosomes)",
+          "direction": "neutral",
+          "experimental_system": "exogenous PUFA-CE-lipidated ApoE in human neurons/cells; H4 human neuroblastoma cells; APOE3/APOE4 grouped vs APOE2 lipoparticle treatment",
+          "relevance": 0.45,
+          "directness_class": 4,
+          "directness_strength": 4,
+          "effect_size": {
+            "value": null,
+            "quote": null
+          },
+          "p_value": {
+            "value": null,
+            "quote": null
+          },
+          "sample_size": {
+            "value": null,
+            "quote": null
+          },
+          "physician_review": false,
+          "physician_review_reasons": [
+            "exogenous_apoe_system_annotated"
+          ],
+          "location": "RESULTS > LipApoE3/E4 alter cellular distribution of LDLR and impair LDL uptake",
+          "source": "full_text",
+          "physician_audited": "2026-11-26"
+        }
+      ],
+      "n_model_findings": 4,
+      "n_rejected_quote": 0,
+      "n_chunks": 2,
+      "chunk_errors": 0,
+      "fulltext": {
+        "status": "full_text",
+        "route": "pmc_oa"
+      }
+    },
+    {
+      "pmid": "40457456",
+      "doi": "10.1186/s12974-025-03470-y",
+      "title": "Inflammation-induced lysosomal dysfunction in human iPSC-derived microglia is exacerbated by APOE 4/4 genotype.",
+      "year": "2025",
+      "journal": "Journal of neuroinflammation",
+      "abstract": "BACKGROUND: The ε4 isoform of apolipoprotein E (ApoE) is the most significant genetic risk factor for Alzheimer's disease. Glial cells are the main source of ApoE in the brain, and in microglia, the ε4 isoform of ApoE has been shown to impair mitochondrial metabolism and the uptake of lipids and Aβ42. However, whether the ε4 isoform alters autophagy or lysosomal activity in microglia in basal and inflammatory conditions is unknown. METHODS: Altogether, microglia-like cells (iMGs) from eight APOE3/3 and six APOE4/4 human induced pluripotent stem cell (iPSC) lines were used in this study. The responses of iMGs to Aβ42, LPS and IFNγ were studied by metabolomics, proteomics, and functional assays. RESULTS: Here, we demonstrate that iMGs with the APOE4/4 genotype exhibit reduced basal pinocytosis levels compared to APOE3/3 iMGs. Inflammatory stimulation with a combination of LPS and IFNγ or Aβ42 induced PI3K/AKT/mTORC signaling pathway, increased pinocytosis, and blocked autophagic flux, leading to the accumulation of sequestosome 1 (p62) in both APOE4/4 and APOE3/3 iMGs. Exposure to Aβ42 furthermore caused lysosomal membrane permeabilization, which was significantly stronger in APOE4/4 iMGs and positively correlated with the secretion of the proinflammatory chemokine IL-8. Metabolomics analysis indicated a dysregulation in amino acid metabolism, primarily L-glutamine, in APOE4/4 iMGs. CONCLUSIONS: Overall, our results suggest that inflammation-induced metabolic reprogramming places lysosomes under substantial stress. Lysosomal stress is more detrimental in APOE4/4 microglia, which exhibit endo-lysosomal defects.",
+      "findings": [
+        {
+          "description": "In human iPSC-derived microglia (iMGs), E4/E4 cells exhibited significantly lower lysosomal degradation activity compared to E3/E3 cells under basal conditions.",
+          "quote": "E4/E4 iMGs exhibited significantly lower lysosomal degradation activity compared to E3/E3 cells",
+          "summary": "(APOE4/E4 genotype) -> (reduced lysosomal degradation activity)",
+          "direction": "supports",
+          "experimental_system": "human iPSC-derived microglia, E4/E4 vs E3/E3 genotype",
+          "relevance": 0.92,
+          "directness_class": 2,
+          "directness_strength": 2,
+          "effect_size": {
+            "value": "qualitative",
+            "quote": "E4/E4 iMGs exhibited significantly lower lysosomal degradation activity compared to E3/E3 cells",
+            "provenance": "printed_in_text"
+          },
+          "p_value": {
+            "value": null,
+            "quote": null
+          },
+          "sample_size": {
+            "value": null,
+            "quote": null
+          },
+          "physician_review": false,
+          "physician_review_reasons": [],
+          "location": "Results > Basal levels of lipidated LC3 and macropinocytosis are reduced in E4/E4 iMGs",
+          "source": "full_text"
+        },
+        {
+          "description": "In human iPSC-derived microglia (iMGs), galectin-1 puncta (a measure of lysosomal membrane permeabilization) were significantly higher in APOE E4/E4 than in E3/E3 cells after Aβ42 exposure, indicating increased lysosomal leakage in E4/E4 iMGs.",
+          "quote": "the formation of galectin puncta, detected with galectin (LGALS)-1-specific antibody, was significantly higher in E4/E4 iMGs than in E3/E3 iMGs after Aβ42 exposure, indicating increased lysosomal leakage in E4/E4 iMGs",
+          "summary": "(APOE4 genotype vs APOE3) -> (increased lysosomal membrane permeabilization / lysosomal leakage)",
+          "direction": "supports",
+          "experimental_system": "human iPSC-derived microglia; E4/E4 vs E3/E3 genotype comparison",
+          "relevance": 0.9,
+          "directness_class": 2,
+          "directness_strength": 2,
+          "effect_size": {
+            "value": "qualitative",
+            "quote": "was significantly higher in E4/E4 iMGs than in E3/E3 iMGs after Aβ42 exposure",
+            "provenance": "printed_in_text"
+          },
+          "p_value": {
+            "value": null,
+            "quote": null
+          },
+          "sample_size": {
+            "value": null,
+            "quote": null
+          },
+          "physician_review": false,
+          "physician_review_reasons": [],
+          "location": "Results > APOE 4/4 iMGs exhibit higher lysosomal membrane permeabilization upon Aβ42 exposure",
+          "source": "full_text"
+        },
+        {
+          "description": "In human iPSC-derived microglia, basal pinocytosis (fluid-phase endocytosis) was significantly reduced in E4/E4 iMGs compared to E3/E3 iMGs over a 20-hour time course.",
+          "quote": "pinocytosis was significantly reduced in E4/E4 iMGs compared to E3/E3 iMGs (two-way repeated measures ANOVA, time x genotype p = 0.01; Fig. 1J, L)",
+          "summary": "(APOE4/E4 genotype) -> (reduced pinocytosis/endocytic uptake into endosome pathway)",
+          "direction": "supports",
+          "experimental_system": "human iPSC-derived microglia, E4/E4 vs E3/E3 genotype",
+          "relevance": 0.72,
+          "directness_class": 3,
+          "directness_strength": 3,
+          "effect_size": {
+            "value": "qualitative",
+            "quote": "pinocytosis was significantly reduced in E4/E4 iMGs compared to E3/E3 iMGs",
+            "provenance": "printed_in_text"
+          },
+          "p_value": {
+            "value": "0.01",
+            "quote": "time x genotype p = 0.01",
+            "provenance": "printed_in_text"
+          },
+          "sample_size": {
+            "value": null,
+            "quote": null
+          },
+          "physician_review": false,
+          "physician_review_reasons": [],
+          "location": "Results > Basal levels of lipidated LC3 and macropinocytosis are reduced in E4/E4 iMGs",
+          "source": "full_text"
+        },
+        {
+          "description": "In E4/E4 iPSC-derived microglia at basal conditions, proteomic analysis revealed downregulation of lysosomal proteins MFSD1 and GLMP, and LAMP-2 tended to be reduced, suggesting overall reduced lysosomal protein content in E4/E4 versus E3/E3 iMGs.",
+          "quote": "proteomic analysis comparing two (isogenic to each other) E4/E4 lines to E3/E3 lines revealed a downregulation of two other lysosomal proteins MFSD1 and GLMP in E4/E4 iMGs at basal conditions (Fig. 3B, Table S4), the overall lysosomal protein content may be reduced by E4/E4 genotype",
+          "summary": "(APOE4 genotype vs APOE3) -> (downregulation of lysosomal proteins MFSD1, GLMP, LAMP-2; reduced lysosomal protein content)",
+          "direction": "supports",
+          "experimental_system": "human iPSC-derived microglia; E4/E4 vs E3/E3 genotype comparison",
+          "relevance": 0.7,
+          "directness_class": 3,
+          "directness_strength": 3,
+          "effect_size": {
+            "value": "qualitative",
+            "quote": "revealed a downregulation of two other lysosomal proteins MFSD1 and GLMP in E4/E4 iMGs at basal conditions",
+            "provenance": "printed_in_text"
+          },
+          "p_value": {
+            "value": null,
+            "quote": null
+          },
+          "sample_size": {
+            "value": null,
+            "quote": null
+          },
+          "physician_review": false,
+          "physician_review_reasons": [],
+          "location": "Results > APOE 4/4 iMGs exhibit higher lysosomal membrane permeabilization upon Aβ42 exposure",
+          "source": "full_text"
+        },
+        {
+          "description": "In human iPSC-derived microglia (iMGs), E4/E4 and E3/E3 genotypes showed no significant differences in basal (bafilomycin A) or rapamycin-induced autophagic flux (Fig. 1C-E), indicating that autophagic flux is not affected by APOE genotype.",
+          "quote": "Collectively, these results suggest that, compared to E3/E3 iMGs, E4/E4 iMGs exhibit reduced basal levels of LC3-II but no significant differences in basal or rapamycin-induced autophagic flux, indicating that autophagy is not affected by the APOE genotype.",
+          "summary": "(APOE4/4 vs APOE3/3 genotype in human iMGs) -> (no significant difference in basal or rapamycin-induced autophagic flux)",
+          "direction": "contradicts",
+          "experimental_system": "human iPSC-derived microglia (iMGs), E4/E4 vs E3/E3 genotype, basal/bafilomycin A and rapamycin treatment",
+          "relevance": 0.68,
+          "directness_class": 3,
+          "directness_strength": 3,
+          "effect_size": {
+            "value": "qualitative",
+            "quote": "no significant differences in basal or rapamycin-induced autophagic flux, indicating that autophagy is not affected by the APOE genotype",
+            "provenance": "printed_in_text"
+          },
+          "p_value": {
+            "value": null,
+            "quote": null
+          },
+          "sample_size": {
+            "value": null,
+            "quote": null
+          },
+          "physician_review": false,
+          "physician_review_reasons": [],
+          "location": "Results > Basal levels of lipidated LC3 and macropinocytosis are reduced in E4/E4 iMGs (Fig. 1C-E)",
+          "source": "full_text"
+        }
+      ],
+      "n_model_findings": 6,
+      "n_rejected_quote": 0,
+      "n_chunks": 2,
+      "chunk_errors": 0,
+      "fulltext": {
+        "status": "full_text",
+        "route": "pmc_oa"
+      }
+    }
+  ]
+}
