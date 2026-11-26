@@ -69,9 +69,51 @@ def _table_text(tw):
     return label, caption, rows
 
 
+def _emit_table_blocks(label, caption, rows, limit=MAX_BLOCK * 2):
+    """Return one table block if within limit, else row-chunked blocks preserving header row."""
+    tl = label or "Table"
+    full = (caption + "\n" + "\n".join(rows)).strip()
+    if len(full) <= limit:
+        return [{"loc": tl, "kind": "table", "text": full}]
+    if len(rows) <= 1:
+        pieces = _split_long(full, limit=limit)
+        return [{"loc": tl if len(pieces) == 1 else f"{tl} (part {i}/{len(pieces)})", "kind": "table", "text": p}
+                for i, p in enumerate(pieces, 1)]
+    header = rows[0]
+    expanded_rows = []
+    row_budget = max(200, limit - len(caption) - len(header) - 2)
+    for row in rows[1:]:
+        if len(row) > row_budget:
+            expanded_rows.extend(_split_long(row, limit=row_budget))
+        else:
+            expanded_rows.append(row)
+    chunks, cur, cur_len = [], [], len(caption) + len(header) + 2
+    for row in expanded_rows:
+        if cur and cur_len + len(row) + 1 > limit:
+            chunks.append(cur)
+            cur, cur_len = [], len(caption) + len(header) + 2
+        cur.append(row)
+        cur_len += len(row) + 1
+    if cur:
+        chunks.append(cur)
+    total = len(chunks)
+    out = []
+    for idx, ch_rows in enumerate(chunks, 1):
+        txt = (caption + "\n" + header + "\n" + "\n".join(ch_rows)).strip()
+        loc = tl if total == 1 else f"{tl} (part {idx}/{total})"
+        out.append({"loc": loc, "kind": "table", "text": txt})
+    return out
+
+
+def _supp_loc(loc, is_supp=False):
+    if not is_supp or re.search(r"suppl|\bS\d+", loc, re.I):
+        return loc
+    return f"Supplementary > {loc}"
+
+
 def parse_jats(xml_text):
     """JATS XML -> list of blocks {loc, kind, text}. loc = 'Results > subsection title', 'Table 2', 'Figure 3 legend'.
-    Returns [] if the XML has no body."""
+    Captures <body>, <floats-group>, <back>, <app-group>, and <supplementary-material>. Returns [] if no body."""
     xml_text = re.sub(r"<!DOCTYPE[^>]*>", "", xml_text)
     try:
         root = ET.fromstring(xml_text)
@@ -82,11 +124,12 @@ def parse_jats(xml_text):
         return []
     blocks = []
 
-    def walk(sec, path):
+    def walk(sec, path, is_supp=False):
         title_el = sec.find("title")
         title = _itertext(title_el) if title_el is not None else ""
+        sec_supp = is_supp or (sec.get("sec-type", "").lower() == "supplementary-material")
         here = path + ([title] if title else [])
-        loc = " > ".join(here) or "Body"
+        loc = _supp_loc(" > ".join(here) or "Body", sec_supp)
         for ch in sec:
             if ch.tag == "p":
                 t = _itertext(ch)
@@ -94,36 +137,53 @@ def parse_jats(xml_text):
                     if piece:
                         blocks.append({"loc": loc, "kind": "text", "text": piece})
             elif ch.tag == "sec":
-                walk(ch, here)
+                walk(ch, here, is_supp=sec_supp)
             elif ch.tag == "table-wrap":
                 label, caption, rows = _table_text(ch)
-                tl = label or "Table"
-                blocks.append({"loc": tl, "kind": "table",
-                               "text": (caption + "\n" + "\n".join(rows)).strip()[:MAX_BLOCK * 2]})
+                tl = _supp_loc(label or "Table", sec_supp)
+                blocks.extend(_emit_table_blocks(tl, caption, rows))
             elif ch.tag == "fig":
                 label = _itertext(ch.find("label")) if ch.find("label") is not None else "Figure"
                 cap = ch.find("caption")
                 if cap is not None:
-                    blocks.append({"loc": f"{label} legend", "kind": "legend", "text": _itertext(cap)})
+                    blocks.append({"loc": _supp_loc(f"{label} legend", sec_supp), "kind": "legend", "text": _itertext(cap)})
+            elif ch.tag == "supplementary-material":
+                s_lab = _itertext(ch.find("label")) if ch.find("label") is not None else "Supplementary Material"
+                s_cap = ch.find("caption")
+                if s_cap is not None:
+                    blocks.append({"loc": f"{s_lab} legend", "kind": "legend", "text": _itertext(s_cap)})
 
     walk(body, [])
-    # PMC XML often keeps figures and tables in <floats-group> or <back>, outside <body>: sweep the whole article
-    have = {(b["kind"], b["loc"]) for b in blocks}
+    for app_root in root.iter("app-group"):
+        for app in app_root.findall("app"):
+            walk(app, ["Supplementary"], is_supp=True)
+
+    # PMC XML often keeps figures, tables, and supplementary legends in <floats-group> or <back>
+    have = {(b["kind"], b["loc"].split(" (part ")[0]) for b in blocks}
     for tw in root.iter("table-wrap"):
         label, caption, rows = _table_text(tw)
-        key = ("table", label or "Table")
-        if key not in have and (rows or caption):
-            have.add(key)
-            blocks.append({"loc": label or "Table", "kind": "table",
-                           "text": (caption + "\n" + "\n".join(rows)).strip()[:MAX_BLOCK * 2]})
+        tl = label or "Table"
+        if ("table", tl) not in have and ("table", _supp_loc(tl, True)) not in have and (rows or caption):
+            have.add(("table", tl))
+            blocks.extend(_emit_table_blocks(tl, caption, rows))
     for fg in root.iter("fig"):
         lab = fg.find("label")
         label = _itertext(lab) if lab is not None else "Figure"
         cap = fg.find("caption")
-        key = ("legend", f"{label} legend")
-        if cap is not None and key not in have:
-            have.add(key)
-            blocks.append({"loc": f"{label} legend", "kind": "legend", "text": _itertext(cap)})
+        loc = f"{label} legend"
+        if cap is not None and ("legend", loc) not in have and ("legend", _supp_loc(loc, True)) not in have:
+            have.add(("legend", loc))
+            blocks.append({"loc": loc, "kind": "legend", "text": _itertext(cap)})
+    for sm in root.iter("supplementary-material"):
+        lab = sm.find("label")
+        label = _itertext(lab) if lab is not None else "Supplementary Material"
+        cap = sm.find("caption")
+        loc = f"{label} legend"
+        if cap is not None and ("legend", loc) not in have:
+            cap_text = _itertext(cap)
+            if cap_text:
+                have.add(("legend", loc))
+                blocks.append({"loc": loc, "kind": "legend", "text": cap_text})
     return blocks
 
 
@@ -230,7 +290,7 @@ def parse_idconv(text):
 
 
 def parse_epmc_lookup(text):
-    """Europe PMC search JSON -> {'pmcid','isOpenAccess'} for the first hit."""
+    """Europe PMC search JSON -> {'pmcid','open'} for the first hit."""
     try:
         hits = json.loads(text).get("resultList", {}).get("result", [])
     except ValueError:
@@ -258,7 +318,6 @@ def parse_unpaywall(text):
             if u and (kind, u) not in seen:
                 seen.add((kind, u))
                 out.append((kind, u))
-    # prefer PDF/landing pages of repositories and publishers alike; HTML first (no pdftotext needed)
     return sorted(out, key=lambda x: 0 if x[0] == "html" else 1)
 
 
@@ -410,7 +469,7 @@ def main():
     ap.add_argument("--in", dest="inp", required=True)
     ap.add_argument("--out", required=True, help="report JSON (no text, just per-paper route status)")
     ap.add_argument("--cache", default="out/fulltext")
-    ap.add_argument("--max", type=int, default=13)
+    ap.add_argument("--max", type=int, default=50)
     a = ap.parse_args()
     import extract
     d = common.load_json(a.inp)

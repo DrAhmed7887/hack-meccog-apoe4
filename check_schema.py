@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 """Own schema check (fallback when openpyxl / the official validator is unavailable): reads the xlsx with the
-standard library and checks headers, IDs and enumerations. NOT a substitute for the official validator."""
+standard library and checks headers, IDs, Method sheet, and enumerations."""
 import re
 import sys
 import zipfile
 import xml.etree.ElementTree as ET
 
-from to_template import COLUMNS
+from to_template import COLUMNS, METHOD_ROWS
 
 NS = {"m": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
+SOURCE_TYPES = {"pubmed published", "pubmed preprint", "web article", "database", "other"}
 PROV = {"printed_in_text", "visual_only", "estimated_from_figure", "supplement_only", "not_found_in_source",
         "full_text_unavailable", "ambiguous_panel"}
 PROV_ABSENT = {"not_found_in_source", "full_text_unavailable", "ambiguous_panel"}
@@ -20,6 +21,7 @@ RE_STAT_SHAPES = {
     13: (re.compile(r"(?:[<>]=?\s*)?\d+(?:\.\d+)?(?:[eE][-+]?\d+)?$"), None),
     15: (re.compile(EST + r"\d+(?:\s*-\s*\d+)?$"), None),
 }
+RE_WHOLE_FIG = re.compile(r"(?:supplementary\s+)?(?:fig(?:ure)?\s*s?\d+)", re.I)
 
 
 def read_rows(path):
@@ -49,12 +51,38 @@ def read_rows(path):
     return sheets
 
 
+def _check_method(sh, errs):
+    mrows = sh.get("Method", [])
+    if not mrows:
+        errs.append("no Method sheet")
+        return
+    m = {str(r[0]).strip(): (str(r[1]).strip() if len(r) > 1 and r[1] is not None else "") for r in mrows if r and r[0]}
+    for req in METHOD_ROWS:
+        if req not in m or not m[req]:
+            errs.append(f"Method sheet missing {req!r}")
+    if len(m) < len(METHOD_ROWS):
+        return
+    who = m.get("Who did the work", "").lower()
+    if who not in {"person", "agent", "both", "collab"}:
+        errs.append(f"Method sheet bad Who did the work {who!r}")
+    model = m.get("Model and version", "")
+    if who == "person" and model.lower() not in {"none", "n/a", ""}:
+        errs.append("Method sheet Who did the work is 'person' but Model and version is not none/N/A")
+    elif who != "person" and model.lower() in {"none", "n/a", ""}:
+        errs.append("Method sheet missing Model and version")
+    elif who == "collab" and not any(sep in model for sep in (",", ";", "/", "\n")):
+        errs.append("Method sheet collab missing per-agent separator in Model and version")
+    url = m.get("Method URL", "").lower()
+    sha = m.get("Commit SHA", "")
+    if any(h in url for h in ("github.com", "gitlab.com", "bitbucket.org", "codeberg.org")) and not re.fullmatch(r"[0-9a-f]{7,40}", sha, re.I):
+        errs.append(f"Method sheet bad Commit SHA {sha!r}")
+
+
 def check(path):
     errs = []
     sh = read_rows(path)
     rows = sh.get("Submission", [])
-    if "Method" not in sh:
-        errs.append("no Method sheet")
+    _check_method(sh, errs)
     if not rows or rows[0][:19] != COLUMNS:
         errs.append("header row differs from the official 19 columns")
     if len(rows) < 2 or not (rows[1] + [None])[0]:
@@ -68,8 +96,11 @@ def check(path):
             fn = 0
             if i != f"P{pn}":
                 errs.append(f"row {r}: {i} out of sequence")
-            if row[2] != "PubMed published" or not (row[3] or "").isdigit():
-                errs.append(f"row {r}: source type or PMID bad")
+            st = (row[2] or "").strip().lower()
+            if st not in SOURCE_TYPES:
+                errs.append(f"row {r}: source type bad ({row[2]!r})")
+            elif st.startswith("pubmed") and not str(row[3] or "").strip().isdigit():
+                errs.append(f"row {r}: PubMed PMID bad ({row[3]!r})")
         elif re.fullmatch(r"P\d+\.F\d+", i):
             fn += 1
             if i != f"P{pn}.F{fn}":
@@ -108,7 +139,24 @@ def check(path):
     return errs
 
 
+def check_warnings(path):
+    """Return non-fatal warnings matching validate_submission.py --strict checks (e.g. whole-figure location)."""
+    warns = []
+    rows = read_rows(path).get("Submission", [])
+    for r, row in enumerate(rows[2:], 3):
+        row = row + [None] * (19 - len(row))
+        fid = row[4] or ""
+        if re.fullmatch(r"P\d+\.F\d+", fid):
+            loc = str(row[10] or "").strip()
+            if RE_WHOLE_FIG.fullmatch(loc):
+                warns.append(f"row {r} ({fid}): imprecise whole-figure location {loc!r}")
+    return warns
+
+
 if __name__ == "__main__":
     e = check(sys.argv[1])
+    w = check_warnings(sys.argv[1]) if not e else []
     print("schema check:", "OK" if not e else "\n  ".join(["FAILED"] + e))
+    for item in w:
+        print("WARN:", item)
     sys.exit(1 if e else 0)

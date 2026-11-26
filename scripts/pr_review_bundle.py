@@ -226,9 +226,12 @@ def check_live_ids(papers: list[dict]) -> list[str]:
         pub_types = _extract_epmc_pub_types(hit)
         if any(("review" in t or "meta-analysis" in t) for t in pub_types):
             issues.append(f"PMID {pmid}: flagged as review/meta-analysis ({pub_types})")
+        if any("retracted" in t for t in pub_types):
+            issues.append(f"PMID {pmid}: flagged as retracted publication in Europe PMC ({pub_types})")
         if not verify_ids._title_match(p.get("title", ""), hit.get("title", "")):
             issues.append(f"PMID {pmid}: title mismatch vs Europe PMC ({hit.get('title', '')[:60]})")
 
+    dois = list(dict.fromkeys(d for d in dois))
     doi_check_bin = shutil.which("doi-check") or os.path.expanduser("~/.local/bin/doi-check")
     if dois:
         if not os.path.exists(doi_check_bin):

@@ -128,9 +128,9 @@ class TestPrReviewBundle(unittest.TestCase):
         papers = [{"pmid": "42927732", "doi": "10.1000/rev", "title": "APOE4 lipid review"}]
         bad_doicheck = subprocess.CompletedProcess(args=["doi-check"], returncode=0, stdout='{"wrapped": []}', stderr="")
         with mock.patch("common.http_get", return_value=fake_epmc), \
-             mock.patch("scripts.pr_review_bundle.shutil.which", return_value="/usr/bin/doi-check"), \
-             mock.patch("scripts.pr_review_bundle.os.path.exists", return_value=True), \
-             mock.patch("scripts.pr_review_bundle.subprocess.run", return_value=bad_doicheck):
+             mock.patch.object(pr_review_bundle.shutil, "which", return_value="/usr/bin/doi-check"), \
+             mock.patch.object(pr_review_bundle.os.path, "exists", return_value=True), \
+             mock.patch.object(pr_review_bundle.subprocess, "run", return_value=bad_doicheck):
             issues = pr_review_bundle.check_live_ids(papers)
         self.assertTrue(any("review/meta-analysis" in i for i in issues))
         self.assertTrue(any("malformed schema" in i for i in issues))
@@ -141,7 +141,7 @@ class TestPrReviewBundle(unittest.TestCase):
             (root / "sub").mkdir()
             (root / "sub" / ".env").write_text("FOO=bar\n", encoding="utf-8")
             (root / "leak.py").write_text('KEY = "sk-ant-' + 'a' * 24 + '"\n', encoding="utf-8")
-            with mock.patch("scripts.pr_review_bundle.subprocess.check_output", return_value="sub/.env\nleak.py\n"):
+            with mock.patch.object(pr_review_bundle.subprocess, "check_output", return_value="sub/.env\nleak.py\n"):
                 bad = pr_review_bundle.check_hygiene(root)
             self.assertTrue(any("sub/.env" in x for x in bad))
             self.assertTrue(any("leak.py" in x for x in bad))
