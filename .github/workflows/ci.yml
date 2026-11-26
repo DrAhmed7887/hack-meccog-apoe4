@@ -1,0 +1,38 @@
+name: ci
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test-verify-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install validator dependency
+        run: |
+          python -m pip install --no-cache-dir openpyxl==3.1.5
+          python3 -I -c "import openpyxl"
+      - name: Unit tests (offline)
+        run: make test
+      - name: Offline data, freeze, ID, and CLAIMS verification
+        run: make verify
+      - name: Official MecCog validator (isolated /tmp, --strict)
+        run: |
+          shopt -s nullglob
+          files=("$GITHUB_WORKSPACE"/data/*.xlsx "$GITHUB_WORKSPACE"/data/*/*.xlsx)
+          test ${#files[@]} -gt 0
+          for f in "${files[@]}"; do
+            echo "Validating $f"
+            (cd /tmp && python3 -I "$GITHUB_WORKSPACE/official/resources/validate_submission.py" "$f" --strict)
+          done
+      - name: PR bundle offline audit and hygiene gate
+        run: python3 scripts/pr_review_bundle.py --data data
