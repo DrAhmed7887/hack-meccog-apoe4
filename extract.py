@@ -53,7 +53,7 @@ READOUT_LABEL = re.compile(r"^\s*([A-Za-z][A-Za-z0-9_-]{0,30})\s*:")
 STAT_LABELS = {"n", "p", "padj", "t", "f", "d", "r", "ci", "ci95", "sd", "se", "sem", "df"}
 
 RE_PANEL_ID = re.compile(
-    r"(?:(Supplementary)\s+)?(?:Fig(?:ure)?s?\.?\s*)(S?\d+)(?:([A-Za-z](?![A-Za-z])(?:\s*(?:[-–,&]|\band\b)\s*(?:(?:S?\d+))?[A-Za-z](?![A-Za-z]))*)|\s+([A-Z](?![A-Za-z])(?:\s*(?:[-–,&]|\band\b)\s*(?:(?:S?\d+))?[A-Z](?![A-Za-z]))*))?",
+    r"(?:(Supplementary)\s+)?(?:Fig(?:ure)?s?\.?\s*)(S?\d+)(?:([A-Za-z](?![A-Za-z])(?:\s*(?:[-–,&]|\band\b)\s*(?:(?:S?\d+))?[A-Za-z](?![A-Za-z]))*)|\s+((?-i:[A-Z])(?![A-Za-z])(?:\s*(?:[-–,&]|\band\b)\s*(?:(?:S?\d+))?(?-i:[A-Z])(?![A-Za-z]))*))?",
     re.I,
 )
 RE_TABLE_ID = re.compile(r"(?:(Supplementary)\s+)?Table\s*(S?\d+)(?![A-Za-z0-9])", re.I)
@@ -207,10 +207,10 @@ def _normalize_panels(panels_raw, fig_num):
     if not panels_raw:
         return ""
     s = norm_text(panels_raw)
-    # Reject cross-figure ranges like "4D and 5E" by keeping only the portion matching fig_num.
+    # Reject cross-figure ranges like "Figures 4D and 5E" by keeping only the portion matching fig_num.
     other_fig = re.search(r"\b(S?\d+)[A-Za-z]", s, re.I)
     if other_fig and other_fig.group(1).upper() != fig_num.upper():
-        s = s[:other_fig.start()].rstrip(" ,-&andAND")
+        s = re.sub(r"[\s,&-]*(?:\band\b)?[\s,&-]*$", "", s[:other_fig.start()], flags=re.I)
     s = re.sub(r"\s*(?:\band\b|&)\s*(?:" + re.escape(fig_num) + r")?", "-", s, flags=re.I)
     s = re.sub(r"\s*([,-])\s*(?:" + re.escape(fig_num) + r")?", r"\1", s, flags=re.I)
     return s.strip(" ,-&").upper()
@@ -232,12 +232,48 @@ def _fig_or_table_tag(text):
     return None
 
 
+def _expand_panel_letters(panels):
+    letters = set(re.findall(r"[A-Z]", panels))
+    for a, b in re.findall(r"([A-Z])-([A-Z])", panels):
+        if 0 <= ord(b) - ord(a) <= 12:
+            letters.update(chr(c) for c in range(ord(a), ord(b) + 1))
+    return letters
+
+
+def _proposed_loc_grounded(proposed_loc, quote, block_loc):
+    tag = _fig_or_table_tag(proposed_loc)
+    grounded = {_fig_or_table_tag(quote), _fig_or_table_tag(block_loc)} - {None}
+    if not tag or tag not in grounded:
+        return False
+    if tag.startswith("Table "):
+        return True
+    fm = RE_PANEL_ID.search(norm_text(proposed_loc))
+    if not fm or not (fm.group(3) or fm.group(4)):
+        return True
+    num = fm.group(2).upper()
+    if fm.group(1) and not num.startswith("S"):
+        num = "S" + num
+    panels = _normalize_panels(fm.group(3) or fm.group(4), num)
+    letters = _expand_panel_letters(panels)
+    if not letters:
+        return True
+    hay_parts = [norm_text(quote or ""), norm_text(block_loc or "")]
+    seen_letters = set()
+    for hay in hay_parts:
+        for m in RE_PANEL_ID.finditer(hay):
+            m_num = ("S" + m.group(2).upper()) if (m.group(1) and not m.group(2).upper().startswith("S")) else m.group(2).upper()
+            if m_num == num and (m.group(3) or m.group(4)):
+                seen_letters.update(_expand_panel_letters(_normalize_panels(m.group(3) or m.group(4), m_num)))
+        for pm in re.finditer(r"(?:panels?\s*)?\(([A-Za-z](?:\s*[-,]\s*[A-Za-z])*)\)", hay, re.I):
+            seen_letters.update(_expand_panel_letters(pm.group(1).upper()))
+    return letters.issubset(seen_letters)
+
+
 def extract_panel_location(quote, block_loc, proposed_loc=None):
     """Return clean panel/table location (e.g. 'Fig 6H', 'Fig S3D', 'Table 2'), falling back to block_loc.
-    Only accepts proposed_loc if its figure/table number is grounded in quote or block_loc."""
-    grounded = {_fig_or_table_tag(quote), _fig_or_table_tag(block_loc)} - {None}
+    Only accepts proposed_loc if its figure/table number and panel letters are grounded in quote or block_loc."""
     sources = []
-    if proposed_loc and _fig_or_table_tag(proposed_loc) in grounded:
+    if proposed_loc and _proposed_loc_grounded(proposed_loc, quote, block_loc):
         sources.append(proposed_loc)
     sources.extend([quote or "", block_loc or ""])
 

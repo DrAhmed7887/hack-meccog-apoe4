@@ -214,7 +214,9 @@ def clean_item(o, text):
 
 
 def rule_downgrade(h, c, text):
-    """Rules can only downgrade a yes to unclear."""
+    """Rules can only downgrade a yes to unclear.
+    Approved Phase 2 inclusion criteria (per official/rules.html:469 & submission_example.xlsx):
+    accepts Tier 1 human cells and Tier 2 model systems (C1), and APOE4 vs APOE3 or rescue/intervention comparators (C2)."""
     if c["C1"]["v"] == "yes" and not (HUMAN_CUE.search(text) or MODEL_CUE.search(text)):
         c["C1"] = {"v": "unclear", "q": None, "why": "rule: no human-cell or model-system cue in text"}
     if c["C2"]["v"] == "yes" and not (E4.search(text) and (E3E4.search(text) or re.search(r"apoe\s?3|\be3\b|isogenic|rescue|knockdown|sirna|cyclodextrin|christchurch", text, re.I))):

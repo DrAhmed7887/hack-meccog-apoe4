@@ -169,8 +169,14 @@ def check_id_verification(data: Path, strict: bool = True) -> None:
             if not entry or not entry.get("verified"):
                 fail(f"{p.name}: paper {pmid or doi} missing or unverified")
                 return
-            if doi and doi != "n/a" and doi != (entry.get("doi") or "").lower():
-                fail(f"{p.name}: paper {pmid or doi} DOI mismatch")
+            entry_doi = (entry.get("doi") or "").lower()
+            cmp_doi = "" if doi in ("", "n/a") else doi
+            if pmid.isdigit():
+                if cmp_doi != entry_doi:
+                    fail(f"{p.name}: paper {pmid} DOI mismatch")
+                    return
+            elif not cmp_doi or cmp_doi != entry_doi:
+                fail(f"{p.name}: paper {doi or '?'} DOI mismatch")
                 return
     ok(f"id_verification.json: {log.get('n_verified', 0)}/{log.get('n_papers', 0)} papers verified")
 

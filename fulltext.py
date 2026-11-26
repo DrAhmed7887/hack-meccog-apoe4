@@ -80,8 +80,15 @@ def _emit_table_blocks(label, caption, rows, limit=MAX_BLOCK * 2):
         return [{"loc": tl if len(pieces) == 1 else f"{tl} (part {i}/{len(pieces)})", "kind": "table", "text": p}
                 for i, p in enumerate(pieces, 1)]
     header = rows[0]
-    chunks, cur, cur_len = [], [], len(caption) + len(header) + 2
+    expanded_rows = []
+    row_budget = max(200, limit - len(caption) - len(header) - 2)
     for row in rows[1:]:
+        if len(row) > row_budget:
+            expanded_rows.extend(_split_long(row, limit=row_budget))
+        else:
+            expanded_rows.append(row)
+    chunks, cur, cur_len = [], [], len(caption) + len(header) + 2
+    for row in expanded_rows:
         if cur and cur_len + len(row) + 1 > limit:
             chunks.append(cur)
             cur, cur_len = [], len(caption) + len(header) + 2
