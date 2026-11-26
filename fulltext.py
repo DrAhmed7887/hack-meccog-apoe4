@@ -73,8 +73,12 @@ def _emit_table_blocks(label, caption, rows, limit=MAX_BLOCK * 2):
     """Return one table block if within limit, else row-chunked blocks preserving header row."""
     tl = label or "Table"
     full = (caption + "\n" + "\n".join(rows)).strip()
-    if len(full) <= limit or len(rows) <= 1:
-        return [{"loc": tl, "kind": "table", "text": full[:limit] if len(rows) <= 1 else full}]
+    if len(full) <= limit:
+        return [{"loc": tl, "kind": "table", "text": full}]
+    if len(rows) <= 1:
+        pieces = _split_long(full, limit=limit)
+        return [{"loc": tl if len(pieces) == 1 else f"{tl} (part {i}/{len(pieces)})", "kind": "table", "text": p}
+                for i, p in enumerate(pieces, 1)]
     header = rows[0]
     chunks, cur, cur_len = [], [], len(caption) + len(header) + 2
     for row in rows[1:]:

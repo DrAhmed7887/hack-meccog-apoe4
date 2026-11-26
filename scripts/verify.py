@@ -158,19 +158,19 @@ def check_id_verification(data: Path, strict: bool = True) -> None:
     if not log.get("verified_all") or log.get("n_failed", 1) != 0:
         fail(f"{p.name}: n_failed={log.get('n_failed')}, verified_all={log.get('verified_all')}")
         return
-    by_pmid = {str(x.get("pmid")): x for x in log.get("papers", [])}
+    by_pmid = {str(x.get("pmid")): x for x in log.get("papers", []) if str(x.get("pmid") or "").isdigit()}
+    by_doi = {str(x.get("doi") or "").lower(): x for x in log.get("papers", []) if x.get("doi") and str(x.get("doi")).lower() != "n/a"}
     ext = load(data / "extracted.json") if (data / "extracted.json").exists() else None
     if isinstance(ext, dict):
         for paper in ext.get("papers", []):
             pmid = str(paper.get("pmid", ""))
-            if not pmid.isdigit():
-                continue
-            entry = by_pmid.get(pmid)
+            doi = str(paper.get("doi") or "").lower()
+            entry = by_pmid.get(pmid) if pmid.isdigit() else by_doi.get(doi)
             if not entry or not entry.get("verified"):
-                fail(f"{p.name}: PMID {pmid} missing or unverified")
+                fail(f"{p.name}: paper {pmid or doi} missing or unverified")
                 return
-            if (paper.get("doi") or "").lower() != (entry.get("doi") or "").lower():
-                fail(f"{p.name}: PMID {pmid} DOI mismatch")
+            if doi and doi != "n/a" and doi != (entry.get("doi") or "").lower():
+                fail(f"{p.name}: paper {pmid or doi} DOI mismatch")
                 return
     ok(f"id_verification.json: {log.get('n_verified', 0)}/{log.get('n_papers', 0)} papers verified")
 

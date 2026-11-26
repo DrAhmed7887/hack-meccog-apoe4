@@ -21,7 +21,7 @@ RE_STAT_SHAPES = {
     13: (re.compile(r"(?:[<>]=?\s*)?\d+(?:\.\d+)?(?:[eE][-+]?\d+)?$"), None),
     15: (re.compile(EST + r"\d+(?:\s*-\s*\d+)?$"), None),
 }
-RE_WHOLE_FIG = re.compile(r"(?:fig(?:ure)?\s*\d+)", re.I)
+RE_WHOLE_FIG = re.compile(r"(?:supplementary\s+)?(?:fig(?:ure)?\s*s?\d+)", re.I)
 
 
 def read_rows(path):
@@ -66,9 +66,11 @@ def _check_method(sh, errs):
     if who not in {"person", "agent", "both", "collab"}:
         errs.append(f"Method sheet bad Who did the work {who!r}")
     model = m.get("Model and version", "")
-    if who != "person" and model.lower() in {"none", "n/a", ""}:
+    if who == "person" and model.lower() not in {"none", "n/a", ""}:
+        errs.append("Method sheet Who did the work is 'person' but Model and version is not none/N/A")
+    elif who != "person" and model.lower() in {"none", "n/a", ""}:
         errs.append("Method sheet missing Model and version")
-    elif who == "collab" and not any(sep in model for sep in (",", ";", "/", "\n", " and ")):
+    elif who == "collab" and not any(sep in model for sep in (",", ";", "/", "\n")):
         errs.append("Method sheet collab missing per-agent separator in Model and version")
     url = m.get("Method URL", "").lower()
     sha = m.get("Commit SHA", "")

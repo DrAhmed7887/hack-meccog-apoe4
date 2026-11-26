@@ -108,9 +108,9 @@ def classify_c1_tier(text, c1_item):
     """Return 1 (human non-AD/non-aged brain cells), 2 (model/rescue system), or 0 (not passing)."""
     if not isinstance(c1_item, dict) or c1_item.get("v") != "yes":
         return 0
-    if IPSC.search(text):
+    if c1_item.get("partial") and IPSC.search(text):
         return 1
-    if HUMAN_CUE.search(text) and not ANIMAL.search(text) and not MODEL_CUE.search(text):
+    if IPSC.search(text) and not ANIMAL.search(text):
         return 1
     if MODEL_CUE.search(text) or ANIMAL.search(text):
         return 2
@@ -217,8 +217,8 @@ def rule_downgrade(h, c, text):
     """Rules can only downgrade a yes to unclear."""
     if c["C1"]["v"] == "yes" and not (HUMAN_CUE.search(text) or MODEL_CUE.search(text)):
         c["C1"] = {"v": "unclear", "q": None, "why": "rule: no human-cell or model-system cue in text"}
-    if c["C2"]["v"] == "yes" and not (E4.search(text) and (E3E4.search(text) or re.search(r"apoe\s?3|\be3\b|isogenic|apoer2|abca1", text, re.I))):
-        c["C2"] = {"v": "unclear", "q": None, "why": "rule: APOE4 and comparator not both named"}
+    if c["C2"]["v"] == "yes" and not (E4.search(text) and (E3E4.search(text) or re.search(r"apoe\s?3|\be3\b|isogenic|rescue|knockdown|sirna|cyclodextrin|christchurch", text, re.I))):
+        c["C2"] = {"v": "unclear", "q": None, "why": "rule: APOE4 and comparator/rescue not both named"}
     rd = READOUT_MAP.get(h, H5_READ)
     if c["C3"]["v"] == "yes" and not rd.search(text):
         c["C3"] = {"v": "unclear", "q": None, "why": "rule: no readout keyword"}
@@ -422,7 +422,9 @@ def select_signed_pool(h, out_path, include_anchor=True, screened_path="out/scre
         if row["C4"] != "yes" and not is_anchor:
             continue
         rec = dict(by_pmid[pmid])
-        tier = row.get("C1_tier") or classify_c1_tier(abs_of(rec), row["C1"]) or 1
+        tier = row.get("C1_tier") or classify_c1_tier(abs_of(rec), row["C1"])
+        if not tier:
+            continue
         prev = rel_map.get(pmid, {})
         c5_yes = row["C5"]["v"] == "yes"
         default_rel = 0.95 if is_anchor else (0.75 if c5_yes else (0.88 if tier == 1 else 0.72))

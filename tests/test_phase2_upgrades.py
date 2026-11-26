@@ -55,8 +55,25 @@ class Phase2FulltextAndExtractTests(unittest.TestCase):
 
         leg = "Data represent mean +/- SD (*p < 0.05; **p < 0.01, ANOVA) in Figures 4D and 4E."
         self.assertEqual(extract.verify_stat("p_value", "<0.05", leg, leg, provenance="visual_only"), "<0.05")
+        self.assertIsNone(extract.verify_stat("p_value", "<0.05", "mean diameter < 0.05 um in cells", "mean diameter < 0.05 um in cells", provenance="visual_only"))
         self.assertEqual(extract.extract_panel_location(q, "Results > Cholesterol"), "Fig 6H")
         self.assertEqual(extract.extract_panel_location(leg, "Figure 4 legend"), "Fig 4D-E")
+        self.assertEqual(extract.extract_panel_location("Representative images of filipin.", "Figure 6 legend"), "Fig 6")
+        self.assertEqual(extract.extract_panel_location("Figure 4 shows decreased LAMP2.", "Results"), "Fig 4")
+        self.assertEqual(extract.extract_panel_location("Panel (F) shows lysosomal activity.", "Figure 6 legend"), "Fig 6F")
+        self.assertEqual(extract.extract_panel_location("Fig 4D and Fig 5E compared.", "Results"), "Fig 4D")
+        self.assertEqual(extract.extract_panel_location("No fig here.", "Results", proposed_loc="Fig 99Z"), "Results")
+
+        # merge_figure_estimates requires human_verified=True and full_text status
+        p_unverified = [{"pmid": "1", "fulltext": {"status": "full_text"}, "findings": [{"quote": q, "effect_size": {"value": None}}]}]
+        with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False) as tf:
+            json.dump([{"pmid": "1", "quote": q, "human_verified": False, "effect_size": {"value": "~30%", "quote": q}}], tf)
+            tf_path = tf.name
+        try:
+            extract.merge_figure_estimates(p_unverified, tf_path)
+            self.assertIsNone(p_unverified[0]["findings"][0]["effect_size"]["value"])
+        finally:
+            os.unlink(tf_path)
 
     def test_tier1_ordered_before_tier2_and_review_purged(self):
         self.assertTrue(datadecision.is_review_record({"pubType": "Journal Article; Review"}))

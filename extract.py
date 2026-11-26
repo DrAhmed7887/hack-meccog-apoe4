@@ -53,10 +53,10 @@ READOUT_LABEL = re.compile(r"^\s*([A-Za-z][A-Za-z0-9_-]{0,30})\s*:")
 STAT_LABELS = {"n", "p", "padj", "t", "f", "d", "r", "ci", "ci95", "sd", "se", "sem", "df"}
 
 RE_PANEL_ID = re.compile(
-    r"(?:(Supplementary)\s+)?(?:Fig(?:ure)?s?\.?\s*)(S?\d+)\s*([A-Za-z](?:\s*(?:[-–,&]|\band\b)\s*(?:S?\d+)?[A-Za-z])*)?",
+    r"(?:(Supplementary)\s+)?(?:Fig(?:ure)?s?\.?\s*)(S?\d+)(?:([A-Za-z](?![A-Za-z])(?:\s*(?:[-–,&]|\band\b)\s*(?:(?:S?\d+))?[A-Za-z](?![A-Za-z]))*)|\s+([A-Z](?![A-Za-z])(?:\s*(?:[-–,&]|\band\b)\s*(?:(?:S?\d+))?[A-Z](?![A-Za-z]))*))?",
     re.I,
 )
-RE_TABLE_ID = re.compile(r"(?:(Supplementary)\s+)?Table\s*(S?\d+)", re.I)
+RE_TABLE_ID = re.compile(r"(?:(Supplementary)\s+)?Table\s*(S?\d+)(?![A-Za-z0-9])", re.I)
 RE_WHOLE_FIG = re.compile(r"^(?:Supplementary\s+)?Fig\s+S?\d+$", re.I)
 
 H5_AUDIT_LAMP2_FINDING = {
@@ -203,18 +203,45 @@ def _nums(s):
     return [float(x) for x in NUM.findall(norm_text(s).replace(",", ""))]
 
 
-def _normalize_panels(panels_raw):
+def _normalize_panels(panels_raw, fig_num):
     if not panels_raw:
         return ""
     s = norm_text(panels_raw)
-    s = re.sub(r"\s*(?:\band\b|&)\s*(?:S?\d+)?", "-", s, flags=re.I)
-    s = re.sub(r"\s*([,-])\s*(?:S?\d+)?", r"\1", s, flags=re.I)
-    return s.upper()
+    # Reject cross-figure ranges like "4D and 5E" by keeping only the portion matching fig_num.
+    other_fig = re.search(r"\b(S?\d+)[A-Za-z]", s, re.I)
+    if other_fig and other_fig.group(1).upper() != fig_num.upper():
+        s = s[:other_fig.start()].rstrip(" ,-&andAND")
+    s = re.sub(r"\s*(?:\band\b|&)\s*(?:" + re.escape(fig_num) + r")?", "-", s, flags=re.I)
+    s = re.sub(r"\s*([,-])\s*(?:" + re.escape(fig_num) + r")?", r"\1", s, flags=re.I)
+    return s.strip(" ,-&").upper()
+
+
+def _fig_or_table_tag(text):
+    tm = RE_TABLE_ID.search(norm_text(text or ""))
+    if tm:
+        num = tm.group(2).upper()
+        if tm.group(1) and not num.startswith("S"):
+            num = "S" + num
+        return f"Table {num}"
+    fm = RE_PANEL_ID.search(norm_text(text or ""))
+    if fm:
+        num = fm.group(2).upper()
+        if fm.group(1) and not num.startswith("S"):
+            num = "S" + num
+        return f"Fig {num}"
+    return None
 
 
 def extract_panel_location(quote, block_loc, proposed_loc=None):
-    """Return clean panel/table location (e.g. 'Fig 6H', 'Fig S3D', 'Table 2'), falling back to block_loc."""
-    for src in (proposed_loc or "", quote or "", block_loc or ""):
+    """Return clean panel/table location (e.g. 'Fig 6H', 'Fig S3D', 'Table 2'), falling back to block_loc.
+    Only accepts proposed_loc if its figure/table number is grounded in quote or block_loc."""
+    grounded = {_fig_or_table_tag(quote), _fig_or_table_tag(block_loc)} - {None}
+    sources = []
+    if proposed_loc and _fig_or_table_tag(proposed_loc) in grounded:
+        sources.append(proposed_loc)
+    sources.extend([quote or "", block_loc or ""])
+
+    for src in sources:
         s = norm_text(src)
         if not s:
             continue
@@ -226,16 +253,17 @@ def extract_panel_location(quote, block_loc, proposed_loc=None):
             return f"Table {num}"
         matches = list(RE_PANEL_ID.finditer(s))
         if matches:
-            with_panel = [m for m in matches if m.group(3)]
+            with_panel = [m for m in matches if (m.group(3) or m.group(4))]
             pick = with_panel[0] if with_panel else matches[0]
             num = pick.group(2).upper()
             if pick.group(1) and not num.startswith("S"):
                 num = "S" + num
-            panels = _normalize_panels(pick.group(3))
+            raw_p = pick.group(3) or pick.group(4) or ""
+            panels = _normalize_panels(raw_p, num)
             if not panels and block_loc and "legend" in block_loc.lower():
                 pm = re.search(r"\(([A-Za-z](?:\s*[-,]\s*[A-Za-z])*)\)", norm_text(quote or ""))
                 if pm:
-                    panels = _normalize_panels(pm.group(1))
+                    panels = _normalize_panels(pm.group(1), num)
             return f"Fig {num}{panels}"
     return block_loc or "Abstract"
 
@@ -301,7 +329,11 @@ def verify_stat(kind, value, quote, abstract, provenance="printed_in_text"):
         if prov == "visual_only":
             if not m.group(1):
                 return None
-            pattern = re.compile(r"(?:p(?:\.adj)?\s*=?\s*)?" + comparator + r"\s*" + re.escape(m.group(2)) + r"(?![\w.])", re.I)
+            pattern = re.compile(
+                r"(?<![A-Za-z0-9])(?:p(?:\.adj|-?value)?|fdr|q)\s*=?\s*" + comparator +
+                r"\s*" + re.escape(m.group(2)) + r"(?![\w.])",
+                re.I,
+            )
         else:
             pattern = re.compile(r"(?<!\w)p(?:\.adj)?\s*=?\s*" + comparator +
                                  r"\s*" + re.escape(m.group(2)) + r"(?![\w.])", re.I)
@@ -466,6 +498,8 @@ def clean_finding(f, abstract, constraints=None):
         out[kind] = {"value": val, "quote": scoped_quote if val else None}
         if val:
             out[kind]["provenance"] = raw_prov
+            if kind == "p_value" and raw_prov == "visual_only" and "visual_only_star_check" not in review_reasons:
+                review_reasons.append("visual_only_star_check")
         elif raw_prov == "ambiguous_panel":
             out[kind]["provenance"] = "ambiguous_panel"
     out["physician_review"] = bool(review_reasons)
@@ -631,9 +665,8 @@ def extract_fulltext(rec, ft, hyp_statement, deadline, allow_figure_estimates=Fa
                 n_rej += 1
     seen, uniq = set(), []
     for c in sorted(found, key=lambda x: -x["relevance"]):
-        key = (c["quote"], c["location"])
-        if key not in seen:
-            seen.add(key)
+        if c["quote"] not in seen:
+            seen.add(c["quote"])
             uniq.append(c)
     return {
         "findings": uniq[:MAX_FINDINGS_PER_PAPER],
@@ -664,16 +697,18 @@ def extract_paper(rec, hyp_statement, allow_figure_estimates=False):
 
 
 def merge_figure_estimates(papers, est_path):
-    """Deterministically merge audited OA ~estimated_from_figure bar/dot measurements into missing effect/sample cells."""
+    """Deterministically merge human-verified OA ~estimated_from_figure bar/dot measurements into missing cells."""
     if not est_path or not os.path.exists(est_path):
         return papers
     ests = common.load_json(est_path)
     by_key = {(str(x.get("pmid")), norm_text(x.get("quote", ""))): x for x in ests}
     for p in papers:
+        if p.get("fulltext", {}).get("status") != "full_text":
+            continue
         pmid = str(p.get("pmid") or "")
         for f in p.get("findings", []):
             item = by_key.get((pmid, norm_text(f.get("quote", ""))))
-            if not item:
+            if not item or item.get("human_verified") is not True:
                 continue
             for kind in ("effect_size", "sample_size"):
                 est_blk = item.get(kind)
