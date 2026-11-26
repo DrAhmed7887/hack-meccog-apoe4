@@ -298,11 +298,11 @@ def extract_panel_location(quote, block_loc, proposed_loc=None):
             if pick.group(1) and not num.startswith("S"):
                 num = "S" + num
             raw_p = pick.group(3) or pick.group(4) or ""
-            panels = _normalize_panels(raw_p, num)
+            panels = _normalize_panels(raw_p, num, list_and=True)
             if not panels and block_loc and "legend" in block_loc.lower():
                 pm = re.search(r"\(([A-Z](?:\s*[-,]\s*[A-Z])*)\)", norm_text(quote or ""))
                 if pm:
-                    panels = _normalize_panels(pm.group(1), num)
+                    panels = _normalize_panels(pm.group(1), num, list_and=True)
             return f"Fig {num}{panels}"
     return block_loc or "Abstract"
 

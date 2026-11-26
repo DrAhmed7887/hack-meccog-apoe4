@@ -3,7 +3,7 @@
   "hypothesis_statement": "In some types of non-Alzheimer's, non-aged human brain cells, APOE4 disruption of lipid metabolism, compared with APOE3, results in impaired late endosome/lysosome function.",
   "n_papers": 19,
   "n_papers_with_findings": 19,
-  "n_findings": 68,
+  "n_findings": 67,
   "papers": [
     {
       "pmid": "34919811",
@@ -61,33 +61,6 @@
           "p_value": {
             "value": null,
             "quote": null
-          },
-          "sample_size": {
-            "value": null,
-            "quote": null
-          },
-          "physician_review": false,
-          "physician_review_reasons": [],
-          "location": "Fig 4E",
-          "source": "full_text"
-        },
-        {
-          "description": "Western blot quantification of LAMP2 normalized to beta-actin demonstrated significantly reduced LAMP2 in APOE4 compared to APOE3 iAstrocytes (p < 0.01).",
-          "quote": "Figure 4Subtle changes in lysosomal marker LAMP2 according to APOE genotype(A) GSEA NESs of protein lists ranked according to the t-statistic obtained for the contrast APOE2 versus APOE3, APOE4 versus APOE3, and APOE4 versus APOE2 iAstrocytes. NES is plotted on the x axis, with color-coded bars according to padj. Padj ≤0.2 was considered significant, annotated with green stars.(B) Immunocytochemical stainings of RAB5 (red, upper) and merged with S100β (green, lower). The signal is quantified and calculated as percentage of cell area.(C) Immunocytochemical stainings of LAMP2 (green, upper) and merged with GFAP (red, lower). The signal is quantified and calculated as percentage of cell area. Scale bar: 50 μm.(D) Western blot of LAMP2 and RAB5 from lysate of iAstrocytes. Scale bar: 50 μm.(E) Western blot quantification of RAB5 or LAMP2 normalized to β-actin.(F) Lysosomal activity assay in iAstrocytes, normalized to APOE3.Data represent mean ± SD (∗p < 0.05; ∗∗p < 0.01, one-way ANOVA with post hoc Tukey's multiple comparisons test). All datapoints (n-numbers) are plotted in each bar graph (three independent experiments).",
-          "summary": "(APOE4 vs APOE3 genotype in iAstrocytes) -> (reduced LAMP2 protein levels relative to beta-actin)",
-          "direction": "supports",
-          "experimental_system": "human isogenic iPSC-derived astrocytes (iAstrocytes), APOE4 vs APOE3",
-          "relevance": 0.85,
-          "directness_class": 3,
-          "directness_strength": 3,
-          "effect_size": {
-            "value": null,
-            "quote": null
-          },
-          "p_value": {
-            "value": "<0.01",
-            "quote": "Data represent mean ± SD (∗p < 0.05; ∗∗p < 0.01, one-way ANOVA with post hoc Tukey's multiple comparisons test).",
-            "provenance": "visual_only"
           },
           "sample_size": {
             "value": null,
@@ -1178,7 +1151,7 @@
           },
           "physician_review": false,
           "physician_review_reasons": [],
-          "location": "Fig 2G-H",
+          "location": "Fig 2G,H",
           "source": "full_text"
         },
         {
@@ -1792,7 +1765,7 @@
           },
           "physician_review": false,
           "physician_review_reasons": [],
-          "location": "Fig 4C-D",
+          "location": "Fig 4C,D",
           "source": "full_text"
         },
         {
@@ -1846,7 +1819,7 @@
           },
           "physician_review": false,
           "physician_review_reasons": [],
-          "location": "Fig S6G-H",
+          "location": "Fig S6G,H",
           "source": "full_text"
         }
       ]
@@ -1888,7 +1861,7 @@
           },
           "physician_review": false,
           "physician_review_reasons": [],
-          "location": "Fig 3B-C",
+          "location": "Fig 3B,C",
           "source": "full_text"
         },
         {
@@ -2000,9 +1973,8 @@
             "quote": null
           },
           "p_value": {
-            "value": "<0.05",
-            "quote": "*p < 0.05",
-            "provenance": "visual_only"
+            "value": null,
+            "quote": null
           },
           "sample_size": {
             "value": "3",
