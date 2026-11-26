@@ -6,7 +6,7 @@ Audits every extracted JSON and workbook under a target data directory:
       (requires --require-fulltext-cache locally; CI offline mode marks missing gitignored caches as WARN)
   (b) Panel-level Data location precision & Rule C3 stat provenance against check_schema.PROV
   (c) Identifier validity (PMID/DOI), plus live (--online) Europe PMC core pubType
-      review/meta-analysis purge, title match, and doi-check retraction status
+      review/meta-analysis purge, PMID/title match, and strict-schema doi-check retraction guard
   (d1) Rule B1/C1 (contrary findings, <= 50 papers)
   (d2) Rule C5 Step 1 boundary across extracted JSON and workbook Submission cells
   (e) Repo hygiene & secret scan (no PDFs, .env, out/fulltext/, method.json, .licenses/, keys, or >2 MB structures)
@@ -27,18 +27,19 @@ import check_schema
 import extract
 import verify_ids
 
-RE_WHOLE_FIG = re.compile(r"^(?:supplementary\s+)?fig(?:ure)?\.?\s*s?\d+$", re.I)
+RE_WHOLE_FIG = re.compile(r"^(?:supplementary\s+)?fig(?:ure)?\.?\s*s?\d+(?:\s+legend)?$", re.I)
 RE_PANEL_LOC = re.compile(
     r"(?:supplementary\s+)?(?:fig(?:ure)?\.?\s*s?\d+[a-z0-9]*(?:\s*[-–,&]+\s*[a-z0-9]+)*|table\s*s?\d+)",
     re.I,
 )
 RULE_C5_LEAK = re.compile(
-    r"\b(?:plddt|pae|predicted aligned error|alphafold|experiment proposal|mechanism confidence score)\b",
+    r"\b(?:plddt|pae|predicted aligned error|alphafold|esmfold|rosettafold|experiment proposal|mechanism confidence score)\b",
     re.I,
 )
 SECRET_RE = re.compile(
     r"-----BEGIN (?:RSA |EC |OPENSSH |PGP )?PRIVATE KEY-----|"
-    r"\bghp_[A-Za-z0-9]{20,}\b|\bsk-[A-Za-z0-9]{20,}\b|\bAIza[0-9A-Za-z\-_]{30,}\b"
+    r"\bghp_[A-Za-z0-9]{20,}\b|\bsk-(?:ant-)?[A-Za-z0-9_\-]{20,}\b|"
+    r"\bAIza[0-9A-Za-z\-_]{30,}\b|\bAKIA[0-9A-Z]{16}\b|\bhf_[A-Za-z0-9]{20,}\b|\bxox[baprs]-[A-Za-z0-9\-]{10,}\b"
 )
 EPMC_SEARCH = "https://www.ebi.ac.uk/europepmc/webservices/rest/search"
 
@@ -49,11 +50,12 @@ def check_hygiene(repo_root: Path = ROOT) -> list[str]:
     bad = []
     for rel in out.splitlines():
         p = repo_root / rel
+        name = Path(rel).name
         if rel.lower().endswith(".pdf"):
             bad.append(f"tracked PDF: {rel}")
-        elif rel.startswith("out/fulltext/"):
+        elif rel.startswith("out/fulltext/") or "/out/fulltext/" in rel:
             bad.append(f"tracked fulltext cache: {rel}")
-        elif rel == "method.json" or rel == ".env" or rel.startswith(".env.") or rel.startswith(".licenses/"):
+        elif name in {"method.json", ".env"} or name.startswith(".env.") or rel.startswith(".licenses/"):
             bad.append(f"forbidden tracked file: {rel}")
         elif rel.startswith("docs/structures/") and p.exists() and p.stat().st_size > 2 * 1024 * 1024:
             bad.append(f"oversized structure (>2MB): {rel}")
@@ -139,6 +141,9 @@ def audit_extracted_file(ext_path: Path, fulltext_dir: Path, require_fulltext_ca
                 if raw_prov is not None and raw_prov not in check_schema.PROV:
                     issues.append(f"{fid}.{kind}: invalid provenance code {raw_prov!r}")
                     continue
+                if val not in (None, "", "N/A") and not raw_prov:
+                    issues.append(f"{fid}.{kind}: non-empty value {val!r} missing explicit provenance")
+                    continue
                 prov = raw_prov or "printed_in_text"
                 vs = str(val or "").strip()
                 if kind == "p_value" and (prov == "estimated_from_figure" or vs.startswith("~")):
@@ -187,7 +192,7 @@ def _extract_epmc_pub_types(hit: dict) -> list[str]:
 
 
 def check_live_ids(papers: list[dict]) -> list[str]:
-    """Run live Europe PMC core pubType/title check and doi-check retraction guard."""
+    """Run live Europe PMC core pubType/title check and fail-closed doi-check retraction guard."""
     import common
     issues = []
     dois = []
@@ -214,10 +219,10 @@ def check_live_ids(papers: list[dict]) -> list[str]:
         except Exception as e:
             issues.append(f"PMID {pmid}: Europe PMC lookup failed ({type(e).__name__}: {e})")
             continue
-        if not hits:
-            issues.append(f"PMID {pmid}: not found in Europe PMC")
+        hit = next((h for h in hits if str(h.get("pmid") or h.get("id") or "").strip() == pmid), None)
+        if not hit:
+            issues.append(f"PMID {pmid}: exact PMID not found in Europe PMC results")
             continue
-        hit = hits[0]
         pub_types = _extract_epmc_pub_types(hit)
         if any(("review" in t or "meta-analysis" in t) for t in pub_types):
             issues.append(f"PMID {pmid}: flagged as review/meta-analysis ({pub_types})")
@@ -235,9 +240,25 @@ def check_live_ids(papers: list[dict]) -> list[str]:
                     issues.append(f"doi-check exited with code {res.returncode}: {res.stderr.strip()[:120]}")
                 else:
                     rows = json.loads(res.stdout)
-                    for row in rows:
-                        if row.get("retracted"):
-                            issues.append(f"RETRACTED DOI detected: {row.get('doi')}")
+                    if not isinstance(rows, list) or len(rows) != len(dois):
+                        issues.append(
+                            f"doi-check malformed schema: expected list of {len(dois)} rows, "
+                            f"got {type(rows).__name__}"
+                        )
+                    else:
+                        by_doi = {}
+                        for row in rows:
+                            if not isinstance(row, dict) or not isinstance(row.get("retracted"), bool):
+                                issues.append("doi-check row missing boolean 'retracted' field")
+                                break
+                            by_doi[str(row.get("doi") or "").lower()] = row
+                        else:
+                            for d in dois:
+                                row = by_doi.get(d.lower())
+                                if not row:
+                                    issues.append(f"doi-check missing output row for {d}")
+                                elif row["retracted"]:
+                                    issues.append(f"RETRACTED DOI detected: {d}")
             except Exception as e:
                 issues.append(f"doi-check execution failed ({type(e).__name__}: {e})")
     return issues
@@ -254,11 +275,15 @@ def check_workbooks(data_dir: Path) -> list[str]:
             issues.extend(f"{b.name}: {e}" for e in errs)
             continue
         sheets = check_schema.read_rows(str(b))
-        for r_idx, row in enumerate(sheets.get("Submission", [])[2:], 3):
-            for col_idx in (5, 7, 9, 10):
-                val = row[col_idx] if col_idx < len(row) else None
-                if val and RULE_C5_LEAK.search(str(val)):
-                    issues.append(f"{b.name} row {r_idx}: Rule C5 Step 1 boundary leak in Submission cell")
+        sub_rows = sheets.get("Submission", [])
+        if sub_rows:
+            hdr = {str(h).strip(): idx for idx, h in enumerate(sub_rows[0]) if h}
+            scan_cols = [hdr[c] for c in ("Finding description", "Finding summary", "Experimental system", "Data location") if c in hdr]
+            for r_idx, row in enumerate(sub_rows[2:], 3):
+                for col_idx in scan_cols:
+                    val = row[col_idx] if col_idx < len(row) else None
+                    if val and RULE_C5_LEAK.search(str(val)):
+                        issues.append(f"{b.name} row {r_idx}: Rule C5 Step 1 boundary leak in Submission cell")
         method_rows = sheets.get("Method", [])
         m = {r[0]: r[1] for r in method_rows if len(r) >= 2}
         if m.get("Who did the work") == "collab":

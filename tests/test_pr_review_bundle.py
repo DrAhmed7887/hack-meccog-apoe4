@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Offline unit tests for scripts/pr_review_bundle.py."""
 import json
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
@@ -114,22 +115,36 @@ class TestPrReviewBundle(unittest.TestCase):
             rep = pr_review_bundle.audit_extracted_file(ext, ft, require_fulltext_cache=True)
             self.assertTrue(any("Rule C5" in i for i in rep["issues"]))
 
-    def test_check_live_ids_catches_review_article_and_missing_doicheck(self):
+    def test_check_live_ids_catches_review_article_and_malformed_doicheck(self):
         fake_epmc = json.dumps({
             "resultList": {
                 "result": [{
+                    "pmid": "42927732",
                     "title": "APOE4 lipid review",
                     "pubTypeList": {"pubType": ["Journal Article", "Review"]},
                 }],
             },
         })
         papers = [{"pmid": "42927732", "doi": "10.1000/rev", "title": "APOE4 lipid review"}]
+        bad_doicheck = subprocess.CompletedProcess(args=["doi-check"], returncode=0, stdout='{"wrapped": []}', stderr="")
         with mock.patch("common.http_get", return_value=fake_epmc), \
-             mock.patch("scripts.pr_review_bundle.shutil.which", return_value=None), \
-             mock.patch("scripts.pr_review_bundle.os.path.exists", return_value=False):
+             mock.patch("scripts.pr_review_bundle.shutil.which", return_value="/usr/bin/doi-check"), \
+             mock.patch("scripts.pr_review_bundle.os.path.exists", return_value=True), \
+             mock.patch("scripts.pr_review_bundle.subprocess.run", return_value=bad_doicheck):
             issues = pr_review_bundle.check_live_ids(papers)
         self.assertTrue(any("review/meta-analysis" in i for i in issues))
-        self.assertTrue(any("doi-check binary missing" in i for i in issues))
+        self.assertTrue(any("malformed schema" in i for i in issues))
+
+    def test_hygiene_catches_nested_env_and_secret_pattern(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            (root / "sub").mkdir()
+            (root / "sub" / ".env").write_text("FOO=bar\n", encoding="utf-8")
+            (root / "leak.py").write_text('KEY = "sk-ant-' + 'a' * 24 + '"\n', encoding="utf-8")
+            with mock.patch("scripts.pr_review_bundle.subprocess.check_output", return_value="sub/.env\nleak.py\n"):
+                bad = pr_review_bundle.check_hygiene(root)
+            self.assertTrue(any("sub/.env" in x for x in bad))
+            self.assertTrue(any("leak.py" in x for x in bad))
 
 
 if __name__ == "__main__":
