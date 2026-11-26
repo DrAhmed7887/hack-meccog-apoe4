@@ -23,4 +23,4 @@ Criteria summarize `official/rules.html` and `official/official-rules.html` (sna
 | C5 | Step 1 only | Pipeline stops at papers and findings by design. |
 
 ## Remaining human items before upload
-- **HF Space registration & Method team cells:** Register institutional HF account (`ahmed.zayed@rwth-aachen.de`), create team, fill `Team` / `Team leader` / `Team leader email` in `Method` sheet, verify live Space rules, and upload before `Wed 13 Jan 2027 13:00 Valencia` (`Sat 16 Jan 2027 13:00 Valencia` official deadline).
+- **HF Space registration & Method team cells:** Team `Khepri` created on `meccog-meccogchallenge.hf.space` (leader `DrZayed`); verify live Space rules and upload workbook before `Wed 13 Jan 2027 13:00 Valencia` (`Sat 16 Jan 2027 13:00 Valencia` official deadline).

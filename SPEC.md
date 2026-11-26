@@ -1,6 +1,6 @@
 # SPEC.md: MecCog APOE4 pilot (Step 1)
 
-Status: FROZEN (`26 Nov 2026`) on `H5`, `Strict C3`, 6-paper pool (21 findings), 100% physician `A3` audit, `data/` SHA-256 manifest, public repo, and `make validate`; HF Space registration/upload pending Ahmed's click.
+Status: FROZEN (`26 Nov 2026`) on `H5`, `Strict C3`, 6-paper pool (21 findings), 100% physician `A3` audit, `data/` SHA-256 manifest, public repo, team `Khepri` (`DrZayed`), and `make validate`; ready for HF Space workbook upload.
 
 ## Buyer line
 The MecCog group (organizers of the MecCog Challenge, a Hugging Face Space) need, for one APOE4 endosome hypothesis, a short list of papers and the experimental findings in them, each traceable to a location in the paper, so that they can compare groups and check the specifics. (Organizer and shape: `official/README.md`, `official/rules.html`.) There is no commercial buyer and no sponsor product; the sponsor-primitive gate is n/a.
@@ -19,16 +19,16 @@ Unrecorded in the repo. `HYPOTHESES.md` states a feasibility target of "~20 h"; 
 - One live submission per hypothesis, replaceable until the deadline; the team leader submits (`official/rules.html:988-990`).
 
 ## Checklist
-- [ ] HF account registered for the challenge (Ahmed's click; institutional address `ahmed.zayed@rwth-aachen.de`)
-- [ ] Team created, team name recorded: ______
-- [ ] Ahmed set as team leader (only the leader can submit)
+- [x] HF account registered for the challenge (`DrZayed`; institutional RWTH address)
+- [x] Team created, team name recorded: `Khepri`
+- [x] Ahmed set as team leader (`DrZayed`; only the leader can submit)
 - [ ] Registration receipt saved to `Hackathons/2026-11-meccog-apoe4/submission/`
 - [ ] Rules re-read on the live HF Space page and diffed against `official/` (18 Nov snapshot); verify live rules for any prize terms (challenge products in snapshot: open-source pipeline, scientific paper, co-authorship per `official/rules.html:427`)
 - [x] Method repo URL decided and made public after history/secrets scan (`https://github.com/DrAhmed7887/hack-meccog-apoe4`)
 - [x] Research question (`H5`), `Strict C3`, pool, and `~` / `estimated_from_figure` policy signed by Ahmed (25 Nov 2026)
 - [x] Extraction, 100% physician `A3` audit (`docs/PHYSICIAN_AUDIT_H5.md`), `FREEZE.md` (`data/`), `make test && make verify && make validate` completed (26 Nov 2026)
 - [x] AI-use disclosure included in `README.md` (`Who did the work: both`; `qwen3.8-27b` + orchestrator agents)
-- [ ] Team cells populated in `Method` sheet (if team name chosen) and final workbook uploaded by `Wed 13 Jan 2027 13:00 Valencia`
+- [x] Team name `Khepri` populated in `Method` sheet (`to_template.py`); final workbook upload pending by `Wed 13 Jan 2027 13:00 Valencia`
 
 ## Signed scope & decisions (25–26 Nov 2026)
 - **Step 1 only:** find papers, extract experimental findings.

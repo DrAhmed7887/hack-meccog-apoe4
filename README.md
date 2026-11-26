@@ -2,7 +2,7 @@
 
 **Status (26 Nov 2026, frozen):** Hypothesis `H5` submission built and verified offline (**6 papers, 21 findings** including **1 `CONTRADICTING:`** row in `data/dry_run.xlsx`), **6/6** PMIDs/DOIs verified (`data/id_verification.json`), **6/6** numeric findings verified verbatim (`data/verify_sample.md`), **57** unit tests passing (`make test`), `make verify` (**0 FAIL, 0 WARN**), and **`SUBMISSION VALID — no problems found.`** (`data/validator_output.txt`).
 
-- **Team:** Pending Hugging Face Space team registration (lead: Dr Ahmed Zayed)
+- **Team:** `Khepri` (leader `DrZayed` / Dr Ahmed Zayed on `meccog-meccogchallenge.hf.space`)
 - **Hypothesis:** `H5` — *In some types of non-Alzheimer's, non-aged human brain cells, APOE4 disruption of lipid metabolism, compared with APOE3, results in impaired late endosome/lysosome function.*
 - **Freeze date:** 2026-11-26
 
