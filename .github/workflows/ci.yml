@@ -1,0 +1,49 @@
+name: ci
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  test-verify-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install validator dependency
+        run: python -m pip install --no-cache-dir openpyxl==3.1.5
+      - name: Unit tests (offline)
+        run: make test
+      - name: Offline data, freeze, ID, and CLAIMS verification
+        run: make verify
+      - name: Official MecCog validator (isolated /tmp, --strict)
+        run: |
+          shopt -s nullglob
+          files=("$GITHUB_WORKSPACE"/data/*.xlsx "$GITHUB_WORKSPACE"/data/*/*.xlsx)
+          test ${#files[@]} -gt 0
+          for f in "${files[@]}"; do
+            echo "Validating $f"
+            (cd /tmp && python3 -I "$GITHUB_WORKSPACE/official/resources/validate_submission.py" "$f" --strict)
+          done
+      - name: Hygiene and privacy gate (no PDFs, fulltext caches, licenses, or oversized structures)
+        run: |
+          python3 - <<'PY'
+          import os, subprocess, sys
+          tracked = subprocess.check_output(["git", "ls-files"], text=True).splitlines()
+          bad = [
+              p for p in tracked
+              if p.lower().endswith(".pdf")
+              or p.startswith("out/fulltext/")
+              or p == "method.json"
+              or p.startswith(".licenses/")
+              or (p.startswith("docs/structures/") and os.path.exists(p) and os.path.getsize(p) > 2 * 1024 * 1024)
+          ]
+          if bad:
+              print("FORBIDDEN TRACKED FILES:", bad)
+              sys.exit(1)
+          print(f"Hygiene gate OK ({len(tracked)} tracked files checked)")
+          PY
