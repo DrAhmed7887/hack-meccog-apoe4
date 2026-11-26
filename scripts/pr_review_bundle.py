@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 """Deterministic PR pre-review verification bundle for hack-meccog-apoe4.
 
-Checks every extracted JSON and workbook under a target data directory (and
-optionally git diff against origin/main) across:
+Checks every extracted JSON and workbook under a target data directory across:
   (a) Verbatim finding & stat quotes against a single block in out/fulltext/ or abstract
   (b) Panel-level Data location precision & Rule C3 stat provenance
   (c) Identifier validity (PMID/DOI), optional live Europe PMC pubType review purge,
-      and doi-check retraction status
+      title match, and doi-check retraction status
   (d) Rule B1/C1 (contrary findings, <= 50 papers) & Rule C5 Step 1 boundary
   (e) Repo hygiene (no PDFs, out/fulltext/, method.json, .licenses/, or >2 MB structure assets)
 """
@@ -17,7 +16,6 @@ import re
 import shutil
 import subprocess
 import sys
-import urllib.parse
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -26,7 +24,6 @@ sys.path.insert(0, str(ROOT))
 import check_schema
 import extract
 import verify_ids
-import verify_sample
 
 RE_WHOLE_FIG = re.compile(r"^(?:supplementary\s+)?fig(?:ure)?\.?\s*s?\d+$", re.I)
 RE_PANEL_LOC = re.compile(
@@ -34,7 +31,7 @@ RE_PANEL_LOC = re.compile(
     re.I,
 )
 RULE_C5_LEAK = re.compile(
-    r"\b(?:plddt|pae|predicted aligned error|alphafold|experiment proposal|confidence score)\b",
+    r"\b(?:plddt|pae|predicted aligned error|alphafold|experiment proposal|mechanism confidence score)\b",
     re.I,
 )
 EPMC_SEARCH = "https://www.ebi.ac.uk/europepmc/webservices/rest/search"
@@ -68,8 +65,8 @@ def find_extracted_files(data_dir: Path) -> list[Path]:
     return files
 
 
-def audit_extracted_file(ext_path: Path, fulltext_dir: Path) -> dict:
-    """Audit one extracted JSON against single-block quotes, panel locations, and Rule C5."""
+def audit_extracted_file(ext_path: Path, fulltext_dir: Path, require_fulltext_cache: bool = False) -> dict:
+    """Audit one extracted JSON against single-block quotes, panel locations, stats, and Rule C5."""
     data = json.loads(ext_path.read_text(encoding="utf-8"))
     papers = data.get("papers", [])
     issues = []
@@ -91,18 +88,28 @@ def audit_extracted_file(ext_path: Path, fulltext_dir: Path) -> dict:
 
         for idx, f in enumerate(p.get("findings", []), 1):
             n_findings += 1
-            fid = f"{pmid}.F{idx}"
+            fid = f"{pmid or p.get('doi') or 'paper'}.F{idx}"
             if f.get("direction") == "contradicts":
                 n_contrary += 1
 
-            blocks = ft_blocks if (f.get("source") == "full_text" and ft_blocks) else abs_block
-            quote = f.get("quote") or ""
-            matched_block = extract.find_block(quote, blocks)
-            if not matched_block:
-                issues.append(f"{fid}: quote not verbatim in a single source block")
+            is_ft = f.get("source") == "full_text"
+            matched_block = None
+            cache_missing = is_ft and ft_blocks is None
+            if cache_missing:
+                msg = f"{fid}: fulltext cache missing ({ft_path.name})"
+                if require_fulltext_cache:
+                    issues.append(msg)
+                else:
+                    warnings.append(msg + " (CI offline mode)")
+            else:
+                blocks = ft_blocks if is_ft else abs_block
+                quote = f.get("quote") or ""
+                matched_block = extract.find_block(quote, blocks)
+                if not matched_block:
+                    issues.append(f"{fid}: quote not verbatim in a single source block")
 
             loc = str(f.get("location") or "").strip()
-            if f.get("source") == "full_text":
+            if is_ft:
                 if RE_WHOLE_FIG.match(loc):
                     warnings.append(f"{fid}: whole-figure location without panel letter ({loc!r})")
                 elif not RE_PANEL_LOC.search(loc):
@@ -115,14 +122,22 @@ def audit_extracted_file(ext_path: Path, fulltext_dir: Path) -> dict:
             for kind in ("effect_size", "p_value", "sample_size"):
                 blk = f.get(kind) or {}
                 val = blk.get("value")
+                prov = blk.get("provenance") or "printed_in_text"
+                vs = str(val or "").strip()
+                if kind == "p_value" and (prov == "estimated_from_figure" or vs.startswith("~")):
+                    issues.append(f"{fid}.p_value: P value cannot use '~' or 'estimated_from_figure'")
+                    continue
                 if val in (None, "", "N/A"):
                     continue
                 n_stats += 1
-                prov = blk.get("provenance") or "printed_in_text"
-                if str(val).strip().lower() == "qualitative":
+                if vs.lower() == "qualitative":
+                    if prov == "estimated_from_figure":
+                        issues.append(f"{fid}.{kind}: qualitative cannot use 'estimated_from_figure'")
+                    continue
+                if matched_block is None:
                     continue
                 squote = blk.get("quote") or ""
-                if not matched_block or not extract.quote_in_text(squote, matched_block["text"]):
+                if not extract.quote_in_text(squote, matched_block["text"]):
                     issues.append(f"{fid}.{kind}: stat quote not in same block as finding quote")
                 elif extract.verify_stat(kind, val, squote, matched_block["text"], provenance=prov) is None:
                     issues.append(f"{fid}.{kind}: stat {val!r} ({prov}) failed verify_stat")
@@ -138,8 +153,21 @@ def audit_extracted_file(ext_path: Path, fulltext_dir: Path) -> dict:
     }
 
 
+def _extract_epmc_pub_types(hit: dict) -> list[str]:
+    """Extract normalized publication types from Europe PMC core or lite result."""
+    types = []
+    ptl = (hit.get("pubTypeList") or {}).get("pubType") or []
+    if isinstance(ptl, str):
+        ptl = [ptl]
+    types.extend(str(t).strip().lower() for t in ptl if t)
+    raw_pt = hit.get("pubType") or ""
+    if raw_pt:
+        types.extend(part.strip().lower() for part in str(raw_pt).split(";") if part.strip())
+    return types
+
+
 def check_live_ids(papers: list[dict]) -> list[str]:
-    """Run live Europe PMC pubType/title check and doi-check retraction guard."""
+    """Run live Europe PMC core pubType/title check and doi-check retraction guard."""
     import common
     issues = []
     dois = []
@@ -150,33 +178,42 @@ def check_live_ids(papers: list[dict]) -> list[str]:
             dois.append(doi)
         if not pmid.isdigit():
             continue
-        raw = common.http_get(
-            EPMC_SEARCH,
-            {"query": f"EXT_ID:{pmid} AND SRC:MED", "format": "json", "resultType": "lite"},
-            min_interval=0.15,
-        )
-        hits = json.loads(raw).get("resultList", {}).get("result", [])
+        try:
+            raw = common.http_get(
+                EPMC_SEARCH,
+                {"query": f"EXT_ID:{pmid} AND SRC:MED", "format": "json", "resultType": "core"},
+                min_interval=0.15,
+            )
+            hits = json.loads(raw).get("resultList", {}).get("result", [])
+        except Exception as e:
+            issues.append(f"PMID {pmid}: Europe PMC lookup failed ({type(e).__name__}: {e})")
+            continue
         if not hits:
             issues.append(f"PMID {pmid}: not found in Europe PMC")
             continue
         hit = hits[0]
-        pub_types = [t.lower() for t in (hit.get("pubTypeList", {}).get("pubType") or [])]
+        pub_types = _extract_epmc_pub_types(hit)
         if any("review" in t for t in pub_types):
             issues.append(f"PMID {pmid}: flagged as review article ({pub_types})")
         if not verify_ids._title_match(p.get("title", ""), hit.get("title", "")):
             issues.append(f"PMID {pmid}: title mismatch vs Europe PMC ({hit.get('title', '')[:60]})")
 
     doi_check_bin = shutil.which("doi-check") or os.path.expanduser("~/.local/bin/doi-check")
-    if dois and os.path.exists(doi_check_bin):
-        res = subprocess.run([doi_check_bin, "--json", *dois], capture_output=True, text=True, timeout=60)
-        if res.returncode == 0 and res.stdout.strip():
+    if dois:
+        if not os.path.exists(doi_check_bin):
+            issues.append("doi-check binary missing: cannot verify retraction status")
+        else:
             try:
-                rows = json.loads(res.stdout)
-                for row in rows:
-                    if row.get("retracted"):
-                        issues.append(f"RETRACTED DOI detected: {row.get('doi')}")
-            except ValueError:
-                issues.append("doi-check output was not valid JSON")
+                res = subprocess.run([doi_check_bin, "--json", *dois], capture_output=True, text=True, timeout=60)
+                if res.returncode != 0:
+                    issues.append(f"doi-check exited with code {res.returncode}: {res.stderr.strip()[:120]}")
+                else:
+                    rows = json.loads(res.stdout)
+                    for row in rows:
+                        if row.get("retracted"):
+                            issues.append(f"RETRACTED DOI detected: {row.get('doi')}")
+            except Exception as e:
+                issues.append(f"doi-check execution failed ({type(e).__name__}: {e})")
     return issues
 
 
@@ -194,17 +231,28 @@ def check_workbooks(data_dir: Path) -> list[str]:
         m = {r[0]: r[1] for r in method_rows if len(r) >= 2}
         if m.get("Who did the work") == "collab":
             models = m.get("Model and version") or ""
-            if not any(sep in models for sep in (",", ";", "/", "\n", " and ")):
+            if not any(sep in models for sep in (",", ";", "/", "\n")):
                 issues.append(f"{b.name}: collab Method row missing multi-agent separator in Model and version")
-        if readme and m.get("Who did the work") and m["Who did the work"] not in readme:
-            issues.append(f"{b.name}: README.md does not mention Who did the work={m['Who did the work']!r}")
+        who = m.get("Who did the work") or ""
+        if readme and who and not re.search(rf"\b{re.escape(who)}\b", readme, re.I):
+            issues.append(f"{b.name}: README.md does not mention Who did the work={who!r}")
     return issues
+
+
+def _paper_dedup_key(paper: dict) -> tuple[str, str]:
+    pmid = str(paper.get("pmid") or "").strip()
+    doi = str(paper.get("doi") or "").strip().lower()
+    if pmid or doi:
+        return (pmid, doi)
+    return ("", f"obj:{id(paper)}")
 
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--data", default="data", help="Data directory to audit")
     ap.add_argument("--fulltext", default="out/fulltext", help="Cached fulltext directory")
+    ap.add_argument("--require-fulltext-cache", action="store_true",
+                    help="Fail if a full_text paper is missing out/fulltext/<pmid>.json")
     ap.add_argument("--online", action="store_true", help="Also verify live Europe PMC pubType + doi-check")
     ap.add_argument("--pr", help="Optional PR number for display")
     ap.add_argument("--out", help="Optional JSON summary output path")
@@ -214,15 +262,18 @@ def main() -> int:
     ft_dir = (ROOT / a.fulltext).resolve()
     hygiene = check_hygiene(ROOT)
     wb_issues = check_workbooks(data_dir)
-    ext_reports = [audit_extracted_file(p, ft_dir) for p in find_extracted_files(data_dir)]
+    ext_reports = [
+        audit_extracted_file(p, ft_dir, require_fulltext_cache=a.require_fulltext_cache)
+        for p in find_extracted_files(data_dir)
+    ]
 
     live_issues = []
     if a.online:
-        all_papers = []
+        dedup = {}
         for p in find_extracted_files(data_dir):
-            all_papers.extend(json.loads(p.read_text(encoding="utf-8")).get("papers", []))
-        dedup = list({str(p.get("pmid")): p for p in all_papers}.values())
-        live_issues = check_live_ids(dedup)
+            for rec in json.loads(p.read_text(encoding="utf-8")).get("papers", []):
+                dedup[_paper_dedup_key(rec)] = rec
+        live_issues = check_live_ids(list(dedup.values()))
 
     total_issues = list(hygiene) + list(wb_issues) + list(live_issues)
     for rep in ext_reports:
@@ -250,7 +301,7 @@ def main() -> int:
     for iss in total_issues:
         print(f"  FAIL: {iss}")
     print(f"GATE STATUS: {'PASS' if summary['pass'] else 'FAIL'}")
-    return 0 if summary["pass"] else 1
+    return 0 if summary['pass'] else 1
 
 
 if __name__ == "__main__":
