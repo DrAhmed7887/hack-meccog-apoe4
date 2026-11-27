@@ -21,4 +21,4 @@ Updated 27 Nov 2026 from frozen H5 v3 (`data/`) and H2 v1 (`data/H2/`) outputs a
 ## Not claimed
 - Zero `estimated_from_figure` or `visual_only` values exist in either frozen workbook: every populated statistic is `printed_in_text`.
 - Turnstile-gated (`37777962`) and paywalled (`41785939`, `31796678`, `35235798`) articles were never bypassed and remain honest `Abstract`-only `full_text_unavailable`.
-- Final release `.xlsx` uploads on HF Space (`Team`, real email, final `Commit SHA`) await team leader verification before `Wed 13 Jan 2027 13:00 Valencia`.
+- Release `.xlsx` uploads on HF Space are generated via local gitignored `out/release_method.json` (`Team` `Khepri`, real leader email, `collab`, and exact `origin/main` `Commit SHA`) so personal email never enters git.
