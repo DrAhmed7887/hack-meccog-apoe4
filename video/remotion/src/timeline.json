@@ -19,7 +19,7 @@
           "end": 1.474
         },
         {
-          "text": "cysteine to arginine at position one hundred twelve,",
+          "text": "cysteine to arginine at position 112,",
           "start": 1.834,
           "end": 5.248
         },
@@ -60,13 +60,13 @@
           "end": 1.451
         },
         {
-          "text": "Team Khepri paired a strict Step one extraction",
+          "text": "Team Khepri paired a strict Step 1 extraction pipeline",
           "start": 1.811,
-          "end": 4.563
+          "end": 5.317
         },
         {
-          "text": "pipeline with an interactive MolStar three-D workbench.",
-          "start": 4.644,
+          "text": "with an interactive Mol* 3D workbench.",
+          "start": 5.584,
           "end": 9.091
         },
         {
@@ -80,7 +80,7 @@
           "end": 16.602
         },
         {
-          "text": "and printed statistics, separated cleanly from three-D structural",
+          "text": "and printed statistics, separated cleanly from 3D structural",
           "start": 16.718,
           "end": 21.408
         },
@@ -101,33 +101,23 @@
       "audioSec": 28.05,
       "captions": [
         {
-          "text": "In crystal structure one-B-six-eight,",
+          "text": "In crystal structure 1B68,",
           "start": 0.0,
           "end": 3.274
         },
         {
-          "text": "APOE4's arginine one hundred twelve forms a two",
+          "text": "APOE4's Arg112 forms a 2.53 \u00c5 salt bridge with",
           "start": 3.541,
-          "end": 7.802
+          "end": 10.879
         },
         {
-          "text": "point five three Angstrom salt bridge with glutamate",
-          "start": 7.895,
-          "end": 11.482
+          "text": "Glu109, displacing Arg61 outward from 3.53 to 5.34 \u00c5",
+          "start": 10.937,
+          "end": 20.004
         },
         {
-          "text": "one hundred nine, displacing arginine sixty-one outward from",
-          "start": 11.529,
-          "end": 16.289
-        },
-        {
-          "text": "three point five three to five point three",
-          "start": 16.37,
-          "end": 18.855
-        },
-        {
-          "text": "four Angstroms compared to APOE3 structure one-N-F-N,",
-          "start": 18.924,
+          "text": "compared to APOE3 structure 1NFN,",
+          "start": 20.364,
           "end": 24.485
         },
         {
@@ -198,27 +188,27 @@
           "end": 3.541
         },
         {
-          "text": "thirty entries covering twenty-eight unique primary papers across",
+          "text": "30 entries covering 28 unique primary papers across H5",
           "start": 4.029,
-          "end": 8.278
+          "end": 8.858
         },
         {
-          "text": "H5 and H2, yielding one hundred twenty experimental",
-          "start": 8.336,
-          "end": 12.899
+          "text": "and H2, yielding 120 experimental findings,",
+          "start": 9.218,
+          "end": 13.758
         },
         {
-          "text": "findings, one hundred twenty-six printed-in-text statistics with panel",
-          "start": 12.968,
-          "end": 17.891
+          "text": "126 printed-in-text statistics with panel locations,",
+          "start": 14.118,
+          "end": 18.797
         },
         {
-          "text": "locations, zero retracted or review papers,",
-          "start": 17.938,
+          "text": "0 retracted or review papers,",
+          "start": 19.366,
           "end": 22.14
         },
         {
-          "text": "and zero errors or warnings under strict validation.",
+          "text": "and 0 errors or warnings under strict validation.",
           "start": 22.373,
           "end": 26.982
         }
@@ -239,7 +229,7 @@
           "end": 2.972
         },
         {
-          "text": "we report twenty-nine contradicting findings directly in the",
+          "text": "we report 29 contradicting findings directly in the",
           "start": 3.437,
           "end": 7.047
         },
@@ -254,18 +244,18 @@
           "end": 17.775
         },
         {
-          "text": "NHE6 activation; H2 rests purely on Tier two",
+          "text": "NHE6 activation; H2 rests purely on Tier 2 models,",
           "start": 17.844,
-          "end": 22.453
+          "end": 23.104
         },
         {
-          "text": "models, and four gated or paywalled papers remain",
-          "start": 22.511,
-          "end": 26.273
+          "text": "and 4 gated or paywalled papers remain abstract-only rather",
+          "start": 23.301,
+          "end": 27.968
         },
         {
-          "text": "abstract-only rather than bypassed.",
-          "start": 26.354,
+          "text": "than bypassed.",
+          "start": 28.015,
           "end": 29.721
         }
       ]
@@ -280,23 +270,23 @@
       "audioSec": 14.814,
       "captions": [
         {
-          "text": "Twenty-eight unique papers across thirty entries.",
+          "text": "28 unique papers across 30 entries.",
           "start": 0.0,
           "end": 3.355
         },
         {
-          "text": "One hundred twenty verified findings.",
+          "text": "120 verified findings. 29 contradicting lines.",
           "start": 3.715,
-          "end": 6.258
+          "end": 8.94
         },
         {
-          "text": "Twenty-nine contradicting lines. Open the live three-D workbench",
-          "start": 6.56,
-          "end": 11.703
+          "text": "Open the live 3D workbench and inspect every",
+          "start": 9.601,
+          "end": 13.166
         },
         {
-          "text": "and inspect every workbook on GitHub.",
-          "start": 11.9,
+          "text": "workbook on GitHub.",
+          "start": 13.224,
           "end": 14.814
         }
       ]

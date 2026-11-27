@@ -451,14 +451,14 @@ const SCENE_MAP: Record<string, React.FC<{ s: SceneMeta }>> = {
   s7: SceneS7,
 };
 
-export const Film: React.FC = () => {
+const SequenceTimeline: React.FC<{ scenes: SceneMeta[] }> = ({ scenes }) => {
   const frame = useCurrentFrame();
   const { durationInFrames } = useVideoConfig();
   const progress = Math.min(1, Math.max(0, frame / Math.max(1, durationInFrames - 1)));
 
   return (
     <AbsoluteFill style={{ backgroundColor: BG_DARK }}>
-      {timeline.scenes.map((s) => {
+      {scenes.map((s) => {
         const Comp = SCENE_MAP[s.id] || SceneS1;
         return (
           <Sequence key={s.id} from={s.from} durationInFrames={s.durationInFrames}>
@@ -489,3 +489,22 @@ export const Film: React.FC = () => {
     </AbsoluteFill>
   );
 };
+
+export const Film: React.FC = () => <SequenceTimeline scenes={timeline.scenes as SceneMeta[]} />;
+
+const TEASER_IDS = ["s1", "s3", "s7"] as const;
+
+export const TEASER_SCENES: SceneMeta[] = (() => {
+  let cursor = 0;
+  return (timeline.scenes as SceneMeta[])
+    .filter((s) => (TEASER_IDS as readonly string[]).includes(s.id))
+    .map((s) => {
+      const scene = { ...s, from: cursor };
+      cursor += s.durationInFrames;
+      return scene;
+    });
+})();
+
+export const TEASER_TOTAL_FRAMES: number = TEASER_SCENES.reduce((n, s) => n + s.durationInFrames, 0);
+
+export const Teaser: React.FC = () => <SequenceTimeline scenes={TEASER_SCENES} />;

@@ -71,6 +71,47 @@ class TestExplorerData(unittest.TestCase):
         self.assertLessEqual(g["1b68_Arg112_Glu109"]["distance_A"], 3.2)
         self.assertGreater(g["1b68_Arg61_Glu109"]["distance_A"], g["1nfn_Arg61_Glu109"]["distance_A"])
 
+    def test_video_captions_use_scientific_notation(self):
+        tl_path = ROOT / "video" / "remotion" / "src" / "timeline.json"
+        tl = json.loads(tl_path.read_text(encoding="utf-8"))
+        phonetic = (
+            "one-b-six-eight", "one-n-f-n", "one hundred", "two point five", "three point five",
+            "five point three", "molstar", "three-d", "twenty-eight", "twenty-nine", "tier two", "step one",
+        )
+        texts = [c["text"] for s in tl["scenes"] for c in s["captions"]]
+        vtt = ROOT / "docs" / "media" / "captions.vtt"
+        self.assertTrue(vtt.exists(), "docs/media/captions.vtt must exist")
+        texts.append(vtt.read_text(encoding="utf-8"))
+        for text in texts:
+            for token in phonetic:
+                self.assertNotIn(token, text.lower(), f"phonetic token {token!r} in caption: {text!r}")
+
+    def test_normalize_aligned_words(self):
+        from video.build_timeline import normalize_aligned_words
+
+        def mk(*ws):
+            return [{"w": w, "start": float(i), "end": float(i) + 0.5} for i, w in enumerate(ws)]
+
+        # (a) longest match wins
+        self.assertEqual([w["w"] for w in normalize_aligned_words(mk("one", "hundred", "twenty-six"))], ["126"])
+        self.assertEqual([w["w"] for w in normalize_aligned_words(mk("one", "hundred", "twenty"))], ["120"])
+        # (b) trailing punctuation kept
+        self.assertEqual(
+            [w["w"] for w in normalize_aligned_words(mk("position", "one", "hundred", "twelve,"))],
+            ["position 112,"],
+        )
+        # (c) merged span timing
+        words = mk("one", "hundred", "twenty-six")
+        out = normalize_aligned_words(words)
+        self.assertEqual(out[0]["start"], words[0]["start"])
+        self.assertEqual(out[0]["end"], words[-1]["end"])
+        # (d) bare 'thirty' unchanged; 'thirty entries.' merged
+        self.assertEqual([w["w"] for w in normalize_aligned_words(mk("thirty", "days"))], ["thirty", "days"])
+        self.assertEqual([w["w"] for w in normalize_aligned_words(mk("thirty", "entries."))], ["30 entries."])
+        # (e) ordinary words pass through
+        plain = mk("the", "protein", "folds")
+        self.assertEqual(normalize_aligned_words(plain), plain)
+
 
 if __name__ == "__main__":
     unittest.main()
