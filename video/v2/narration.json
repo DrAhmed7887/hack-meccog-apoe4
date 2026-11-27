@@ -1,0 +1,60 @@
+{
+  "source": "Grounded strictly in frozen data/extracted.json (H5 v3), data/H2/extracted.json (H2 v1), docs/data/explorer_data.json, and docs/PHYSICIAN_AUDIT_H2.md / H5.md. Phonetic tokens belong strictly in `say`; scientific display text lives in `caption` and is enforced by build_data.py.",
+  "voice": {
+    "name": "George",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model_id": "eleven_multilingual_v2",
+    "speed": 1.0
+  },
+  "scenes": [
+    {
+      "id": "s1",
+      "theme": "dark",
+      "title": "One residue. Every number sourced.",
+      "caption": "APOE4 differs from APOE3 by a single amino acid, yet papers still disagree on what fails first inside the cell. Team Khepri built Step 1 sheets that refuse to guess — grounded in primary figures.",
+      "say": "A-P-O-E-four differs from A-P-O-E-three by a single amino acid, yet papers still disagree on what fails first inside the cell. Team Kep-ree built Step one sheets that refuse to guess, grounded in primary figures."
+    },
+    {
+      "id": "s2",
+      "theme": "light",
+      "title": "Built on what it refuses",
+      "caption": "Our pipeline defines itself by what it rejects: 0 estimated P-values, 0 review-paper hearsay, and under Rule C5, 0 predicted structures inside the Excel sheets. Only verbatim quotes, figure panels, and printed statistics.",
+      "say": "Our pipeline defines itself by what it rejects: zero estimated P-values, zero review-paper hearsay, and under Rule C-five, zero predicted structures inside the Excel sheets. Only verbatim quotes, figure panels, and printed statistics."
+    },
+    {
+      "id": "s3",
+      "theme": "dark",
+      "title": "The 2.53 Å salt-bridge switch",
+      "caption": "Here is why that rigor matters. In crystal structure 1B68, APOE4's Arg112 forms a 2.53 Å salt bridge with Glu109 — missing at Cys112 in APOE3 1NFN — widening the closest Arg61–Glu109 contact from 3.53 Å to 5.34 Å.",
+      "say": "Here is why that rigor matters. In crystal structure one-B-six-eight, A-P-O-E-four's arginine one hundred twelve forms a two point five three Angstrom salt bridge with glutamate one hundred nine, missing at cysteine one hundred twelve in A-P-O-E-three one-N-F-N, widening the closest arginine sixty-one to glutamate one hundred nine contact from three point five three to five point three four Angstroms."
+    },
+    {
+      "id": "s4",
+      "theme": "light",
+      "title": "Two hypotheses, one trace click",
+      "caption": "Two MecCog hypotheses split the cellular bottleneck. H2 proposes that APOE4 impairs ApoER2 recycling in early endosomes, where the exchanger NHE6 sets pH. In H5, APOE4 astrocytes show 3-fold more cholesterol colocalized with lysosomes, and APOE4 microglia downregulate 53 of 84 lysosomal hydrolases and V-ATPases. Every row clicks straight back to its verbatim quote.",
+      "say": "Two MecCog hypotheses split the cellular bottleneck. H-two proposes that A-P-O-E-four impairs Apo-E-R-two recycling in early endosomes, where the exchanger N-H-E-six sets p-H. In H-five, A-P-O-E-four astrocytes show three-fold more cholesterol colocalized with lysosomes, and A-P-O-E-four microglia downregulate fifty-three of eighty-four lysosomal hydrolases and V-A-T-P-ases. Every row clicks straight back to its verbatim quote."
+    },
+    {
+      "id": "s5",
+      "theme": "dark",
+      "title": "28 papers, 0 invented stats",
+      "caption": "Here is what the frozen sheets contain: 28 unique papers across 30 entries; 120 findings — 91 supporting and 29 contradicting; 126 printed-in-text statistics with figure panels; 0 retracted or review papers, and 0 validator errors.",
+      "say": "Here is what the frozen sheets contain: twenty-eight unique papers across thirty entries; one hundred twenty findings, ninety-one supporting and twenty-nine contradicting; one hundred twenty-six printed-in-text statistics with figure panels; zero retracted or review papers, and zero validator errors."
+    },
+    {
+      "id": "s6",
+      "theme": "light",
+      "title": "Cell-type contradictions kept intact",
+      "caption": "Crucially, our sheets preserve cell-type contradictions. In astrocytes, NHE6 drops ~45%, and restoring it rescues LRP1. Yet in neurons, inhibiting NHE6 restores surface ApoER2, and in knock-in slices, deleting NHE6 restores Reelin-enhanced LTP. Meanwhile, H2 holds 0 Tier 1 papers, and 4 paywalled entries stay abstract-only.",
+      "say": "Crucially, our sheets preserve cell-type contradictions. In astrocytes, N-H-E-six drops about forty-five percent, and restoring it rescues L-R-P-one. Yet in neurons, inhibiting N-H-E-six restores surface Apo-E-R-two, and in knock-in slices, deleting N-H-E-six restores Reelin-enhanced L-T-P. Meanwhile, H-two holds zero Tier one papers, and four paywalled entries stay abstract-only."
+    },
+    {
+      "id": "s7",
+      "theme": "dark",
+      "title": "Inspect every quote live",
+      "caption": "28 primary papers. 120 findings, each linked to its quote and panel. 29 contradictions kept in plain sight. 74 automated checks passing. Open the live 3D workbench — no setup needed.",
+      "say": "Twenty-eight primary papers. One hundred twenty findings, each linked to its quote and panel. Twenty-nine contradictions kept in plain sight. Seventy-four automated checks passing. Open the live three-D workbench, no setup needed."
+    }
+  ]
+}

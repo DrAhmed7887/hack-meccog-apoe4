@@ -1,0 +1,203 @@
+{
+  "id": "s5",
+  "caption": "Here is what the frozen sheets contain: 28 unique papers across 30 entries; 120 findings \u2014 91 supporting and 29 contradicting; 126 printed-in-text statistics with figure panels; 0 retracted or review papers, and 0 validator errors.",
+  "say": "Here is what the frozen sheets contain: twenty-eight unique papers across thirty entries; one hundred twenty findings, ninety-one supporting and twenty-nine contradicting; one hundred twenty-six printed-in-text statistics with figure panels; zero retracted or review papers, and zero validator errors.",
+  "duration": 19.783,
+  "words": [
+    {
+      "w": "Here",
+      "start": 0.0,
+      "end": 0.313
+    },
+    {
+      "w": "is",
+      "start": 0.36,
+      "end": 0.43
+    },
+    {
+      "w": "what",
+      "start": 0.476,
+      "end": 0.615
+    },
+    {
+      "w": "the",
+      "start": 0.65,
+      "end": 0.72
+    },
+    {
+      "w": "frozen",
+      "start": 0.778,
+      "end": 1.126
+    },
+    {
+      "w": "sheets",
+      "start": 1.196,
+      "end": 1.474
+    },
+    {
+      "w": "contain:",
+      "start": 1.521,
+      "end": 2.171
+    },
+    {
+      "w": "twenty-eight",
+      "start": 2.38,
+      "end": 2.926
+    },
+    {
+      "w": "unique",
+      "start": 3.019,
+      "end": 3.379
+    },
+    {
+      "w": "papers",
+      "start": 3.425,
+      "end": 3.82
+    },
+    {
+      "w": "across",
+      "start": 3.878,
+      "end": 4.18
+    },
+    {
+      "w": "thirty",
+      "start": 4.226,
+      "end": 4.574
+    },
+    {
+      "w": "entries;",
+      "start": 4.644,
+      "end": 5.271
+    },
+    {
+      "w": "one",
+      "start": 5.596,
+      "end": 5.793
+    },
+    {
+      "w": "hundred",
+      "start": 5.84,
+      "end": 6.118
+    },
+    {
+      "w": "twenty",
+      "start": 6.153,
+      "end": 6.444
+    },
+    {
+      "w": "findings,",
+      "start": 6.513,
+      "end": 7.198
+    },
+    {
+      "w": "ninety-one",
+      "start": 7.523,
+      "end": 8.057
+    },
+    {
+      "w": "supporting",
+      "start": 8.104,
+      "end": 8.638
+    },
+    {
+      "w": "and",
+      "start": 8.847,
+      "end": 9.009
+    },
+    {
+      "w": "twenty-nine",
+      "start": 9.056,
+      "end": 9.625
+    },
+    {
+      "w": "contradicting;",
+      "start": 9.671,
+      "end": 10.53
+    },
+    {
+      "w": "one",
+      "start": 10.971,
+      "end": 11.134
+    },
+    {
+      "w": "hundred",
+      "start": 11.169,
+      "end": 11.436
+    },
+    {
+      "w": "twenty-six",
+      "start": 11.471,
+      "end": 12.121
+    },
+    {
+      "w": "printed-in-text",
+      "start": 12.202,
+      "end": 13.073
+    },
+    {
+      "w": "statistics",
+      "start": 13.154,
+      "end": 13.839
+    },
+    {
+      "w": "with",
+      "start": 13.874,
+      "end": 14.036
+    },
+    {
+      "w": "figure",
+      "start": 14.083,
+      "end": 14.338
+    },
+    {
+      "w": "panels;",
+      "start": 14.362,
+      "end": 14.861
+    },
+    {
+      "w": "zero",
+      "start": 15.244,
+      "end": 15.604
+    },
+    {
+      "w": "retracted",
+      "start": 15.685,
+      "end": 16.208
+    },
+    {
+      "w": "or",
+      "start": 16.277,
+      "end": 16.405
+    },
+    {
+      "w": "review",
+      "start": 16.463,
+      "end": 16.765
+    },
+    {
+      "w": "papers,",
+      "start": 16.823,
+      "end": 17.369
+    },
+    {
+      "w": "and",
+      "start": 17.543,
+      "end": 17.682
+    },
+    {
+      "w": "zero",
+      "start": 17.752,
+      "end": 18.088
+    },
+    {
+      "w": "validator",
+      "start": 18.158,
+      "end": 18.68
+    },
+    {
+      "w": "errors.",
+      "start": 18.739,
+      "end": 19.783
+    }
+  ]
+}
