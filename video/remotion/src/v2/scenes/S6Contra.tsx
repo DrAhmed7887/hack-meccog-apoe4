@@ -53,8 +53,8 @@ export const S6Contra: React.FC = () => {
       <Card at={tKo} x={1410} w={410} fid={F4} badge="knock-in slices · KO" line="Conditional NHE6 knockout restores Reelin-enhanced LTP" />
       {/* honest boundaries */}
       <div style={{position: 'absolute', left: 100, top: 722, display: 'flex', flexDirection: 'column', gap: 10}}>
-        <Badge at={cue(s, '0 Tier 1')} color={C.ink} style={{fontSize: 28, padding: '6px 16px'}}>H2: 0 Tier 1 papers<div style={{fontFamily: F.mono, fontSize: 18, fontWeight: 600, color: '#A9B7B2'}}>Tier 1 = human iPSC · H2 uses Tier 2 models</div></Badge>
-        <Badge at={cue(s, '4 paywalled')} color={C.paper2} fg={C.ink} style={{fontSize: 28, padding: '6px 16px', border: `2px solid ${C.ink}`}}>4 paywalled: abstract-only<div style={{fontFamily: F.mono, fontSize: 18, fontWeight: 600, color: C.ink2}}>H2 2 + H5 2 · gates never bypassed</div></Badge>
+        <Badge at={cue(s, '0 Tier 1')} color={C.ink} style={{fontSize: 28, padding: '6px 16px'}}>{`H2: ${D.counts.H2.n_tier1} Tier 1 papers`}<div style={{fontFamily: F.mono, fontSize: 18, fontWeight: 600, color: '#A9B7B2'}}>{`Tier 1 = ${D.counts.tier1Def} · H2 uses Tier 2 models`}</div></Badge>
+        <Badge at={cue(s, '4 paywalled')} color={C.paper2} fg={C.ink} style={{fontSize: 28, padding: '6px 16px', border: `2px solid ${C.ink}`}}>{`${D.counts.paywalled} paywalled: abstract-only`}<div style={{fontFamily: F.mono, fontSize: 18, fontWeight: 600, color: C.ink2}}>{`H2 ${D.counts.H2.n_unavailable} + H5 ${D.counts.H5.n_unavailable} · gates never bypassed`}</div></Badge>
       </div>
     </Stage>
   );

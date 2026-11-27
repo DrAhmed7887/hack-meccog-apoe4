@@ -17,7 +17,7 @@ const docs = path.join(root, 'docs');
 const out = path.resolve(process.argv[2] || path.join(root, 'video/remotion/public/v2/shots'));
 fs.mkdirSync(out, { recursive: true });
 
-const CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+const CHROME = process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const SCALE = 3;
 const VIEWPORT = { width: 1400, height: 1000 };
 const SPIN = { width: 1280, height: 720, seconds: 6 };

@@ -1,6 +1,6 @@
 {
  "fps": 30,
- "totalFrames": 4719,
+ "totalFrames": 5033,
  "scenes": [
   {
    "id": "s1",
@@ -390,187 +390,207 @@
    "theme": "dark",
    "title": "The 2.53 Å salt-bridge switch",
    "from": 1033,
-   "frames": 644,
+   "frames": 862,
    "voiceAt": 0.2,
    "audio": "v2/vo/s3.mp3",
-   "audioSeconds": 20.759,
+   "audioSeconds": 28.05,
    "words": [
     {
      "w": "Here",
      "start": 0.2,
-     "end": 0.479
+     "end": 0.455
     },
     {
      "w": "is",
-     "start": 0.525,
-     "end": 0.606
+     "start": 0.49,
+     "end": 0.56
     },
     {
      "w": "why",
-     "start": 0.653,
-     "end": 0.815
+     "start": 0.606,
+     "end": 0.757
     },
     {
      "w": "that",
-     "start": 0.885,
-     "end": 1.013
+     "start": 0.827,
+     "end": 0.955
     },
     {
      "w": "rigor",
-     "start": 1.082,
-     "end": 1.326
+     "start": 1.013,
+     "end": 1.245
     },
     {
      "w": "matters.",
-     "start": 1.396,
-     "end": 2.0
+     "start": 1.303,
+     "end": 1.907
     },
     {
      "w": "In",
-     "start": 2.603,
-     "end": 2.754
+     "start": 2.348,
+     "end": 2.476
     },
     {
      "w": "crystal",
-     "start": 2.824,
-     "end": 3.137
+     "start": 2.545,
+     "end": 2.87
     },
     {
      "w": "structure",
-     "start": 3.195,
-     "end": 3.66
+     "start": 2.928,
+     "end": 3.474
     },
     {
      "w": "1B68,",
-     "start": 3.741,
-     "end": 5.03
+     "start": 3.648,
+     "end": 4.948
     },
     {
      "w": "APOE4's",
-     "start": 5.308,
-     "end": 6.446
+     "start": 5.332,
+     "end": 6.62
     },
     {
      "w": "Arg112",
-     "start": 6.516,
-     "end": 8.083
+     "start": 6.713,
+     "end": 8.362
     },
     {
      "w": "forms",
-     "start": 8.234,
-     "end": 8.536
+     "start": 8.536,
+     "end": 8.826
     },
     {
      "w": "a",
-     "start": 8.571,
-     "end": 8.606
+     "start": 8.861,
+     "end": 8.896
     },
     {
      "w": "2.53 Å",
-     "start": 8.652,
-     "end": 10.196
+     "start": 8.942,
+     "end": 10.661
     },
     {
      "w": "salt",
-     "start": 10.277,
-     "end": 10.521
+     "start": 10.753,
+     "end": 10.986
     },
     {
      "w": "bridge",
-     "start": 10.568,
-     "end": 11.009
+     "start": 11.032,
+     "end": 11.497
     },
     {
      "w": "with",
-     "start": 11.183,
-     "end": 11.369
+     "start": 11.705,
+     "end": 11.891
     },
     {
      "w": "Glu109,",
-     "start": 11.415,
-     "end": 12.925
+     "start": 11.938,
+     "end": 13.54
     },
     {
      "w": "missing",
-     "start": 13.099,
-     "end": 13.401
+     "start": 13.923,
+     "end": 14.249
     },
     {
      "w": "at",
-     "start": 13.447,
-     "end": 13.505
+     "start": 14.295,
+     "end": 14.365
     },
     {
      "w": "Cys112",
-     "start": 13.552,
-     "end": 14.887
+     "start": 14.411,
+     "end": 15.897
     },
     {
      "w": "in",
-     "start": 14.933,
-     "end": 15.049
+     "start": 16.025,
+     "end": 16.199
+    },
+    {
+     "w": "APOE3",
+     "start": 16.269,
+     "end": 17.534
     },
     {
      "w": "1NFN,",
-     "start": 15.131,
-     "end": 16.269
+     "start": 17.604,
+     "end": 18.695
     },
     {
-     "w": "with",
-     "start": 16.443,
-     "end": 16.605
+     "w": "widening",
+     "start": 19.02,
+     "end": 19.496
     },
     {
-     "w": "Arg61",
-     "start": 16.675,
-     "end": 17.871
+     "w": "the",
+     "start": 19.543,
+     "end": 19.612
     },
     {
-     "w": "displaced",
-     "start": 17.906,
-     "end": 18.44
+     "w": "closest",
+     "start": 19.647,
+     "end": 20.065
     },
     {
-     "w": "relative",
-     "start": 18.509,
-     "end": 18.892
+     "w": "Arg61–Glu109",
+     "start": 20.135,
+     "end": 22.979
+    },
+    {
+     "w": "contact",
+     "start": 23.037,
+     "end": 23.571
+    },
+    {
+     "w": "from",
+     "start": 23.85,
+     "end": 24.036
+    },
+    {
+     "w": "3.53",
+     "start": 24.082,
+     "end": 25.185
     },
     {
      "w": "to",
-     "start": 18.916,
-     "end": 18.962
+     "start": 25.232,
+     "end": 25.301
     },
     {
-     "w": "Glu109.",
-     "start": 19.008,
-     "end": 20.959
+     "w": "5.34 Å.",
+     "start": 25.371,
+     "end": 28.25
     }
    ],
    "captions": [
     {
      "text": "Here is why that rigor matters.",
      "start": 0.2,
-     "end": 2.0
+     "end": 1.907
     },
     {
      "text": "In crystal structure 1B68,",
-     "start": 2.603,
-     "end": 5.03
+     "start": 2.348,
+     "end": 4.948
     },
     {
      "text": "APOE4's Arg112 forms a 2.53 Å salt bridge with Glu109,",
-     "start": 5.308,
-     "end": 12.925
+     "start": 5.332,
+     "end": 13.54
     },
     {
-     "text": "missing at Cys112 in 1NFN,",
-     "start": 13.099,
-     "end": 16.269
+     "text": "missing at Cys112 in APOE3 1NFN,",
+     "start": 13.923,
+     "end": 18.695
     },
     {
-     "text": "with Arg61 displaced relative to Glu109.",
-     "start": 16.443,
-     "end": 20.959
+     "text": "widening the closest Arg61–Glu109 contact from 3.53 to 5.34 Å.",
+     "start": 19.02,
+     "end": 28.25
     }
    ]
   },
@@ -578,7 +598,7 @@
    "id": "s4",
    "theme": "light",
    "title": "Two hypotheses, one trace click",
-   "from": 1677,
+   "from": 1895,
    "frames": 1052,
    "voiceAt": 0.2,
    "audio": "v2/vo/s4.mp3",
@@ -892,7 +912,7 @@
    "id": "s5",
    "theme": "dark",
    "title": "28 papers, 0 invented stats",
-   "from": 2729,
+   "from": 2947,
    "frames": 651,
    "voiceAt": 0.2,
    "audio": "v2/vo/s5.mp3",
@@ -1091,238 +1111,263 @@
    "id": "s6",
    "theme": "light",
    "title": "Cell-type contradictions kept intact",
-   "from": 3380,
-   "frames": 804,
+   "from": 3598,
+   "frames": 900,
    "voiceAt": 0.2,
    "audio": "v2/vo/s6.mp3",
-   "audioSeconds": 26.099,
+   "audioSeconds": 29.304,
    "words": [
     {
      "w": "Crucially,",
      "start": 0.2,
-     "end": 0.873
+     "end": 0.815
     },
     {
      "w": "our",
-     "start": 0.966,
-     "end": 1.152
+     "start": 0.862,
+     "end": 1.001
     },
     {
      "w": "sheets",
-     "start": 1.21,
-     "end": 1.512
+     "start": 1.059,
+     "end": 1.349
     },
     {
      "w": "preserve",
-     "start": 1.558,
-     "end": 2.011
+     "start": 1.396,
+     "end": 1.883
     },
     {
      "w": "cell-type",
-     "start": 2.046,
-     "end": 2.58
+     "start": 1.918,
+     "end": 2.487
     },
     {
      "w": "contradictions.",
-     "start": 2.615,
-     "end": 3.59
+     "start": 2.522,
+     "end": 3.497
     },
     {
      "w": "In",
-     "start": 4.031,
-     "end": 4.171
+     "start": 3.938,
+     "end": 4.078
     },
     {
      "w": "astrocytes,",
-     "start": 4.24,
-     "end": 5.099
+     "start": 4.136,
+     "end": 4.879
     },
     {
      "w": "NHE6",
-     "start": 5.157,
-     "end": 6.098
+     "start": 4.925,
+     "end": 5.935
     },
     {
      "w": "drops",
-     "start": 6.168,
-     "end": 6.493
+     "start": 6.005,
+     "end": 6.307
     },
     {
      "w": "~45%,",
-     "start": 6.527,
-     "end": 7.99
+     "start": 6.342,
+     "end": 7.781
     },
     {
      "w": "and",
-     "start": 8.234,
-     "end": 8.373
+     "start": 8.06,
+     "end": 8.199
     },
     {
      "w": "restoring",
-     "start": 8.443,
-     "end": 8.873
+     "start": 8.257,
+     "end": 8.722
     },
     {
      "w": "it",
-     "start": 8.931,
-     "end": 9.0
+     "start": 8.78,
+     "end": 8.907
     },
     {
      "w": "rescues",
-     "start": 9.07,
-     "end": 9.5
+     "start": 9.058,
+     "end": 9.488
     },
     {
      "w": "LRP1.",
-     "start": 9.592,
-     "end": 10.8
+     "start": 9.581,
+     "end": 10.661
     },
     {
      "w": "Yet",
-     "start": 11.311,
-     "end": 11.508
+     "start": 11.171,
+     "end": 11.369
     },
     {
      "w": "in",
-     "start": 11.566,
-     "end": 11.636
+     "start": 11.427,
+     "end": 11.508
     },
     {
-     "w": "neurons",
-     "start": 11.694,
-     "end": 12.181
-    },
-    {
-     "w": "and",
-     "start": 12.216,
-     "end": 12.309
-    },
-    {
-     "w": "knock-in",
-     "start": 12.356,
-     "end": 12.692
-    },
-    {
-     "w": "slices,",
-     "start": 12.762,
-     "end": 13.412
+     "w": "neurons,",
+     "start": 11.578,
+     "end": 12.193
     },
     {
      "w": "inhibiting",
-     "start": 13.586,
-     "end": 14.132
-    },
-    {
-     "w": "or",
-     "start": 14.201,
-     "end": 14.329
-    },
-    {
-     "w": "deleting",
-     "start": 14.387,
-     "end": 14.84
+     "start": 12.24,
+     "end": 12.785
     },
     {
      "w": "NHE6",
-     "start": 14.956,
-     "end": 16.221
+     "start": 12.866,
+     "end": 14.004
     },
     {
      "w": "restores",
-     "start": 16.43,
-     "end": 16.93
+     "start": 14.132,
+     "end": 14.596
     },
     {
-     "w": "ApoER2",
-     "start": 17.011,
-     "end": 18.079
+     "w": "surface",
+     "start": 14.643,
+     "end": 15.165
     },
     {
-     "w": "recycling.",
-     "start": 18.16,
-     "end": 18.915
-    },
-    {
-     "w": "Meanwhile,",
-     "start": 19.519,
-     "end": 20.146
-    },
-    {
-     "w": "H2",
-     "start": 20.262,
-     "end": 20.831
-    },
-    {
-     "w": "holds",
-     "start": 20.912,
-     "end": 21.167
-    },
-    {
-     "w": "0 Tier 1",
-     "start": 21.202,
-     "end": 22.154
-    },
-    {
-     "w": "papers,",
-     "start": 22.201,
-     "end": 22.769
+     "w": "ApoER2,",
+     "start": 15.339,
+     "end": 16.721
     },
     {
      "w": "and",
-     "start": 22.978,
-     "end": 23.141
+     "start": 16.895,
+     "end": 17.046
+    },
+    {
+     "w": "in",
+     "start": 17.116,
+     "end": 17.197
+    },
+    {
+     "w": "knock-in",
+     "start": 17.255,
+     "end": 17.592
+    },
+    {
+     "w": "slices,",
+     "start": 17.673,
+     "end": 18.335
+    },
+    {
+     "w": "deleting",
+     "start": 18.509,
+     "end": 18.938
+    },
+    {
+     "w": "NHE6",
+     "start": 19.02,
+     "end": 20.064
+    },
+    {
+     "w": "restores",
+     "start": 20.273,
+     "end": 20.715
+    },
+    {
+     "w": "Reelin-enhanced",
+     "start": 20.796,
+     "end": 21.655
+    },
+    {
+     "w": "LTP.",
+     "start": 21.748,
+     "end": 22.723
+    },
+    {
+     "w": "Meanwhile,",
+     "start": 23.106,
+     "end": 23.733
+    },
+    {
+     "w": "H2",
+     "start": 23.791,
+     "end": 24.244
+    },
+    {
+     "w": "holds",
+     "start": 24.325,
+     "end": 24.592
+    },
+    {
+     "w": "0 Tier 1",
+     "start": 24.627,
+     "end": 25.475
+    },
+    {
+     "w": "papers,",
+     "start": 25.521,
+     "end": 26.09
+    },
+    {
+     "w": "and",
+     "start": 26.299,
+     "end": 26.45
     },
     {
      "w": "4 paywalled",
-     "start": 23.211,
-     "end": 23.965
+     "start": 26.52,
+     "end": 27.251
     },
     {
      "w": "entries",
-     "start": 24.023,
-     "end": 24.43
+     "start": 27.309,
+     "end": 27.681
     },
     {
      "w": "stay",
-     "start": 24.639,
-     "end": 24.906
+     "start": 27.715,
+     "end": 27.924
     },
     {
      "w": "abstract-only.",
-     "start": 24.964,
-     "end": 26.299
+     "start": 27.982,
+     "end": 29.503
     }
    ],
    "captions": [
     {
      "text": "Crucially, our sheets preserve cell-type contradictions.",
      "start": 0.2,
-     "end": 3.59
+     "end": 3.497
     },
     {
      "text": "In astrocytes, NHE6 drops ~45%, and restoring it rescues LRP1.",
-     "start": 4.031,
-     "end": 10.8
+     "start": 3.938,
+     "end": 10.661
     },
     {
-     "text": "Yet in neurons and knock-in slices,",
-     "start": 11.311,
-     "end": 13.412
+     "text": "Yet in neurons, inhibiting NHE6 restores surface ApoER2,",
+     "start": 11.171,
+     "end": 16.721
     },
     {
-     "text": "inhibiting or deleting NHE6 restores ApoER2 recycling.",
-     "start": 13.586,
-     "end": 18.915
+     "text": "and in knock-in slices,",
+     "start": 16.895,
+     "end": 18.335
+    },
+    {
+     "text": "deleting NHE6 restores Reelin-enhanced LTP.",
+     "start": 18.509,
+     "end": 22.723
     },
     {
      "text": "Meanwhile, H2 holds 0 Tier 1 papers,",
-     "start": 19.519,
-     "end": 22.769
+     "start": 23.106,
+     "end": 26.09
     },
     {
      "text": "and 4 paywalled entries stay abstract-only.",
-     "start": 22.978,
-     "end": 26.299
+     "start": 26.299,
+     "end": 29.503
     }
    ]
   },
@@ -1330,7 +1375,7 @@
    "id": "s7",
    "theme": "dark",
    "title": "Inspect every quote live",
-   "from": 4184,
+   "from": 4498,
    "frames": 535,
    "voiceAt": 0.2,
    "audio": "v2/vo/s7.mp3",
@@ -1526,13 +1571,16 @@
   "structures": 14,
   "tests": 74,
   "auditedPct": 100,
+  "paywalled": 4,
+  "tier1Def": "human non-AD/non-aged iPSC",
   "H5": {
    "n_papers": 19,
    "n_findings": 67,
    "n_contradicting": 14,
    "n_supporting": 53,
    "n_printed_stats": 62,
-   "n_tier1": 10
+   "n_tier1": 10,
+   "n_unavailable": 2
   },
   "H2": {
    "n_papers": 11,
@@ -1540,7 +1588,8 @@
    "n_contradicting": 15,
    "n_supporting": 38,
    "n_printed_stats": 64,
-   "n_tier1": 0
+   "n_tier1": 0,
+   "n_unavailable": 2
   }
  },
  "geometry": {

@@ -44,8 +44,8 @@ export const S3Switch: React.FC = () => {
   const frozen = f >= tCal;
   const rows: Row[] = [
     {struct: G.arg112.struct, a: G.arg112.res1, b: G.arg112.res2, d: G.arg112.distance_A, color: C.emeraldBright, at: tCal, note: 'APOE4 salt bridge'},
-    {struct: G.arg61Apoe4.struct, a: G.arg61Apoe4.res1, b: G.arg61Apoe4.res2, d: G.arg61Apoe4.distance_A, color: C.amber, at: cue(s, 'Arg61'), note: 'APOE4: Arg61 displaced from Glu109'},
-    {struct: G.arg61Apoe3.struct, a: G.arg61Apoe3.res1, b: G.arg61Apoe3.res2, d: G.arg61Apoe3.distance_A, color: '#A9B7B2', at: cue(s, 'displaced'), note: 'APOE3 (Cys112): distinct closest-atom pair'},
+    {struct: G.arg61Apoe4.struct, a: G.arg61Apoe4.res1, b: G.arg61Apoe4.res2, d: G.arg61Apoe4.distance_A, color: C.amber, at: cue(s, '5.34 Å'), note: 'APOE4: closest heavy-atom contact widened'},
+    {struct: G.arg61Apoe3.struct, a: G.arg61Apoe3.res1, b: G.arg61Apoe3.res2, d: G.arg61Apoe3.distance_A, color: '#A9B7B2', at: cue(s, '3.53'), note: 'APOE3 (Cys112): closest heavy-atom contact'},
   ];
   return (
     <Stage theme="dark">

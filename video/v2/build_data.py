@@ -40,14 +40,20 @@ _SPANS: dict[tuple[str, ...], str] = {
     ("arginine", "one", "hundred", "twelve"): "Arg112",
     ("glutamate", "one", "hundred", "nine"): "Glu109",
     ("cysteine", "one", "hundred", "twelve"): "Cys112",
+    ("arginine", "sixty-one", "to", "glutamate", "one", "hundred", "nine"): "Arg61–Glu109",
     ("arginine", "sixty-one"): "Arg61",
     ("two", "point", "five", "three", "angstrom"): "2.53 Å",
+    ("three", "point", "five", "three", "angstrom"): "3.53 Å",
+    ("three", "point", "five", "three"): "3.53",
+    ("five", "point", "three", "four", "angstroms"): "5.34 Å",
+    ("five", "point", "three", "four", "angstrom"): "5.34 Å",
     ("h-two",): "H2",
     ("h-five",): "H5",
     ("apo-e-r-two",): "ApoER2",
     ("n-h-e-six",): "NHE6",
     ("p-h",): "pH",
     ("l-r-p-one",): "LRP1",
+    ("l-t-p",): "LTP",
     ("three-fold",): "3-fold",
     ("fifty-three", "of", "eighty-four"): "53 of 84",
     ("v-a-t-p-ases",): "V-ATPases",
@@ -205,10 +211,14 @@ def main() -> None:
     narr = json.loads((ROOT / "video" / "v2" / "narration.json").read_text(encoding="utf-8"))
 
     # frozen sheets and the explorer must agree before anything goes on screen
-    assert h5["n_findings"] == ex["hypotheses"]["H5"]["n_findings"] == 67, "H5 finding count drifted"
-    assert h2["n_findings"] == ex["hypotheses"]["H2"]["n_findings"] == 53, "H2 finding count drifted"
-    assert h5["n_papers"] == ex["hypotheses"]["H5"]["n_papers"], "H5 paper count drifted"
-    assert h2["n_papers"] == ex["hypotheses"]["H2"]["n_papers"], "H2 paper count drifted"
+    if not (h5["n_findings"] == ex["hypotheses"]["H5"]["n_findings"] == 67):
+        raise ValueError("H5 finding count drifted")
+    if not (h2["n_findings"] == ex["hypotheses"]["H2"]["n_findings"] == 53):
+        raise ValueError("H2 finding count drifted")
+    if not (h5["n_papers"] == ex["hypotheses"]["H5"]["n_papers"]):
+        raise ValueError("H5 paper count drifted")
+    if not (h2["n_papers"] == ex["hypotheses"]["H2"]["n_papers"]):
+        raise ValueError("H2 paper count drifted")
 
     scenes, t = [], 0.0
     for s in narr["scenes"]:
@@ -243,7 +253,8 @@ def main() -> None:
         }
 
     tests = count_tests()
-    assert tests == NARRATED_CHECKS, f"{tests} unit tests, but the voiceover says {NARRATED_CHECKS}: re-record or fix the tests"
+    if tests != NARRATED_CHECKS:
+        raise ValueError(f"{tests} unit tests, but the voiceover says {NARRATED_CHECKS}: re-record or fix the tests")
 
     data = {
         "fps": FPS, "totalFrames": total, "scenes": scenes,
@@ -253,8 +264,10 @@ def main() -> None:
             "supporting": tot["n_findings_total"] - tot["n_contradicting_total"],
             "printedStats": tot["n_printed_stats_total"], "structures": tot["n_structures"],
             "tests": tests, "auditedPct": 100,
-            "H5": {k: hy["H5"][k] for k in ("n_papers", "n_findings", "n_contradicting", "n_supporting", "n_printed_stats", "n_tier1")},
-            "H2": {k: hy["H2"][k] for k in ("n_papers", "n_findings", "n_contradicting", "n_supporting", "n_printed_stats", "n_tier1")},
+            "paywalled": (hy["H5"]["n_papers"] - hy["H5"]["n_fulltext_oa"]) + (hy["H2"]["n_papers"] - hy["H2"]["n_fulltext_oa"]),
+            "tier1Def": "human non-AD/non-aged iPSC",
+            **{h: {**{k: hy[h][k] for k in ("n_papers", "n_findings", "n_contradicting", "n_supporting", "n_printed_stats", "n_tier1")},
+                   "n_unavailable": hy[h]["n_papers"] - hy[h]["n_fulltext_oa"]} for h in ("H5", "H2")},
         },
         "geometry": {
             "arg112": {"struct": "1B68", **g["1b68_Arg112_Glu109"]},

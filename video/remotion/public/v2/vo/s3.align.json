@@ -1,243 +1,308 @@
 {
   "id": "s3",
-  "caption": "Here is why that rigor matters. In crystal structure 1B68, APOE4's Arg112 forms a 2.53 \u00c5 salt bridge with Glu109 \u2014 missing at Cys112 in APOE3 1NFN \u2014 with Arg61 displaced relative to Glu109.",
-  "say": "Here is why that rigor matters. In crystal structure one-B-six-eight, A-P-O-E-four's arginine one hundred twelve forms a two point five three Angstrom salt bridge with glutamate one hundred nine, missing at cysteine one hundred twelve in one-N-F-N, with arginine sixty-one displaced relative to glutamate one hundred nine.",
-  "duration": 20.759,
+  "caption": "Here is why that rigor matters. In crystal structure 1B68, APOE4's Arg112 forms a 2.53 \u00c5 salt bridge with Glu109 \u2014 missing at Cys112 in APOE3 1NFN \u2014 widening the closest Arg61\u2013Glu109 contact from 3.53 \u00c5 to 5.34 \u00c5.",
+  "say": "Here is why that rigor matters. In crystal structure one-B-six-eight, A-P-O-E-four's arginine one hundred twelve forms a two point five three Angstrom salt bridge with glutamate one hundred nine, missing at cysteine one hundred twelve in A-P-O-E-three one-N-F-N, widening the closest arginine sixty-one to glutamate one hundred nine contact from three point five three to five point three four Angstroms.",
+  "duration": 28.05,
   "words": [
     {
       "w": "Here",
       "start": 0.0,
-      "end": 0.279
+      "end": 0.255
     },
     {
       "w": "is",
-      "start": 0.325,
-      "end": 0.406
+      "start": 0.29,
+      "end": 0.36
     },
     {
       "w": "why",
-      "start": 0.453,
-      "end": 0.615
+      "start": 0.406,
+      "end": 0.557
     },
     {
       "w": "that",
-      "start": 0.685,
-      "end": 0.813
+      "start": 0.627,
+      "end": 0.755
     },
     {
       "w": "rigor",
-      "start": 0.882,
-      "end": 1.126
+      "start": 0.813,
+      "end": 1.045
     },
     {
       "w": "matters.",
-      "start": 1.196,
-      "end": 1.8
+      "start": 1.103,
+      "end": 1.707
     },
     {
       "w": "In",
-      "start": 2.403,
-      "end": 2.554
+      "start": 2.148,
+      "end": 2.276
     },
     {
       "w": "crystal",
-      "start": 2.624,
-      "end": 2.937
+      "start": 2.345,
+      "end": 2.67
     },
     {
       "w": "structure",
-      "start": 2.995,
-      "end": 3.46
+      "start": 2.728,
+      "end": 3.274
     },
     {
       "w": "one-B-six-eight,",
-      "start": 3.541,
-      "end": 4.83
+      "start": 3.448,
+      "end": 4.748
     },
     {
       "w": "A-P-O-E-four's",
-      "start": 5.108,
-      "end": 6.246
+      "start": 5.132,
+      "end": 6.42
     },
     {
       "w": "arginine",
-      "start": 6.316,
-      "end": 6.885
+      "start": 6.513,
+      "end": 7.117
     },
     {
       "w": "one",
-      "start": 6.943,
-      "end": 7.094
+      "start": 7.175,
+      "end": 7.338
     },
     {
       "w": "hundred",
-      "start": 7.129,
-      "end": 7.372
+      "start": 7.372,
+      "end": 7.639
     },
     {
       "w": "twelve",
-      "start": 7.407,
-      "end": 7.883
+      "start": 7.674,
+      "end": 8.162
     },
     {
       "w": "forms",
-      "start": 8.034,
-      "end": 8.336
+      "start": 8.336,
+      "end": 8.626
     },
     {
       "w": "a",
-      "start": 8.371,
-      "end": 8.406
+      "start": 8.661,
+      "end": 8.696
     },
     {
       "w": "two",
-      "start": 8.452,
-      "end": 8.603
+      "start": 8.742,
+      "end": 8.893
     },
     {
       "w": "point",
-      "start": 8.673,
-      "end": 8.87
+      "start": 8.963,
+      "end": 9.172
     },
     {
       "w": "five",
-      "start": 8.94,
-      "end": 9.195
+      "start": 9.242,
+      "end": 9.567
     },
     {
       "w": "three",
-      "start": 9.23,
-      "end": 9.497
+      "start": 9.613,
+      "end": 9.938
     },
     {
       "w": "Angstrom",
-      "start": 9.578,
-      "end": 9.996
+      "start": 10.008,
+      "end": 10.461
     },
     {
       "w": "salt",
-      "start": 10.077,
-      "end": 10.321
+      "start": 10.553,
+      "end": 10.786
     },
     {
       "w": "bridge",
-      "start": 10.368,
-      "end": 10.809
+      "start": 10.832,
+      "end": 11.297
     },
     {
       "w": "with",
-      "start": 10.983,
-      "end": 11.169
+      "start": 11.505,
+      "end": 11.691
     },
     {
       "w": "glutamate",
-      "start": 11.215,
-      "end": 11.726
+      "start": 11.738,
+      "end": 12.249
     },
     {
       "w": "one",
-      "start": 11.773,
-      "end": 11.912
+      "start": 12.295,
+      "end": 12.434
     },
     {
       "w": "hundred",
-      "start": 11.947,
-      "end": 12.214
-    },
-    {
-      "w": "nine,",
-      "start": 12.284,
+      "start": 12.469,
       "end": 12.725
     },
     {
+      "w": "nine,",
+      "start": 12.795,
+      "end": 13.34
+    },
+    {
       "w": "missing",
-      "start": 12.899,
-      "end": 13.201
+      "start": 13.723,
+      "end": 14.049
     },
     {
       "w": "at",
-      "start": 13.247,
-      "end": 13.305
+      "start": 14.095,
+      "end": 14.165
     },
     {
       "w": "cysteine",
-      "start": 13.352,
-      "end": 13.805
+      "start": 14.211,
+      "end": 14.699
     },
     {
       "w": "one",
-      "start": 13.851,
-      "end": 14.002
+      "start": 14.745,
+      "end": 14.884
     },
     {
       "w": "hundred",
-      "start": 14.037,
-      "end": 14.292
+      "start": 14.919,
+      "end": 15.175
     },
     {
       "w": "twelve",
-      "start": 14.315,
-      "end": 14.687
+      "start": 15.21,
+      "end": 15.697
     },
     {
       "w": "in",
-      "start": 14.733,
-      "end": 14.849
+      "start": 15.825,
+      "end": 15.999
+    },
+    {
+      "w": "A-P-O-E-three",
+      "start": 16.069,
+      "end": 17.334
     },
     {
       "w": "one-N-F-N,",
-      "start": 14.931,
-      "end": 16.069
+      "start": 17.404,
+      "end": 18.495
     },
     {
-      "w": "with",
-      "start": 16.243,
-      "end": 16.405
-    },
-    {
-      "w": "arginine",
-      "start": 16.475,
-      "end": 16.997
-    },
-    {
-      "w": "sixty-one",
-      "start": 17.044,
-      "end": 17.671
-    },
-    {
-      "w": "displaced",
-      "start": 17.706,
-      "end": 18.24
-    },
-    {
-      "w": "relative",
-      "start": 18.309,
-      "end": 18.692
-    },
-    {
-      "w": "to",
-      "start": 18.716,
-      "end": 18.762
-    },
-    {
-      "w": "glutamate",
-      "start": 18.808,
+      "w": "widening",
+      "start": 18.82,
       "end": 19.296
     },
     {
-      "w": "one",
+      "w": "the",
       "start": 19.343,
-      "end": 19.482
+      "end": 19.412
+    },
+    {
+      "w": "closest",
+      "start": 19.447,
+      "end": 19.865
+    },
+    {
+      "w": "arginine",
+      "start": 19.935,
+      "end": 20.469
+    },
+    {
+      "w": "sixty-one",
+      "start": 20.515,
+      "end": 21.27
+    },
+    {
+      "w": "to",
+      "start": 21.386,
+      "end": 21.502
+    },
+    {
+      "w": "glutamate",
+      "start": 21.56,
+      "end": 22.059
+    },
+    {
+      "w": "one",
+      "start": 22.106,
+      "end": 22.257
     },
     {
       "w": "hundred",
-      "start": 19.517,
-      "end": 19.784
+      "start": 22.292,
+      "end": 22.535
     },
     {
-      "w": "nine.",
-      "start": 19.853,
-      "end": 20.759
+      "w": "nine",
+      "start": 22.593,
+      "end": 22.779
+    },
+    {
+      "w": "contact",
+      "start": 22.837,
+      "end": 23.371
+    },
+    {
+      "w": "from",
+      "start": 23.65,
+      "end": 23.836
+    },
+    {
+      "w": "three",
+      "start": 23.882,
+      "end": 24.091
+    },
+    {
+      "w": "point",
+      "start": 24.138,
+      "end": 24.335
+    },
+    {
+      "w": "five",
+      "start": 24.405,
+      "end": 24.672
+    },
+    {
+      "w": "three",
+      "start": 24.718,
+      "end": 24.985
+    },
+    {
+      "w": "to",
+      "start": 25.032,
+      "end": 25.101
+    },
+    {
+      "w": "five",
+      "start": 25.171,
+      "end": 25.438
+    },
+    {
+      "w": "point",
+      "start": 25.484,
+      "end": 25.693
+    },
+    {
+      "w": "three",
+      "start": 25.74,
+      "end": 25.972
+    },
+    {
+      "w": "four",
+      "start": 26.042,
+      "end": 26.332
+    },
+    {
+      "w": "Angstroms.",
+      "start": 26.425,
+      "end": 28.05
     }
   ]
 }

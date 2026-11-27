@@ -41,11 +41,14 @@ class TestExplorerData(unittest.TestCase):
         self.assertEqual(c["supporting"] + c["contradicting"], c["H5"]["n_findings"] + c["H2"]["n_findings"])
         self.assertEqual(c["printedStats"], 126)
         self.assertEqual(c["H2"]["n_tier1"], 0)
+        self.assertEqual((c["H5"]["n_unavailable"], c["H2"]["n_unavailable"], c["paywalled"]), (2, 2, 4))
+        self.assertEqual(c["tier1Def"], "human non-AD/non-aged iPSC")
         self.assertEqual(sorted(v2["featured"]), sorted(["H5-P4.F1", "H5-P6.F3", "H2-P2.F12", "H2-P3.F6", "H2-P5.F4"]))
         for fid, feat in v2["featured"].items():  # featured snippets are verbatim from explorer_data.json
             src = next(f for f in ex["findings"] if f["id"] == fid)
             self.assertEqual(feat["quote"], src["quote"])
             self.assertEqual(feat["pmid"], src["pmid"])
+            self.assertEqual(feat["description"], src["description"])
 
     def test_explorer_fulltext_routes_and_pmids_valid(self):
         h5 = json.loads(H5_PATH.read_text(encoding="utf-8"))
@@ -116,7 +119,7 @@ class TestExplorerData(unittest.TestCase):
             "a-p-o-e", "kep-ree", "h-two", "h-five", "c-five", "apo-e-r", "n-h-e-", "l-r-p", "v-a-t-p", "p-h ",
             "one-b", "one-n", "three-d", "three-fold", "one hundred", "two point", "sixty-one", "fifty-three",
             "forty-five", "seventy-four", "ninety-one", "twenty-", "thirty", "zero", "step one", "tier one",
-            "angstrom", "arginine one", "arginine sixty", "glutamate one", "cysteine one",
+            "angstrom", "arginine one", "arginine sixty", "glutamate one", "cysteine one", "l-t-p", "five point",
         )
         v2 = json.loads(V2_DATA.read_text(encoding="utf-8"))
         v2_texts = [w["w"] for sc in v2["scenes"] for w in sc["words"]] + [c["text"] for sc in v2["scenes"] for c in sc["captions"]]
@@ -129,7 +132,8 @@ class TestExplorerData(unittest.TestCase):
                 self.assertNotIn(token, text.lower(), f"phonetic token {token!r} in V2 caption: {text!r}")
         joined = " ".join(c["text"] for sc in v2["scenes"] for c in sc["captions"])
         for exact in ("APOE4", "APOE3", "Khepri", "Step 1", "Rule C5", "1B68", "1NFN", "Arg112", "Glu109", "Cys112", "Arg61",
-                      "2.53 Å", "ApoER2", "NHE6", "pH", "LRP1", "3-fold", "53 of 84", "V-ATPases", "~45%", "0 Tier 1", "3D"):
+                      "2.53 Å", "ApoER2", "NHE6", "pH", "LRP1", "3-fold", "53 of 84", "V-ATPases", "~45%", "0 Tier 1", "3D",
+                      "LTP", "Arg61–Glu109", "3.53", "5.34 Å"):
             self.assertIn(exact, joined, f"{exact!r} missing from V2 captions")
         for sc in v2["scenes"]:
             for c in sc["captions"]:
@@ -182,6 +186,10 @@ class TestExplorerData(unittest.TestCase):
         self.assertEqual(texts("sets", "p-H."), ["sets", "pH."])
         self.assertEqual(texts("thirty", "entries;"), ["30 entries;"])
         self.assertEqual(texts("thirty", "days"), ["thirty", "days"])  # bare 'thirty' is untouched
+        self.assertEqual(texts("restores", "Reelin-enhanced", "L-T-P."), ["restores", "Reelin-enhanced", "LTP."])
+        self.assertEqual(texts("from", "three", "point", "five", "three", "to"), ["from", "3.53", "to"])
+        self.assertEqual(texts("five", "point", "three", "four", "Angstroms."), ["5.34 Å."])
+        self.assertEqual(texts("arginine", "sixty-one", "to", "glutamate", "one", "hundred", "nine"), ["Arg61–Glu109"])
         words = mk("two", "point", "five", "three", "Angstrom")
         merged = norm2(words)[0]
         self.assertEqual((merged["start"], merged["end"]), (words[0]["start"], words[-1]["end"]))

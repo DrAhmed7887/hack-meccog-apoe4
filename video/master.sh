@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Mix ElevenLabs narration + SFX with sidechain-ducked ElevenLabs /v1/music studio score,
-# normalize to -16 LUFS, emit master 1080p MP4 + SRT/VTT captions + <15 MB web MP4 into docs/media/,
+# normalize to -16 LUFS, emit master 1080p MP4 + SRT captions (captions.vtt is written only by video/v2/build_data.py) + <15 MB web MP4 into docs/media/,
 # extract contact_sheet_v2.png + per-scene full-res stills, and run ffprobe/ebur128/silencedetect/blackdetect QC.
 set -euo pipefail
 
@@ -38,7 +38,7 @@ ffmpeg -v error -y -i "$OUT/mix_master_v2.mov" \
 ffmpeg -v error -y -i "$FINAL" \
   -vf "scale=1280:720:flags=lanczos" -c:v libx264 -preset slow -crf 24 -pix_fmt yuv420p -movflags +faststart -c:a aac -b:a 128k "$WEB_MP4"
 
-python3 - "$DATA_JSON" "${FINAL%.mp4}.srt" "$WEB_DIR/captions.vtt" <<'PY'
+python3 - "$DATA_JSON" "${FINAL%.mp4}.srt" <<'PY'
 import json, sys
 
 d = json.load(open(sys.argv[1], encoding="utf-8"))
@@ -48,10 +48,7 @@ def ts_srt(t):
     h, ms = divmod(ms, 3600000); m, ms = divmod(ms, 60000); s, ms = divmod(ms, 1000)
     return f"{h:02}:{m:02}:{s:02},{ms:03}"
 
-def ts_vtt(t):
-    return ts_srt(t).replace(",", ".")
-
-srt_lines, vtt_lines = [], ["WEBVTT", ""]
+srt_lines = []
 n = 0
 for s in d["scenes"]:
     base = s["from"] / d["fps"]
@@ -62,10 +59,8 @@ for s in d["scenes"]:
         t1 = base + min(nxt, c["end"] + 0.55) - 0.02
         n += 1
         srt_lines.append(f"{n}\n{ts_srt(t0)} --> {ts_srt(t1)}\n{c['text']}\n")
-        vtt_lines.append(f"{n}\n{ts_vtt(t0)} --> {ts_vtt(t1)}\n{c['text']}\n")
 
 open(sys.argv[2], "w", encoding="utf-8").write("\n".join(srt_lines))
-open(sys.argv[3], "w", encoding="utf-8").write("\n".join(vtt_lines))
 print(f"captions written: {n} cues")
 PY
 

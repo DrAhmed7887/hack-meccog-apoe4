@@ -25,8 +25,8 @@
       "id": "s3",
       "theme": "dark",
       "title": "The 2.53 Å salt-bridge switch",
-      "caption": "Here is why that rigor matters. In crystal structure 1B68, APOE4's Arg112 forms a 2.53 Å salt bridge with Glu109 — missing at Cys112 in APOE3 1NFN — with Arg61 displaced relative to Glu109.",
-      "say": "Here is why that rigor matters. In crystal structure one-B-six-eight, A-P-O-E-four's arginine one hundred twelve forms a two point five three Angstrom salt bridge with glutamate one hundred nine, missing at cysteine one hundred twelve in one-N-F-N, with arginine sixty-one displaced relative to glutamate one hundred nine."
+      "caption": "Here is why that rigor matters. In crystal structure 1B68, APOE4's Arg112 forms a 2.53 Å salt bridge with Glu109 — missing at Cys112 in APOE3 1NFN — widening the closest Arg61–Glu109 contact from 3.53 Å to 5.34 Å.",
+      "say": "Here is why that rigor matters. In crystal structure one-B-six-eight, A-P-O-E-four's arginine one hundred twelve forms a two point five three Angstrom salt bridge with glutamate one hundred nine, missing at cysteine one hundred twelve in A-P-O-E-three one-N-F-N, widening the closest arginine sixty-one to glutamate one hundred nine contact from three point five three to five point three four Angstroms."
     },
     {
       "id": "s4",
@@ -46,8 +46,8 @@
       "id": "s6",
       "theme": "light",
       "title": "Cell-type contradictions kept intact",
-      "caption": "Crucially, our sheets preserve cell-type contradictions. In astrocytes, NHE6 drops ~45%, and restoring it rescues LRP1. Yet in neurons and knock-in slices, inhibiting or deleting NHE6 restores ApoER2 recycling. Meanwhile, H2 holds 0 Tier 1 papers, and 4 paywalled entries stay abstract-only.",
-      "say": "Crucially, our sheets preserve cell-type contradictions. In astrocytes, N-H-E-six drops about forty-five percent, and restoring it rescues L-R-P-one. Yet in neurons and knock-in slices, inhibiting or deleting N-H-E-six restores Apo-E-R-two recycling. Meanwhile, H-two holds zero Tier one papers, and four paywalled entries stay abstract-only."
+      "caption": "Crucially, our sheets preserve cell-type contradictions. In astrocytes, NHE6 drops ~45%, and restoring it rescues LRP1. Yet in neurons, inhibiting NHE6 restores surface ApoER2, and in knock-in slices, deleting NHE6 restores Reelin-enhanced LTP. Meanwhile, H2 holds 0 Tier 1 papers, and 4 paywalled entries stay abstract-only.",
+      "say": "Crucially, our sheets preserve cell-type contradictions. In astrocytes, N-H-E-six drops about forty-five percent, and restoring it rescues L-R-P-one. Yet in neurons, inhibiting N-H-E-six restores surface Apo-E-R-two, and in knock-in slices, deleting N-H-E-six restores Reelin-enhanced L-T-P. Meanwhile, H-two holds zero Tier one papers, and four paywalled entries stay abstract-only."
     },
     {
       "id": "s7",

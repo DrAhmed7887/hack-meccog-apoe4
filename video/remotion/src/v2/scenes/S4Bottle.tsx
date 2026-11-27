@@ -87,7 +87,7 @@ export const S4Bottle: React.FC = () => {
           {FEAT_P6.id} · PMID {FEAT_P6.pmid} · {FEAT_P6.location}
         </Mono>
         <div>
-          <div style={{fontSize: 30, fontWeight: 800, color: C.ink}}>53 of 84 lysosomal hydrolases &amp; V-ATPases downregulated in APOE44 iMG</div>
+          <div style={{fontSize: 30, fontWeight: 800, color: C.ink}}>{FEAT_P6.description}</div>
           <Mono style={{fontSize: 19, color: C.ink2}}>{FEAT_P6.id} · PMID {FEAT_P6.pmid}</Mono>
         </div>
       </div>

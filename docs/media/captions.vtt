@@ -1,11 +1,11 @@
 WEBVTT
 
 1
-00:00:00.200 --> 00:00:05.927
+00:00:00.200 --> 00:00:05.856
 APOE4 differs from APOE3 by a single amino acid,
 
 2
-00:00:05.947 --> 00:00:10.211
+00:00:05.947 --> 00:00:10.070
 yet papers still disagree on what fails first inside the cell.
 
 3
@@ -13,11 +13,11 @@ yet papers still disagree on what fails first inside the cell.
 Team Khepri built Step 1 sheets that refuse to guess,
 
 4
-00:00:14.190 --> 00:00:16.798
+00:00:14.190 --> 00:00:16.268
 grounded in primary figures.
 
 5
-00:00:16.967 --> 00:00:20.151
+00:00:16.967 --> 00:00:20.080
 Our pipeline defines itself by what it rejects:
 
 6
@@ -29,125 +29,129 @@ Our pipeline defines itself by what it rejects:
 0 review-paper hearsay, and under Rule C5,
 
 8
-00:00:26.046 --> 00:00:29.618
+00:00:26.046 --> 00:00:29.438
 0 predicted structures inside the Excel sheets.
 
 9
-00:00:29.784 --> 00:00:34.448
+00:00:29.784 --> 00:00:33.918
 Only verbatim quotes, figure panels, and printed statistics.
 
 10
-00:00:34.633 --> 00:00:36.963
+00:00:34.633 --> 00:00:36.690
 Here is why that rigor matters.
 
 11
-00:00:37.036 --> 00:00:39.721
+00:00:36.781 --> 00:00:39.731
 In crystal structure 1B68,
 
 12
-00:00:39.741 --> 00:00:47.512
+00:00:39.765 --> 00:00:48.323
 APOE4's Arg112 forms a 2.53 Å salt bridge with Glu109,
 
 13
-00:00:47.532 --> 00:00:50.856
-missing at Cys112 in 1NFN,
+00:00:48.356 --> 00:00:53.433
+missing at Cys112 in APOE3 1NFN,
 
 14
-00:00:50.876 --> 00:00:55.922
-with Arg61 displaced relative to Glu109.
+00:00:53.453 --> 00:01:02.683
+widening the closest Arg61–Glu109 contact from 3.53 to 5.34 Å.
 
 15
-00:00:56.100 --> 00:00:59.609
+00:01:03.367 --> 00:01:06.805
 Two MecCog hypotheses split the cellular bottleneck.
 
 16
-00:00:59.629 --> 00:01:04.996
+00:01:06.896 --> 00:01:12.263
 H2 proposes that APOE4 impairs ApoER2 recycling in
 
 17
-00:01:05.016 --> 00:01:10.093
+00:01:12.283 --> 00:01:17.289
 early endosomes, where the exchanger NHE6 sets pH.
 
 18
-00:01:10.113 --> 00:01:14.378
+00:01:17.380 --> 00:01:21.645
 In H5, APOE4 astrocytes show 3-fold more
 
 19
-00:01:14.398 --> 00:01:17.083
+00:01:21.665 --> 00:01:24.350
 cholesterol colocalized with lysosomes,
 
 20
-00:01:17.103 --> 00:01:21.657
+00:01:24.370 --> 00:01:28.924
 and APOE4 microglia downregulate 53 of 84
 
 21
-00:01:21.677 --> 00:01:25.790
+00:01:28.944 --> 00:01:32.986
 lysosomal hydrolases and V-ATPases.
 
 22
-00:01:25.810 --> 00:01:29.788
+00:01:33.077 --> 00:01:36.525
 Every row clicks straight back to its verbatim quote.
 
 23
-00:01:31.167 --> 00:01:33.527
+00:01:38.433 --> 00:01:40.793
 Here is what the frozen sheets contain:
 
 24
-00:01:33.547 --> 00:01:36.743
+00:01:40.813 --> 00:01:44.009
 28 unique papers across 30 entries;
 
 25
-00:01:36.763 --> 00:01:42.118
+00:01:44.029 --> 00:01:49.313
 120 findings, 91 supporting and 29 contradicting;
 
 26
-00:01:42.138 --> 00:01:46.391
+00:01:49.404 --> 00:01:53.644
 126 printed-in-text statistics with figure panels;
 
 27
-00:01:46.411 --> 00:01:51.480
+00:01:53.677 --> 00:01:58.216
 0 retracted or review papers, and 0 validator errors.
 
 28
-00:01:52.867 --> 00:01:56.678
+00:02:00.133 --> 00:02:03.780
 Crucially, our sheets preserve cell-type contradictions.
 
 29
-00:01:56.698 --> 00:02:03.958
+00:02:03.871 --> 00:02:10.944
 In astrocytes, NHE6 drops ~45%, and restoring it rescues LRP1.
 
 30
-00:02:03.978 --> 00:02:06.233
-Yet in neurons and knock-in slices,
+00:02:11.104 --> 00:02:16.808
+Yet in neurons, inhibiting NHE6 restores surface ApoER2,
 
 31
-00:02:06.253 --> 00:02:12.112
-inhibiting or deleting NHE6 restores ApoER2 recycling.
+00:02:16.828 --> 00:02:18.422
+and in knock-in slices,
 
 32
-00:02:12.186 --> 00:02:15.625
-Meanwhile, H2 holds 0 Tier 1 papers,
+00:02:18.442 --> 00:02:23.006
+deleting NHE6 restores Reelin-enhanced LTP.
 
 33
-00:02:15.645 --> 00:02:19.496
-and 4 paywalled entries stay abstract-only.
+00:02:23.039 --> 00:02:26.212
+Meanwhile, H2 holds 0 Tier 1 papers,
 
 34
-00:02:19.667 --> 00:02:21.551
-28 primary papers.
+00:02:26.232 --> 00:02:29.436
+and 4 paywalled entries stay abstract-only.
 
 35
-00:02:21.571 --> 00:02:25.615
-120 findings, each linked to its quote and panel.
+00:02:30.133 --> 00:02:32.017
+28 primary papers.
 
 36
-00:02:25.635 --> 00:02:28.691
-29 contradictions kept in plain sight.
+00:02:32.037 --> 00:02:36.009
+120 findings, each linked to its quote and panel.
 
 37
-00:02:28.711 --> 00:02:31.466
-74 automated checks passing.
+00:02:36.101 --> 00:02:39.086
+29 contradictions kept in plain sight.
 
 38
-00:02:31.486 --> 00:02:35.522
+00:02:39.177 --> 00:02:41.791
+74 automated checks passing.
+
+39
+00:02:41.952 --> 00:02:45.458
 Open the live 3D workbench, no setup needed.
