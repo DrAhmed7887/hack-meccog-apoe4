@@ -53,7 +53,7 @@ READOUT_LABEL = re.compile(r"^\s*([A-Za-z][A-Za-z0-9_-]{0,30})\s*:")
 STAT_LABELS = {"n", "p", "padj", "t", "f", "d", "r", "ci", "ci95", "sd", "se", "sem", "df"}
 
 RE_PANEL_ID = re.compile(
-    r"(?:(Supplementary)\s+)?(?:Fig(?:ure)?s?\.?\s*)(S?\d+)(?:([A-Za-z](?![A-Za-z])(?:\s*(?:[-–,&]|\band\b)\s*(?:(?:S?\d+))?[A-Za-z](?![A-Za-z]))*)|\s+((?-i:[A-Z])(?![A-Za-z])(?:\s*(?:[-–,&]|\band\b)\s*(?:(?:S?\d+))?(?-i:[A-Z])(?![A-Za-z]))*))?",
+    r"(?:(Supplementary)\s+)?(?:Fig(?:ure)?s?\.?\s*)(S?\d+)(?:([A-Za-z](?![A-Za-z])(?:\s*(?:[-–,&]|\band\b)\s*(?:(?:S?\d+))?[A-Za-z](?![A-Za-z]))*)|(?:,\s*|\s+)((?-i:[A-Z])(?![A-Za-z])(?:\s*(?:[-–,&]|\band\b)\s*(?:(?:S?\d+))?(?-i:[A-Z])(?![A-Za-z]))*))?",
     re.I,
 )
 RE_TABLE_ID = re.compile(r"(?:(Supplementary)\s+)?Table\s*(S?\d+)(?![A-Za-z0-9])", re.I)
@@ -203,7 +203,7 @@ def _nums(s):
     return [float(x) for x in NUM.findall(norm_text(s).replace(",", ""))]
 
 
-def _normalize_panels(panels_raw, fig_num):
+def _normalize_panels(panels_raw, fig_num, list_and=False):
     if not panels_raw:
         return ""
     s = norm_text(panels_raw)
@@ -211,7 +211,8 @@ def _normalize_panels(panels_raw, fig_num):
     other_fig = re.search(r"\b(S?\d+)[A-Za-z]", s, re.I)
     if other_fig and other_fig.group(1).upper() != fig_num.upper():
         s = re.sub(r"[\s,&-]*(?:\band\b)?[\s,&-]*$", "", s[:other_fig.start()], flags=re.I)
-    s = re.sub(r"\s*(?:\band\b|&)\s*(?:" + re.escape(fig_num) + r")?", "-", s, flags=re.I)
+    sep = "," if list_and else "-"
+    s = re.sub(r"\s*(?:\band\b|&)\s*(?:" + re.escape(fig_num) + r")?", sep, s, flags=re.I)
     s = re.sub(r"\s*([,-])\s*(?:" + re.escape(fig_num) + r")?", r"\1", s, flags=re.I)
     return s.strip(" ,-&").upper()
 
@@ -253,19 +254,21 @@ def _proposed_loc_grounded(proposed_loc, quote, block_loc):
     num = fm.group(2).upper()
     if fm.group(1) and not num.startswith("S"):
         num = "S" + num
-    panels = _normalize_panels(fm.group(3) or fm.group(4), num)
+    panels = _normalize_panels(fm.group(3) or fm.group(4), num, list_and=True)
     letters = _expand_panel_letters(panels)
     if not letters:
         return True
     hay_parts = [norm_text(quote or ""), norm_text(block_loc or "")]
+    in_fig_context = any(re.search(r"\b(?:fig(?:ure)?s?\.?|legend)\b", hp, re.I) for hp in hay_parts)
     seen_letters = set()
     for hay in hay_parts:
         for m in RE_PANEL_ID.finditer(hay):
             m_num = ("S" + m.group(2).upper()) if (m.group(1) and not m.group(2).upper().startswith("S")) else m.group(2).upper()
             if m_num == num and (m.group(3) or m.group(4)):
-                seen_letters.update(_expand_panel_letters(_normalize_panels(m.group(3) or m.group(4), m_num)))
-        for pm in re.finditer(r"(?:panels?\s*)?\(([A-Za-z](?:\s*[-,]\s*[A-Za-z])*)\)", hay, re.I):
-            seen_letters.update(_expand_panel_letters(pm.group(1).upper()))
+                seen_letters.update(_expand_panel_letters(_normalize_panels(m.group(3) or m.group(4), m_num, list_and=True)))
+        if in_fig_context:
+            for pm in re.finditer(r"(?:panels?\s*)?\(((?-i:[A-Z])(?:\s*[-,]\s*(?-i:[A-Z]))*)\)", hay, re.I):
+                seen_letters.update(_expand_panel_letters(pm.group(1)))
     return letters.issubset(seen_letters)
 
 
@@ -295,11 +298,11 @@ def extract_panel_location(quote, block_loc, proposed_loc=None):
             if pick.group(1) and not num.startswith("S"):
                 num = "S" + num
             raw_p = pick.group(3) or pick.group(4) or ""
-            panels = _normalize_panels(raw_p, num)
+            panels = _normalize_panels(raw_p, num, list_and=True)
             if not panels and block_loc and "legend" in block_loc.lower():
-                pm = re.search(r"\(([A-Za-z](?:\s*[-,]\s*[A-Za-z])*)\)", norm_text(quote or ""))
+                pm = re.search(r"\(([A-Z](?:\s*[-,]\s*[A-Z])*)\)", norm_text(quote or ""))
                 if pm:
-                    panels = _normalize_panels(pm.group(1), num)
+                    panels = _normalize_panels(pm.group(1), num, list_and=True)
             return f"Fig {num}{panels}"
     return block_loc or "Abstract"
 

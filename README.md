@@ -1,65 +1,58 @@
 # hack-meccog-apoe4
 
-**Status (26 Nov 2026, frozen):** Hypothesis `H5` submission built and verified offline (**7 papers, 23 findings** including **1 `CONTRADICTING:`** row in `data/dry_run.xlsx`), **7/7** PMIDs/DOIs verified (`data/id_verification.json`), **6/6** numeric findings verified verbatim (`data/verify_sample.md`), **57** unit tests passing (`make test`), `make verify` (**0 FAIL, 0 WARN**), and **`SUBMISSION VALID — no problems found.`** (`data/validator_output.txt`).
+**Status (27 Nov 2026, H5 v3 frozen):** Hypothesis `H5` submission built and verified (**19 primary research records [18 peer-reviewed + 1 `PubMed preprint`, 10 Tier 1 + 9 Tier 2], 67 findings [53 supporting, 14 `CONTRADICTING:`]** in `data/dry_run.xlsx`), **19/19** PMIDs/DOIs verified live (`data/id_verification.json`, 0 retractions, 0 reviews), **14/14** numeric findings (**20/20** number fields) verified verbatim (`data/verify_sample.md`), **68** unit tests passing (`make test`), `make verify` (**0 FAIL, 0 WARN**), and **`SUBMISSION VALID — no problems found.`** (`data/validator_output.txt`).
 
 - **Team:** `Khepri` (leader `DrZayed` / Dr Ahmed Zayed on `meccog-meccogchallenge.hf.space`)
 - **Hypothesis:** `H5` — *In some types of non-Alzheimer's, non-aged human brain cells, APOE4 disruption of lipid metabolism, compared with APOE3, results in impaired late endosome/lysosome function.*
-- **Freeze date:** 2026-11-26
+- **Freeze date:** 2026-11-27
 
 ---
 
 ## 1. Who did the work
 
-**Both** (`Who did the work: both` in the workbook `Method` sheet) — a physician-engineer (**Dr Ahmed Zayed**) and AI agents worked together, with deterministic Python scripts enforcing verbatim-quote, provenance, identifier, and schema guards:
-- **Human (`Dr Ahmed Zayed`):** Signed hypothesis selection (`H5`), `Strict C3` scope, borderline-paper constraints (`39532095`), and completed a **100% physician `A3` audit** across all 7 papers and extracted findings (`docs/PHYSICIAN_AUDIT_H5.md`).
-- **AI agents (`qwen3.8-27b` via `rwth-ask`; coding/audit orchestration):** Ran batch abstract screening, full-text checklist evaluation (`C1`–`C5`), and per-finding extraction (`extract.py`), plus pipeline tests, verification scripts, and freeze packaging.
+**Collaborative human-AI workflow** (`Who did the work: collab` in the workbook `Method` sheet) — physician-engineer **Dr Ahmed Zayed** worked with multi-agent AI extraction and review pipelines, backed by deterministic Python quote, panel-location, stat-provenance, identifier, and schema guards:
+- **Human (`Dr Ahmed Zayed`):** Signed `H5` hypothesis selection, tiered `C1` policy (`official/rules.html:469`), `Strict C3` scope, exogenous-ApoE & Tier 2 caveats, visual verification of OA figures (`PMC8758949`, `PMC13260029`, `PMC12041514`), and 100% physician `A3` audit (`docs/PHYSICIAN_AUDIT_H5.md`).
+- **AI agents & scripts:** Multi-agent extraction and independent adversarial verification (`qwen3.8-27b`, `gemini-4-hydrogen-high`, `gemini-3.8-flash-high`, `gemini-4-neon-high`, plus adversarial review using `claude-opus-5-5`).
 
 ## 2. Model and version
 
-- **Automated screening & finding extraction (`screen.py`, `datadecision.py`, `extract.py`):** `qwen3.8-27b` (RWTHgpt KI:connect, via `rwth-ask` CLI, single-request sequential execution).
-- **Pipeline engineering, tests & audit tooling:** Built with Claude (`claude-sonnet-4-6`, `claude-opus-4-6`) and Antigravity (`gemini-3.8-flash`) agents; all numeric/quote checks and workbook generation run deterministically in standard-library Python.
+`qwen3.8-27b, gemini-4-hydrogen-high, gemini-3.8-flash-high, gemini-4-neon-high` (automated extraction paired with deterministic Python verification in `extract.py`, `datadecision.py`, `verify_ids.py`, `scripts/verify.py`, `scripts/pr_review_bundle.py`, and `to_template.py`).
 
 ## 3. How papers were found
 
-Draft PubMed queries (`queries.json`, `search.py`) sized all 5 hypotheses (`H5`: 71 hits; `H1`: 47; `H2`: 33; `H3`: 227; `H4`: 108 on 18 Nov 2026). For `H1` vs `H5` (`datadecision.py`), an initial pool of 40 papers per hypothesis (PubMed hits + Europe PMC reference/citation snowballing from anchor PMIDs) was screened against `C1` (non-AD, non-aged human brain cells), `C2` (APOE4 vs APOE3), `C3` (measured late-endosome/lysosome function), `C4` (free full text), and `C5` (contrary evidence). `H1` passed `0`; `H5` passed `5` (`C1`–`C4`). Widening `H5` via Europe PMC snowballing (`pool_H5.json`: 40 -> 120 papers, 80 new APOE-matching candidates) initially yielded `5` `C1`–`C4` passes (`n_pass_C1_C4_cap50 = 5`, plus 4 non-lysosomal near misses); a full-text audit of `29861287` (`PMC6023751`, previously flagged `C3="no"` from its abstract) rescued a 6th `C1`–`C4` pass (`pass_C1_C3 = 7`, `pass_C1_C4 = 6`, `free_full_text = 20`). The signed `H5` pool keeps all 6 `pmc_oa` free-full-text passes (`42636814`, `34919811`, `35750033`, `39532095`, `40457456`, `29861287`) plus anchor paper `37777962`.
+PubMed queries (`queries.json`, `search.py`) plus Europe PMC reference/citation snowballing (`snowball.py`, `pool_H5.json`) screened primary research records against `C1` (Tier 1 human non-AD/non-aged cells ordered first; Tier 2 `APOE-TR`/rescue/exogenous models second with system caveats), `C2` (APOE4 vs APOE3 or rescue comparator), `C3` (measured endolysosomal, lysosomal, or selective autophagic dysfunction readout), `C4` (open-access full text where un-gated; 2 paywalled/Turnstile-gated papers retained strictly as honest `Abstract`-only `full_text_unavailable`), and `C5` (contrary/null findings preserved). Reviews (`is_review_record` + Europe PMC `pubTypeList`) and retractions (`doi-check`) were purged (`0` reviews, `0` retractions), and non-endolysosomal candidates (`33658354`, `39995873`, `41808104`, `33406436`, `41409143`) were excluded. The frozen pool retains **19 primary records** (`18` peer-reviewed + `1` `PubMed preprint` `42182449`; `10` Tier 1 + `9` Tier 2, well within the 50-paper cap).
 
 ## 4. How full text was obtained
 
-`fulltext.py` tries free open-access routes strictly in order: (1) PMC OA JATS XML (`efetch`), (2) Europe PMC OA XML, (3) Unpaywall OA HTML/PDF, and (4) direct DOI HTML. Across the 7 signed `H5` papers (`data/fulltext_report.json`), **6/7 (86%)** were obtained as full text via `pmc_oa`, and **1/7 (14%, anchor `37777962`)** remained abstract-only (`full_text_unavailable`, `unavailable` in automated fetch because *Cell Reports* `10.1016/j.celrep.2023.113183`, though Gold OA CC BY, lacks a PMCID and returns HTTP 403 to automated clients). Extraction (`extract.py`) scores Results, tables, and figure-legend blocks and reads up to `9,000` characters per paper (`6,000`-char chunks).
+`fulltext.py` fetches free open-access text in strict order: (1) PMC OA JATS XML (`efetch`), (2) Europe PMC OA XML, (3) Unpaywall OA HTML/PDF (`pdftotext`), and (4) direct DOI HTML. Across the 19 `H5` records (`data/fulltext_report.json`), **17/19 (89.5%)** resolved to full text (`15` `pmc_oa`, `1` `unpaywall` [`41338186`], `1` `doi_direct` [`40571761`]), while **2/19** remained abstract-only (`full_text_unavailable`: `37777962` Gold OA CC BY at *Cell Reports* without a PMCID and behind Elsevier Cloudflare Turnstile; `41785939` paywalled). `fulltext.py` parses `<app-group>`, `<supplementary-material>`, and oversized tables without truncation (`PAPER_CHARS=None`, `CHUNK_CHARS=6000`).
 
 ## 5. What a human checked
 
-**100% of papers (7/7) and findings (23/23)** were audited by Dr Ahmed Zayed (`A3` physician audit, `docs/PHYSICIAN_AUDIT_H5.md`, signed 26 Nov 2026):
-- Fixed `P5.F4` (`39532095`) experimental system from `H4 cells (human iPSC-derived neurons)` to `H4 human neuroblastoma cells`, confirmed exogenous-ApoE lower directness clamping (`class >= 2`, `strength >= 3`), and cleared `[PHYSICIAN REVIEW REQUIRED]` markers.
-- Added `P6.F5` (`40457456`) `CONTRADICTING:` autophagic-flux finding verbatim from Results (`Fig. 1C-E`) per Rule B1/C1.
-- Replaced 3 lipid-only rows (`P3.F2`–`P3.F4`, `34919811`) with the verbatim lysosomal LAMP2 / lysosomal-activity finding (`Figures 4D-F`) to preserve `Strict C3`.
-- Rescued `P7` (`29861287`, `PMC6023751`, unaffected `#AG09173` isogenic APOE4 vs APOE3 hiPSC astrocytes) with verbatim Fig. 3E–F Filipin III cholesterol (`P7.F1`) and Fig. S3D lysosome-dependent Aβ42 degradation under `leupeptin + chloroquine + NH4Cl` (`P7.F2`).
+**100% of papers (19/19) and findings (67/67)** were audited by Dr Ahmed Zayed (`docs/PHYSICIAN_AUDIT_H5.md`, `0` unresolved `[PHYSICIAN REVIEW REQUIRED]` markers):
+- Audited every directness `class`/`strength` assignment, Tier 2 caveat (`39532095` exogenous ApoE clamped `class >= 2`, `strength >= 3`), AD-brain boundary exclusion (`38480892` scoped strictly to human iPSC microglia), `Strict C3` selective-autophagy/lysosomal boundaries (`42749735` lipophagy/p62, `38480892` lysosomal accumulation & LC3B), and all **14 `CONTRADICTING:`** findings.
+- Stopped immediately at ScienceDirect Cloudflare Turnstile on `37777962` (`Abstract` only), cross-checked OA figure images (`PMC8758949`, `PMC13260029`, `PMC12041514`), and removed redundant `visual_only` P values so 100% of populated stats are strictly printed text/table values (`40301465` Table 1 `****p < 0.001`).
+- Upgraded `Data location` to panel/table-level IDs across **58/63** full-text findings (`5` prose-only + `4` `Abstract`; `58/67` overall).
 
 ## 6. Anything else
 
-- **Strict `C3` & contrary evidence:** Non-lysosomal lipidomics/GSEA rows were excluded (`34919811`) and null autophagic-flux evidence was explicitly retained (`40457456` `P6.F5`).
-- **Provenance & figure estimates:** `0` `estimated_from_figure` values appear in this text-only extraction pass (all numbers are `printed_in_text`, verified verbatim in `data/verify_sample.md`; missing values carry `not_found_in_source` or `full_text_unavailable`).
-- **Licence-safe public freeze:** Cached raw full-text XML/JSON (`out/fulltext/`) is excluded from `data/` to respect per-article publisher licences (`FREEZE.md`); `data/FREEZE.json` SHA-256-pins all frozen artifacts.
+- **Provenance discipline:** Across `201` stat cells (`67` findings x 3 fields), `62` non-empty stats (`46` effect sizes, `12` P values, `4` sample sizes) are 100% `printed_in_text`, `0` estimated P values, and `139` missing cells are `not_found_in_source` or `full_text_unavailable`.
+- **Step 1 boundary (Rule C5) & licence safety:** Workbooks contain strictly Step 1 papers, quotes, locations, stats, and directness; cached raw full texts (`out/fulltext/`) stay gitignored (`data/FREEZE.json` SHA-256-pins frozen artifacts).
 
 ---
 
-## Code and prompts
+## Code & Verification
 
 | File | Job |
 |---|---|
-| `official/` | Organizer template, validator, example, hypotheses, rules (`SOURCES.md` SHA-256) |
-| `hypotheses.json`, `parse_hypotheses.py`, `HYPOTHESES.md` | Exact hypothesis statements and signed `H5` ranking |
-| `queries.json`, `search.py`, `snowball.py` | PubMed search and Europe PMC citation snowball |
-| `screen.py`, `datadecision.py`, `fulltext.py` | Screening, strict `C1`–`C4` selection, and free full-text fetcher |
-| `extract.py` | Quote-guarded extraction (`PAPER_CHARS=9000`) and `apply_h5_physician_audit` post-rules |
-| `verify_ids.py`, `verify_sample.py`, `scripts/verify.py` | Rule C4 ID check, verbatim number audit, and offline `data/` verifier |
-| `to_template.py`, `check_schema.py` | Standard-library 19-column `.xlsx` builder (`Submission` + `Method`) and schema checker |
-| `docs/PHYSICIAN_AUDIT_H5.md`, `CLAIMS.md`, `JUDGES.md`, `FREEZE.md`, `SPEC.md` | Audit record, claim-source map, judge rubric, freeze manifest, and spec |
-
-## Run & Verify (offline)
+| `official/` | Organizer template, `--strict` validator, example, hypotheses, rules (`SOURCES.md`) |
+| `search.py`, `snowball.py`, `datadecision.py` | PubMed search, EPMC snowball, tiered `C1–C5` screening & review purge |
+| `fulltext.py`, `extract.py` | Uncapped JATS/supp/table OA parser (`PAPER_CHARS=None`) & quote/panel/stat guards |
+| `verify_ids.py`, `verify_sample.py`, `scripts/verify.py`, `scripts/pr_review_bundle.py` | Rule C4 ID check, verbatim sample audit, offline `data/` check & PR gate |
+| `to_template.py`, `check_schema.py` | 19-column `.xlsx` builder (`Submission` + `Method`) & schema checker |
+| `docs/PHYSICIAN_AUDIT_H5.md`, `CLAIMS.md`, `JUDGES.md`, `FREEZE.md`, `SPEC.md` | Physician audit record, claim map, rubric, freeze manifest & spec |
 
 ```sh
-make test      # 57 offline unit tests (standard library only)
+make test      # 68 offline unit tests
 make verify    # offline SHA-256, schema, report, ID, and CLAIMS.md check on data/ (0 FAIL, 0 WARN)
-make validate  # official organizer validator in isolated /private/tmp (requires .venv openpyxl)
+make validate  # official organizer validator in isolated /private/tmp (--strict)
 ```

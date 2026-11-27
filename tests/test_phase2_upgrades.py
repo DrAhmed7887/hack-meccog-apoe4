@@ -59,7 +59,7 @@ class Phase2FulltextAndExtractTests(unittest.TestCase):
         self.assertEqual(extract.verify_stat("p_value", "<0.05", leg, leg, provenance="visual_only"), "<0.05")
         self.assertIsNone(extract.verify_stat("p_value", "<0.05", "mean diameter < 0.05 um in cells", "mean diameter < 0.05 um in cells", provenance="visual_only"))
         self.assertEqual(extract.extract_panel_location(q, "Results > Cholesterol"), "Fig 6H")
-        self.assertEqual(extract.extract_panel_location(leg, "Figure 4 legend"), "Fig 4D-E")
+        self.assertEqual(extract.extract_panel_location(leg, "Figure 4 legend"), "Fig 4D,E")
         self.assertEqual(extract.extract_panel_location("Representative images of filipin.", "Figure 6 legend"), "Fig 6")
         self.assertEqual(extract.extract_panel_location("Figure 4 shows decreased LAMP2.", "Results"), "Fig 4")
         self.assertEqual(extract.extract_panel_location("In Figure 2 a decrease in LAMP1 was seen.", "Results"), "Fig 2")
@@ -69,6 +69,11 @@ class Phase2FulltextAndExtractTests(unittest.TestCase):
         self.assertEqual(extract.extract_panel_location("No fig here.", "Results", proposed_loc="Fig 99Z"), "Results")
         self.assertEqual(extract.extract_panel_location("Figure 6 legend shows filipin.", "Figure 6 legend", proposed_loc="Fig 6Z"), "Fig 6")
         self.assertEqual(extract.extract_panel_location("See Figures 6D-F.", "Figure 6 legend", proposed_loc="Fig 6E"), "Fig 6E")
+        self.assertEqual(extract.extract_panel_location("See Figures 6D and F.", "Figure 6 legend", proposed_loc="Fig 6E"), "Fig 6D,F")
+        self.assertEqual(extract.extract_panel_location("See Fig 4B & D.", "Results"), "Fig 4B,D")
+        self.assertEqual(extract.extract_panel_location("Point (i) increased in Figure 6.", "Figure 6 legend", proposed_loc="Fig 6I"), "Fig 6")
+        self.assertEqual(extract.extract_panel_location("Point (I) increased in text.", "Results", proposed_loc="Fig 1I"), "Results")
+        self.assertEqual(extract.extract_panel_location("No differences in DQ BSA (Fig. 2, G and H).", "Results"), "Fig 2G,H")
 
         # merge_figure_estimates requires human_verified=True and full_text status
         p_unverified = [{"pmid": "1", "fulltext": {"status": "full_text"}, "findings": [{"quote": q, "effect_size": {"value": None}}]}]
@@ -135,6 +140,10 @@ class Phase2TemplateAndSchemaTests(unittest.TestCase):
             to_template.write_xlsx(xlsx, [("Submission", rows), ("Method", to_template.build_method(good_method, release=True))])
             self.assertEqual(check_schema.check(xlsx), [])
             self.assertEqual(check_schema.check_warnings(xlsx), [])
+
+            dry_xlsx = os.path.join(td, "dry_collab.xlsx")
+            to_template.write_xlsx(dry_xlsx, [("Submission", rows), ("Method", to_template.build_method(to_template.DRY_METHOD))])
+            self.assertEqual(check_schema.check(dry_xlsx), [])
 
         with self.assertRaises(ValueError):
             to_template.build_method(to_template.DRY_METHOD, release=True)

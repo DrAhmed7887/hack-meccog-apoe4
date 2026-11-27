@@ -238,7 +238,7 @@ def check_live_ids(papers: list[dict]) -> list[str]:
             issues.append("doi-check binary missing: cannot verify retraction status")
         else:
             try:
-                res = subprocess.run([doi_check_bin, "--json", *dois], capture_output=True, text=True, timeout=60)
+                res = subprocess.run([doi_check_bin, "--json", *dois], capture_output=True, text=True, timeout=180)
                 if res.returncode != 0:
                     issues.append(f"doi-check exited with code {res.returncode}: {res.stderr.strip()[:120]}")
                 else:

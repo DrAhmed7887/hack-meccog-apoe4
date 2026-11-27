@@ -1,26 +1,23 @@
 # FREEZE.md: what is committed, and what is optional to regenerate
 
-Status: **FROZEN (26 Nov 2026).** Ahmed signed `H5`, `Strict C3`, the 6-paper `C1–C4` pool (`34919811`, `35750033`, `40457456`, `42636814`, `39532095`, `29861287`) + anchor `37777962`, and the 100% physician `A3` audit (`docs/PHYSICIAN_AUDIT_H5.md`). Frozen outputs live in `data/` with SHA-256 verification in `data/FREEZE.json`, and `make verify` passes **0 FAIL, 0 WARN** offline.
+Status: **FROZEN H5 v3 (27 Nov 2026).** 19 clean non-review, non-retracted primary research records (`18` peer-reviewed + `1` `PubMed preprint` [`42182449`]; **10 Tier 1** human non-AD/non-aged cells + **9 Tier 2** model systems with caveats), **67 findings** (**53 supporting, 14 contradicting**), **19/19** live PubMed/Europe PMC/DOI verifications (`0` retractions), and 100% physician `A3` audit (`docs/PHYSICIAN_AUDIT_H5.md`). Frozen outputs live in `data/` with SHA-256 verification in `data/FREEZE.json`, and `make verify` passes **0 FAIL, 0 WARN** offline.
 
 ## Verify path (needs nothing but Python 3 and this repo)
 
-```
-make test      # 57 unit tests on fixtures, offline
+```sh
+make test      # 68 offline unit tests (standard library only)
 make verify    # SHA-256, schema, report, ID, and CLAIMS.md checks on committed data/ dir
+make validate  # official organizer validator --strict on data/dry_run.xlsx
 ```
-
-`make verify` never calls PubMed, Europe PMC, Unpaywall, `rwth-ask` or the Keychain, and requires no `out/` directory.
 
 ## Regenerate steps (optional, not needed for verify)
 
-These re-run the pipeline. A reader without them can still verify the frozen data.
-
 | Step | Needs | Script |
 |---|---|---|
-| PubMed search | NCBI API key in the macOS Keychain, service name `NCBI_API_KEY` (optional: works without a key at a lower rate limit). The key is never printed or stored in this repo. | `search.py` |
-| Citation snowball | Network (Europe PMC, no key) | `snowball.py` |
-| Screening and extraction | `rwth-ask` (free RWTHgpt CLI, available to the author only). Output is model-dependent, so a re-run will not reproduce the frozen findings verbatim without `apply_h5_physician_audit` post-rules. | `screen.py`, `extract.py` |
-| Full-text fetch | Network (PMC, Europe PMC, Unpaywall, DOI) | `fulltext.py` |
+| PubMed search & snowball | Optional NCBI API key in Keychain; Europe PMC REST | `search.py`, `snowball.py` |
+| Screening & checklist | Automated + manual curation; tiered `C1–C5` | `screen.py`, `datadecision.py` |
+| OA full-text fetch | Network (PMC, Europe PMC, Unpaywall, DOI) | `fulltext.py` |
+| Extraction & workbook build | Cached `out/fulltext/` + audit sign-off + schema/ID guards | `extract.py`, `verify_ids.py`, `to_template.py` |
 
 ## Frozen manifest (`data/FREEZE.json`)
 
@@ -28,23 +25,13 @@ Target dir `data/`, with `data/FREEZE.json` = `{"files": {"<path relative to dat
 
 | Committed in `data/` | From | Why | Status |
 |---|---|---|---|
-| `data/dd/report.json` | `out/dd/report.json` | C1-C4 verdicts with quotes; `verify.py` recomputes counts | Frozen |
-| `data/dd/pool_H5.json` | `out/dd/pool_H5.json` | 120-paper candidate pool behind H5 counts | Frozen |
-| `data/dd/screen_H5.json`, `data/dd/ft_H5.json` | `out/dd/` | Screening and full-text route log for the H5 pool | Frozen |
-| `data/dd/widen_run.log` | `out/dd/widen_run.log` | Widening run log (cited by `CLAIMS.md`) | Frozen |
-| `data/extracted.json` | `out/extracted.json` | Audited 7-paper, 23-finding extraction (`H5`) | Frozen |
-| `data/id_verification.json` | `out/id_verification.json` | Live PubMed + Europe PMC Rule C4 verification (`7/7`) | Frozen |
-| `data/fulltext_report.json` | `out/fulltext_report.json` | Free full-text route log per PMID (`6/7` signed `pmc_oa`) | Frozen |
-| `data/verify_sample.md` | `out/verify_sample.md` | `6/6` verbatim numeric field verification output | Frozen |
-| `data/dry_run.xlsx` | `out/dry_run.xlsx` | Validated 19-column submission workbook (`Method` pinned to commit SHA) | Frozen |
-| `data/validator_output.txt` | `out/validator_output.txt` | Official validator result (`SUBMISSION VALID — no problems found.`) | Frozen |
-| **not committed** | `out/fulltext/` (33 files, ~4.9 MB) | Cached raw full-text blocks; omitted for publisher licence compliance | Licence-excluded |
-| **not committed** | `out/search.json`, `snowball.json`, `screened*.json`, `extract_cache/`, `extract_log*.txt` | Scratch intermediates | Ignored in `out/` |
-
-### Signed paper pool & extraction policy (25–26 Nov 2026)
-
-- **Hypothesis `H5`:** *In some types of non-Alzheimer's, non-aged human brain cells, APOE4 disruption of lipid metabolism, compared with APOE3, results in impaired late endosome/lysosome function.*
-- **Strict `C3`:** Measured late-endosome/lysosome readout only (do NOT widen to general lipid handling or pad per `official/rules.html:429,529-534`).
-- **Signed pool:** Focused strict `C1–C4` pool of 6 free-full-text papers (`34919811`, `35750033`, `40457456` [preserving contrary `C5=yes` finding], `42636814`, `29861287` [rescued from abstract miss via `PMC6023751`], plus borderline `39532095` kept with its exact exogenous-ApoE human-neuron experimental system and lower directness class per `official/rules.html:469`) + anchor paper `37777962` (Gold OA CC BY at *Cell Reports*, `10.1016/j.celrep.2023.113183`, no PMCID; automated fetch blocked HTTP 403 so kept abstract-only `full_text_unavailable`).
-- **Rule `C3` figure-estimate policy (`official/rules.html:537-542`):** Pipeline guards for `~` + `estimated_from_figure` are active and tested; `0` visual figure estimates were added in this text-only extraction pass.
-- **Full-text licence compliance:** Cached raw full text (`out/fulltext/`) is never committed to the public repository; readers can re-fetch open-access text via `fulltext.py` using `data/fulltext_report.json`.
+| `data/dd/report.json` | `out/dd/report.json` | Early Qwen widening benchmark counts (`screened 120`, `H1 0`, `H5 6`) | Frozen |
+| `data/dd/pool_H5.json`, `screen_H5.json`, `ft_H5.json`, `widen_run.log` | `out/dd/` | Reproducible widening pool & screening logs | Frozen |
+| `data/extracted.json` | H5 v3 merge | Audited **19-paper, 67-finding** extraction (`H5`; `14` contradicting) | Frozen (v3) |
+| `data/id_verification.json` | `verify_ids.py` | Live PubMed + Europe PMC Rule C4 verification (`19/19`) | Frozen (v3) |
+| `data/fulltext_report.json` | `fulltext.py` | Free OA route log (`15 pmc_oa`, `1 unpaywall`, `1 doi_direct`, `2 unavailable`) | Frozen (v3) |
+| `data/verify_sample.md` | `verify_sample.py` | `14/14` sampled numeric findings (`20/20` fields) verbatim | Frozen (v3) |
+| `data/dry_run.xlsx` | `to_template.py` | Validated 19-column workbook (`Who did the work: collab`) | Frozen (v3) |
+| `data/validator_output.txt` | `validate_submission.py --strict` | `SUBMISSION VALID — no problems found.` (`RC=0`) | Frozen (v3) |
+| **not committed** | `out/fulltext/` (gitignored) | Cached raw OA XML/HTML/JSON blocks excluded per publisher licences | Licence-excluded |
+| **not committed** | `out/search.json`, `screened*.json`, `release_method.json` | Scratch & local release identity intermediates | Ignored in `out/` |
