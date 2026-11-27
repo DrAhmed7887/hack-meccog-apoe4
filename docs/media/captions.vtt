@@ -1,0 +1,177 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:01.814
+One amino acid swap,
+
+2
+00:00:01.834 --> 00:00:05.495
+cysteine to arginine at position one hundred twelve,
+
+3
+00:00:05.515 --> 00:00:08.513
+is a major genetic risk factor for late-onset
+
+4
+00:00:08.533 --> 00:00:13.993
+Alzheimer's disease. Yet in automated APOE4 literature mining,
+
+5
+00:00:14.013 --> 00:00:17.887
+extraction struggled where science depends on it most:
+
+6
+00:00:17.926 --> 00:00:22.635
+grounding every claim in primary experimental data.
+
+7
+00:00:22.667 --> 00:00:24.458
+For the MecCog Challenge,
+
+8
+00:00:24.478 --> 00:00:27.291
+Team Khepri paired a strict Step one extraction
+
+9
+00:00:27.311 --> 00:00:32.288
+pipeline with an interactive MolStar three-D workbench.
+
+10
+00:00:32.327 --> 00:00:36.463
+Under Rule C5, our Excel spreadsheets hold only
+
+11
+00:00:36.483 --> 00:00:39.365
+verbatim literature quotes, panel locations,
+
+12
+00:00:39.385 --> 00:00:44.125
+and printed statistics, separated cleanly from three-D structural
+
+13
+00:00:44.145 --> 00:00:45.859
+models.
+
+14
+00:00:45.867 --> 00:00:49.388
+In crystal structure one-B-six-eight,
+
+15
+00:00:49.408 --> 00:00:53.742
+APOE4's arginine one hundred twelve forms a two
+
+16
+00:00:53.762 --> 00:00:57.376
+point five three Angstrom salt bridge with glutamate
+
+17
+00:00:57.396 --> 00:01:02.217
+one hundred nine, displacing arginine sixty-one outward from
+
+18
+00:01:02.237 --> 00:01:04.771
+three point five three to five point three
+
+19
+00:01:04.791 --> 00:01:10.599
+four Angstroms compared to APOE3 structure one-N-F-N,
+
+20
+00:01:10.619 --> 00:01:14.447
+consistent with altered domain interaction.
+
+21
+00:01:14.467 --> 00:01:18.325
+Across two hypotheses, that structural shift is hypothesized
+
+22
+00:01:18.345 --> 00:01:20.914
+to drive two organellar choke points.
+
+23
+00:01:20.934 --> 00:01:26.161
+Under H2, impaired NHE6 proton-leak regulation traps ApoER2
+
+24
+00:01:26.181 --> 00:01:29.846
+and LRP1 receptors in early endosomes.
+
+25
+00:01:29.920 --> 00:01:35.566
+Under H5, ABCA1 and NPC1 lipid-export defects sequester
+
+26
+00:01:35.586 --> 00:01:40.616
+cholesterol in lysosomes, elevating lysosomal pH and blunting
+
+27
+00:01:40.636 --> 00:01:43.093
+beta-amyloid clearance.
+
+28
+00:01:43.100 --> 00:01:47.109
+Every line is reproducible and physician-audited:
+
+29
+00:01:47.129 --> 00:01:51.416
+thirty entries covering twenty-eight unique primary papers across
+
+30
+00:01:51.436 --> 00:01:56.048
+H5 and H2, yielding one hundred twenty experimental
+
+31
+00:01:56.068 --> 00:02:01.018
+findings, one hundred twenty-six printed-in-text statistics with panel
+
+32
+00:02:01.038 --> 00:02:05.453
+locations, zero retracted or review papers,
+
+33
+00:02:05.473 --> 00:02:10.612
+and zero errors or warnings under strict validation.
+
+34
+00:02:10.633 --> 00:02:14.050
+Honest boundaries matter just as much as support:
+
+35
+00:02:14.070 --> 00:02:17.707
+we report twenty-nine contradicting findings directly in the
+
+36
+00:02:17.727 --> 00:02:23.105
+sheets. Neuronal NHE6 ablation rescues ApoER2 trafficking in
+
+37
+00:02:23.125 --> 00:02:28.457
+vivo, whereas APOE4 astrocytes lose NHE6 and require
+
+38
+00:02:28.477 --> 00:02:33.124
+NHE6 activation; H2 rests purely on Tier two
+
+39
+00:02:33.144 --> 00:02:36.967
+models, and four gated or paywalled papers remain
+
+40
+00:02:36.987 --> 00:02:40.884
+abstract-only rather than bypassed.
+
+41
+00:02:40.900 --> 00:02:44.595
+Twenty-eight unique papers across thirty entries.
+
+42
+00:02:44.615 --> 00:02:47.440
+One hundred twenty verified findings.
+
+43
+00:02:47.460 --> 00:02:52.780
+Twenty-nine contradicting lines. Open the live three-D workbench
+
+44
+00:02:52.800 --> 00:02:56.244
+and inspect every workbook on GitHub.

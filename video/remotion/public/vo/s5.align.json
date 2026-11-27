@@ -1,0 +1,228 @@
+{
+  "id": "s5",
+  "caption": "Every line is reproducible and physician-audited: 30 entries covering 28 unique primary papers across H5 and H2, yielding 120 experimental findings, 126 printed-in-text statistics with panel locations, zero retracted or review papers, and zero errors or warnings under strict validation.",
+  "say": "Every line is reproducible and physician-audited: thirty entries covering twenty-eight unique primary papers across H5 and H2, yielding one hundred twenty experimental findings, one hundred twenty-six printed-in-text statistics with panel locations, zero retracted or review papers, and zero errors or warnings under strict validation.",
+  "duration": 26.982,
+  "words": [
+    {
+      "w": "Every",
+      "start": 0.0,
+      "end": 0.29
+    },
+    {
+      "w": "line",
+      "start": 0.36,
+      "end": 0.673
+    },
+    {
+      "w": "is",
+      "start": 0.72,
+      "end": 0.813
+    },
+    {
+      "w": "reproducible",
+      "start": 0.917,
+      "end": 1.892
+    },
+    {
+      "w": "and",
+      "start": 2.159,
+      "end": 2.322
+    },
+    {
+      "w": "physician-audited:",
+      "start": 2.38,
+      "end": 3.541
+    },
+    {
+      "w": "thirty",
+      "start": 4.029,
+      "end": 4.389
+    },
+    {
+      "w": "entries",
+      "start": 4.458,
+      "end": 4.946
+    },
+    {
+      "w": "covering",
+      "start": 5.108,
+      "end": 5.48
+    },
+    {
+      "w": "twenty-eight",
+      "start": 5.538,
+      "end": 6.188
+    },
+    {
+      "w": "unique",
+      "start": 6.293,
+      "end": 6.618
+    },
+    {
+      "w": "primary",
+      "start": 6.664,
+      "end": 7.082
+    },
+    {
+      "w": "papers",
+      "start": 7.152,
+      "end": 7.628
+    },
+    {
+      "w": "across",
+      "start": 7.895,
+      "end": 8.278
+    },
+    {
+      "w": "H5",
+      "start": 8.336,
+      "end": 8.858
+    },
+    {
+      "w": "and",
+      "start": 9.218,
+      "end": 9.392
+    },
+    {
+      "w": "H2,",
+      "start": 9.462,
+      "end": 10.124
+    },
+    {
+      "w": "yielding",
+      "start": 10.693,
+      "end": 11.053
+    },
+    {
+      "w": "one",
+      "start": 11.146,
+      "end": 11.378
+    },
+    {
+      "w": "hundred",
+      "start": 11.424,
+      "end": 11.761
+    },
+    {
+      "w": "twenty",
+      "start": 11.796,
+      "end": 12.144
+    },
+    {
+      "w": "experimental",
+      "start": 12.214,
+      "end": 12.899
+    },
+    {
+      "w": "findings,",
+      "start": 12.968,
+      "end": 13.758
+    },
+    {
+      "w": "one",
+      "start": 14.118,
+      "end": 14.327
+    },
+    {
+      "w": "hundred",
+      "start": 14.373,
+      "end": 14.652
+    },
+    {
+      "w": "twenty-six",
+      "start": 14.698,
+      "end": 15.453
+    },
+    {
+      "w": "printed-in-text",
+      "start": 15.813,
+      "end": 16.684
+    },
+    {
+      "w": "statistics",
+      "start": 16.707,
+      "end": 17.369
+    },
+    {
+      "w": "with",
+      "start": 17.415,
+      "end": 17.554
+    },
+    {
+      "w": "panel",
+      "start": 17.612,
+      "end": 17.891
+    },
+    {
+      "w": "locations,",
+      "start": 17.938,
+      "end": 18.797
+    },
+    {
+      "w": "zero",
+      "start": 19.366,
+      "end": 19.749
+    },
+    {
+      "w": "retracted",
+      "start": 19.818,
+      "end": 20.434
+    },
+    {
+      "w": "or",
+      "start": 20.852,
+      "end": 21.003
+    },
+    {
+      "w": "review",
+      "start": 21.072,
+      "end": 21.455
+    },
+    {
+      "w": "papers,",
+      "start": 21.525,
+      "end": 22.14
+    },
+    {
+      "w": "and",
+      "start": 22.373,
+      "end": 22.547
+    },
+    {
+      "w": "zero",
+      "start": 22.64,
+      "end": 23.046
+    },
+    {
+      "w": "errors",
+      "start": 23.15,
+      "end": 23.51
+    },
+    {
+      "w": "or",
+      "start": 23.58,
+      "end": 23.673
+    },
+    {
+      "w": "warnings",
+      "start": 23.743,
+      "end": 24.265
+    },
+    {
+      "w": "under",
+      "start": 24.625,
+      "end": 24.904
+    },
+    {
+      "w": "strict",
+      "start": 24.973,
+      "end": 25.345
+    },
+    {
+      "w": "validation.",
+      "start": 25.403,
+      "end": 26.982
+    }
+  ]
+}

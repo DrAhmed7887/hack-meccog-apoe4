@@ -1,0 +1,223 @@
+{
+  "id": "s1",
+  "caption": "One amino acid swap, cysteine to arginine at position 112, is a major genetic risk factor for late-onset Alzheimer's disease. Yet in automated APOE4 literature mining, extraction struggled where science depends on it most: grounding every claim in primary experimental data.",
+  "say": "One amino acid swap, cysteine to arginine at position one hundred twelve, is a major genetic risk factor for late-onset Alzheimer's disease. Yet in automated APOE4 literature mining, extraction struggled where science depends on it most: grounding every claim in primary experimental data.",
+  "duration": 22.105,
+  "words": [
+    {
+      "w": "One",
+      "start": 0.0,
+      "end": 0.221
+    },
+    {
+      "w": "amino",
+      "start": 0.267,
+      "end": 0.627
+    },
+    {
+      "w": "acid",
+      "start": 0.708,
+      "end": 0.987
+    },
+    {
+      "w": "swap,",
+      "start": 1.022,
+      "end": 1.474
+    },
+    {
+      "w": "cysteine",
+      "start": 1.834,
+      "end": 2.392
+    },
+    {
+      "w": "to",
+      "start": 2.438,
+      "end": 2.531
+    },
+    {
+      "w": "arginine",
+      "start": 2.624,
+      "end": 3.355
+    },
+    {
+      "w": "at",
+      "start": 3.46,
+      "end": 3.599
+    },
+    {
+      "w": "position",
+      "start": 3.646,
+      "end": 4.04
+    },
+    {
+      "w": "one",
+      "start": 4.122,
+      "end": 4.272
+    },
+    {
+      "w": "hundred",
+      "start": 4.307,
+      "end": 4.586
+    },
+    {
+      "w": "twelve,",
+      "start": 4.621,
+      "end": 5.248
+    },
+    {
+      "w": "is",
+      "start": 5.515,
+      "end": 5.654
+    },
+    {
+      "w": "a",
+      "start": 5.7,
+      "end": 5.735
+    },
+    {
+      "w": "major",
+      "start": 5.805,
+      "end": 6.118
+    },
+    {
+      "w": "genetic",
+      "start": 6.165,
+      "end": 6.548
+    },
+    {
+      "w": "risk",
+      "start": 6.606,
+      "end": 6.803
+    },
+    {
+      "w": "factor",
+      "start": 6.861,
+      "end": 7.303
+    },
+    {
+      "w": "for",
+      "start": 7.605,
+      "end": 7.755
+    },
+    {
+      "w": "late-onset",
+      "start": 7.814,
+      "end": 8.452
+    },
+    {
+      "w": "Alzheimer's",
+      "start": 8.533,
+      "end": 9.137
+    },
+    {
+      "w": "disease.",
+      "start": 9.183,
+      "end": 9.938
+    },
+    {
+      "w": "Yet",
+      "start": 10.507,
+      "end": 10.716
+    },
+    {
+      "w": "in",
+      "start": 10.786,
+      "end": 10.913
+    },
+    {
+      "w": "automated",
+      "start": 10.983,
+      "end": 11.587
+    },
+    {
+      "w": "APOE4",
+      "start": 11.68,
+      "end": 12.643
+    },
+    {
+      "w": "literature",
+      "start": 12.725,
+      "end": 13.154
+    },
+    {
+      "w": "mining,",
+      "start": 13.177,
+      "end": 13.711
+    },
+    {
+      "w": "extraction",
+      "start": 14.013,
+      "end": 14.663
+    },
+    {
+      "w": "struggled",
+      "start": 14.768,
+      "end": 15.325
+    },
+    {
+      "w": "where",
+      "start": 15.383,
+      "end": 15.581
+    },
+    {
+      "w": "science",
+      "start": 15.627,
+      "end": 16.068
+    },
+    {
+      "w": "depends",
+      "start": 16.115,
+      "end": 16.544
+    },
+    {
+      "w": "on",
+      "start": 16.591,
+      "end": 16.672
+    },
+    {
+      "w": "it",
+      "start": 16.707,
+      "end": 16.776
+    },
+    {
+      "w": "most:",
+      "start": 16.846,
+      "end": 17.357
+    },
+    {
+      "w": "grounding",
+      "start": 17.926,
+      "end": 18.437
+    },
+    {
+      "w": "every",
+      "start": 18.553,
+      "end": 18.855
+    },
+    {
+      "w": "claim",
+      "start": 18.924,
+      "end": 19.319
+    },
+    {
+      "w": "in",
+      "start": 19.4,
+      "end": 19.505
+    },
+    {
+      "w": "primary",
+      "start": 19.586,
+      "end": 20.051
+    },
+    {
+      "w": "experimental",
+      "start": 20.12,
+      "end": 20.863
+    },
+    {
+      "w": "data.",
+      "start": 20.921,
+      "end": 22.105
+    }
+  ]
+}

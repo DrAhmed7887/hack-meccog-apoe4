@@ -19,7 +19,11 @@ Criteria summarize `official/rules.html` and `official/official-rules.html` (sna
 | C2 | No fabrication; panel-level location | Single-block verbatim quote guards; `58/63` (H5) & `50/50` (H2) panel/table IDs (`extract.py`). |
 | C3 | Provenance & no estimated P values | `62` (H5) & `64` (H2) populated stats are 100% `printed_in_text`; `0` estimated P values. |
 | C4 | Real DOIs and PubMed IDs | `19/19` (H5) & `11/11` (H2) verified live against PubMed, EPMC `core`, & `doi-check --json` (`0` retractions). |
-| C5 | Step 1 only | `.xlsx` and `extracted.json` contain strictly Step 1 papers & findings (`RULE_C5_LEAK = 0`). |
+| C5 | Step 1 only | `.xlsx` and `extracted.json` contain strictly Step 1 papers & findings (`RULE_C5_LEAK = 0`); 3D PDB/AlphaFold models & film live separately in `docs/` & `video/`. |
+
+## Companion 3D Explorer & Documentary (`docs/` & `video/`)
+- **Live 3D Mol* Workbench:** `https://drahmed7887.github.io/hack-meccog-apoe4/` (`14` staged `.cif.gz` models incl. `1B68`, `1NFN`, `2L7B`, `9R8L`, `5XJY`, `3GKH`, `1N7D` + AlphaFold DB v6 CC-BY 4.0) synchronized to all `120` Step 1 quotes & `29` contradicting lines (`scripts/build_explorer_data.py`).
+- **Documentary film:** *The APOE4 Endosome Bottleneck* (`1080p`, `-16 LUFS`, Blender 3D + Remotion V2 + ElevenLabs VO + captions), embedded directly on the workbench page.
 
 ## Remaining human items before upload
-- Generate release `.xlsx` files with real team-leader email + final `Commit SHA` in local gitignored `out/release_method.json` and upload on HF Space by `Wed 13 Jan 2027 13:00 Valencia` (`Sat 16 Jan 2027` deadline).
+- Generate release `.xlsx` files with real team-leader email + final `Commit SHA` in local gitignored `out/release_method.json` and upload staged `.xlsx` files (`H5 v3` & `H2 v1`) on HF Space by `Wed 13 Jan 2027 13:00 Valencia` (`Sat 16 Jan 2027` deadline).

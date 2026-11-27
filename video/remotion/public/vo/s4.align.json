@@ -1,0 +1,238 @@
+{
+  "id": "s4",
+  "caption": "Across two hypotheses, that structural shift is hypothesized to drive two organellar choke points. Under H2, impaired NHE6 proton-leak regulation traps ApoER2 and LRP1 receptors in early endosomes. Under H5, ABCA1 and NPC1 lipid-export defects sequester cholesterol in lysosomes, elevating lysosomal pH and blunting beta-amyloid clearance.",
+  "say": "Across two hypotheses, that structural shift is hypothesized to drive two organellar choke points. Under H2, impaired NHE6 proton-leak regulation traps ApoER2 and LRP1 receptors in early endosomes. Under H5, ABCA1 and NPC1 lipid-export defects sequester cholesterol in lysosomes, elevating lysosomal pH and blunting beta-amyloid clearance.",
+  "duration": 28.096,
+  "words": [
+    {
+      "w": "Across",
+      "start": 0.0,
+      "end": 0.383
+    },
+    {
+      "w": "two",
+      "start": 0.418,
+      "end": 0.569
+    },
+    {
+      "w": "hypotheses,",
+      "start": 0.639,
+      "end": 1.521
+    },
+    {
+      "w": "that",
+      "start": 1.846,
+      "end": 1.997
+    },
+    {
+      "w": "structural",
+      "start": 2.067,
+      "end": 2.531
+    },
+    {
+      "w": "shift",
+      "start": 2.601,
+      "end": 2.914
+    },
+    {
+      "w": "is",
+      "start": 2.972,
+      "end": 3.053
+    },
+    {
+      "w": "hypothesized",
+      "start": 3.123,
+      "end": 3.843
+    },
+    {
+      "w": "to",
+      "start": 3.878,
+      "end": 3.936
+    },
+    {
+      "w": "drive",
+      "start": 3.982,
+      "end": 4.261
+    },
+    {
+      "w": "two",
+      "start": 4.296,
+      "end": 4.458
+    },
+    {
+      "w": "organellar",
+      "start": 4.563,
+      "end": 5.062
+    },
+    {
+      "w": "choke",
+      "start": 5.108,
+      "end": 5.375
+    },
+    {
+      "w": "points.",
+      "start": 5.422,
+      "end": 5.944
+    },
+    {
+      "w": "Under",
+      "start": 6.467,
+      "end": 6.711
+    },
+    {
+      "w": "H2,",
+      "start": 6.769,
+      "end": 7.419
+    },
+    {
+      "w": "impaired",
+      "start": 7.697,
+      "end": 8.127
+    },
+    {
+      "w": "NHE6",
+      "start": 8.208,
+      "end": 8.87
+    },
+    {
+      "w": "proton-leak",
+      "start": 8.963,
+      "end": 9.578
+    },
+    {
+      "w": "regulation",
+      "start": 9.636,
+      "end": 10.17
+    },
+    {
+      "w": "traps",
+      "start": 10.228,
+      "end": 10.553
+    },
+    {
+      "w": "ApoER2",
+      "start": 10.623,
+      "end": 11.436
+    },
+    {
+      "w": "and",
+      "start": 11.714,
+      "end": 11.854
+    },
+    {
+      "w": "LRP1",
+      "start": 11.923,
+      "end": 12.481
+    },
+    {
+      "w": "receptors",
+      "start": 12.574,
+      "end": 13.131
+    },
+    {
+      "w": "in",
+      "start": 13.398,
+      "end": 13.549
+    },
+    {
+      "w": "early",
+      "start": 13.63,
+      "end": 13.897
+    },
+    {
+      "w": "endosomes.",
+      "start": 13.967,
+      "end": 14.849
+    },
+    {
+      "w": "Under",
+      "start": 15.453,
+      "end": 15.662
+    },
+    {
+      "w": "H5,",
+      "start": 15.709,
+      "end": 16.452
+    },
+    {
+      "w": "ABCA1",
+      "start": 16.695,
+      "end": 17.694
+    },
+    {
+      "w": "and",
+      "start": 17.856,
+      "end": 18.019
+    },
+    {
+      "w": "NPC1",
+      "start": 18.054,
+      "end": 18.785
+    },
+    {
+      "w": "lipid-export",
+      "start": 18.89,
+      "end": 19.644
+    },
+    {
+      "w": "defects",
+      "start": 19.702,
+      "end": 20.213
+    },
+    {
+      "w": "sequester",
+      "start": 20.515,
+      "end": 21.061
+    },
+    {
+      "w": "cholesterol",
+      "start": 21.119,
+      "end": 21.746
+    },
+    {
+      "w": "in",
+      "start": 21.978,
+      "end": 22.117
+    },
+    {
+      "w": "lysosomes,",
+      "start": 22.198,
+      "end": 23.15
+    },
+    {
+      "w": "elevating",
+      "start": 23.418,
+      "end": 23.952
+    },
+    {
+      "w": "lysosomal",
+      "start": 24.021,
+      "end": 24.671
+    },
+    {
+      "w": "pH",
+      "start": 24.741,
+      "end": 25.217
+    },
+    {
+      "w": "and",
+      "start": 25.519,
+      "end": 25.681
+    },
+    {
+      "w": "blunting",
+      "start": 25.728,
+      "end": 26.099
+    },
+    {
+      "w": "beta-amyloid",
+      "start": 26.169,
+      "end": 26.912
+    },
+    {
+      "w": "clearance.",
+      "start": 26.959,
+      "end": 28.096
+    }
+  ]
+}

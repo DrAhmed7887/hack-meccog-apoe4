@@ -1,0 +1,248 @@
+{
+  "id": "s3",
+  "caption": "In crystal structure 1B68, APOE4's arginine 112 forms a 2.53 Angstrom salt bridge with glutamate 109, displacing arginine 61 outward from 3.53 to 5.34 Angstroms compared to APOE3 structure 1NFN, consistent with altered domain interaction.",
+  "say": "In crystal structure one-B-six-eight, APOE4's arginine one hundred twelve forms a two point five three Angstrom salt bridge with glutamate one hundred nine, displacing arginine sixty-one outward from three point five three to five point three four Angstroms compared to APOE3 structure one-N-F-N, consistent with altered domain interaction.",
+  "duration": 28.05,
+  "words": [
+    {
+      "w": "In",
+      "start": 0.0,
+      "end": 0.151
+    },
+    {
+      "w": "crystal",
+      "start": 0.221,
+      "end": 0.569
+    },
+    {
+      "w": "structure",
+      "start": 0.627,
+      "end": 1.126
+    },
+    {
+      "w": "one-B-six-eight,",
+      "start": 1.486,
+      "end": 3.274
+    },
+    {
+      "w": "APOE4's",
+      "start": 3.541,
+      "end": 4.83
+    },
+    {
+      "w": "arginine",
+      "start": 4.934,
+      "end": 5.596
+    },
+    {
+      "w": "one",
+      "start": 5.642,
+      "end": 5.817
+    },
+    {
+      "w": "hundred",
+      "start": 5.851,
+      "end": 6.13
+    },
+    {
+      "w": "twelve",
+      "start": 6.165,
+      "end": 6.734
+    },
+    {
+      "w": "forms",
+      "start": 7.036,
+      "end": 7.43
+    },
+    {
+      "w": "a",
+      "start": 7.477,
+      "end": 7.512
+    },
+    {
+      "w": "two",
+      "start": 7.593,
+      "end": 7.802
+    },
+    {
+      "w": "point",
+      "start": 7.895,
+      "end": 8.15
+    },
+    {
+      "w": "five",
+      "start": 8.208,
+      "end": 8.475
+    },
+    {
+      "w": "three",
+      "start": 8.522,
+      "end": 8.928
+    },
+    {
+      "w": "Angstrom",
+      "start": 9.16,
+      "end": 9.601
+    },
+    {
+      "w": "salt",
+      "start": 9.694,
+      "end": 9.938
+    },
+    {
+      "w": "bridge",
+      "start": 9.985,
+      "end": 10.484
+    },
+    {
+      "w": "with",
+      "start": 10.681,
+      "end": 10.879
+    },
+    {
+      "w": "glutamate",
+      "start": 10.937,
+      "end": 11.482
+    },
+    {
+      "w": "one",
+      "start": 11.529,
+      "end": 11.691
+    },
+    {
+      "w": "hundred",
+      "start": 11.738,
+      "end": 12.028
+    },
+    {
+      "w": "nine,",
+      "start": 12.098,
+      "end": 12.666
+    },
+    {
+      "w": "displacing",
+      "start": 12.968,
+      "end": 13.572
+    },
+    {
+      "w": "arginine",
+      "start": 13.677,
+      "end": 14.269
+    },
+    {
+      "w": "sixty-one",
+      "start": 14.327,
+      "end": 15.174
+    },
+    {
+      "w": "outward",
+      "start": 15.337,
+      "end": 15.79
+    },
+    {
+      "w": "from",
+      "start": 16.091,
+      "end": 16.289
+    },
+    {
+      "w": "three",
+      "start": 16.37,
+      "end": 16.625
+    },
+    {
+      "w": "point",
+      "start": 16.683,
+      "end": 16.916
+    },
+    {
+      "w": "five",
+      "start": 16.974,
+      "end": 17.241
+    },
+    {
+      "w": "three",
+      "start": 17.276,
+      "end": 17.67
+    },
+    {
+      "w": "to",
+      "start": 17.833,
+      "end": 17.949
+    },
+    {
+      "w": "five",
+      "start": 18.03,
+      "end": 18.309
+    },
+    {
+      "w": "point",
+      "start": 18.355,
+      "end": 18.576
+    },
+    {
+      "w": "three",
+      "start": 18.622,
+      "end": 18.855
+    },
+    {
+      "w": "four",
+      "start": 18.924,
+      "end": 19.18
+    },
+    {
+      "w": "Angstroms",
+      "start": 19.273,
+      "end": 20.004
+    },
+    {
+      "w": "compared",
+      "start": 20.364,
+      "end": 20.782
+    },
+    {
+      "w": "to",
+      "start": 20.805,
+      "end": 20.863
+    },
+    {
+      "w": "APOE3",
+      "start": 20.944,
+      "end": 21.85
+    },
+    {
+      "w": "structure",
+      "start": 22.21,
+      "end": 22.732
+    },
+    {
+      "w": "one-N-F-N,",
+      "start": 22.93,
+      "end": 24.485
+    },
+    {
+      "w": "consistent",
+      "start": 24.752,
+      "end": 25.356
+    },
+    {
+      "w": "with",
+      "start": 25.403,
+      "end": 25.542
+    },
+    {
+      "w": "altered",
+      "start": 25.612,
+      "end": 25.983
+    },
+    {
+      "w": "domain",
+      "start": 26.03,
+      "end": 26.459
+    },
+    {
+      "w": "interaction.",
+      "start": 26.54,
+      "end": 28.05
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # hack-meccog-apoe4
 
-**Status (27 Nov 2026, H5 v3 & H2 v1 frozen):** Flagship **`H5` (`data/dry_run.xlsx`):** **19 primary records (`18` peer-reviewed + `1` `PubMed preprint`, 10 Tier 1 + 9 Tier 2), 67 findings (53 supporting, 14 `CONTRADICTING:`)**. Secondary **`H2` (`data/H2/dry_run_H2.xlsx`):** **11 primary records (Tier 2 model systems with caveats), 53 findings (38 supporting, 15 `CONTRADICTING:`)**. Both workbooks pass live ID checks (`19/19` H5, `11/11` H2; `0` retractions, `0` reviews), verbatim numeric audits (`14/14` H5, `17/17` H2), `68` unit tests (`make test`), `make verify` (**0 FAIL, 0 WARN**), and **`SUBMISSION VALID — no problems found.`** (`--strict`).
+**Status (27 Nov 2026, H5 v3 & H2 v1 frozen + Companion 3D Workbench & Film):** Flagship **`H5` (`data/dry_run.xlsx`):** **19 primary records (`18` peer-reviewed + `1` `PubMed preprint`, 10 Tier 1 + 9 Tier 2), 67 findings (53 supporting, 14 `CONTRADICTING:`)**. Secondary **`H2` (`data/H2/dry_run_H2.xlsx`):** **11 primary records (Tier 2 model systems with caveats), 53 findings (38 supporting, 15 `CONTRADICTING:`)**. Interactive companion visualizer: [Live 3D Mol* Evidence Workbench & Film](https://drahmed7887.github.io/hack-meccog-apoe4/) (`docs/index.html`). Both workbooks pass live ID checks (`19/19` H5, `11/11` H2; `0` retractions, `0` reviews), verbatim numeric audits (`14/14` H5, `17/17` H2), `72` unit tests (`make test`), `make verify` (**0 FAIL, 0 WARN**), and **`SUBMISSION VALID — no problems found.`** (`--strict`).
 
 - **Team:** `Khepri` (leader `DrZayed` / Dr Ahmed Zayed on `meccog-meccogchallenge.hf.space`)
 - **Flagship `H5`:** *In some types of non-Alzheimer's, non-aged human brain cells, APOE4 disruption of lipid metabolism, compared with APOE3, results in impaired late endosome/lysosome function.*
@@ -34,10 +34,11 @@ PubMed queries (`queries.json`, `search.py`) plus Europe PMC citation/reference 
 
 ## 6. Anything else
 
-- **Provenance & Rule C5 boundary:** Populated stats (`62/201` H5 cells; `64/159` H2 cells) are **100% `printed_in_text`** with `0` estimated P values. Workbooks contain strictly Step 1 evidence (`Rule C5`); raw full texts (`out/fulltext/`) stay gitignored (`data/FREEZE.json` pins 17 frozen files).
+- **Provenance & Rule C5 boundary:** Populated stats (`62/201` H5 cells; `64/159` H2 cells) are **100% `printed_in_text`** with `0` estimated P values. Step 1 workbooks contain strictly primary literature findings (`Rule C5`); companion 3D PDB / AlphaFold DB v6 models (`docs/structures/`, compiled via `scripts/stage_structures.py` & `scripts/build_explorer_data.py`) and documentary film (*"The APOE4 Endosome Bottleneck"*, `video/`) provide structural context only. Raw full texts (`out/fulltext/`) stay gitignored (`data/FREEZE.json` pins 17 frozen files).
 
 ```sh
-make test      # 68 offline unit tests
-make verify    # offline SHA-256, schema, report, ID, and CLAIMS.md check on data/ and data/H2/ (0 FAIL, 0 WARN)
-make validate  # official organizer validator --strict
+make test                                  # 72 offline unit tests
+make verify                                # offline SHA-256, schema, report, ID, and CLAIMS.md check on data/ and data/H2/ (0 FAIL, 0 WARN)
+make validate                              # official organizer validator --strict
+python3 scripts/build_explorer_data.py     # recompile docs/data/explorer_data.json from frozen Step 1 outputs
 ```

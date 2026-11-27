@@ -1,0 +1,60 @@
+{
+  "source": "Grounded strictly in frozen data/extracted.json (H5 v3), data/H2/extracted.json (H2 v1), docs/data/explorer_data.json geometry, and official challenge background.",
+  "voice": {
+    "name": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model_id": "eleven_multilingual_v2",
+    "speed": 1.06
+  },
+  "scenes": [
+    {
+      "id": "s1",
+      "theme": "dark",
+      "title": "One amino acid, stalled endosomes",
+      "caption": "One amino acid swap, cysteine to arginine at position 112, is a major genetic risk factor for late-onset Alzheimer's disease. Yet in automated APOE4 literature mining, extraction struggled where science depends on it most: grounding every claim in primary experimental data.",
+      "say": "One amino acid swap, cysteine to arginine at position one hundred twelve, is a major genetic risk factor for late-onset Alzheimer's disease. Yet in automated APOE4 literature mining, extraction struggled where science depends on it most: grounding every claim in primary experimental data."
+    },
+    {
+      "id": "s2",
+      "theme": "light",
+      "title": "Deterministic extraction meets 3D provenance",
+      "caption": "For the MecCog Challenge, Team Khepri paired a strict Step 1 extraction pipeline with an interactive Mol* 3D workbench. Under Rule C5, our Excel spreadsheets hold only verbatim literature quotes, panel locations, and printed statistics, separated cleanly from 3D structural models.",
+      "say": "For the MecCog Challenge, Team Khepri paired a strict Step one extraction pipeline with an interactive MolStar three-D workbench. Under Rule C5, our Excel spreadsheets hold only verbatim literature quotes, panel locations, and printed statistics, separated cleanly from three-D structural models."
+    },
+    {
+      "id": "s3",
+      "theme": "dark",
+      "title": "The Arg112–Glu109 conformational switch",
+      "caption": "In crystal structure 1B68, APOE4's arginine 112 forms a 2.53 Angstrom salt bridge with glutamate 109, displacing arginine 61 outward from 3.53 to 5.34 Angstroms compared to APOE3 structure 1NFN, consistent with altered domain interaction.",
+      "say": "In crystal structure one-B-six-eight, APOE4's arginine one hundred twelve forms a two point five three Angstrom salt bridge with glutamate one hundred nine, displacing arginine sixty-one outward from three point five three to five point three four Angstroms compared to APOE3 structure one-N-F-N, consistent with altered domain interaction."
+    },
+    {
+      "id": "s4",
+      "theme": "light",
+      "title": "Hypothesized two-stage endosomal bottleneck",
+      "caption": "Across two hypotheses, that structural shift is hypothesized to drive two organellar choke points. Under H2, impaired NHE6 proton-leak regulation traps ApoER2 and LRP1 receptors in early endosomes. Under H5, ABCA1 and NPC1 lipid-export defects sequester cholesterol in lysosomes, elevating lysosomal pH and blunting beta-amyloid clearance.",
+      "say": "Across two hypotheses, that structural shift is hypothesized to drive two organellar choke points. Under H2, impaired NHE6 proton-leak regulation traps ApoER2 and LRP1 receptors in early endosomes. Under H5, ABCA1 and NPC1 lipid-export defects sequester cholesterol in lysosomes, elevating lysosomal pH and blunting beta-amyloid clearance."
+    },
+    {
+      "id": "s5",
+      "theme": "dark",
+      "title": "Twenty-eight unique papers, zero errors",
+      "caption": "Every line is reproducible and physician-audited: 30 entries covering 28 unique primary papers across H5 and H2, yielding 120 experimental findings, 126 printed-in-text statistics with panel locations, zero retracted or review papers, and zero errors or warnings under strict validation.",
+      "say": "Every line is reproducible and physician-audited: thirty entries covering twenty-eight unique primary papers across H5 and H2, yielding one hundred twenty experimental findings, one hundred twenty-six printed-in-text statistics with panel locations, zero retracted or review papers, and zero errors or warnings under strict validation."
+    },
+    {
+      "id": "s6",
+      "theme": "light",
+      "title": "What contradicts and where models stop",
+      "caption": "Honest boundaries matter just as much as support: we report 29 contradicting findings directly in the sheets. Neuronal NHE6 ablation rescues ApoER2 trafficking in vivo, whereas APOE4 astrocytes lose NHE6 and require NHE6 activation; H2 rests purely on Tier 2 models, and 4 gated or paywalled papers remain abstract-only rather than bypassed.",
+      "say": "Honest boundaries matter just as much as support: we report twenty-nine contradicting findings directly in the sheets. Neuronal NHE6 ablation rescues ApoER2 trafficking in vivo, whereas APOE4 astrocytes lose NHE6 and require NHE6 activation; H2 rests purely on Tier two models, and four gated or paywalled papers remain abstract-only rather than bypassed."
+    },
+    {
+      "id": "s7",
+      "theme": "dark",
+      "title": "Inspect every quote and structure live",
+      "caption": "28 unique papers across 30 entries. 120 verified findings. 29 contradicting lines. Open the live 3D workbench and inspect every workbook on GitHub.",
+      "say": "Twenty-eight unique papers across thirty entries. One hundred twenty verified findings. Twenty-nine contradicting lines. Open the live three-D workbench and inspect every workbook on GitHub."
+    }
+  ]
+}
