@@ -6,7 +6,7 @@ One amino acid swap,
 
 2
 00:00:01.834 --> 00:00:05.495
-cysteine to arginine at position one hundred twelve,
+cysteine to arginine at position 112,
 
 3
 00:00:05.515 --> 00:00:08.513
@@ -29,12 +29,12 @@ grounding every claim in primary experimental data.
 For the MecCog Challenge,
 
 8
-00:00:24.478 --> 00:00:27.291
-Team Khepri paired a strict Step one extraction
+00:00:24.478 --> 00:00:28.231
+Team Khepri paired a strict Step 1 extraction pipeline
 
 9
-00:00:27.311 --> 00:00:32.288
-pipeline with an interactive MolStar three-D workbench.
+00:00:28.251 --> 00:00:32.288
+with an interactive Mol* 3D workbench.
 
 10
 00:00:32.327 --> 00:00:36.463
@@ -46,7 +46,7 @@ verbatim literature quotes, panel locations,
 
 12
 00:00:39.385 --> 00:00:44.125
-and printed statistics, separated cleanly from three-D structural
+and printed statistics, separated cleanly from 3D structural
 
 13
 00:00:44.145 --> 00:00:45.859
@@ -54,124 +54,116 @@ models.
 
 14
 00:00:45.867 --> 00:00:49.388
-In crystal structure one-B-six-eight,
+In crystal structure 1B68,
 
 15
-00:00:49.408 --> 00:00:53.742
-APOE4's arginine one hundred twelve forms a two
+00:00:49.408 --> 00:00:56.784
+APOE4's Arg112 forms a 2.53 Å salt bridge with
 
 16
-00:00:53.762 --> 00:00:57.376
-point five three Angstrom salt bridge with glutamate
+00:00:56.804 --> 00:01:06.211
+Glu109, displacing Arg61 outward from 3.53 to 5.34 Å
 
 17
-00:00:57.396 --> 00:01:02.217
-one hundred nine, displacing arginine sixty-one outward from
+00:01:06.231 --> 00:01:10.599
+compared to APOE3 structure 1NFN,
 
 18
-00:01:02.237 --> 00:01:04.771
-three point five three to five point three
-
-19
-00:01:04.791 --> 00:01:10.599
-four Angstroms compared to APOE3 structure one-N-F-N,
-
-20
 00:01:10.619 --> 00:01:14.447
 consistent with altered domain interaction.
 
-21
+19
 00:01:14.467 --> 00:01:18.325
 Across two hypotheses, that structural shift is hypothesized
 
-22
+20
 00:01:18.345 --> 00:01:20.914
 to drive two organellar choke points.
 
-23
+21
 00:01:20.934 --> 00:01:26.161
 Under H2, impaired NHE6 proton-leak regulation traps ApoER2
 
-24
+22
 00:01:26.181 --> 00:01:29.846
 and LRP1 receptors in early endosomes.
 
-25
+23
 00:01:29.920 --> 00:01:35.566
 Under H5, ABCA1 and NPC1 lipid-export defects sequester
 
-26
+24
 00:01:35.586 --> 00:01:40.616
 cholesterol in lysosomes, elevating lysosomal pH and blunting
 
-27
+25
 00:01:40.636 --> 00:01:43.093
 beta-amyloid clearance.
 
-28
+26
 00:01:43.100 --> 00:01:47.109
 Every line is reproducible and physician-audited:
 
-29
+27
 00:01:47.129 --> 00:01:51.416
-thirty entries covering twenty-eight unique primary papers across
+30 entries covering 28 unique primary papers across
+
+28
+00:01:51.436 --> 00:01:57.198
+H5 and H2, yielding 120 experimental findings,
+
+29
+00:01:57.218 --> 00:02:02.427
+126 printed-in-text statistics with panel locations,
 
 30
-00:01:51.436 --> 00:01:56.048
-H5 and H2, yielding one hundred twenty experimental
+00:02:02.466 --> 00:02:05.453
+0 retracted or review papers,
 
 31
-00:01:56.068 --> 00:02:01.018
-findings, one hundred twenty-six printed-in-text statistics with panel
+00:02:05.473 --> 00:02:10.612
+and 0 errors or warnings under strict validation.
 
 32
-00:02:01.038 --> 00:02:05.453
-locations, zero retracted or review papers,
-
-33
-00:02:05.473 --> 00:02:10.612
-and zero errors or warnings under strict validation.
-
-34
 00:02:10.633 --> 00:02:14.050
 Honest boundaries matter just as much as support:
 
-35
+33
 00:02:14.070 --> 00:02:17.707
-we report twenty-nine contradicting findings directly in the
+we report 29 contradicting findings directly in the
 
-36
+34
 00:02:17.727 --> 00:02:23.105
 sheets. Neuronal NHE6 ablation rescues ApoER2 trafficking in
 
-37
+35
 00:02:23.125 --> 00:02:28.457
 vivo, whereas APOE4 astrocytes lose NHE6 and require
 
+36
+00:02:28.477 --> 00:02:33.914
+NHE6 activation; H2 rests purely on Tier 2 models,
+
+37
+00:02:33.934 --> 00:02:38.628
+and 4 gated or paywalled papers remain abstract-only rather
+
 38
-00:02:28.477 --> 00:02:33.124
-NHE6 activation; H2 rests purely on Tier two
+00:02:38.648 --> 00:02:40.884
+than bypassed.
 
 39
-00:02:33.144 --> 00:02:36.967
-models, and four gated or paywalled papers remain
+00:02:40.900 --> 00:02:44.595
+28 unique papers across 30 entries.
 
 40
-00:02:36.987 --> 00:02:40.884
-abstract-only rather than bypassed.
+00:02:44.615 --> 00:02:50.370
+120 verified findings. 29 contradicting lines.
 
 41
-00:02:40.900 --> 00:02:44.595
-Twenty-eight unique papers across thirty entries.
+00:02:50.501 --> 00:02:54.104
+Open the live 3D workbench and inspect every
 
 42
-00:02:44.615 --> 00:02:47.440
-One hundred twenty verified findings.
-
-43
-00:02:47.460 --> 00:02:52.780
-Twenty-nine contradicting lines. Open the live three-D workbench
-
-44
-00:02:52.800 --> 00:02:56.244
-and inspect every workbook on GitHub.
+00:02:54.124 --> 00:02:56.244
+workbook on GitHub.

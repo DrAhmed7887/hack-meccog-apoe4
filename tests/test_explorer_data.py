@@ -71,6 +71,28 @@ class TestExplorerData(unittest.TestCase):
         self.assertLessEqual(g["1b68_Arg112_Glu109"]["distance_A"], 3.2)
         self.assertGreater(g["1b68_Arg61_Glu109"]["distance_A"], g["1nfn_Arg61_Glu109"]["distance_A"])
 
+    def test_video_captions_use_scientific_notation(self):
+        tl_path = ROOT / "video" / "remotion" / "src" / "timeline.json"
+        tl = json.loads(tl_path.read_text(encoding="utf-8"))
+        phonetic = (
+            "one-b-six-eight", "one-n-f-n", "one hundred", "two point five", "three point five",
+            "five point three", "molstar", "three-d", "twenty-eight", "twenty-nine", "tier two", "step one",
+        )
+        texts = [c["text"] for key in ("scenes", "teaserScenes") for s in tl[key] for c in s["captions"]]
+        vtt = ROOT / "docs" / "media" / "captions.vtt"
+        if vtt.exists():
+            texts.append(vtt.read_text(encoding="utf-8"))
+        for text in texts:
+            for token in phonetic:
+                self.assertNotIn(token, text.lower(), f"phonetic token {token!r} in caption: {text!r}")
+
+        self.assertEqual([s["id"] for s in tl["teaserScenes"]], ["s1", "s3", "s7"])
+        cursor = 0
+        for s in tl["teaserScenes"]:
+            self.assertEqual(s["from"], cursor)
+            cursor += s["durationInFrames"]
+        self.assertEqual(cursor, tl["teaserTotalFrames"])
+
 
 if __name__ == "__main__":
     unittest.main()
