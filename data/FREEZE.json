@@ -1,5 +1,11 @@
 {
   "files": {
+    "H2/dry_run_H2.xlsx": "e74e1a4a1608b569150951e5663f483ae2e3d32e6c0de379f2b98673a9209504",
+    "H2/extracted.json": "7e43cb8cb9c88266b0ec3e99715109c97388bd35827e71d19089e33acadf6842",
+    "H2/fulltext_report.json": "1808038f4cc52dbc8e66350af199d62da7bffac406e3ad85edf2045508393b4d",
+    "H2/id_verification.json": "9d11bd821c2f91fc3f3952b319113b3024f9cbb74802e268369fdf5ac968c6df",
+    "H2/validator_output.txt": "4b0d1f16938cd6efd7bbf6c549ea4c561ace2d93a246572e323e896d076661fd",
+    "H2/verify_sample.md": "ecd815fd397ed39cf10f624df187971069910e8658e5f9087c54cc1a11185a4e",
     "dd/ft_H5.json": "8bc4868214162077c0ab8eca6a32d6f2857f653abd1818b460c2bf80361fa0e3",
     "dd/pool_H5.json": "0d0b5c62e74f218f2b5a772de8792a6c16520bbb55401bfdc693d8253eab5d7f",
     "dd/report.json": "3d357592bfde8fc88deb5839567195b9d61eaecee81f68bcd7f735b53a94f9fc",

@@ -35,4 +35,8 @@ jobs:
             (cd /tmp && python3 -I "$GITHUB_WORKSPACE/official/resources/validate_submission.py" "$f" --strict)
           done
       - name: PR bundle offline audit and hygiene gate
-        run: python3 scripts/pr_review_bundle.py --data data
+        run: |
+          python3 scripts/pr_review_bundle.py --data data
+          if [ -f data/H2/extracted.json ]; then
+            python3 scripts/pr_review_bundle.py --data data/H2
+          fi
