@@ -12,7 +12,7 @@
 
 **Collaborative human-AI workflow** (`Who did the work: collab` in the workbook `Method` sheet) — physician-engineer **Dr Ahmed Zayed** worked with multi-agent AI extraction and review pipelines, backed by deterministic Python quote, panel-location, stat-provenance, identifier, and schema guards:
 - **Human (`Dr Ahmed Zayed`):** Signed `H5` hypothesis selection, tiered `C1` policy (`official/rules.html:469`), `Strict C3` scope, exogenous-ApoE & Tier 2 caveats, visual verification of OA figures (`PMC8758949`, `PMC13260029`, `PMC12041514`), and 100% physician `A3` audit (`docs/PHYSICIAN_AUDIT_H5.md`).
-- **AI agents & scripts:** Multi-agent extraction and independent adversarial verification (`qwen3.8-27b`, `gemini-4-hydrogen-high`, `gemini-3.8-flash-high`, `gemini-4-neon-high`, plus adversarial review using `claude-opus-4-6`).
+- **AI agents & scripts:** Multi-agent extraction and independent adversarial verification (`qwen3.8-27b`, `gemini-4-hydrogen-high`, `gemini-3.8-flash-high`, `gemini-4-neon-high`, plus adversarial review using `claude-opus-5-5`).
 
 ## 2. Model and version
 
@@ -20,7 +20,7 @@
 
 ## 3. How papers were found
 
-PubMed queries (`queries.json`, `search.py`) plus Europe PMC reference/citation snowballing (`snowball.py`, `pool_H5.json`) screened primary research records against `C1` (Tier 1 human non-AD/non-aged cells ordered first; Tier 2 `APOE-TR`/rescue/exogenous models second with system caveats), `C2` (APOE4 vs APOE3 or rescue comparator), `C3` (measured endolysosomal, lysosomal, or selective autophagic dysfunction readout), `C4` (open-access full text where un-gated; 2 paywalled/Turnstile-gated papers retained strictly as honest `Abstract`-only `full_text_unavailable`), and `C5` (contrary/null findings preserved). Reviews (`is_review_record` + Europe PMC `pubTypeList`) and retractions (`doi-check`) were purged (`0` reviews, `0` retractions), and non-endolysosomal candidates (`33658354`, `39995873`, `41808104`, `33406436`, `41409143`) were excluded. The frozen pool retains **19 primary records** (`18` peer-reviewed + `1` BioRxiv/PubMed preprint `42182449`; `10` Tier 1 + `9` Tier 2, well within the 50-paper cap).
+PubMed queries (`queries.json`, `search.py`) plus Europe PMC reference/citation snowballing (`snowball.py`, `pool_H5.json`) screened primary research records against `C1` (Tier 1 human non-AD/non-aged cells ordered first; Tier 2 `APOE-TR`/rescue/exogenous models second with system caveats), `C2` (APOE4 vs APOE3 or rescue comparator), `C3` (measured endolysosomal, lysosomal, or selective autophagic dysfunction readout), `C4` (open-access full text where un-gated; 2 paywalled/Turnstile-gated papers retained strictly as honest `Abstract`-only `full_text_unavailable`), and `C5` (contrary/null findings preserved). Reviews (`is_review_record` + Europe PMC `pubTypeList`) and retractions (`doi-check`) were purged (`0` reviews, `0` retractions), and non-endolysosomal candidates (`33658354`, `39995873`, `41808104`, `33406436`, `41409143`) were excluded. The frozen pool retains **19 primary records** (`18` peer-reviewed + `1` `PubMed preprint` `42182449`; `10` Tier 1 + `9` Tier 2, well within the 50-paper cap).
 
 ## 4. How full text was obtained
 
