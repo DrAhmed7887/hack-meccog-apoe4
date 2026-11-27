@@ -37,6 +37,4 @@ jobs:
       - name: PR bundle offline audit and hygiene gate
         run: |
           python3 scripts/pr_review_bundle.py --data data
-          if [ -f data/H2/extracted.json ]; then
-            python3 scripts/pr_review_bundle.py --data data/H2
-          fi
+          python3 scripts/pr_review_bundle.py --data data/H2

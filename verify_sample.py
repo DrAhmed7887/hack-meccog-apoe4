@@ -35,11 +35,16 @@ def sentence_around(text, quote):
     return t[a:b].strip()
 
 
-def check_field(kind, field, blocks):
-    """-> (found: bool, sentence: str, location: str)."""
+def check_field(kind, field, blocks, finding_quote=None):
+    """-> (found: bool, sentence: str, location: str). Prefers the block containing finding_quote."""
     v, q = field["value"], field["quote"]
     prov = field.get("provenance", "printed_in_text")
-    for b in blocks:
+    ordered = list(blocks)
+    if finding_quote:
+        pref = [b for b in blocks if extract.quote_in_text(finding_quote, b["text"])]
+        rest = [b for b in blocks if not extract.quote_in_text(finding_quote, b["text"])]
+        ordered = pref + rest
+    for b in ordered:
         if extract.quote_in_text(q, b["text"]):
             digits_ok = extract.verify_stat(kind, v, q, b["text"], provenance=prov) is not None
             return digits_ok, sentence_around(b["text"], q), b["loc"]
@@ -70,7 +75,7 @@ def main():
         for k in FIELDS:
             if not f[k]["value"] or f[k]["value"] == "qualitative":
                 continue
-            found, sent, loc = check_field(k, f[k], blocks)
+            found, sent, loc = check_field(k, f[k], blocks, finding_quote=f.get("quote"))
             tot += 1
             ok += found
             sent = sent.replace("|", "\\|")
@@ -78,7 +83,7 @@ def main():
     ok_f = 0
     for p, j, f in pick:
         blocks = source_blocks(p, a.cache)
-        ok_f += all(check_field(k, f[k], blocks)[0] for k in FIELDS if f[k]["value"] and f[k]["value"] != "qualitative")
+        ok_f += all(check_field(k, f[k], blocks, finding_quote=f.get("quote"))[0] for k in FIELDS if f[k]["value"] and f[k]["value"] != "qualitative")
     lines += ["", f"Findings with every number found verbatim: {ok_f}/{len(pick)}. Number fields found verbatim: {ok}/{tot}."]
     os.makedirs(os.path.dirname(a.out) or ".", exist_ok=True)
     with open(a.out, "w", encoding="utf-8") as fh:

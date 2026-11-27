@@ -1215,7 +1215,7 @@
           "quote": "When lysosomal degradation of Aβ42 was calculated by subtracting the cell-associated Aβ in the absence of inhibitors from that in the presence of inhibitors, apoE3 enhanced Aβ42 lysosomal degradation by 1.75-fold when compared with apoE4 (Fig. 5B).",
           "summary": "(APOE3 vs APOE4 in N2a cells) -> (1.75x higher lysosomal Abeta42 degradation)",
           "direction": "supports",
-          "experimental_system": "Mouse N2a neuroblastoma cell line treated with exogenous recombinant human ApoE3 or ApoE4 (500 nM); measures endolysosomal trafficking and lysosomal degradation of Abeta42 and ApoE and cell-surface HSPG binding rather than receptor recycling or ARF6",
+          "experimental_system": "Mouse N2a neuroblastoma cell line treated with exogenous recombinant human ApoE3 or ApoE4 (500 nM); measures endolysosomal trafficking and lysosomal degradation of Abeta42 and ApoE and cell-surface HSPG binding rather than receptor recycling or ARF6 (C3 note: endocytic Aβ clearance proxy; direct Rab11 effect tested for Aβ without ApoE isoform comparison)",
           "relevance": 0.7,
           "directness_class": 3,
           "directness_strength": 1,

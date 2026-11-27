@@ -28,7 +28,7 @@ PubMed queries (`queries.json`, `search.py`) plus Europe PMC citation/reference 
 
 ## 5. What a human checked
 
-**100% of papers and findings (`19/67` H5 + `11/53` H2)** were physician-audited (`0` unresolved `[PHYSICIAN REVIEW REQUIRED]` markers):
+**100% of papers and findings (19 papers / 67 findings in `H5`; 11 papers / 53 findings in `H2`)** were physician-audited (`0` unresolved `[PHYSICIAN REVIEW REQUIRED]` markers):
 - Enforced `Strict C3`, Tier 2 caveats (`39532095` clamped), non-AD/non-aged `C1` rules (`38480892` iMG-only; excluded `43026723` 87yo LOAD), and preserved all contrary evidence (**14** H5 across 12 papers; **15** H2 across 8 papers, plus NHE6 astrocyte-vs-neuron directionality).
 - Visually verified `PMC10894586` (`38217595`) Fig 4 (`Panel A,B`) and Fig 10 (`Panel A`) directly on OA graphics (`58/63` H5 full-text and `50/50` H2 full-text findings carry panel/table `Data location`).
 

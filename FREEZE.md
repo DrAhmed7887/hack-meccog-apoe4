@@ -10,6 +10,7 @@ All 17 frozen files across `data/` and `data/H2/` are SHA-256-pinned in `data/FR
 ```sh
 make test      # 68 offline unit tests
 make verify    # SHA-256, schema, report, ID, and CLAIMS.md checks on data/ and data/H2/
+make validate  # official organizer validator --strict
 ```
 
 ## Frozen manifest (`data/FREEZE.json`, 17 files)
