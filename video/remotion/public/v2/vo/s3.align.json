@@ -1,0 +1,243 @@
+{
+  "id": "s3",
+  "caption": "Here is why that rigor matters. In crystal structure 1B68, APOE4's Arg112 forms a 2.53 \u00c5 salt bridge with Glu109 \u2014 missing at Cys112 in APOE3 1NFN \u2014 with Arg61 displaced relative to Glu109.",
+  "say": "Here is why that rigor matters. In crystal structure one-B-six-eight, A-P-O-E-four's arginine one hundred twelve forms a two point five three Angstrom salt bridge with glutamate one hundred nine, missing at cysteine one hundred twelve in one-N-F-N, with arginine sixty-one displaced relative to glutamate one hundred nine.",
+  "duration": 20.759,
+  "words": [
+    {
+      "w": "Here",
+      "start": 0.0,
+      "end": 0.279
+    },
+    {
+      "w": "is",
+      "start": 0.325,
+      "end": 0.406
+    },
+    {
+      "w": "why",
+      "start": 0.453,
+      "end": 0.615
+    },
+    {
+      "w": "that",
+      "start": 0.685,
+      "end": 0.813
+    },
+    {
+      "w": "rigor",
+      "start": 0.882,
+      "end": 1.126
+    },
+    {
+      "w": "matters.",
+      "start": 1.196,
+      "end": 1.8
+    },
+    {
+      "w": "In",
+      "start": 2.403,
+      "end": 2.554
+    },
+    {
+      "w": "crystal",
+      "start": 2.624,
+      "end": 2.937
+    },
+    {
+      "w": "structure",
+      "start": 2.995,
+      "end": 3.46
+    },
+    {
+      "w": "one-B-six-eight,",
+      "start": 3.541,
+      "end": 4.83
+    },
+    {
+      "w": "A-P-O-E-four's",
+      "start": 5.108,
+      "end": 6.246
+    },
+    {
+      "w": "arginine",
+      "start": 6.316,
+      "end": 6.885
+    },
+    {
+      "w": "one",
+      "start": 6.943,
+      "end": 7.094
+    },
+    {
+      "w": "hundred",
+      "start": 7.129,
+      "end": 7.372
+    },
+    {
+      "w": "twelve",
+      "start": 7.407,
+      "end": 7.883
+    },
+    {
+      "w": "forms",
+      "start": 8.034,
+      "end": 8.336
+    },
+    {
+      "w": "a",
+      "start": 8.371,
+      "end": 8.406
+    },
+    {
+      "w": "two",
+      "start": 8.452,
+      "end": 8.603
+    },
+    {
+      "w": "point",
+      "start": 8.673,
+      "end": 8.87
+    },
+    {
+      "w": "five",
+      "start": 8.94,
+      "end": 9.195
+    },
+    {
+      "w": "three",
+      "start": 9.23,
+      "end": 9.497
+    },
+    {
+      "w": "Angstrom",
+      "start": 9.578,
+      "end": 9.996
+    },
+    {
+      "w": "salt",
+      "start": 10.077,
+      "end": 10.321
+    },
+    {
+      "w": "bridge",
+      "start": 10.368,
+      "end": 10.809
+    },
+    {
+      "w": "with",
+      "start": 10.983,
+      "end": 11.169
+    },
+    {
+      "w": "glutamate",
+      "start": 11.215,
+      "end": 11.726
+    },
+    {
+      "w": "one",
+      "start": 11.773,
+      "end": 11.912
+    },
+    {
+      "w": "hundred",
+      "start": 11.947,
+      "end": 12.214
+    },
+    {
+      "w": "nine,",
+      "start": 12.284,
+      "end": 12.725
+    },
+    {
+      "w": "missing",
+      "start": 12.899,
+      "end": 13.201
+    },
+    {
+      "w": "at",
+      "start": 13.247,
+      "end": 13.305
+    },
+    {
+      "w": "cysteine",
+      "start": 13.352,
+      "end": 13.805
+    },
+    {
+      "w": "one",
+      "start": 13.851,
+      "end": 14.002
+    },
+    {
+      "w": "hundred",
+      "start": 14.037,
+      "end": 14.292
+    },
+    {
+      "w": "twelve",
+      "start": 14.315,
+      "end": 14.687
+    },
+    {
+      "w": "in",
+      "start": 14.733,
+      "end": 14.849
+    },
+    {
+      "w": "one-N-F-N,",
+      "start": 14.931,
+      "end": 16.069
+    },
+    {
+      "w": "with",
+      "start": 16.243,
+      "end": 16.405
+    },
+    {
+      "w": "arginine",
+      "start": 16.475,
+      "end": 16.997
+    },
+    {
+      "w": "sixty-one",
+      "start": 17.044,
+      "end": 17.671
+    },
+    {
+      "w": "displaced",
+      "start": 17.706,
+      "end": 18.24
+    },
+    {
+      "w": "relative",
+      "start": 18.309,
+      "end": 18.692
+    },
+    {
+      "w": "to",
+      "start": 18.716,
+      "end": 18.762
+    },
+    {
+      "w": "glutamate",
+      "start": 18.808,
+      "end": 19.296
+    },
+    {
+      "w": "one",
+      "start": 19.343,
+      "end": 19.482
+    },
+    {
+      "w": "hundred",
+      "start": 19.517,
+      "end": 19.784
+    },
+    {
+      "w": "nine.",
+      "start": 19.853,
+      "end": 20.759
+    }
+  ]
+}

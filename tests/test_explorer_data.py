@@ -6,6 +6,8 @@ import unittest
 
 from scripts.build_explorer_data import H2_PATH, H5_PATH, OUT_PATH, ROOT, parse_cif_atoms
 
+V2_DATA = ROOT / "video" / "remotion" / "src" / "v2" / "data.json"
+
 
 class TestExplorerData(unittest.TestCase):
     def test_explorer_counts_match_frozen_step1(self):
@@ -27,6 +29,23 @@ class TestExplorerData(unittest.TestCase):
         self.assertEqual(ex["hypotheses"]["H2"]["n_contradicting"], 15)
         self.assertEqual(ex["hypotheses"]["H2"]["n_printed_stats"], 64)
         self.assertEqual(len(ex["findings"]), 120)
+
+        # the V2 film data must carry exactly the frozen totals (and nothing typed by hand)
+        v2 = json.loads(V2_DATA.read_text(encoding="utf-8"))
+        c = v2["counts"]
+        self.assertEqual(c["H5"]["n_findings"], 67)
+        self.assertEqual(c["H2"]["n_findings"], 53)
+        self.assertEqual((c["H5"]["n_papers"], c["H2"]["n_papers"]), (19, 11))
+        self.assertEqual((c["entries"], c["uniquePapers"], c["structures"]), (30, 28, 14))
+        self.assertEqual((c["findings"], c["supporting"], c["contradicting"]), (120, 91, 29))
+        self.assertEqual(c["supporting"] + c["contradicting"], c["H5"]["n_findings"] + c["H2"]["n_findings"])
+        self.assertEqual(c["printedStats"], 126)
+        self.assertEqual(c["H2"]["n_tier1"], 0)
+        self.assertEqual(sorted(v2["featured"]), sorted(["H5-P4.F1", "H5-P6.F3", "H2-P2.F12", "H2-P3.F6", "H2-P5.F4"]))
+        for fid, feat in v2["featured"].items():  # featured snippets are verbatim from explorer_data.json
+            src = next(f for f in ex["findings"] if f["id"] == fid)
+            self.assertEqual(feat["quote"], src["quote"])
+            self.assertEqual(feat["pmid"], src["pmid"])
 
     def test_explorer_fulltext_routes_and_pmids_valid(self):
         h5 = json.loads(H5_PATH.read_text(encoding="utf-8"))
@@ -71,6 +90,12 @@ class TestExplorerData(unittest.TestCase):
         self.assertLessEqual(g["1b68_Arg112_Glu109"]["distance_A"], 3.2)
         self.assertGreater(g["1b68_Arg61_Glu109"]["distance_A"], g["1nfn_Arg61_Glu109"]["distance_A"])
 
+        v2g = json.loads(V2_DATA.read_text(encoding="utf-8"))["geometry"]
+        self.assertEqual((v2g["arg112"]["distance_A"], v2g["arg112"]["res1"], v2g["arg112"]["res2"]), (2.53, "ARG112.NH1", "GLU109.OE2"))
+        self.assertEqual((v2g["arg61Apoe4"]["distance_A"], v2g["arg61Apoe4"]["res1"], v2g["arg61Apoe4"]["res2"]), (5.34, "ARG61.CG", "GLU109.OE2"))
+        self.assertEqual((v2g["arg61Apoe3"]["distance_A"], v2g["arg61Apoe3"]["res1"], v2g["arg61Apoe3"]["res2"]), (3.53, "ARG61.NH2", "GLU109.CG"))
+        self.assertEqual((v2g["arg112"]["struct"], v2g["arg61Apoe3"]["struct"]), ("1B68", "1NFN"))
+
     def test_video_captions_use_scientific_notation(self):
         tl_path = ROOT / "video" / "remotion" / "src" / "timeline.json"
         tl = json.loads(tl_path.read_text(encoding="utf-8"))
@@ -85,6 +110,30 @@ class TestExplorerData(unittest.TestCase):
         for text in texts:
             for token in phonetic:
                 self.assertNotIn(token, text.lower(), f"phonetic token {token!r} in caption: {text!r}")
+
+        # V2: zero phonetic leftovers in scene words, captions and VTT file
+        phonetic_v2 = (
+            "a-p-o-e", "kep-ree", "h-two", "h-five", "c-five", "apo-e-r", "n-h-e-", "l-r-p", "v-a-t-p", "p-h ",
+            "one-b", "one-n", "three-d", "three-fold", "one hundred", "two point", "sixty-one", "fifty-three",
+            "forty-five", "seventy-four", "ninety-one", "twenty-", "thirty", "zero", "step one", "tier one",
+            "angstrom", "arginine one", "arginine sixty", "glutamate one", "cysteine one",
+        )
+        v2 = json.loads(V2_DATA.read_text(encoding="utf-8"))
+        v2_texts = [w["w"] for sc in v2["scenes"] for w in sc["words"]] + [c["text"] for sc in v2["scenes"] for c in sc["captions"]]
+        for name in ("captions.vtt",):
+            vtt_path = ROOT / "docs" / "media" / name
+            self.assertTrue(vtt_path.exists(), f"docs/media/{name} must exist")
+            v2_texts.append(vtt_path.read_text(encoding="utf-8"))
+        for text in v2_texts:
+            for token in phonetic_v2:
+                self.assertNotIn(token, text.lower(), f"phonetic token {token!r} in V2 caption: {text!r}")
+        joined = " ".join(c["text"] for sc in v2["scenes"] for c in sc["captions"])
+        for exact in ("APOE4", "APOE3", "Khepri", "Step 1", "Rule C5", "1B68", "1NFN", "Arg112", "Glu109", "Cys112", "Arg61",
+                      "2.53 Å", "ApoER2", "NHE6", "pH", "LRP1", "3-fold", "53 of 84", "V-ATPases", "~45%", "0 Tier 1", "3D"):
+            self.assertIn(exact, joined, f"{exact!r} missing from V2 captions")
+        for sc in v2["scenes"]:
+            for c in sc["captions"]:
+                self.assertLessEqual(len(c["text"]), 64, f"V2 caption over 64 chars: {c['text']!r}")
 
     def test_normalize_aligned_words(self):
         from video.build_timeline import normalize_aligned_words
@@ -111,6 +160,40 @@ class TestExplorerData(unittest.TestCase):
         # (e) ordinary words pass through
         plain = mk("the", "protein", "folds")
         self.assertEqual(normalize_aligned_words(plain), plain)
+
+        # --- V2 pipeline: video/v2/build_data.py ---
+        from video.v2.build_data import caption_chunks, normalize_aligned_words as norm2
+
+        def texts(*ws):
+            return [w["w"] for w in norm2(mk(*ws))]
+
+        self.assertEqual(texts("one", "hundred", "twenty-six"), ["126"])
+        self.assertEqual(texts("one", "hundred", "twenty"), ["120"])
+        self.assertEqual(texts("arginine", "one", "hundred", "twelve,"), ["Arg112,"])
+        self.assertEqual(texts("cysteine", "one", "hundred", "twelve"), ["Cys112"])
+        self.assertEqual(texts("two", "point", "five", "three", "Angstrom"), ["2.53 Å"])
+        self.assertEqual(texts("A-P-O-E-four's", "arginine", "sixty-one"), ["APOE4's", "Arg61"])
+        self.assertEqual(texts("Team", "Kep-ree", "built", "Step", "one", "sheets"), ["Team", "Khepri", "built", "Step 1", "sheets"])
+        self.assertEqual(texts("under", "Rule", "C-five,", "zero", "predicted"), ["under", "Rule C5,", "0 predicted"])
+        self.assertEqual(texts("H-two", "holds", "zero", "Tier", "one", "papers,"), ["H2", "holds", "0 Tier 1", "papers,"])
+        self.assertEqual(texts("drops", "about", "forty-five", "percent,"), ["drops", "~45%,"])
+        self.assertEqual(texts("forty-five", "percent"), ["45%"])
+        self.assertEqual(texts("fifty-three", "of", "eighty-four"), ["53 of 84"])
+        self.assertEqual(texts("sets", "p-H."), ["sets", "pH."])
+        self.assertEqual(texts("thirty", "entries;"), ["30 entries;"])
+        self.assertEqual(texts("thirty", "days"), ["thirty", "days"])  # bare 'thirty' is untouched
+        words = mk("two", "point", "five", "three", "Angstrom")
+        merged = norm2(words)[0]
+        self.assertEqual((merged["start"], merged["end"]), (words[0]["start"], words[-1]["end"]))
+        plain2 = mk("the", "protein", "folds")
+        self.assertEqual(norm2(plain2), plain2)
+
+        # caption_chunks: sentence-aware, <= 64 chars, no words lost or reordered
+        sent = mk(*("Meanwhile, H2 holds 0 Tier 1 papers, and 4 paywalled entries stay abstract-only. Short one.".split()))
+        chunks = caption_chunks(sent)
+        self.assertTrue(all(len(c["text"]) <= 64 for c in chunks))
+        self.assertEqual(" ".join(c["text"] for c in chunks), " ".join(w["w"] for w in sent))
+        self.assertEqual(chunks[-1]["text"], "Short one.")
 
 
 if __name__ == "__main__":

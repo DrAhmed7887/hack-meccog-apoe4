@@ -1,169 +1,153 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:01.814
-One amino acid swap,
+00:00:00.200 --> 00:00:05.927
+APOE4 differs from APOE3 by a single amino acid,
 
 2
-00:00:01.834 --> 00:00:05.495
-cysteine to arginine at position 112,
+00:00:05.947 --> 00:00:10.211
+yet papers still disagree on what fails first inside the cell.
 
 3
-00:00:05.515 --> 00:00:08.513
-is a major genetic risk factor for late-onset
+00:00:10.231 --> 00:00:14.170
+Team Khepri built Step 1 sheets that refuse to guess,
 
 4
-00:00:08.533 --> 00:00:13.993
-Alzheimer's disease. Yet in automated APOE4 literature mining,
+00:00:14.190 --> 00:00:16.798
+grounded in primary figures.
 
 5
-00:00:14.013 --> 00:00:17.887
-extraction struggled where science depends on it most:
+00:00:16.967 --> 00:00:20.151
+Our pipeline defines itself by what it rejects:
 
 6
-00:00:17.926 --> 00:00:22.635
-grounding every claim in primary experimental data.
+00:00:20.171 --> 00:00:22.357
+0 estimated P-values,
 
 7
-00:00:22.667 --> 00:00:24.458
-For the MecCog Challenge,
+00:00:22.377 --> 00:00:26.026
+0 review-paper hearsay, and under Rule C5,
 
 8
-00:00:24.478 --> 00:00:28.231
-Team Khepri paired a strict Step 1 extraction pipeline
+00:00:26.046 --> 00:00:29.618
+0 predicted structures inside the Excel sheets.
 
 9
-00:00:28.251 --> 00:00:32.288
-with an interactive Mol* 3D workbench.
+00:00:29.784 --> 00:00:34.448
+Only verbatim quotes, figure panels, and printed statistics.
 
 10
-00:00:32.327 --> 00:00:36.463
-Under Rule C5, our Excel spreadsheets hold only
+00:00:34.633 --> 00:00:36.963
+Here is why that rigor matters.
 
 11
-00:00:36.483 --> 00:00:39.365
-verbatim literature quotes, panel locations,
-
-12
-00:00:39.385 --> 00:00:44.125
-and printed statistics, separated cleanly from 3D structural
-
-13
-00:00:44.145 --> 00:00:45.859
-models.
-
-14
-00:00:45.867 --> 00:00:49.388
+00:00:37.036 --> 00:00:39.721
 In crystal structure 1B68,
 
+12
+00:00:39.741 --> 00:00:47.512
+APOE4's Arg112 forms a 2.53 Å salt bridge with Glu109,
+
+13
+00:00:47.532 --> 00:00:50.856
+missing at Cys112 in 1NFN,
+
+14
+00:00:50.876 --> 00:00:55.922
+with Arg61 displaced relative to Glu109.
+
 15
-00:00:49.408 --> 00:00:56.784
-APOE4's Arg112 forms a 2.53 Å salt bridge with
+00:00:56.100 --> 00:00:59.609
+Two MecCog hypotheses split the cellular bottleneck.
 
 16
-00:00:56.804 --> 00:01:06.211
-Glu109, displacing Arg61 outward from 3.53 to 5.34 Å
+00:00:59.629 --> 00:01:04.996
+H2 proposes that APOE4 impairs ApoER2 recycling in
 
 17
-00:01:06.231 --> 00:01:10.599
-compared to APOE3 structure 1NFN,
+00:01:05.016 --> 00:01:10.093
+early endosomes, where the exchanger NHE6 sets pH.
 
 18
-00:01:10.619 --> 00:01:14.447
-consistent with altered domain interaction.
+00:01:10.113 --> 00:01:14.378
+In H5, APOE4 astrocytes show 3-fold more
 
 19
-00:01:14.467 --> 00:01:18.325
-Across two hypotheses, that structural shift is hypothesized
+00:01:14.398 --> 00:01:17.083
+cholesterol colocalized with lysosomes,
 
 20
-00:01:18.345 --> 00:01:20.914
-to drive two organellar choke points.
+00:01:17.103 --> 00:01:21.657
+and APOE4 microglia downregulate 53 of 84
 
 21
-00:01:20.934 --> 00:01:26.161
-Under H2, impaired NHE6 proton-leak regulation traps ApoER2
+00:01:21.677 --> 00:01:25.790
+lysosomal hydrolases and V-ATPases.
 
 22
-00:01:26.181 --> 00:01:29.846
-and LRP1 receptors in early endosomes.
+00:01:25.810 --> 00:01:29.788
+Every row clicks straight back to its verbatim quote.
 
 23
-00:01:29.920 --> 00:01:35.566
-Under H5, ABCA1 and NPC1 lipid-export defects sequester
+00:01:31.167 --> 00:01:33.527
+Here is what the frozen sheets contain:
 
 24
-00:01:35.586 --> 00:01:40.616
-cholesterol in lysosomes, elevating lysosomal pH and blunting
+00:01:33.547 --> 00:01:36.743
+28 unique papers across 30 entries;
 
 25
-00:01:40.636 --> 00:01:43.093
-beta-amyloid clearance.
+00:01:36.763 --> 00:01:42.118
+120 findings, 91 supporting and 29 contradicting;
 
 26
-00:01:43.100 --> 00:01:47.109
-Every line is reproducible and physician-audited:
+00:01:42.138 --> 00:01:46.391
+126 printed-in-text statistics with figure panels;
 
 27
-00:01:47.129 --> 00:01:52.298
-30 entries covering 28 unique primary papers across H5
+00:01:46.411 --> 00:01:51.480
+0 retracted or review papers, and 0 validator errors.
 
 28
-00:01:52.318 --> 00:01:57.198
-and H2, yielding 120 experimental findings,
+00:01:52.867 --> 00:01:56.678
+Crucially, our sheets preserve cell-type contradictions.
 
 29
-00:01:57.218 --> 00:02:02.427
-126 printed-in-text statistics with panel locations,
+00:01:56.698 --> 00:02:03.958
+In astrocytes, NHE6 drops ~45%, and restoring it rescues LRP1.
 
 30
-00:02:02.466 --> 00:02:05.453
-0 retracted or review papers,
+00:02:03.978 --> 00:02:06.233
+Yet in neurons and knock-in slices,
 
 31
-00:02:05.473 --> 00:02:10.612
-and 0 errors or warnings under strict validation.
+00:02:06.253 --> 00:02:12.112
+inhibiting or deleting NHE6 restores ApoER2 recycling.
 
 32
-00:02:10.633 --> 00:02:14.050
-Honest boundaries matter just as much as support:
+00:02:12.186 --> 00:02:15.625
+Meanwhile, H2 holds 0 Tier 1 papers,
 
 33
-00:02:14.070 --> 00:02:17.707
-we report 29 contradicting findings directly in the
+00:02:15.645 --> 00:02:19.496
+and 4 paywalled entries stay abstract-only.
 
 34
-00:02:17.727 --> 00:02:23.105
-sheets. Neuronal NHE6 ablation rescues ApoER2 trafficking in
+00:02:19.667 --> 00:02:21.551
+28 primary papers.
 
 35
-00:02:23.125 --> 00:02:28.457
-vivo, whereas APOE4 astrocytes lose NHE6 and require
+00:02:21.571 --> 00:02:25.615
+120 findings, each linked to its quote and panel.
 
 36
-00:02:28.477 --> 00:02:33.914
-NHE6 activation; H2 rests purely on Tier 2 models,
+00:02:25.635 --> 00:02:28.691
+29 contradictions kept in plain sight.
 
 37
-00:02:33.934 --> 00:02:38.628
-and 4 gated or paywalled papers remain abstract-only rather
+00:02:28.711 --> 00:02:31.466
+74 automated checks passing.
 
 38
-00:02:38.648 --> 00:02:40.884
-than bypassed.
-
-39
-00:02:40.900 --> 00:02:44.595
-28 unique papers across 30 entries.
-
-40
-00:02:44.615 --> 00:02:50.370
-120 verified findings. 29 contradicting lines.
-
-41
-00:02:50.501 --> 00:02:54.104
-Open the live 3D workbench and inspect every
-
-42
-00:02:54.124 --> 00:02:56.244
-workbook on GitHub.
+00:02:31.486 --> 00:02:35.522
+Open the live 3D workbench, no setup needed.

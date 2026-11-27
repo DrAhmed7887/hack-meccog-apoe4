@@ -1,0 +1,168 @@
+{
+  "id": "s7",
+  "caption": "28 primary papers. 120 findings, each linked to its quote and panel. 29 contradictions kept in plain sight. 74 automated checks passing. Open the live 3D workbench \u2014 no setup needed.",
+  "say": "Twenty-eight primary papers. One hundred twenty findings, each linked to its quote and panel. Twenty-nine contradictions kept in plain sight. Seventy-four automated checks passing. Open the live three-D workbench, no setup needed.",
+  "duration": 15.325,
+  "words": [
+    {
+      "w": "Twenty-eight",
+      "start": 0.0,
+      "end": 0.557
+    },
+    {
+      "w": "primary",
+      "start": 0.604,
+      "end": 0.964
+    },
+    {
+      "w": "papers.",
+      "start": 1.022,
+      "end": 1.579
+    },
+    {
+      "w": "One",
+      "start": 1.904,
+      "end": 2.078
+    },
+    {
+      "w": "hundred",
+      "start": 2.113,
+      "end": 2.368
+    },
+    {
+      "w": "twenty",
+      "start": 2.403,
+      "end": 2.694
+    },
+    {
+      "w": "findings,",
+      "start": 2.763,
+      "end": 3.425
+    },
+    {
+      "w": "each",
+      "start": 3.599,
+      "end": 3.808
+    },
+    {
+      "w": "linked",
+      "start": 3.878,
+      "end": 4.133
+    },
+    {
+      "w": "to",
+      "start": 4.191,
+      "end": 4.272
+    },
+    {
+      "w": "its",
+      "start": 4.354,
+      "end": 4.458
+    },
+    {
+      "w": "quote",
+      "start": 4.516,
+      "end": 4.807
+    },
+    {
+      "w": "and",
+      "start": 4.841,
+      "end": 4.923
+    },
+    {
+      "w": "panel.",
+      "start": 4.992,
+      "end": 5.526
+    },
+    {
+      "w": "Twenty-nine",
+      "start": 5.968,
+      "end": 6.56
+    },
+    {
+      "w": "contradictions",
+      "start": 6.594,
+      "end": 7.303
+    },
+    {
+      "w": "kept",
+      "start": 7.372,
+      "end": 7.616
+    },
+    {
+      "w": "in",
+      "start": 7.663,
+      "end": 7.732
+    },
+    {
+      "w": "plain",
+      "start": 7.79,
+      "end": 8.034
+    },
+    {
+      "w": "sight.",
+      "start": 8.115,
+      "end": 8.603
+    },
+    {
+      "w": "Seventy-four",
+      "start": 9.044,
+      "end": 9.741
+    },
+    {
+      "w": "automated",
+      "start": 9.799,
+      "end": 10.344
+    },
+    {
+      "w": "checks",
+      "start": 10.391,
+      "end": 10.681
+    },
+    {
+      "w": "passing.",
+      "start": 10.728,
+      "end": 11.308
+    },
+    {
+      "w": "Open",
+      "start": 11.819,
+      "end": 12.121
+    },
+    {
+      "w": "the",
+      "start": 12.167,
+      "end": 12.237
+    },
+    {
+      "w": "live",
+      "start": 12.283,
+      "end": 12.55
+    },
+    {
+      "w": "three-D",
+      "start": 12.585,
+      "end": 12.968
+    },
+    {
+      "w": "workbench,",
+      "start": 13.119,
+      "end": 13.839
+    },
+    {
+      "w": "no",
+      "start": 13.99,
+      "end": 14.129
+    },
+    {
+      "w": "setup",
+      "start": 14.199,
+      "end": 14.536
+    },
+    {
+      "w": "needed.",
+      "start": 14.605,
+      "end": 15.325
+    }
+  ]
+}

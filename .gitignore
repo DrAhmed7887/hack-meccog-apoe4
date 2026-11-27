@@ -15,5 +15,11 @@ video/remotion/public/vo/*.mp3
 video/remotion/public/clips/*.mp4
 video/remotion/public/music/*.wav
 video/remotion/public/screens/*.png
+video/remotion/public/v2/vo/*.mp3
+video/remotion/public/v2/music/*
+video/remotion/public/v2/sfx/*
+video/remotion/public/v2/flow/*.mp4
+video/remotion/public/v2/shots/*.png
+video/remotion/public/v2/shots/*.mp4
 *.blend
 *.blend1
