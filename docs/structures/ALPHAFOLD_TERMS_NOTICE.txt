@@ -1,13 +1,14 @@
-AlphaFold Protein Structure Database, RCSB PDB, UniProt, Reactome, dbSNP, ClinVar, and Open Targets Terms & Attribution Notice
-Recorded: 2026-11-26T23:29:00+01:00
-Note: Saved in out/structures/ rather than .licenses/ in repo root to avoid dirtying git tracked state.
+Structural Context Attribution Notice
 
-Databases queried via Antigravity Science Plugins (structural-biology, genomics):
-1. AlphaFold Protein Structure Database (CC-BY 4.0): https://alphafold.ebi.ac.uk/
-   Models fetched: AF-P02649-F1 (APOE), AF-O15118-F1 (NPC1), AF-P13473-F1 (LAMP2), AF-P01130-F1 (LDLR), AF-Q92581-F1 (SLC9A6/NHE6), AF-O95477-F1 (ABCA1).
-2. RCSB Protein Data Bank (CC0 / Usage Policy): https://www.rcsb.org/pages/usage-policy
-   Entries fetched: 2L7B, 1NFN, 1B68, 3GKH, 5XJY, 1N7D, 2MOF, 9R8L.
-3. UniProt Knowledgebase (CC-BY 4.0): https://www.uniprot.org/help/license & https://www.uniprot.org/help/api_queries
-4. Reactome Pathway Database (CC0): https://reactome.org/license & https://reactome.org/cite
-5. NCBI dbSNP & ClinVar: https://www.ncbi.nlm.nih.gov/snp/ & https://www.ncbi.nlm.nih.gov/clinvar/
-6. Open Targets Platform: https://platform-docs.opentargets.org/licence
+All 3D coordinate models under docs/structures/ are provided strictly for visual and structural orientation in the companion Mol* workbench and documentary (Rule C5: excluded from MecCog Step 1 evaluation sheets).
+
+1. AlphaFold Protein Structure Database (CC-BY 4.0)
+   License: https://creativecommons.org/licenses/by/4.0/
+   Source: https://alphafold.ebi.ac.uk/
+   Models: AF-P02649-F1 (APOE_HUMAN), AF-O15118-F1 (NPC1_HUMAN), AF-O95477-F1 (ABCA1_HUMAN),
+           AF-P01130-F1 (LDLR_HUMAN), AF-P13473-F1 (LAMP2_HUMAN), AF-Q92581-F1 (SL9A6_HUMAN).
+   Citation: Jumper J et al., Nature 596, 583-589 (2021); Varadi M et al., Nucleic Acids Res (2024).
+
+2. RCSB Protein Data Bank (CC0 1.0 Universal Public Domain Dedication)
+   Policy: https://www.rcsb.org/pages/usage-policy
+   Entries: 1B68, 1NFN, 2L7B (Model 1), 1N7D, 3GKH, 5XJY, 9R8L, 2MOF (Model 1).

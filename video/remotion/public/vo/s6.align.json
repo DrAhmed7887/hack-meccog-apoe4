@@ -1,248 +1,268 @@
 {
   "id": "s6",
-  "caption": "Honest boundaries matter just as much as support: we report 29 contradicting findings directly in the sheets. NHE6 ablation rescues neuronal ApoER2 trafficking in vivo yet fails in APOE4 astrocytes, H2 rests purely on Tier 2 models, and 4 paywalled or bot-gated papers remain abstract-only rather than bypassed.",
-  "say": "Honest boundaries matter just as much as support: we report twenty-nine contradicting findings directly in the sheets. NHE6 ablation rescues neuronal ApoER2 trafficking in vivo yet fails in APOE4 astrocytes, H2 rests purely on Tier two models, and four paywalled or bot-gated papers remain abstract-only rather than bypassed.",
-  "duration": 26.331,
+  "caption": "Honest boundaries matter just as much as support: we report 29 contradicting findings directly in the sheets. Neuronal NHE6 ablation rescues ApoER2 trafficking in vivo, whereas APOE4 astrocytes lose NHE6 and require NHE6 activation; H2 rests purely on Tier 2 models, and 4 gated or paywalled papers remain abstract-only rather than bypassed.",
+  "say": "Honest boundaries matter just as much as support: we report twenty-nine contradicting findings directly in the sheets. Neuronal NHE6 ablation rescues ApoER2 trafficking in vivo, whereas APOE4 astrocytes lose NHE6 and require NHE6 activation; H2 rests purely on Tier two models, and four gated or paywalled papers remain abstract-only rather than bypassed.",
+  "duration": 29.721,
   "words": [
     {
       "w": "Honest",
       "start": 0.0,
-      "end": 0.348
+      "end": 0.313
     },
     {
       "w": "boundaries",
-      "start": 0.406,
-      "end": 0.906
+      "start": 0.36,
+      "end": 0.882
     },
     {
       "w": "matter",
-      "start": 0.987,
-      "end": 1.265
+      "start": 1.033,
+      "end": 1.289
     },
     {
       "w": "just",
-      "start": 1.324,
-      "end": 1.533
+      "start": 1.393,
+      "end": 1.649
     },
     {
       "w": "as",
-      "start": 1.579,
-      "end": 1.66
+      "start": 1.695,
+      "end": 1.776
     },
     {
       "w": "much",
-      "start": 1.73,
-      "end": 1.939
+      "start": 1.846,
+      "end": 2.067
     },
     {
       "w": "as",
-      "start": 1.985,
-      "end": 2.055
+      "start": 2.148,
+      "end": 2.287
     },
     {
       "w": "support:",
-      "start": 2.113,
-      "end": 2.763
+      "start": 2.345,
+      "end": 2.972
     },
     {
       "w": "we",
-      "start": 3.332,
-      "end": 3.46
+      "start": 3.437,
+      "end": 3.553
     },
     {
       "w": "report",
-      "start": 3.553,
+      "start": 3.622,
       "end": 3.959
     },
     {
       "w": "twenty-nine",
       "start": 4.017,
-      "end": 4.737
+      "end": 4.725
     },
     {
       "w": "contradicting",
       "start": 4.795,
-      "end": 5.41
+      "end": 5.422
     },
     {
       "w": "findings",
-      "start": 5.48,
-      "end": 5.991
+      "start": 5.515,
+      "end": 6.037
     },
     {
       "w": "directly",
-      "start": 6.049,
-      "end": 6.49
+      "start": 6.327,
+      "end": 6.78
     },
     {
       "w": "in",
-      "start": 6.56,
-      "end": 6.629
+      "start": 6.861,
+      "end": 6.954
     },
     {
       "w": "the",
-      "start": 6.676,
-      "end": 6.745
+      "start": 6.978,
+      "end": 7.047
     },
     {
       "w": "sheets.",
-      "start": 6.792,
-      "end": 7.442
+      "start": 7.094,
+      "end": 7.663
+    },
+    {
+      "w": "Neuronal",
+      "start": 8.057,
+      "end": 8.557
     },
     {
       "w": "NHE6",
-      "start": 8.208,
-      "end": 9.067
+      "start": 8.638,
+      "end": 9.311
     },
     {
       "w": "ablation",
-      "start": 9.137,
-      "end": 9.625
+      "start": 9.381,
+      "end": 9.868
     },
     {
       "w": "rescues",
-      "start": 9.706,
-      "end": 10.159
-    },
-    {
-      "w": "neuronal",
-      "start": 10.228,
-      "end": 10.728
+      "start": 10.495,
+      "end": 10.96
     },
     {
       "w": "ApoER2",
-      "start": 10.82,
+      "start": 11.041,
       "end": 11.773
     },
     {
       "w": "trafficking",
       "start": 11.831,
-      "end": 12.307
+      "end": 12.283
     },
     {
       "w": "in",
-      "start": 12.365,
-      "end": 12.434
+      "start": 12.341,
+      "end": 12.423
     },
     {
-      "w": "vivo",
-      "start": 12.504,
-      "end": 12.91
+      "w": "vivo,",
+      "start": 12.492,
+      "end": 13.061
     },
     {
-      "w": "yet",
-      "start": 13.212,
-      "end": 13.398
-    },
-    {
-      "w": "fails",
-      "start": 13.467,
-      "end": 13.839
-    },
-    {
-      "w": "in",
-      "start": 13.897,
-      "end": 13.99
+      "w": "whereas",
+      "start": 13.351,
+      "end": 13.711
     },
     {
       "w": "APOE4",
-      "start": 14.071,
-      "end": 15.07
+      "start": 13.792,
+      "end": 14.559
     },
     {
-      "w": "astrocytes,",
-      "start": 15.151,
-      "end": 16.033
+      "w": "astrocytes",
+      "start": 14.628,
+      "end": 15.348
     },
     {
-      "w": "H2",
-      "start": 16.393,
-      "end": 16.892
+      "w": "lose",
+      "start": 15.685,
+      "end": 15.975
     },
     {
-      "w": "rests",
-      "start": 16.997,
-      "end": 17.322
-    },
-    {
-      "w": "purely",
-      "start": 17.403,
-      "end": 17.752
-    },
-    {
-      "w": "on",
-      "start": 17.821,
-      "end": 17.984
-    },
-    {
-      "w": "Tier",
-      "start": 18.077,
-      "end": 18.32
-    },
-    {
-      "w": "two",
-      "start": 18.39,
-      "end": 18.564
-    },
-    {
-      "w": "models,",
-      "start": 18.634,
-      "end": 19.203
+      "w": "NHE6",
+      "start": 16.033,
+      "end": 16.718
     },
     {
       "w": "and",
-      "start": 19.435,
-      "end": 19.598
+      "start": 17.136,
+      "end": 17.287
+    },
+    {
+      "w": "require",
+      "start": 17.345,
+      "end": 17.775
+    },
+    {
+      "w": "NHE6",
+      "start": 17.844,
+      "end": 18.518
+    },
+    {
+      "w": "activation;",
+      "start": 18.599,
+      "end": 19.435
+    },
+    {
+      "w": "H2",
+      "start": 19.853,
+      "end": 20.445
+    },
+    {
+      "w": "rests",
+      "start": 20.561,
+      "end": 20.921
+    },
+    {
+      "w": "purely",
+      "start": 20.991,
+      "end": 21.408
+    },
+    {
+      "w": "on",
+      "start": 21.676,
+      "end": 21.838
+    },
+    {
+      "w": "Tier",
+      "start": 21.919,
+      "end": 22.186
+    },
+    {
+      "w": "two",
+      "start": 22.256,
+      "end": 22.453
+    },
+    {
+      "w": "models,",
+      "start": 22.511,
+      "end": 23.104
+    },
+    {
+      "w": "and",
+      "start": 23.301,
+      "end": 23.452
     },
     {
       "w": "four",
-      "start": 19.702,
-      "end": 19.992
+      "start": 23.522,
+      "end": 23.73
     },
     {
-      "w": "paywalled",
-      "start": 20.085,
-      "end": 20.724
+      "w": "gated",
+      "start": 23.8,
+      "end": 24.195
     },
     {
       "w": "or",
-      "start": 21.026,
-      "end": 21.188
+      "start": 24.334,
+      "end": 24.485
     },
     {
-      "w": "bot-gated",
-      "start": 21.258,
-      "end": 21.815
+      "w": "paywalled",
+      "start": 24.555,
+      "end": 25.019
     },
     {
       "w": "papers",
-      "start": 21.873,
-      "end": 22.326
+      "start": 25.077,
+      "end": 25.565
     },
     {
       "w": "remain",
-      "start": 22.686,
-      "end": 23.092
+      "start": 25.925,
+      "end": 26.273
     },
     {
       "w": "abstract-only",
-      "start": 23.185,
-      "end": 24.067
+      "start": 26.354,
+      "end": 27.225
     },
     {
       "w": "rather",
-      "start": 24.369,
-      "end": 24.66
+      "start": 27.643,
+      "end": 27.968
     },
     {
       "w": "than",
-      "start": 24.694,
-      "end": 24.834
+      "start": 28.015,
+      "end": 28.154
     },
     {
       "w": "bypassed.",
-      "start": 24.903,
-      "end": 26.331
+      "start": 28.224,
+      "end": 29.721
     }
   ]
 }

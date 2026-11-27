@@ -78,7 +78,7 @@
   function updateTopMetrics() {
     const d = state.data;
     if (state.hyp === "ALL") {
-      el("metric-papers").textContent = String(d.totals.n_papers_total);
+      el("metric-papers").textContent = `${d.totals.n_papers_total} (${d.totals.n_unique_papers} uniq)`;
       el("metric-findings").textContent = String(d.totals.n_findings_total);
       el("metric-contra").textContent = String(d.totals.n_contradicting_total);
       el("metric-stats").textContent = String(d.totals.n_printed_stats_total);
@@ -258,7 +258,7 @@
           <div class="finding-row ${isContra ? "is-contra" : ""}">
             <div class="finding-head">
               <span class="finding-id">${escapeHtml(f.id)} | ${escapeHtml(f.location || "Abstract only")}</span>
-              <span class="dir-status ${dirClass}">${dirLabel} (${escapeHtml(f.directness_class)}/${escapeHtml(String(f.directness_strength ?? ""))})</span>
+              <span class="dir-status ${dirClass}">${dirLabel} (Class ${escapeHtml(f.directness_class)} | d=${escapeHtml(String(f.directness_strength ?? ""))})</span>
             </div>
             <div class="finding-meta">
               ${pmidUrl ? `<a href="${pmidUrl}" target="_blank" rel="noopener">PMID ${escapeHtml(f.pmid)}</a>` : "PMID N/A"}

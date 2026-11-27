@@ -26,4 +26,4 @@ Criteria summarize `official/rules.html` and `official/official-rules.html` (sna
 - **Documentary film:** *The APOE4 Endosome Bottleneck* (`1080p`, `-16 LUFS`, Blender 3D + Remotion V2 + ElevenLabs VO + captions), embedded directly on the workbench page.
 
 ## Remaining human items before upload
-- Upload staged release `.xlsx` files (`H5 v3` & `H2 v1`) on HF Space by `Wed 13 Jan 2027 13:00 Valencia` (`Sat 16 Jan 2027` deadline).
+- Generate release `.xlsx` files with real team-leader email + final `Commit SHA` in local gitignored `out/release_method.json` and upload staged `.xlsx` files (`H5 v3` & `H2 v1`) on HF Space by `Wed 13 Jan 2027 13:00 Valencia` (`Sat 16 Jan 2027` deadline).

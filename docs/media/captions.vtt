@@ -1,181 +1,177 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:01.780
+00:00:00.000 --> 00:00:01.814
 One amino acid swap,
 
 2
-00:00:01.800 --> 00:00:05.367
+00:00:01.834 --> 00:00:05.495
 cysteine to arginine at position one hundred twelve,
 
 3
-00:00:05.387 --> 00:00:08.722
-is the strongest genetic risk factor for late-onset
+00:00:05.515 --> 00:00:08.513
+is a major genetic risk factor for late-onset
 
 4
-00:00:08.742 --> 00:00:13.250
-Alzheimer's disease. Yet when thirty-eight AI agents tested
+00:00:08.533 --> 00:00:13.993
+Alzheimer's disease. Yet in automated APOE4 literature mining,
 
 5
-00:00:13.270 --> 00:00:18.974
-APOE4 hypotheses, automated extraction struggled where science depends
+00:00:14.013 --> 00:00:17.887
+extraction struggled where science depends on it most:
 
 6
-00:00:18.994 --> 00:00:22.957
-on it most: grounding every claim in primary
+00:00:17.926 --> 00:00:22.635
+grounding every claim in primary experimental data.
 
 7
-00:00:22.977 --> 00:00:25.701
-experimental data.
-
-8
-00:00:25.733 --> 00:00:27.524
+00:00:22.667 --> 00:00:24.458
 For the MecCog Challenge,
 
-9
-00:00:27.544 --> 00:00:30.357
+8
+00:00:24.478 --> 00:00:27.291
 Team Khepri paired a strict Step one extraction
 
-10
-00:00:30.377 --> 00:00:35.354
+9
+00:00:27.311 --> 00:00:32.288
 pipeline with an interactive MolStar three-D workbench.
 
-11
-00:00:35.393 --> 00:00:39.529
+10
+00:00:32.327 --> 00:00:36.463
 Under Rule C5, our Excel spreadsheets hold only
 
-12
-00:00:39.549 --> 00:00:42.431
+11
+00:00:36.483 --> 00:00:39.365
 verbatim literature quotes, panel locations,
 
-13
-00:00:42.451 --> 00:00:47.191
+12
+00:00:39.385 --> 00:00:44.125
 and printed statistics, separated cleanly from three-D structural
 
-14
-00:00:47.211 --> 00:00:48.925
+13
+00:00:44.145 --> 00:00:45.859
 models.
 
-15
-00:00:48.933 --> 00:00:52.326
+14
+00:00:45.867 --> 00:00:49.388
 In crystal structure one-B-six-eight,
 
-16
-00:00:52.346 --> 00:00:56.262
+15
+00:00:49.408 --> 00:00:53.742
 APOE4's arginine one hundred twelve forms a two
 
-17
-00:00:56.282 --> 00:01:00.233
+16
+00:00:53.762 --> 00:00:57.376
 point five three Angstrom salt bridge with glutamate
 
-18
-00:01:00.253 --> 00:01:04.853
+17
+00:00:57.396 --> 00:01:02.217
 one hundred nine, displacing arginine sixty-one outward from
 
-19
-00:01:04.873 --> 00:01:07.442
+18
+00:01:02.237 --> 00:01:04.771
 three point five three to five point three
 
+19
+00:01:04.791 --> 00:01:10.599
+four Angstroms compared to APOE3 structure one-N-F-N,
+
 20
-00:01:07.462 --> 00:01:13.375
-four Angstroms compared to APOE3 structure one-N-F-N and
+00:01:10.619 --> 00:01:14.447
+consistent with altered domain interaction.
 
 21
-00:01:13.395 --> 00:01:17.002
-reprogramming domain interactions.
+00:01:14.467 --> 00:01:18.325
+Across two hypotheses, that structural shift is hypothesized
 
 22
-00:01:17.033 --> 00:01:21.042
-Across two hypotheses, that structural switch cascades through
+00:01:18.345 --> 00:01:20.914
+to drive two organellar choke points.
 
 23
-00:01:21.062 --> 00:01:23.143
-two organellar choke points.
+00:01:20.934 --> 00:01:26.161
+Under H2, impaired NHE6 proton-leak regulation traps ApoER2
 
 24
-00:01:23.163 --> 00:01:28.182
-Under H2, impaired NHE6 proton-leak regulation traps surface
+00:01:26.181 --> 00:01:29.846
+and LRP1 receptors in early endosomes.
 
 25
-00:01:28.202 --> 00:01:33.360
-ApoER2 and LRP1 receptors inside early endosomes.
+00:01:29.920 --> 00:01:35.566
+Under H5, ABCA1 and NPC1 lipid-export defects sequester
 
 26
-00:01:33.380 --> 00:01:39.223
-Under H5, ABCA1 and NPC1 lipid-export bottlenecks sequester
+00:01:35.586 --> 00:01:40.616
+cholesterol in lysosomes, elevating lysosomal pH and blunting
 
 27
-00:01:39.243 --> 00:01:42.509
-unesterified cholesterol in lysosomes,
+00:01:40.636 --> 00:01:43.093
+beta-amyloid clearance.
 
 28
-00:01:42.529 --> 00:01:48.446
-raising lysosomal pH and blunting beta-amyloid clearance.
-
-29
-00:01:48.467 --> 00:01:52.011
+00:01:43.100 --> 00:01:47.109
 Every line is reproducible and physician-audited:
 
+29
+00:01:47.129 --> 00:01:51.416
+thirty entries covering twenty-eight unique primary papers across
+
 30
-00:01:52.031 --> 00:01:55.970
-thirty primary papers across H5 and H2,
+00:01:51.436 --> 00:01:56.048
+H5 and H2, yielding one hundred twenty experimental
 
 31
-00:01:55.990 --> 00:01:59.175
-nineteen in H5 and eleven in H2,
+00:01:56.068 --> 00:02:01.018
+findings, one hundred twenty-six printed-in-text statistics with panel
 
 32
-00:01:59.195 --> 00:02:02.716
-yielding one hundred twenty experimental findings,
+00:02:01.038 --> 00:02:05.453
+locations, zero retracted or review papers,
 
 33
-00:02:02.736 --> 00:02:07.766
-one hundred twenty-six printed-in-text statistics with panel locations,
-
-34
-00:02:07.786 --> 00:02:10.622
-zero retracted or review papers,
-
-35
-00:02:10.642 --> 00:02:15.468
+00:02:05.473 --> 00:02:10.612
 and zero errors or warnings under strict validation.
 
-36
-00:02:15.500 --> 00:02:18.793
+34
+00:02:10.633 --> 00:02:14.050
 Honest boundaries matter just as much as support:
 
-37
-00:02:18.832 --> 00:02:22.272
+35
+00:02:14.070 --> 00:02:17.707
 we report twenty-nine contradicting findings directly in the
 
+36
+00:02:17.727 --> 00:02:23.105
+sheets. Neuronal NHE6 ablation rescues ApoER2 trafficking in
+
+37
+00:02:23.125 --> 00:02:28.457
+vivo, whereas APOE4 astrocytes lose NHE6 and require
+
 38
-00:02:22.292 --> 00:02:27.984
-sheets. NHE6 ablation rescues neuronal ApoER2 trafficking in
+00:02:28.477 --> 00:02:33.124
+NHE6 activation; H2 rests purely on Tier two
 
 39
-00:02:28.004 --> 00:02:31.873
-vivo yet fails in APOE4 astrocytes,
+00:02:33.144 --> 00:02:36.967
+models, and four gated or paywalled papers remain
 
 40
-00:02:31.893 --> 00:02:34.915
-H2 rests purely on Tier two models,
+00:02:36.987 --> 00:02:40.884
+abstract-only rather than bypassed.
 
 41
-00:02:34.935 --> 00:02:39.849
-and four paywalled or bot-gated papers remain abstract-only
+00:02:40.900 --> 00:02:44.595
+Twenty-eight unique papers across thirty entries.
 
 42
-00:02:39.869 --> 00:02:42.361
-rather than bypassed.
+00:02:44.615 --> 00:02:47.440
+One hundred twenty verified findings.
 
 43
-00:02:42.367 --> 00:02:46.202
-Thirty papers. One hundred twenty verified findings.
-
-44
-00:02:46.222 --> 00:02:51.194
+00:02:47.460 --> 00:02:52.780
 Twenty-nine contradicting lines. Open the live three-D workbench
 
-45
-00:02:51.214 --> 00:02:54.832
+44
+00:02:52.800 --> 00:02:56.244
 and inspect every workbook on GitHub.

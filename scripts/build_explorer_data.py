@@ -52,7 +52,7 @@ NODES = [
         "subtitle": "Endosomal pH dysregulation and astrocyte vs in-vivo NHE6 divergence",
         "hypothesis_focus": ["H2", "H5"],
         "default_structure_id": "9r8l",
-        "note": "Key mechanistic divergence captured in H2: NHE6 ablation restores Reelin/ApoER2 recycling in cortical neurons/in vivo (30089905) yet fails to rescue APOE4 trafficking in astrocytes (40504691).",
+        "note": "Key mechanistic divergence captured in H2: NHE6 ablation rescues Reelin/ApoER2 recycling and reduces amyloid pathology in neurons/in vivo (PMIDs 30375977, 34617884), whereas APOE4 astrocytes lose NHE6 and require NHE6 restoration (PMID 29946028).",
     },
     {
         "id": "cholesterol_efflux_abca1_npc1",
@@ -118,7 +118,7 @@ STRUCTURE_CATALOG = [
         "file": "structures/2l7b_model1.cif.gz",
         "source_id": "PDB:2L7B",
         "license": "RCSB PDB CC0",
-        "numbering_note": "Mature numbering in auth_seq_id (1–299); note label_seq_id = auth_seq_id + 8 in PDB CIF.",
+        "numbering_note": "Mature numbering in auth_seq_id (1–299, engineered monomeric APOE3 mutant F257A/W264R/V269A/L279Q/V287E); note label_seq_id = auth_seq_id + 8 in PDB CIF.",
         "node_ids": ["isoform_switch"],
         "residues": [
             {"label": "Cys112", "auth_seq_id": 112, "auth_asym_id": "A", "role": "baseline"},
@@ -156,6 +156,20 @@ STRUCTURE_CATALOG = [
         "residues": [
             {"label": "YWTD beta-propeller core (His562)", "auth_seq_id": 562, "auth_asym_id": "A", "role": "context"},
             {"label": "EGF-A domain (Asp299)", "auth_seq_id": 299, "auth_asym_id": "A", "role": "context"},
+        ],
+    },
+    {
+        "id": "AF-P01130",
+        "label": "LDLR Full-Length (AlphaFold v6)",
+        "category": "AlphaFold DB v6 (CC-BY 4.0)",
+        "file": "structures/AF-P01130-F1-model_v6.cif.gz",
+        "source_id": "AF-P01130-F1",
+        "license": "CC-BY 4.0 (EMBL-EBI)",
+        "numbering_note": "Full pre-pro human LDLR_HUMAN (860 aa, includes 21-aa signal peptide).",
+        "node_ids": ["receptor_uptake_recycling"],
+        "residues": [
+            {"label": "YWTD core (His583)", "auth_seq_id": 583, "auth_asym_id": "A", "role": "context"},
+            {"label": "EGF-A domain (Asp320)", "auth_seq_id": 320, "auth_asym_id": "A", "role": "context"},
         ],
     },
     {
@@ -197,6 +211,20 @@ STRUCTURE_CATALOG = [
         "residues": [
             {"label": "ECD1 tunnel (Trp590)", "auth_seq_id": 590, "auth_asym_id": "A", "role": "partner"},
             {"label": "NBD1 Walker motif (Lys939)", "auth_seq_id": 939, "auth_asym_id": "A", "role": "context"},
+        ],
+    },
+    {
+        "id": "AF-O95477",
+        "label": "ABCA1 Full-Length (AlphaFold v6)",
+        "category": "AlphaFold DB v6 (CC-BY 4.0)",
+        "file": "structures/AF-O95477-F1-model_v6.cif.gz",
+        "source_id": "AF-O95477-F1",
+        "license": "CC-BY 4.0 (EMBL-EBI)",
+        "numbering_note": "Full-length human ABCA1_HUMAN cholesterol/phospholipid transporter (2,261 aa).",
+        "node_ids": ["cholesterol_efflux_abca1_npc1"],
+        "residues": [
+            {"label": "ECD1 Trp590", "auth_seq_id": 590, "auth_asym_id": "A", "role": "partner"},
+            {"label": "NBD1 Lys939", "auth_seq_id": 939, "auth_asym_id": "A", "role": "context"},
         ],
     },
     {
@@ -391,6 +419,7 @@ def build_explorer_data() -> dict:
     findings = []
     papers_summary = []
     stats_by_hyp: dict[str, dict] = {}
+    pmids_by_hyp: dict[str, set[str]] = {}
 
     for hyp_key, data in (("H5", h5), ("H2", h2)):
         n_findings = 0
@@ -398,8 +427,12 @@ def build_explorer_data() -> dict:
         n_printed_stats = 0
         ft_count = 0
         t1_count = 0
+        pmids_by_hyp[hyp_key] = set()
         for p_idx, p in enumerate(data["papers"], 1):
-            is_ft = str(p.get("fulltext", {}).get("status", "")).lower() not in ("", "unavailable", "abstract_only")
+            pmids_by_hyp[hyp_key].add(str(p.get("pmid") or ""))
+            ft_blk = p.get("fulltext") or {}
+            is_ft = str(ft_blk.get("status", "")).lower() == "full_text"
+            ft_route = str(ft_blk.get("route") or "") if is_ft else "abstract_only"
             if is_ft:
                 ft_count += 1
             if str(p.get("tier", "")) == "1":
@@ -414,8 +447,8 @@ def build_explorer_data() -> dict:
                     "year": p.get("year"),
                     "source_type": str(p.get("source_type") or "PubMed published"),
                     "tier": str(p.get("tier") or "2"),
-                    "fulltext_source": str(p.get("fulltext", {}).get("source") or "abstract_only"),
-                    "fulltext_status": str(p.get("fulltext", {}).get("status") or "unavailable"),
+                    "fulltext_source": ft_route or "abstract_only",
+                    "fulltext_status": str(ft_blk.get("status") or "unavailable"),
                     "n_findings": len(p.get("findings", [])),
                 }
             )
@@ -455,9 +488,9 @@ def build_explorer_data() -> dict:
                         "year": p.get("year"),
                         "tier": str(p.get("tier") or "2"),
                         "source_type": str(p.get("source_type") or "PubMed published"),
-                        "fulltext_source": str(p.get("fulltext", {}).get("source") or "abstract_only"),
+                        "fulltext_source": ft_route or "abstract_only",
                         "direction": direction,
-                        "directness_class": str(f.get("directness_class") or "I"),
+                        "directness_class": str(f.get("directness_class") or "1"),
                         "directness_strength": f.get("directness_strength"),
                         "location": str(f.get("location") or ""),
                         "quote": str(f.get("quote") or ""),
@@ -493,6 +526,9 @@ def build_explorer_data() -> dict:
             "contradicts": sum(1 for x in sub if x["direction"] == "contradicts"),
         }
 
+    shared_pmids = sorted(pmids_by_hyp["H5"] & pmids_by_hyp["H2"])
+    unique_pmids = pmids_by_hyp["H5"] | pmids_by_hyp["H2"]
+
     return {
         "rule_c5_notice": (
             "Companion Visual & Structural Workbench: Step 1 workbooks (H5 v3 & H2 v1) contain strictly "
@@ -501,6 +537,8 @@ def build_explorer_data() -> dict:
         ),
         "totals": {
             "n_papers_total": sum(v["n_papers"] for v in stats_by_hyp.values()),
+            "n_unique_papers": len(unique_pmids),
+            "shared_pmids": shared_pmids,
             "n_findings_total": sum(v["n_findings"] for v in stats_by_hyp.values()),
             "n_contradicting_total": sum(v["n_contradicting"] for v in stats_by_hyp.values()),
             "n_printed_stats_total": sum(v["n_printed_stats"] for v in stats_by_hyp.values()),

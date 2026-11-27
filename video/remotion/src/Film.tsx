@@ -168,8 +168,8 @@ const SceneS1: React.FC<{ s: SceneMeta }> = ({ s }) => {
             <div style={{ fontSize: 24, color: "#CBD5E1", marginTop: 6 }}>Single residue risk variant</div>
           </div>
           <div style={{ background: "rgba(18,27,24,0.86)", border: "1px solid rgba(255,255,255,0.18)", borderRadius: 12, padding: "22px 28px", minWidth: 260 }}>
-            <div style={{ fontSize: 48, fontWeight: 800, color: INK_LIGHT, fontFamily: "Inter, sans-serif" }}>38 Agents</div>
-            <div style={{ fontSize: 24, color: "#CBD5E1", marginTop: 6 }}>Prior Step 1 extraction bottleneck</div>
+            <div style={{ fontSize: 48, fontWeight: 800, color: INK_LIGHT, fontFamily: "Inter, sans-serif" }}>Step 1 Audit</div>
+            <div style={{ fontSize: 24, color: "#CBD5E1", marginTop: 6 }}>Grounding claims in primary data</div>
           </div>
         </div>
       </div>
@@ -247,7 +247,7 @@ const SceneS3: React.FC<{ s: SceneMeta }> = ({ s }) => {
             { label: "Arg112–Glu109 (1B68)", metric: "2.53 A", note: "ARG112.NH1 to GLU109.OE2 salt bridge" },
             { label: "Arg61–Glu109 (APOE4)", metric: "5.34 A", note: "Outward sidechain displacement in 1B68" },
             { label: "Arg61–Glu109 (APOE3)", metric: "3.53 A", note: "Compact WT helical packing in 1NFN" },
-            { label: "Arg61–Glu255 (2L7B M1)", metric: "25.87 A", note: "N/C-terminal baseline distance" },
+            { label: "Arg61–Glu255 (2L7B M1)", metric: "25.87 A", note: "N/C-term distance (NMR monomeric APOE3 mutant)" },
           ].map((row, idx) => (
             <div
               key={row.label}
@@ -335,7 +335,7 @@ const SceneS4: React.FC<{ s: SceneMeta }> = ({ s }) => {
 const SceneS5: React.FC<{ s: SceneMeta }> = ({ s }) => {
   const frame = useCurrentFrame();
   const cards = [
-    { val: "30", title: "Primary papers", sub: "19 in H5 (10 Tier 1 iPSC) + 11 in H2" },
+    { val: "28", title: "Unique primary papers", sub: "30 entries: 19 in H5 + 11 in H2 (2 shared)" },
     { val: "120", title: "Experimental findings", sub: "67 in H5 + 53 in H2 (supports + contradicts)" },
     { val: "126", title: "Printed-in-text stats", sub: "62 in H5 + 64 in H2 (zero estimated P-values)" },
     { val: "0", title: "Retracted / Review / Errors", sub: "doi-check clean & --strict validator PASS" },
@@ -384,7 +384,7 @@ const SceneS6: React.FC<{ s: SceneMeta }> = ({ s }) => {
         <div style={{ flex: 0.9, display: "flex", flexDirection: "column", gap: 20 }}>
           {[
             { k: "29 Contradicting Findings", v: "14 in H5 + 15 in H2 explicitly marked CONTRADICTING:, never hidden." },
-            { k: "NHE6 Lineage Divergence", v: "Ablation rescues neuronal ApoER2 in vivo (30089905) yet fails in APOE4 astrocytes (40504691)." },
+            { k: "NHE6 Lineage Divergence", v: "Neuronal NHE6 ablation rescues in vivo (30375977, 34617884), yet APOE4 astrocytes lose NHE6 and require activation (29946028)." },
             { k: "Tier & Full-Text Limits", v: "H2 is 100% Tier 2 non-human/cell models; 4 gated/paywalled papers kept abstract-only." },
           ].map((item) => (
             <div
@@ -414,7 +414,7 @@ const SceneS7: React.FC<{ s: SceneMeta }> = ({ s }) => {
         <SceneHeader tag="Team Khepri · Open Evidence" title={s.title} theme="dark" />
         <div style={{ display: "flex", gap: 24, marginTop: 18 }}>
           {[
-            { k: "30", v: "Verified papers (H5 + H2)" },
+            { k: "28", v: "Unique papers (30 H5+H2 entries)" },
             { k: "120", v: "Step 1 findings (29 contradicting)" },
             { k: "14", v: "Staged PDB & AlphaFold 3D models" },
           ].map((x) => (

@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/molstar@4/build/viewer/molstar.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/molstar@4.18.0/build/viewer/molstar.css" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
@@ -28,7 +28,7 @@
     <section class="intro-header">
       <h1>Explore verified APOE4 endosomal evidence beside real 3D structures</h1>
       <p class="intro-copy">
-        Inspect 120 physician-audited findings across 30 primary papers (H5 lysosomal cholesterol dysfunction and H2 early endocytic recycling), synchronized with experimental PDB and AlphaFold v6 coordinates.
+        Inspect 120 physician-audited findings across 30 paper entries (28 unique primary papers across H5 lysosomal cholesterol dysfunction and H2 early endocytic recycling), synchronized with 14 PDB and AlphaFold v6 structures.
       </p>
       <aside class="rule-c5-banner" role="note" aria-label="Rule C5 Step 1 separation notice">
         <strong>Rule C5 Step 1 separation:</strong>
@@ -66,6 +66,7 @@
       </div>
       <div class="cascade-track" id="cascade-nodes" role="list"></div>
       <p id="active-node-note" class="stage-note"></p>
+      <p class="stage-note">Note: Stage groupings above reflect keyword-based display clustering for visual navigation and are not part of the frozen Step 1 spreadsheet schema.</p>
     </section>
 
     <section id="workbench-section" class="workbench-grid" aria-label="3D structure viewer and Step 1 provenance drawer">
@@ -108,12 +109,14 @@
               <button type="button" class="seg-btn-sm" data-dir="contradicts">Contradicts</button>
             </div>
 
-            <label for="directness-select" class="sr-only">Filter by directness</label>
+            <label for="directness-select" class="sr-only">Filter by directness class</label>
             <select id="directness-select" class="select-control select-sm">
               <option value="ALL">All directness</option>
-              <option value="D">Direct (D)</option>
-              <option value="I">Indirect (I)</option>
-              <option value="P">Peripheral (P)</option>
+              <option value="1">Class 1 (Direct)</option>
+              <option value="2">Class 2 (Indirect input)</option>
+              <option value="3">Class 3 (Indirect output)</option>
+              <option value="4">Class 4 (Indirect both)</option>
+              <option value="5">Class 5 (Other)</option>
             </select>
 
             <label for="tier-select" class="sr-only">Filter by model tier</label>
@@ -160,7 +163,7 @@
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/molstar@4/build/viewer/molstar.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/molstar@4.18.0/build/viewer/molstar.js"></script>
   <script src="./app.js"></script>
 </body>
 </html>

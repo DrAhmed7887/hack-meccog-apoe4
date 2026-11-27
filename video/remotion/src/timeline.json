@@ -2,51 +2,46 @@
   "fps": 30,
   "width": 1920,
   "height": 1080,
-  "totalFrames": 5246,
+  "totalFrames": 5288,
   "scenes": [
     {
       "id": "s1",
       "theme": "dark",
       "title": "One amino acid, stalled endosomes",
-      "caption": "One amino acid swap, cysteine to arginine at position 112, is the strongest genetic risk factor for late-onset Alzheimer's disease. Yet when 38 AI agents tested APOE4 hypotheses, automated extraction struggled where science depends on it most: grounding every claim in primary experimental data.",
+      "caption": "One amino acid swap, cysteine to arginine at position 112, is a major genetic risk factor for late-onset Alzheimer's disease. Yet in automated APOE4 literature mining, extraction struggled where science depends on it most: grounding every claim in primary experimental data.",
       "from": 0,
-      "durationInFrames": 772,
-      "audioSec": 25.171,
+      "durationInFrames": 680,
+      "audioSec": 22.105,
       "captions": [
         {
           "text": "One amino acid swap,",
           "start": 0.0,
-          "end": 1.602
+          "end": 1.474
         },
         {
           "text": "cysteine to arginine at position one hundred twelve,",
-          "start": 1.8,
-          "end": 5.12
+          "start": 1.834,
+          "end": 5.248
         },
         {
-          "text": "is the strongest genetic risk factor for late-onset",
-          "start": 5.387,
-          "end": 8.673
+          "text": "is a major genetic risk factor for late-onset",
+          "start": 5.515,
+          "end": 8.452
         },
         {
-          "text": "Alzheimer's disease. Yet when thirty-eight AI agents tested",
-          "start": 8.742,
-          "end": 13.189
+          "text": "Alzheimer's disease. Yet in automated APOE4 literature mining,",
+          "start": 8.533,
+          "end": 13.711
         },
         {
-          "text": "APOE4 hypotheses, automated extraction struggled where science depends",
-          "start": 13.27,
-          "end": 18.925
+          "text": "extraction struggled where science depends on it most:",
+          "start": 14.013,
+          "end": 17.357
         },
         {
-          "text": "on it most: grounding every claim in primary",
-          "start": 18.994,
-          "end": 22.895
-        },
-        {
-          "text": "experimental data.",
-          "start": 22.977,
-          "end": 25.171
+          "text": "grounding every claim in primary experimental data.",
+          "start": 17.926,
+          "end": 22.105
         }
       ]
     },
@@ -55,7 +50,7 @@
       "theme": "light",
       "title": "Deterministic extraction meets 3D provenance",
       "caption": "For the MecCog Challenge, Team Khepri paired a strict Step 1 extraction pipeline with an interactive Mol* 3D workbench. Under Rule C5, our Excel spreadsheets hold only verbatim literature quotes, panel locations, and printed statistics, separated cleanly from 3D structural models.",
-      "from": 772,
+      "from": 680,
       "durationInFrames": 696,
       "audioSec": 22.662,
       "captions": [
@@ -100,137 +95,132 @@
       "id": "s3",
       "theme": "dark",
       "title": "The Arg112\u2013Glu109 conformational switch",
-      "caption": "In crystal structure 1B68, APOE4's arginine 112 forms a 2.53 Angstrom salt bridge with glutamate 109, displacing arginine 61 outward from 3.53 to 5.34 Angstroms compared to APOE3 structure 1NFN and reprogramming domain interactions.",
-      "from": 1468,
-      "durationInFrames": 843,
-      "audioSec": 27.539,
+      "caption": "In crystal structure 1B68, APOE4's arginine 112 forms a 2.53 Angstrom salt bridge with glutamate 109, displacing arginine 61 outward from 3.53 to 5.34 Angstroms compared to APOE3 structure 1NFN, consistent with altered domain interaction.",
+      "from": 1376,
+      "durationInFrames": 858,
+      "audioSec": 28.05,
       "captions": [
         {
           "text": "In crystal structure one-B-six-eight,",
           "start": 0.0,
-          "end": 3.053
+          "end": 3.274
         },
         {
           "text": "APOE4's arginine one hundred twelve forms a two",
-          "start": 3.413,
-          "end": 7.268
+          "start": 3.541,
+          "end": 7.802
         },
         {
           "text": "point five three Angstrom salt bridge with glutamate",
-          "start": 7.349,
-          "end": 11.122
+          "start": 7.895,
+          "end": 11.482
         },
         {
           "text": "one hundred nine, displacing arginine sixty-one outward from",
-          "start": 11.32,
-          "end": 15.871
+          "start": 11.529,
+          "end": 16.289
         },
         {
           "text": "three point five three to five point three",
-          "start": 15.94,
-          "end": 18.471
+          "start": 16.37,
+          "end": 18.855
         },
         {
-          "text": "four Angstroms compared to APOE3 structure one-N-F-N and",
-          "start": 18.529,
-          "end": 24.381
+          "text": "four Angstroms compared to APOE3 structure one-N-F-N,",
+          "start": 18.924,
+          "end": 24.485
         },
         {
-          "text": "reprogramming domain interactions.",
-          "start": 24.462,
-          "end": 27.539
+          "text": "consistent with altered domain interaction.",
+          "start": 24.752,
+          "end": 28.05
         }
       ]
     },
     {
       "id": "s4",
       "theme": "light",
-      "title": "A two-stage endolysosomal bottleneck",
-      "caption": "Across two hypotheses, that structural switch cascades through two organellar choke points. Under H2, impaired NHE6 proton-leak regulation traps surface ApoER2 and LRP1 receptors inside early endosomes. Under H5, ABCA1 and NPC1 lipid-export bottlenecks sequester unesterified cholesterol in lysosomes, raising lysosomal pH and blunting beta-amyloid clearance.",
-      "from": 2311,
-      "durationInFrames": 943,
-      "audioSec": 30.883,
+      "title": "Hypothesized two-stage endosomal bottleneck",
+      "caption": "Across two hypotheses, that structural shift is hypothesized to drive two organellar choke points. Under H2, impaired NHE6 proton-leak regulation traps ApoER2 and LRP1 receptors in early endosomes. Under H5, ABCA1 and NPC1 lipid-export defects sequester cholesterol in lysosomes, elevating lysosomal pH and blunting beta-amyloid clearance.",
+      "from": 2234,
+      "durationInFrames": 859,
+      "audioSec": 28.096,
       "captions": [
         {
-          "text": "Across two hypotheses, that structural switch cascades through",
+          "text": "Across two hypotheses, that structural shift is hypothesized",
           "start": 0.0,
-          "end": 3.994
+          "end": 3.843
         },
         {
-          "text": "two organellar choke points.",
-          "start": 4.029,
-          "end": 5.759
+          "text": "to drive two organellar choke points.",
+          "start": 3.878,
+          "end": 5.944
         },
         {
-          "text": "Under H2, impaired NHE6 proton-leak regulation traps surface",
-          "start": 6.13,
-          "end": 11.111
+          "text": "Under H2, impaired NHE6 proton-leak regulation traps ApoER2",
+          "start": 6.467,
+          "end": 11.436
         },
         {
-          "text": "ApoER2 and LRP1 receptors inside early endosomes.",
-          "start": 11.169,
-          "end": 15.848
+          "text": "and LRP1 receptors in early endosomes.",
+          "start": 11.714,
+          "end": 14.849
         },
         {
-          "text": "Under H5, ABCA1 and NPC1 lipid-export bottlenecks sequester",
-          "start": 16.347,
-          "end": 21.978
+          "text": "Under H5, ABCA1 and NPC1 lipid-export defects sequester",
+          "start": 15.453,
+          "end": 21.061
         },
         {
-          "text": "unesterified cholesterol in lysosomes,",
-          "start": 22.21,
-          "end": 25.194
+          "text": "cholesterol in lysosomes, elevating lysosomal pH and blunting",
+          "start": 21.119,
+          "end": 26.099
         },
         {
-          "text": "raising lysosomal pH and blunting beta-amyloid clearance.",
-          "start": 25.496,
-          "end": 30.883
+          "text": "beta-amyloid clearance.",
+          "start": 26.169,
+          "end": 28.096
         }
       ]
     },
     {
       "id": "s5",
       "theme": "dark",
-      "title": "Thirty papers, zero validator errors",
-      "caption": "Every line is reproducible and physician-audited: 30 primary papers across H5 and H2, 19 in H5 and 11 in H2, yielding 120 experimental findings, 126 printed-in-text statistics with panel locations, zero retracted or review papers, and zero errors or warnings under strict validation.",
-      "from": 3254,
-      "durationInFrames": 811,
-      "audioSec": 26.471,
+      "title": "Twenty-eight unique papers, zero errors",
+      "caption": "Every line is reproducible and physician-audited: 30 entries covering 28 unique primary papers across H5 and H2, yielding 120 experimental findings, 126 printed-in-text statistics with panel locations, zero retracted or review papers, and zero errors or warnings under strict validation.",
+      "from": 3093,
+      "durationInFrames": 826,
+      "audioSec": 26.982,
       "captions": [
         {
           "text": "Every line is reproducible and physician-audited:",
           "start": 0.0,
-          "end": 3.262
+          "end": 3.541
         },
         {
-          "text": "thirty primary papers across H5 and H2,",
-          "start": 3.564,
-          "end": 7.036
+          "text": "thirty entries covering twenty-eight unique primary papers across",
+          "start": 4.029,
+          "end": 8.278
         },
         {
-          "text": "nineteen in H5 and eleven in H2,",
-          "start": 7.523,
-          "end": 10.426
+          "text": "H5 and H2, yielding one hundred twenty experimental",
+          "start": 8.336,
+          "end": 12.899
         },
         {
-          "text": "yielding one hundred twenty experimental findings,",
-          "start": 10.728,
-          "end": 13.909
+          "text": "findings, one hundred twenty-six printed-in-text statistics with panel",
+          "start": 12.968,
+          "end": 17.891
         },
         {
-          "text": "one hundred twenty-six printed-in-text statistics with panel locations,",
-          "start": 14.269,
-          "end": 19.087
-        },
-        {
-          "text": "zero retracted or review papers,",
-          "start": 19.319,
-          "end": 21.943
+          "text": "locations, zero retracted or review papers,",
+          "start": 17.938,
+          "end": 22.14
         },
         {
           "text": "and zero errors or warnings under strict validation.",
-          "start": 22.175,
-          "end": 26.471
+          "start": 22.373,
+          "end": 26.982
         }
       ]
     },
@@ -238,45 +228,45 @@
       "id": "s6",
       "theme": "light",
       "title": "What contradicts and where models stop",
-      "caption": "Honest boundaries matter just as much as support: we report 29 contradicting findings directly in the sheets. NHE6 ablation rescues neuronal ApoER2 trafficking in vivo yet fails in APOE4 astrocytes, H2 rests purely on Tier 2 models, and 4 paywalled or bot-gated papers remain abstract-only rather than bypassed.",
-      "from": 4065,
-      "durationInFrames": 806,
-      "audioSec": 26.331,
+      "caption": "Honest boundaries matter just as much as support: we report 29 contradicting findings directly in the sheets. Neuronal NHE6 ablation rescues ApoER2 trafficking in vivo, whereas APOE4 astrocytes lose NHE6 and require NHE6 activation; H2 rests purely on Tier 2 models, and 4 gated or paywalled papers remain abstract-only rather than bypassed.",
+      "from": 3919,
+      "durationInFrames": 908,
+      "audioSec": 29.721,
       "captions": [
         {
           "text": "Honest boundaries matter just as much as support:",
           "start": 0.0,
-          "end": 2.763
+          "end": 2.972
         },
         {
           "text": "we report twenty-nine contradicting findings directly in the",
-          "start": 3.332,
-          "end": 6.745
+          "start": 3.437,
+          "end": 7.047
         },
         {
-          "text": "sheets. NHE6 ablation rescues neuronal ApoER2 trafficking in",
-          "start": 6.792,
-          "end": 12.434
+          "text": "sheets. Neuronal NHE6 ablation rescues ApoER2 trafficking in",
+          "start": 7.094,
+          "end": 12.423
         },
         {
-          "text": "vivo yet fails in APOE4 astrocytes,",
-          "start": 12.504,
-          "end": 16.033
+          "text": "vivo, whereas APOE4 astrocytes lose NHE6 and require",
+          "start": 12.492,
+          "end": 17.775
         },
         {
-          "text": "H2 rests purely on Tier two models,",
-          "start": 16.393,
-          "end": 19.203
+          "text": "NHE6 activation; H2 rests purely on Tier two",
+          "start": 17.844,
+          "end": 22.453
         },
         {
-          "text": "and four paywalled or bot-gated papers remain abstract-only",
-          "start": 19.435,
-          "end": 24.067
+          "text": "models, and four gated or paywalled papers remain",
+          "start": 22.511,
+          "end": 26.273
         },
         {
-          "text": "rather than bypassed.",
-          "start": 24.369,
-          "end": 26.331
+          "text": "abstract-only rather than bypassed.",
+          "start": 26.354,
+          "end": 29.721
         }
       ]
     },
@@ -284,25 +274,30 @@
       "id": "s7",
       "theme": "dark",
       "title": "Inspect every quote and structure live",
-      "caption": "30 papers. 120 verified findings. 29 contradicting lines. Open the live 3D workbench and inspect every workbook on GitHub.",
-      "from": 4871,
-      "durationInFrames": 375,
-      "audioSec": 11.935,
+      "caption": "28 unique papers across 30 entries. 120 verified findings. 29 contradicting lines. Open the live 3D workbench and inspect every workbook on GitHub.",
+      "from": 4827,
+      "durationInFrames": 461,
+      "audioSec": 14.814,
       "captions": [
         {
-          "text": "Thirty papers. One hundred twenty verified findings.",
+          "text": "Twenty-eight unique papers across thirty entries.",
           "start": 0.0,
-          "end": 3.553
+          "end": 3.355
+        },
+        {
+          "text": "One hundred twenty verified findings.",
+          "start": 3.715,
+          "end": 6.258
         },
         {
           "text": "Twenty-nine contradicting lines. Open the live three-D workbench",
-          "start": 3.855,
-          "end": 8.545
+          "start": 6.56,
+          "end": 11.703
         },
         {
           "text": "and inspect every workbook on GitHub.",
-          "start": 8.847,
-          "end": 11.935
+          "start": 11.9,
+          "end": 14.814
         }
       ]
     }

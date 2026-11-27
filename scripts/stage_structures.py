@@ -12,14 +12,28 @@ import argparse
 import gzip
 import os
 import shlex
-import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_SRC = ROOT / "out" / "raw_structures"
-NOTICE_SRC = ROOT / "out" / "structures" / "ALPHAFOLD_TERMS_NOTICE.txt"
 DOCS_STRUCT = ROOT / "docs" / "structures"
 MAX_BYTES = 2 * 1024 * 1024
+
+PUBLIC_NOTICE = """Structural Context Attribution Notice
+
+All 3D coordinate models under docs/structures/ are provided strictly for visual and structural orientation in the companion Mol* workbench and documentary (Rule C5: excluded from MecCog Step 1 evaluation sheets).
+
+1. AlphaFold Protein Structure Database (CC-BY 4.0)
+   License: https://creativecommons.org/licenses/by/4.0/
+   Source: https://alphafold.ebi.ac.uk/
+   Models: AF-P02649-F1 (APOE_HUMAN), AF-O15118-F1 (NPC1_HUMAN), AF-O95477-F1 (ABCA1_HUMAN),
+           AF-P01130-F1 (LDLR_HUMAN), AF-P13473-F1 (LAMP2_HUMAN), AF-Q92581-F1 (SL9A6_HUMAN).
+   Citation: Jumper J et al., Nature 596, 583-589 (2021); Varadi M et al., Nucleic Acids Res (2024).
+
+2. RCSB Protein Data Bank (CC0 1.0 Universal Public Domain Dedication)
+   Policy: https://www.rcsb.org/pages/usage-policy
+   Entries: 1B68, 1NFN, 2L7B (Model 1), 1N7D, 3GKH, 5XJY, 9R8L, 2MOF (Model 1).
+"""
 
 PDB_SPECS = [
     ("pdb/pdb_00001b68.cif", "1b68.cif.gz", False),
@@ -124,9 +138,9 @@ def stage_all(src_root: Path = DEFAULT_SRC, dst_dir: Path = DOCS_STRUCT) -> list
         sz = write_deterministic_gz(txt, dst_dir / out_name)
         staged.append((out_name, sz))
 
-    if NOTICE_SRC.exists():
-        shutil.copy2(NOTICE_SRC, dst_dir / "ALPHAFOLD_TERMS_NOTICE.txt")
-        staged.append(("ALPHAFOLD_TERMS_NOTICE.txt", (dst_dir / "ALPHAFOLD_TERMS_NOTICE.txt").stat().st_size))
+    notice_dst = dst_dir / "ALPHAFOLD_TERMS_NOTICE.txt"
+    notice_dst.write_text(PUBLIC_NOTICE, encoding="utf-8")
+    staged.append(("ALPHAFOLD_TERMS_NOTICE.txt", notice_dst.stat().st_size))
 
     return staged
 

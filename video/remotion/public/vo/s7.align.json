@@ -1,113 +1,133 @@
 {
   "id": "s7",
-  "caption": "30 papers. 120 verified findings. 29 contradicting lines. Open the live 3D workbench and inspect every workbook on GitHub.",
-  "say": "Thirty papers. One hundred twenty verified findings. Twenty-nine contradicting lines. Open the live three-D workbench and inspect every workbook on GitHub.",
-  "duration": 11.935,
+  "caption": "28 unique papers across 30 entries. 120 verified findings. 29 contradicting lines. Open the live 3D workbench and inspect every workbook on GitHub.",
+  "say": "Twenty-eight unique papers across thirty entries. One hundred twenty verified findings. Twenty-nine contradicting lines. Open the live three-D workbench and inspect every workbook on GitHub.",
+  "duration": 14.814,
   "words": [
     {
-      "w": "Thirty",
+      "w": "Twenty-eight",
       "start": 0.0,
-      "end": 0.372
+      "end": 0.697
     },
     {
-      "w": "papers.",
-      "start": 0.43,
-      "end": 1.08
+      "w": "unique",
+      "start": 0.801,
+      "end": 1.138
+    },
+    {
+      "w": "papers",
+      "start": 1.173,
+      "end": 1.66
+    },
+    {
+      "w": "across",
+      "start": 1.823,
+      "end": 2.252
+    },
+    {
+      "w": "thirty",
+      "start": 2.31,
+      "end": 2.635
+    },
+    {
+      "w": "entries.",
+      "start": 2.717,
+      "end": 3.355
     },
     {
       "w": "One",
-      "start": 1.382,
-      "end": 1.556
+      "start": 3.715,
+      "end": 3.913
     },
     {
       "w": "hundred",
-      "start": 1.602,
-      "end": 1.869
+      "start": 3.959,
+      "end": 4.203
     },
     {
       "w": "twenty",
-      "start": 1.904,
-      "end": 2.206
+      "start": 4.238,
+      "end": 4.644
     },
     {
       "w": "verified",
-      "start": 2.276,
-      "end": 2.775
+      "start": 4.876,
+      "end": 5.433
     },
     {
       "w": "findings.",
-      "start": 2.833,
-      "end": 3.553
+      "start": 5.503,
+      "end": 6.258
     },
     {
       "w": "Twenty-nine",
-      "start": 3.855,
-      "end": 4.586
+      "start": 6.56,
+      "end": 7.338
     },
     {
       "w": "contradicting",
-      "start": 4.644,
-      "end": 5.271
+      "start": 7.535,
+      "end": 8.266
     },
     {
       "w": "lines.",
-      "start": 5.352,
-      "end": 5.956
+      "start": 8.348,
+      "end": 8.94
     },
     {
       "w": "Open",
-      "start": 6.444,
-      "end": 6.769
+      "start": 9.601,
+      "end": 9.915
     },
     {
       "w": "the",
-      "start": 6.827,
-      "end": 6.896
+      "start": 9.973,
+      "end": 10.043
     },
     {
       "w": "live",
-      "start": 6.954,
-      "end": 7.303
+      "start": 10.101,
+      "end": 10.403
     },
     {
       "w": "three-D",
-      "start": 7.349,
-      "end": 7.767
+      "start": 10.437,
+      "end": 10.855
     },
     {
       "w": "workbench",
-      "start": 7.93,
-      "end": 8.545
+      "start": 11.053,
+      "end": 11.703
     },
     {
       "w": "and",
-      "start": 8.847,
-      "end": 9.137
+      "start": 11.9,
+      "end": 12.214
     },
     {
       "w": "inspect",
-      "start": 9.207,
-      "end": 9.694
+      "start": 12.272,
+      "end": 12.748
     },
     {
       "w": "every",
-      "start": 9.834,
-      "end": 10.17
+      "start": 12.887,
+      "end": 13.166
     },
     {
       "w": "workbook",
-      "start": 10.24,
-      "end": 10.739
+      "start": 13.224,
+      "end": 13.7
     },
     {
       "w": "on",
-      "start": 10.902,
-      "end": 11.076
+      "start": 13.781,
+      "end": 13.944
     },
     {
       "w": "GitHub.",
-      "start": 11.157,
-      "end": 11.935
+      "start": 14.025,
+      "end": 14.814
     }
   ]
 }

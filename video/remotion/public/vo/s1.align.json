@@ -1,238 +1,223 @@
 {
   "id": "s1",
-  "caption": "One amino acid swap, cysteine to arginine at position 112, is the strongest genetic risk factor for late-onset Alzheimer's disease. Yet when 38 AI agents tested APOE4 hypotheses, automated extraction struggled where science depends on it most: grounding every claim in primary experimental data.",
-  "say": "One amino acid swap, cysteine to arginine at position one hundred twelve, is the strongest genetic risk factor for late-onset Alzheimer's disease. Yet when thirty-eight AI agents tested APOE4 hypotheses, automated extraction struggled where science depends on it most: grounding every claim in primary experimental data.",
-  "duration": 25.171,
+  "caption": "One amino acid swap, cysteine to arginine at position 112, is a major genetic risk factor for late-onset Alzheimer's disease. Yet in automated APOE4 literature mining, extraction struggled where science depends on it most: grounding every claim in primary experimental data.",
+  "say": "One amino acid swap, cysteine to arginine at position one hundred twelve, is a major genetic risk factor for late-onset Alzheimer's disease. Yet in automated APOE4 literature mining, extraction struggled where science depends on it most: grounding every claim in primary experimental data.",
+  "duration": 22.105,
   "words": [
     {
       "w": "One",
       "start": 0.0,
-      "end": 0.244
+      "end": 0.221
     },
     {
       "w": "amino",
-      "start": 0.302,
-      "end": 0.697
+      "start": 0.267,
+      "end": 0.627
     },
     {
       "w": "acid",
-      "start": 0.778,
-      "end": 1.08
+      "start": 0.708,
+      "end": 0.987
     },
     {
       "w": "swap,",
-      "start": 1.126,
-      "end": 1.602
+      "start": 1.022,
+      "end": 1.474
     },
     {
       "w": "cysteine",
-      "start": 1.8,
-      "end": 2.357
+      "start": 1.834,
+      "end": 2.392
     },
     {
       "w": "to",
-      "start": 2.403,
-      "end": 2.473
+      "start": 2.438,
+      "end": 2.531
     },
     {
       "w": "arginine",
-      "start": 2.554,
-      "end": 3.286
+      "start": 2.624,
+      "end": 3.355
     },
     {
       "w": "at",
-      "start": 3.355,
-      "end": 3.495
+      "start": 3.46,
+      "end": 3.599
     },
     {
       "w": "position",
-      "start": 3.541,
-      "end": 3.936
+      "start": 3.646,
+      "end": 4.04
     },
     {
       "w": "one",
-      "start": 4.005,
-      "end": 4.168
+      "start": 4.122,
+      "end": 4.272
     },
     {
       "w": "hundred",
-      "start": 4.203,
-      "end": 4.493
+      "start": 4.307,
+      "end": 4.586
     },
     {
       "w": "twelve,",
-      "start": 4.528,
-      "end": 5.12
+      "start": 4.621,
+      "end": 5.248
     },
     {
       "w": "is",
-      "start": 5.387,
-      "end": 5.538
+      "start": 5.515,
+      "end": 5.654
     },
     {
-      "w": "the",
-      "start": 5.596,
-      "end": 5.677
+      "w": "a",
+      "start": 5.7,
+      "end": 5.735
     },
     {
-      "w": "strongest",
-      "start": 5.77,
-      "end": 6.316
+      "w": "major",
+      "start": 5.805,
+      "end": 6.118
     },
     {
       "w": "genetic",
-      "start": 6.362,
-      "end": 6.757
+      "start": 6.165,
+      "end": 6.548
     },
     {
       "w": "risk",
-      "start": 6.827,
-      "end": 7.047
+      "start": 6.606,
+      "end": 6.803
     },
     {
       "w": "factor",
-      "start": 7.117,
-      "end": 7.535
+      "start": 6.861,
+      "end": 7.303
     },
     {
       "w": "for",
-      "start": 7.802,
-      "end": 7.953
+      "start": 7.605,
+      "end": 7.755
     },
     {
       "w": "late-onset",
-      "start": 8.011,
-      "end": 8.673
+      "start": 7.814,
+      "end": 8.452
     },
     {
       "w": "Alzheimer's",
-      "start": 8.742,
-      "end": 9.323
+      "start": 8.533,
+      "end": 9.137
     },
     {
       "w": "disease.",
-      "start": 9.381,
-      "end": 10.112
+      "start": 9.183,
+      "end": 9.938
     },
     {
       "w": "Yet",
-      "start": 10.681,
-      "end": 10.844
-    },
-    {
-      "w": "when",
-      "start": 10.879,
-      "end": 11.053
-    },
-    {
-      "w": "thirty-eight",
-      "start": 11.146,
-      "end": 11.749
-    },
-    {
-      "w": "AI",
-      "start": 11.807,
-      "end": 12.167
-    },
-    {
-      "w": "agents",
-      "start": 12.249,
-      "end": 12.678
-    },
-    {
-      "w": "tested",
-      "start": 12.736,
-      "end": 13.189
-    },
-    {
-      "w": "APOE4",
-      "start": 13.27,
-      "end": 14.176
-    },
-    {
-      "w": "hypotheses,",
-      "start": 14.245,
-      "end": 15.163
-    },
-    {
-      "w": "automated",
-      "start": 15.523,
-      "end": 16.115
-    },
-    {
-      "w": "extraction",
-      "start": 16.173,
-      "end": 16.73
-    },
-    {
-      "w": "struggled",
-      "start": 16.823,
-      "end": 17.346
-    },
-    {
-      "w": "where",
-      "start": 17.613,
-      "end": 17.857
-    },
-    {
-      "w": "science",
-      "start": 17.915,
-      "end": 18.379
-    },
-    {
-      "w": "depends",
-      "start": 18.425,
-      "end": 18.925
-    },
-    {
-      "w": "on",
-      "start": 18.994,
-      "end": 19.099
-    },
-    {
-      "w": "it",
-      "start": 19.145,
-      "end": 19.215
-    },
-    {
-      "w": "most:",
-      "start": 19.285,
-      "end": 19.83
-    },
-    {
-      "w": "grounding",
-      "start": 20.248,
-      "end": 20.759
-    },
-    {
-      "w": "every",
-      "start": 20.922,
-      "end": 21.282
-    },
-    {
-      "w": "claim",
-      "start": 21.363,
-      "end": 21.781
+      "start": 10.507,
+      "end": 10.716
     },
     {
       "w": "in",
-      "start": 22.083,
-      "end": 22.234
+      "start": 10.786,
+      "end": 10.913
+    },
+    {
+      "w": "automated",
+      "start": 10.983,
+      "end": 11.587
+    },
+    {
+      "w": "APOE4",
+      "start": 11.68,
+      "end": 12.643
+    },
+    {
+      "w": "literature",
+      "start": 12.725,
+      "end": 13.154
+    },
+    {
+      "w": "mining,",
+      "start": 13.177,
+      "end": 13.711
+    },
+    {
+      "w": "extraction",
+      "start": 14.013,
+      "end": 14.663
+    },
+    {
+      "w": "struggled",
+      "start": 14.768,
+      "end": 15.325
+    },
+    {
+      "w": "where",
+      "start": 15.383,
+      "end": 15.581
+    },
+    {
+      "w": "science",
+      "start": 15.627,
+      "end": 16.068
+    },
+    {
+      "w": "depends",
+      "start": 16.115,
+      "end": 16.544
+    },
+    {
+      "w": "on",
+      "start": 16.591,
+      "end": 16.672
+    },
+    {
+      "w": "it",
+      "start": 16.707,
+      "end": 16.776
+    },
+    {
+      "w": "most:",
+      "start": 16.846,
+      "end": 17.357
+    },
+    {
+      "w": "grounding",
+      "start": 17.926,
+      "end": 18.437
+    },
+    {
+      "w": "every",
+      "start": 18.553,
+      "end": 18.855
+    },
+    {
+      "w": "claim",
+      "start": 18.924,
+      "end": 19.319
+    },
+    {
+      "w": "in",
+      "start": 19.4,
+      "end": 19.505
     },
     {
       "w": "primary",
-      "start": 22.338,
-      "end": 22.895
+      "start": 19.586,
+      "end": 20.051
     },
     {
       "w": "experimental",
-      "start": 22.977,
-      "end": 23.766
+      "start": 20.12,
+      "end": 20.863
     },
     {
       "w": "data.",
-      "start": 23.836,
-      "end": 25.171
+      "start": 20.921,
+      "end": 22.105
     }
   ]
 }
