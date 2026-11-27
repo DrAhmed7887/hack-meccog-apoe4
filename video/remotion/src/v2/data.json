@@ -1572,7 +1572,7 @@
   "tests": 74,
   "auditedPct": 100,
   "paywalled": 4,
-  "tier1Def": "human non-AD/non-aged iPSC",
+  "tier1Def": "Human iPSC",
   "H5": {
    "n_papers": 19,
    "n_findings": 67,
@@ -1624,7 +1624,9 @@
    "effect": "3x",
    "pValue": "<0.001",
    "year": "2022",
-   "tier": "1"
+   "tier": "1",
+   "cardTitle": "Cholesterol",
+   "cardSub": "3-fold · PMID 35750033"
   },
   "H5-P6.F3": {
    "id": "H5-P6.F3",
@@ -1637,7 +1639,9 @@
    "effect": "qualitative",
    "pValue": "",
    "year": "2026",
-   "tier": "1"
+   "tier": "1",
+   "cardTitle": "53 of 84",
+   "cardSub": "hydrolases down · PMID 42182449"
   },
   "H2-P2.F12": {
    "id": "H2-P2.F12",
@@ -1650,7 +1654,8 @@
    "effect": "45%",
    "pValue": "",
    "year": "2018",
-   "tier": "2"
+   "tier": "2",
+   "badge": "~45% lower NHE6"
   },
   "H2-P3.F6": {
    "id": "H2-P3.F6",
@@ -1663,7 +1668,9 @@
    "effect": "qualitative",
    "pValue": "",
    "year": "2018",
-   "tier": "2"
+   "tier": "2",
+   "badge": "neurons · shRNA",
+   "headline": "NHE6 knockdown restores cell-surface Apoer2"
   },
   "H2-P5.F4": {
    "id": "H2-P5.F4",
@@ -1676,7 +1683,9 @@
    "effect": "qualitative",
    "pValue": "",
    "year": "2021",
-   "tier": "2"
+   "tier": "2",
+   "badge": "knock-in slices · KO",
+   "headline": "Conditional NHE6 knockout restores Reelin-enhanced LTP"
   }
  },
  "urls": {

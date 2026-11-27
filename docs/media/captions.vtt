@@ -1,11 +1,11 @@
 WEBVTT
 
 1
-00:00:00.200 --> 00:00:05.856
+00:00:00.200 --> 00:00:05.927
 APOE4 differs from APOE3 by a single amino acid,
 
 2
-00:00:05.947 --> 00:00:10.070
+00:00:05.947 --> 00:00:10.211
 yet papers still disagree on what fails first inside the cell.
 
 3
@@ -13,11 +13,11 @@ yet papers still disagree on what fails first inside the cell.
 Team Khepri built Step 1 sheets that refuse to guess,
 
 4
-00:00:14.190 --> 00:00:16.268
+00:00:14.190 --> 00:00:16.798
 grounded in primary figures.
 
 5
-00:00:16.967 --> 00:00:20.080
+00:00:16.967 --> 00:00:20.151
 Our pipeline defines itself by what it rejects:
 
 6
@@ -29,23 +29,23 @@ Our pipeline defines itself by what it rejects:
 0 review-paper hearsay, and under Rule C5,
 
 8
-00:00:26.046 --> 00:00:29.438
+00:00:26.046 --> 00:00:29.618
 0 predicted structures inside the Excel sheets.
 
 9
-00:00:29.784 --> 00:00:33.918
+00:00:29.784 --> 00:00:34.448
 Only verbatim quotes, figure panels, and printed statistics.
 
 10
-00:00:34.633 --> 00:00:36.690
+00:00:34.633 --> 00:00:36.761
 Here is why that rigor matters.
 
 11
-00:00:36.781 --> 00:00:39.731
+00:00:36.781 --> 00:00:39.745
 In crystal structure 1B68,
 
 12
-00:00:39.765 --> 00:00:48.323
+00:00:39.765 --> 00:00:48.336
 APOE4's Arg112 forms a 2.53 Å salt bridge with Glu109,
 
 13
@@ -53,11 +53,11 @@ APOE4's Arg112 forms a 2.53 Å salt bridge with Glu109,
 missing at Cys112 in APOE3 1NFN,
 
 14
-00:00:53.453 --> 00:01:02.683
+00:00:53.453 --> 00:01:03.213
 widening the closest Arg61–Glu109 contact from 3.53 to 5.34 Å.
 
 15
-00:01:03.367 --> 00:01:06.805
+00:01:03.367 --> 00:01:06.876
 Two MecCog hypotheses split the cellular bottleneck.
 
 16
@@ -65,7 +65,7 @@ Two MecCog hypotheses split the cellular bottleneck.
 H2 proposes that APOE4 impairs ApoER2 recycling in
 
 17
-00:01:12.283 --> 00:01:17.289
+00:01:12.283 --> 00:01:17.360
 early endosomes, where the exchanger NHE6 sets pH.
 
 18
@@ -81,11 +81,11 @@ cholesterol colocalized with lysosomes,
 and APOE4 microglia downregulate 53 of 84
 
 21
-00:01:28.944 --> 00:01:32.986
+00:01:28.944 --> 00:01:33.057
 lysosomal hydrolases and V-ATPases.
 
 22
-00:01:33.077 --> 00:01:36.525
+00:01:33.077 --> 00:01:37.055
 Every row clicks straight back to its verbatim quote.
 
 23
@@ -97,23 +97,23 @@ Here is what the frozen sheets contain:
 28 unique papers across 30 entries;
 
 25
-00:01:44.029 --> 00:01:49.313
+00:01:44.029 --> 00:01:49.384
 120 findings, 91 supporting and 29 contradicting;
 
 26
-00:01:49.404 --> 00:01:53.644
+00:01:49.404 --> 00:01:53.657
 126 printed-in-text statistics with figure panels;
 
 27
-00:01:53.677 --> 00:01:58.216
+00:01:53.677 --> 00:01:58.746
 0 retracted or review papers, and 0 validator errors.
 
 28
-00:02:00.133 --> 00:02:03.780
+00:02:00.133 --> 00:02:03.851
 Crucially, our sheets preserve cell-type contradictions.
 
 29
-00:02:03.871 --> 00:02:10.944
+00:02:03.871 --> 00:02:11.084
 In astrocytes, NHE6 drops ~45%, and restoring it rescues LRP1.
 
 30
@@ -125,7 +125,7 @@ Yet in neurons, inhibiting NHE6 restores surface ApoER2,
 and in knock-in slices,
 
 32
-00:02:18.442 --> 00:02:23.006
+00:02:18.442 --> 00:02:23.019
 deleting NHE6 restores Reelin-enhanced LTP.
 
 33
@@ -133,7 +133,7 @@ deleting NHE6 restores Reelin-enhanced LTP.
 Meanwhile, H2 holds 0 Tier 1 papers,
 
 34
-00:02:26.232 --> 00:02:29.436
+00:02:26.232 --> 00:02:29.966
 and 4 paywalled entries stay abstract-only.
 
 35
@@ -141,17 +141,17 @@ and 4 paywalled entries stay abstract-only.
 28 primary papers.
 
 36
-00:02:32.037 --> 00:02:36.009
+00:02:32.037 --> 00:02:36.081
 120 findings, each linked to its quote and panel.
 
 37
-00:02:36.101 --> 00:02:39.086
+00:02:36.101 --> 00:02:39.157
 29 contradictions kept in plain sight.
 
 38
-00:02:39.177 --> 00:02:41.791
+00:02:39.177 --> 00:02:41.932
 74 automated checks passing.
 
 39
-00:02:41.952 --> 00:02:45.458
+00:02:41.952 --> 00:02:45.988
 Open the live 3D workbench, no setup needed.

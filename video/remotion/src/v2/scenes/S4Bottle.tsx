@@ -1,11 +1,13 @@
 import React from 'react';
 import {useCurrentFrame} from 'remotion';
-import {C, D, cue, rectOf, scene} from '../theme';
+import {C, D, type ShotName, cue, rectOf, scene} from '../theme';
 import {Broll, Mark, Mono, Shot, Stage, Title, ramp} from '../ui';
 
 const s = scene('s4');
 const FEAT = D.featured['H5-P4.F1'];
 const FEAT_P6 = D.featured['H5-P6.F3'];
+const FOLD = FEAT.effect.replace('x', '-fold');
+const DRAWER = `drawer_h5_${FEAT.pmid}` as ShotName;
 
 const Node: React.FC<{x: number; y: number; w: number; at: number; title: string; sub: string; color: string}> = ({x, y, w, at, title, sub, color}) => {
   const f = useCurrentFrame();
@@ -37,13 +39,13 @@ export const S4Bottle: React.FC = () => {
   const tApoer = cue(s, 'ApoER2');
   const tNhe = cue(s, 'NHE6');
   const tH5 = cue(s, 'H5');
-  const tFold = cue(s, '3-fold');
-  const t53 = cue(s, '53 of 84');
+  const tFold = cue(s, FOLD);
+  const t53 = cue(s, FEAT_P6.cardTitle);
 
   // single 3x zoom: whole drawer pane -> the H5-P4.F1 row, crisp because the capture is 3x
-  const row = rectOf('drawer_h5_35750033', 'row');
-  const quoteHit = rectOf('drawer_h5_35750033', 'text:3-fold, p<0.001');
-  const figHit = rectOf('drawer_h5_35750033', 'text:Fig 6H');
+  const row = rectOf(DRAWER, 'row');
+  const quoteHit = rectOf(DRAWER, `text:${FOLD}, p${FEAT.pValue}`);
+  const figHit = rectOf(DRAWER, 'text:Fig 6H');
   const z = ramp(f, tFold - 24, tFold + 14);
   const full = {x: 0, y: 0, w: 628, h: 777};
   const tight = {x: 8, y: row.y - 10, w: 612, h: row.h + 20};
@@ -68,11 +70,11 @@ export const S4Bottle: React.FC = () => {
         <div style={{position: 'absolute', left: 120, top: 585, opacity: ramp(f, tH5, tH5 + 10), fontSize: 30, fontWeight: 800, color: C.ink}}>H5 · lysosome</div>
         <Node x={120} y={637} w={430} at={tH5} title="APOE4" sub="astrocytes · microglia" color={C.ink} />
         <Arrow x={565} y={685} at={tH5 + 8} />
-        <Node x={690} y={637} w={430} at={tH5 + 14} title="Cholesterol" sub="3-fold · PMID 35750033" color={C.ink} />
+        <Node x={690} y={637} w={430} at={tH5 + 14} title={FEAT.cardTitle} sub={FEAT.cardSub} color={C.ink} />
         <Arrow x={1135} y={685} at={t53 - 8} />
-        <Node x={1260} y={637} w={540} at={t53 - 2} title="53 of 84" sub="hydrolases down · PMID 42182449" color={C.ink} />
+        <Node x={1260} y={637} w={540} at={t53 - 2} title={FEAT_P6.cardTitle} sub={FEAT_P6.cardSub} color={C.ink} />
       </div>
-      <Shot name="drawer_h5_35750033" x={sx} y={sy} zoom={zoom} crop={crop} opacity={ramp(f, tFold - 24, tFold - 8)}>
+      <Shot name={DRAWER} x={sx} y={sy} zoom={zoom} crop={crop} opacity={ramp(f, tFold - 24, tFold - 8)}>
         <Mark r={quoteHit} at={tFold} />
         <Mark r={figHit} at={tFold + 18} color={C.amber} />
       </Shot>

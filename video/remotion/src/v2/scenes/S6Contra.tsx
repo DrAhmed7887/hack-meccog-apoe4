@@ -1,6 +1,6 @@
 import React from 'react';
 import {useCurrentFrame} from 'remotion';
-import {C, D, F, cue, rectOf, scene} from '../theme';
+import {C, D, type ShotName, F, cue, rectOf, scene} from '../theme';
 import {Badge, Mark, Mono, Shot, Stage, Title, ramp} from '../ui';
 
 const s = scene('s6');
@@ -8,6 +8,7 @@ const F12 = D.featured['H2-P2.F12'];
 const F6 = D.featured['H2-P3.F6'];
 const F4 = D.featured['H2-P5.F4'];
 const ZOOM = 1.35;
+const DRAWER = `drawer_h2_${F12.pmid}` as ShotName;
 
 const Card: React.FC<{at: number; x: number; w: number; fid: typeof F6; badge: string; line: string}> = ({at, x, w, fid, badge, line}) => {
   const f = useCurrentFrame();
@@ -24,19 +25,19 @@ const Card: React.FC<{at: number; x: number; w: number; fid: typeof F6; badge: s
 
 export const S6Contra: React.FC = () => {
   const f = useCurrentFrame();
-  const row = rectOf('drawer_h2_29946028', 'row');
-  const hit = rectOf('drawer_h2_29946028', 'text:decreased by');
-  const t45 = cue(s, '~45%');
+  const row = rectOf(DRAWER, 'row');
+  const hit = rectOf(DRAWER, 'text:decreased by');
+  const t45 = cue(s, `~${F12.effect}`);
   const tYet = cue(s, 'Yet');
   const tNeur = cue(s, 'neurons');
   const tKo = cue(s, 'deleting');
   return (
     <Stage theme="light">
       <Title theme="light" text="Cell-type contradictions kept intact" />
-      {/* left: astrocytes, NHE6 ~45% lower */}
-      <Shot name="drawer_h2_29946028" x={100} y={235} zoom={ZOOM} opacity={ramp(f, t45 - 20, t45 - 6)}
+      {/* left: astrocytes, NHE6 lower */}
+      <Shot name={DRAWER} x={100} y={235} zoom={ZOOM} opacity={ramp(f, t45 - 20, t45 - 6)}
         crop={{x: 0, y: row.y - 10, w: 628, h: row.h + 10}}>
-        <Mark r={hit} at={t45} label="~45% lower NHE6" />
+        <Mark r={hit} at={t45} label={F12.badge} />
       </Shot>
       <Mono style={{position: 'absolute', left: 100, top: 235 + (row.h + 10) * ZOOM + 10, fontSize: 21, color: C.ink2, opacity: ramp(f, t45, t45 + 10)}}>
         astrocytes · {F12.id} · PMID {F12.pmid} · {F12.location}
@@ -49,8 +50,8 @@ export const S6Contra: React.FC = () => {
       <div style={{position: 'absolute', left: 972, top: 190, opacity: ramp(f, tYet, tYet + 10)}}>
         <Badge at={tYet} color={C.burnt} style={{fontSize: 22}}>Filter: Contradicts · NHE6</Badge>
       </div>
-      <Card at={tNeur} x={972} w={410} fid={F6} badge="neurons · shRNA" line="NHE6 knockdown restores cell-surface Apoer2" />
-      <Card at={tKo} x={1410} w={410} fid={F4} badge="knock-in slices · KO" line="Conditional NHE6 knockout restores Reelin-enhanced LTP" />
+      <Card at={tNeur} x={972} w={410} fid={F6} badge={F6.badge} line={F6.headline} />
+      <Card at={tKo} x={1410} w={410} fid={F4} badge={F4.badge} line={F4.headline} />
       {/* honest boundaries */}
       <div style={{position: 'absolute', left: 100, top: 722, display: 'flex', flexDirection: 'column', gap: 10}}>
         <Badge at={cue(s, '0 Tier 1')} color={C.ink} style={{fontSize: 28, padding: '6px 16px'}}>{`H2: ${D.counts.H2.n_tier1} Tier 1 papers`}<div style={{fontFamily: F.mono, fontSize: 18, fontWeight: 600, color: '#A9B7B2'}}>{`Tier 1 = ${D.counts.tier1Def} · H2 uses Tier 2 models`}</div></Badge>

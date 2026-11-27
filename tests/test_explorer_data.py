@@ -42,7 +42,12 @@ class TestExplorerData(unittest.TestCase):
         self.assertEqual(c["printedStats"], 126)
         self.assertEqual(c["H2"]["n_tier1"], 0)
         self.assertEqual((c["H5"]["n_unavailable"], c["H2"]["n_unavailable"], c["paywalled"]), (2, 2, 4))
-        self.assertEqual(c["tier1Def"], "human non-AD/non-aged iPSC")
+        self.assertEqual(c["tier1Def"], "Human iPSC")
+        for fid, keys in {"H5-P4.F1": ("cardTitle", "cardSub"), "H5-P6.F3": ("cardTitle", "cardSub"),
+                          "H2-P2.F12": ("badge",), "H2-P3.F6": ("badge", "headline"), "H2-P5.F4": ("badge", "headline")}.items():
+            for k in keys:
+                val = v2["featured"][fid].get(k)
+                self.assertTrue(isinstance(val, str) and val.strip(), f"{fid}.{k} must be a non-empty string")
         self.assertEqual(sorted(v2["featured"]), sorted(["H5-P4.F1", "H5-P6.F3", "H2-P2.F12", "H2-P3.F6", "H2-P5.F4"]))
         for fid, feat in v2["featured"].items():  # featured snippets are verbatim from explorer_data.json
             src = next(f for f in ex["findings"] if f["id"] == fid)
@@ -138,6 +143,13 @@ class TestExplorerData(unittest.TestCase):
         for sc in v2["scenes"]:
             for c in sc["captions"]:
                 self.assertLessEqual(len(c["text"]), 64, f"V2 caption over 64 chars: {c['text']!r}")
+
+        # scenes take featured numbers/PMIDs/card text from data.json, never as literals
+        literals = ("35750033", "42182449", "29946028", "30375977", "34617884", "53 of 84", "3-fold", "45%")
+        for tsx in (ROOT / "video" / "remotion" / "src" / "v2" / "scenes").glob("*.tsx"):
+            src = tsx.read_text(encoding="utf-8")
+            for lit in literals:
+                self.assertNotIn(lit, src, f"hardcoded {lit!r} in {tsx.name}")
 
     def test_normalize_aligned_words(self):
         from video.build_timeline import normalize_aligned_words

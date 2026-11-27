@@ -10,6 +10,7 @@ Run: python3 video/v2/build_data.py
 from __future__ import annotations
 
 import json
+import re
 import subprocess
 import sys
 import unittest
@@ -183,6 +184,15 @@ def count_tests() -> int:
     return sum(1 for _ in flatten(unittest.TestLoader().discover(tests_dir)))
 
 
+def tier1_def() -> str:
+    """Tier 1 definition as the explorer's own dropdown labels it: <option value="1">Tier 1 (Human iPSC)</option>."""
+    html = (ROOT / "docs" / "index.html").read_text(encoding="utf-8")
+    m = re.search(r"Tier 1 \(([^)]+)\)", html)
+    if not m:
+        raise ValueError("Tier 1 definition not found in docs/index.html")
+    return m.group(1)
+
+
 def vtt_time(t: float) -> str:
     ms = round(t * 1000)
     return f"{ms // 3600000:02d}:{ms // 60000 % 60:02d}:{ms // 1000 % 60:02d}.{ms % 1000:03d}"
@@ -196,12 +206,40 @@ def write_vtt(scenes: list[dict]) -> None:
         caps = s["captions"]
         for i, c in enumerate(caps):
             start = base + c["start"]
-            end = base + c["end"]
-            if i + 1 < len(caps):
-                end = min(end + 0.35, base + caps[i + 1]["start"] - 0.02)
+            nxt = caps[i + 1]["start"] if i + 1 < len(caps) else c["end"] + 0.55
+            end = base + min(nxt, c["end"] + 0.55) - 0.02
             n += 1
             lines += [str(n), f"{vtt_time(start)} --> {vtt_time(max(end, start + 0.3))}", c["text"], ""]
     VTT_OUT.write_text("\n".join(lines), encoding="utf-8")
+
+
+def featured_summaries(featured: dict, by_id: dict) -> None:
+    """Add card/badge text to the featured findings, derived from (and checked against) the finding text."""
+    def need(f: dict, keys: tuple[str, ...]) -> None:
+        hay = " ".join((f["description"], f["quote"], f.get("experimental_system") or ""))
+        missing = [k for k in keys if k not in hay]
+        if missing:
+            raise ValueError(f"{f['id']}: finding text no longer supports summary terms {missing}")
+
+    f = by_id["H5-P4.F1"]
+    need(f, ("3-fold", "cholesterol"))
+    featured[f["id"]].update(cardTitle="Cholesterol",
+                             cardSub=f"{f['stats']['effect_size']['value'].replace('x', '-fold')} · PMID {f['pmid']}")
+    f = by_id["H5-P6.F3"]
+    m = re.search(r"\b(\d+ of \d+)\b", f["description"])
+    if not m:
+        raise ValueError("H5-P6.F3: 'N of M' not found in description")
+    need(f, ("hydrolases", "downregulated"))
+    featured[f["id"]].update(cardTitle=m.group(1), cardSub=f"hydrolases down · PMID {f['pmid']}")
+    f = by_id["H2-P2.F12"]
+    need(f, ("NHE6", "lower"))
+    featured[f["id"]].update(badge=f"~{f['stats']['effect_size']['value']} lower NHE6")
+    f = by_id["H2-P3.F6"]
+    need(f, ("shRNA", "neurons", "Apoer2", "restores cell-surface"))
+    featured[f["id"]].update(badge="neurons · shRNA", headline="NHE6 knockdown restores cell-surface Apoer2")
+    f = by_id["H2-P5.F4"]
+    need(f, ("knock-in", "NHE6", "knockout", "Reelin-enhanced", "LTP", "restores"))
+    featured[f["id"]].update(badge="knock-in slices · KO", headline="Conditional NHE6 knockout restores Reelin-enhanced LTP")
 
 
 def main() -> None:
@@ -252,6 +290,8 @@ def main() -> None:
             "pValue": f["p_value"], "year": f["year"], "tier": f["tier"],
         }
 
+    featured_summaries(featured, by_id)
+
     tests = count_tests()
     if tests != NARRATED_CHECKS:
         raise ValueError(f"{tests} unit tests, but the voiceover says {NARRATED_CHECKS}: re-record or fix the tests")
@@ -265,7 +305,7 @@ def main() -> None:
             "printedStats": tot["n_printed_stats_total"], "structures": tot["n_structures"],
             "tests": tests, "auditedPct": 100,
             "paywalled": (hy["H5"]["n_papers"] - hy["H5"]["n_fulltext_oa"]) + (hy["H2"]["n_papers"] - hy["H2"]["n_fulltext_oa"]),
-            "tier1Def": "human non-AD/non-aged iPSC",
+            "tier1Def": tier1_def(),
             **{h: {**{k: hy[h][k] for k in ("n_papers", "n_findings", "n_contradicting", "n_supporting", "n_printed_stats", "n_tier1")},
                    "n_unavailable": hy[h]["n_papers"] - hy[h]["n_fulltext_oa"]} for h in ("H5", "H2")},
         },
