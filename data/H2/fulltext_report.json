@@ -1,0 +1,352 @@
+{
+  "hyp": "H2",
+  "papers": [
+    {
+      "pmid": "31641056",
+      "doi": "10.1523/JNEUROSCI.1400-19.2019",
+      "status": "full_text",
+      "route": "unpaywall",
+      "routes_tried": [
+        "pmc_oa",
+        "europepmc",
+        "unpaywall_html",
+        "unpaywall_html"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": false,
+          "pmcid": "PMC6880458",
+          "chars": 0,
+          "why": "no full body (not in PMC open-access subset)"
+        },
+        {
+          "route": "europepmc",
+          "ok": false,
+          "why": "HTTP 500 from https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6880458/fullTe"
+        },
+        {
+          "route": "unpaywall_html",
+          "ok": false,
+          "why": "HTTP Error 403: Forbidden"
+        },
+        {
+          "route": "unpaywall_html",
+          "ok": true,
+          "chars": 65353,
+          "why": ""
+        }
+      ],
+      "chars": 65353
+    },
+    {
+      "pmid": "29946028",
+      "doi": "10.1073/pnas.1801612115",
+      "status": "full_text",
+      "route": "unpaywall",
+      "routes_tried": [
+        "pmc_oa",
+        "europepmc",
+        "unpaywall_html",
+        "unpaywall_html",
+        "unpaywall_html"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": false,
+          "pmcid": "PMC6048470",
+          "chars": 0,
+          "why": "no full body (not in PMC open-access subset)"
+        },
+        {
+          "route": "europepmc",
+          "ok": false,
+          "why": "HTTP 500 from https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6048470/fullTe"
+        },
+        {
+          "route": "unpaywall_html",
+          "ok": false,
+          "why": "HTTP Error 429: Too Many Requests"
+        },
+        {
+          "route": "unpaywall_html",
+          "ok": false,
+          "why": "HTTP Error 403: Forbidden"
+        },
+        {
+          "route": "unpaywall_html",
+          "ok": true,
+          "chars": 60166,
+          "why": ""
+        }
+      ],
+      "chars": 60166
+    },
+    {
+      "pmid": "30375977",
+      "doi": "10.7554/eLife.40048",
+      "status": "full_text",
+      "route": "pmc_oa",
+      "routes_tried": [
+        "pmc_oa"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": true,
+          "pmcid": "PMC6261251",
+          "chars": 67980,
+          "why": ""
+        }
+      ],
+      "chars": 67980
+    },
+    {
+      "pmid": "20547867",
+      "doi": "10.1073/pnas.0914984107",
+      "status": "full_text",
+      "route": "unpaywall",
+      "routes_tried": [
+        "pmc_oa",
+        "europepmc",
+        "unpaywall_html"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": false,
+          "pmcid": "PMC2900641",
+          "chars": 0,
+          "why": "no full body (not in PMC open-access subset)"
+        },
+        {
+          "route": "europepmc",
+          "ok": false,
+          "why": "HTTP 500 from https://www.ebi.ac.uk/europepmc/webservices/rest/PMC2900641/fullTe"
+        },
+        {
+          "route": "unpaywall_html",
+          "ok": true,
+          "chars": 34950,
+          "why": ""
+        }
+      ],
+      "chars": 34950
+    },
+    {
+      "pmid": "34617884",
+      "doi": "10.7554/eLife.72034",
+      "status": "full_text",
+      "route": "pmc_oa",
+      "routes_tried": [
+        "pmc_oa"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": true,
+          "pmcid": "PMC8547963",
+          "chars": 92518,
+          "why": ""
+        }
+      ],
+      "chars": 92518
+    },
+    {
+      "pmid": "23132858",
+      "doi": "10.1074/jbc.M112.420224",
+      "status": "full_text",
+      "route": "unpaywall",
+      "routes_tried": [
+        "pmc_oa",
+        "europepmc",
+        "unpaywall_html",
+        "unpaywall_html",
+        "unpaywall_html"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": false,
+          "pmcid": "PMC3531774",
+          "chars": 0,
+          "why": "no full body (not in PMC open-access subset)"
+        },
+        {
+          "route": "europepmc",
+          "ok": false,
+          "why": "HTTP 500 from https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3531774/fullTe"
+        },
+        {
+          "route": "unpaywall_html",
+          "ok": false,
+          "chars": 0,
+          "why": "page had no readable article body (landing page or paywall)"
+        },
+        {
+          "route": "unpaywall_html",
+          "ok": false,
+          "why": "HTTP Error 403: Forbidden"
+        },
+        {
+          "route": "unpaywall_html",
+          "ok": true,
+          "chars": 51704,
+          "why": ""
+        }
+      ],
+      "chars": 51704
+    },
+    {
+      "pmid": "31796678",
+      "doi": "10.3233/JAD-190914",
+      "status": "unavailable",
+      "route": null,
+      "routes_tried": [
+        "pmc_oa",
+        "europepmc",
+        "unpaywall",
+        "doi_direct_html"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": false,
+          "why": "no PMCID"
+        },
+        {
+          "route": "europepmc",
+          "ok": false,
+          "why": "no PMCID at Europe PMC"
+        },
+        {
+          "route": "unpaywall",
+          "ok": false,
+          "why": "no open-access location"
+        },
+        {
+          "route": "doi_direct_html",
+          "ok": false,
+          "why": "HTTP Error 403: Forbidden"
+        }
+      ],
+      "chars": 0
+    },
+    {
+      "pmid": "38217595",
+      "doi": "10.3233/JAD-230514",
+      "status": "full_text",
+      "route": "pmc_oa",
+      "routes_tried": [
+        "pmc_oa"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": true,
+          "pmcid": "PMC10894586",
+          "chars": 60133,
+          "why": ""
+        }
+      ],
+      "chars": 60133
+    },
+    {
+      "pmid": "39532095",
+      "doi": "10.1016/j.cell.2024.10.027",
+      "status": "full_text",
+      "route": "pmc_oa",
+      "routes_tried": [
+        "pmc_oa"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": true,
+          "pmcid": "PMC11724755",
+          "chars": 120615,
+          "why": ""
+        }
+      ],
+      "chars": 120615
+    },
+    {
+      "pmid": "39901180",
+      "doi": "10.1186/s13024-025-00802-7",
+      "status": "full_text",
+      "route": "pmc_oa",
+      "routes_tried": [
+        "pmc_oa"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": true,
+          "pmcid": "PMC11792374",
+          "chars": 93478,
+          "why": ""
+        }
+      ],
+      "chars": 93478
+    },
+    {
+      "pmid": "35235798",
+      "doi": "10.1016/j.celrep.2022.110435",
+      "status": "unavailable",
+      "route": null,
+      "routes_tried": [
+        "pmc_oa",
+        "europepmc",
+        "unpaywall_html",
+        "unpaywall_html",
+        "unpaywall_html",
+        "unpaywall_html",
+        "doi_direct_html"
+      ],
+      "log": [
+        {
+          "route": "pmc_oa",
+          "ok": false,
+          "why": "no PMCID"
+        },
+        {
+          "route": "europepmc",
+          "ok": false,
+          "why": "no PMCID at Europe PMC"
+        },
+        {
+          "route": "unpaywall_html",
+          "ok": false,
+          "chars": 0,
+          "why": "page had no readable article body (landing page or paywall)"
+        },
+        {
+          "route": "unpaywall_html",
+          "ok": false,
+          "chars": 923,
+          "why": "page had no readable article body (landing page or paywall)"
+        },
+        {
+          "route": "unpaywall_html",
+          "ok": false,
+          "chars": 0,
+          "why": "page had no readable article body (landing page or paywall)"
+        },
+        {
+          "route": "unpaywall_html",
+          "ok": false,
+          "chars": 1024,
+          "why": "page had no readable article body (landing page or paywall)"
+        },
+        {
+          "route": "doi_direct_html",
+          "ok": false,
+          "chars": 0,
+          "why": "page had no readable article body (landing page or paywall)"
+        }
+      ],
+      "chars": 0
+    }
+  ]
+}
