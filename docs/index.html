@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MecCog APOE4 Endosome Evidence Workbench (H5 &amp; H2)</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b5d4b'/%3E%3Ccircle cx='16' cy='16' r='8' fill='none' stroke='%23f6f4ee' stroke-width='2.5'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/molstar@4/build/viewer/molstar.css" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="masthead">
+    <div class="container masthead-inner">
+      <a class="brand" href="#top">MecCog APOE4 Workbench</a>
+      <nav class="nav-links" aria-label="Primary sections">
+        <a href="#cascade-section">Causal Cascade</a>
+        <a href="#workbench-section">3D &amp; Provenance</a>
+        <a href="#film">Documentary</a>
+        <a href="https://github.com/DrAhmed7887/hack-meccog-apoe4" target="_blank" rel="noopener">Repository</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <section class="intro-header">
+      <h1>Explore verified APOE4 endosomal evidence beside real 3D structures</h1>
+      <p class="intro-copy">
+        Inspect 120 physician-audited findings across 30 primary papers (H5 lysosomal cholesterol dysfunction and H2 early endocytic recycling), synchronized with experimental PDB and AlphaFold v6 coordinates.
+      </p>
+      <aside class="rule-c5-banner" role="note" aria-label="Rule C5 Step 1 separation notice">
+        <strong>Rule C5 Step 1 separation:</strong>
+        <span id="c5-notice-text">
+          Committed Step 1 spreadsheets (H5 v3 and H2 v1) contain strictly primary experimental literature quotes, panel locations, and printed_in_text statistics. PDB and AlphaFold v6 (CC-BY 4.0) 3D models below provide structural context only.
+        </span>
+      </aside>
+    </section>
+
+    <section class="controls-bar" aria-label="Hypothesis selector and summary metrics">
+      <div class="segmented" role="tablist" aria-label="Hypothesis dataset filter">
+        <button type="button" class="seg-btn is-active" data-hyp="ALL" role="tab" aria-selected="true">
+          All findings (<span id="count-all">120</span>)
+        </button>
+        <button type="button" class="seg-btn" data-hyp="H5" role="tab" aria-selected="false">
+          H5 Lysosomal cholesterol (<span id="count-h5">67</span>)
+        </button>
+        <button type="button" class="seg-btn" data-hyp="H2" role="tab" aria-selected="false">
+          H2 Endocytic recycling (<span id="count-h2">53</span>)
+        </button>
+      </div>
+      <dl class="metrics-strip" aria-label="Audited dataset totals">
+        <div><dt>Primary papers</dt><dd id="metric-papers">30</dd></div>
+        <div><dt>Findings</dt><dd id="metric-findings">120</dd></div>
+        <div><dt>Contradicting</dt><dd id="metric-contra">29</dd></div>
+        <div><dt>Printed stats</dt><dd id="metric-stats">126</dd></div>
+        <div><dt>Validator issues</dt><dd>0</dd></div>
+      </dl>
+    </section>
+
+    <section id="cascade-section" class="cascade-section" aria-labelledby="cascade-heading">
+      <div class="section-head">
+        <h2 id="cascade-heading">Mechanistic cascade (click any stage to focus 3D model and evidence)</h2>
+        <button type="button" id="btn-all-nodes" class="text-action">Show all stages</button>
+      </div>
+      <div class="cascade-track" id="cascade-nodes" role="list"></div>
+      <p id="active-node-note" class="stage-note"></p>
+    </section>
+
+    <section id="workbench-section" class="workbench-grid" aria-label="3D structure viewer and Step 1 provenance drawer">
+      <article class="pane viewer-pane" aria-labelledby="viewer-heading">
+        <div class="pane-head">
+          <h2 id="viewer-heading">Structural context in 3D (Mol*)</h2>
+          <div class="viewer-controls">
+            <label for="structure-select" class="sr-only">Choose 3D protein structure</label>
+            <select id="structure-select" class="select-control"></select>
+            <button type="button" id="btn-reset-view" class="text-action">Reset camera</button>
+          </div>
+        </div>
+
+        <div id="residue-bar" class="residue-bar" aria-label="Focus key residues"></div>
+
+        <div class="molstar-wrap">
+          <div id="molstar-container" class="molstar-canvas" aria-label="Interactive Mol* 3D molecular viewer"></div>
+          <div id="molstar-status" class="molstar-status" aria-live="polite">Loading 3D structure...</div>
+        </div>
+
+        <div class="structure-meta" id="structure-meta"></div>
+
+        <div class="geometry-strip" id="geometry-strip" aria-label="Computed APOE crystal geometry"></div>
+      </article>
+
+      <article class="pane drawer-pane" aria-labelledby="drawer-heading">
+        <div class="pane-head">
+          <h2 id="drawer-heading">Step 1 experimental provenance (<span id="drawer-match-count">120</span>)</h2>
+          <button type="button" id="btn-clear-filters" class="text-action">Reset filters</button>
+        </div>
+
+        <div class="drawer-filters">
+          <label for="search-input" class="sr-only">Search quotes, PMIDs, or assays</label>
+          <input id="search-input" type="search" class="search-input" placeholder="Search PMID, gene, assay, quote..." />
+
+          <div class="filter-row">
+            <div class="segmented segmented-sm" role="group" aria-label="Finding direction filter">
+              <button type="button" class="seg-btn-sm is-active" data-dir="ALL">All</button>
+              <button type="button" class="seg-btn-sm" data-dir="supports">Supports</button>
+              <button type="button" class="seg-btn-sm" data-dir="contradicts">Contradicts</button>
+            </div>
+
+            <label for="directness-select" class="sr-only">Filter by directness</label>
+            <select id="directness-select" class="select-control select-sm">
+              <option value="ALL">All directness</option>
+              <option value="D">Direct (D)</option>
+              <option value="I">Indirect (I)</option>
+              <option value="P">Peripheral (P)</option>
+            </select>
+
+            <label for="tier-select" class="sr-only">Filter by model tier</label>
+            <select id="tier-select" class="select-control select-sm">
+              <option value="ALL">All model tiers</option>
+              <option value="1">Tier 1 (Human iPSC)</option>
+              <option value="2">Tier 2 (Mouse / cell)</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="findings-list" class="findings-list" aria-live="polite"></div>
+      </article>
+    </section>
+
+    <section id="film" class="film-section" aria-labelledby="film-heading">
+      <div class="section-head">
+        <h2 id="film-heading">Documentary walkthrough: The APOE4 Endosome Bottleneck</h2>
+        <span class="film-caption-note">Rendered at 1080p from PDB 1B68, 1NFN, and frozen Step 1 outputs</span>
+      </div>
+      <div class="film-frame">
+        <video id="doc-video" controls preload="metadata" poster="./media/poster.jpg" playsinline>
+          <source src="./media/apoe4_endosome_bottleneck_web.mp4" type="video/mp4" />
+          <track kind="captions" src="./media/captions.vtt" srclang="en" label="English" default />
+          Your browser does not support HTML5 video playback.
+        </video>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>
+        Team Khepri (Dr Ahmed Zayed) for MecCog Pilot Challenge: APOE4 Step 1.
+        Strict validation verified with 0 errors and 0 warnings across H5 (19 papers, 67 findings) and H2 (11 papers, 53 findings).
+      </p>
+      <div class="footer-links">
+        <a href="./structures/ALPHAFOLD_TERMS_NOTICE.txt">Structure Licenses</a>
+        <a href="https://github.com/DrAhmed7887/hack-meccog-apoe4/blob/main/SPEC.md" target="_blank" rel="noopener">SPEC</a>
+        <a href="https://github.com/DrAhmed7887/hack-meccog-apoe4/blob/main/CLAIMS.md" target="_blank" rel="noopener">CLAIMS</a>
+        <a href="https://github.com/DrAhmed7887/hack-meccog-apoe4/blob/main/docs/PHYSICIAN_AUDIT_H5.md" target="_blank" rel="noopener">H5 Audit</a>
+        <a href="https://github.com/DrAhmed7887/hack-meccog-apoe4/blob/main/docs/PHYSICIAN_AUDIT_H2.md" target="_blank" rel="noopener">H2 Audit</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/molstar@4/build/viewer/molstar.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

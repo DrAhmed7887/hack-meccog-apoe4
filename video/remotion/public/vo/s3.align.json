@@ -1,0 +1,243 @@
+{
+  "id": "s3",
+  "caption": "In crystal structure 1B68, APOE4's arginine 112 forms a 2.53 Angstrom salt bridge with glutamate 109, displacing arginine 61 outward from 3.53 to 5.34 Angstroms compared to APOE3 structure 1NFN and reprogramming domain interactions.",
+  "say": "In crystal structure one-B-six-eight, APOE4's arginine one hundred twelve forms a two point five three Angstrom salt bridge with glutamate one hundred nine, displacing arginine sixty-one outward from three point five three to five point three four Angstroms compared to APOE3 structure one-N-F-N and reprogramming domain interactions.",
+  "duration": 27.539,
+  "words": [
+    {
+      "w": "In",
+      "start": 0.0,
+      "end": 0.139
+    },
+    {
+      "w": "crystal",
+      "start": 0.221,
+      "end": 0.569
+    },
+    {
+      "w": "structure",
+      "start": 0.639,
+      "end": 1.184
+    },
+    {
+      "w": "one-B-six-eight,",
+      "start": 1.544,
+      "end": 3.053
+    },
+    {
+      "w": "APOE4's",
+      "start": 3.413,
+      "end": 4.412
+    },
+    {
+      "w": "arginine",
+      "start": 4.481,
+      "end": 5.016
+    },
+    {
+      "w": "one",
+      "start": 5.074,
+      "end": 5.224
+    },
+    {
+      "w": "hundred",
+      "start": 5.271,
+      "end": 5.538
+    },
+    {
+      "w": "twelve",
+      "start": 5.573,
+      "end": 6.118
+    },
+    {
+      "w": "forms",
+      "start": 6.351,
+      "end": 6.803
+    },
+    {
+      "w": "a",
+      "start": 6.861,
+      "end": 6.908
+    },
+    {
+      "w": "two",
+      "start": 7.024,
+      "end": 7.268
+    },
+    {
+      "w": "point",
+      "start": 7.349,
+      "end": 7.605
+    },
+    {
+      "w": "five",
+      "start": 7.674,
+      "end": 7.964
+    },
+    {
+      "w": "three",
+      "start": 8.011,
+      "end": 8.487
+    },
+    {
+      "w": "Angstrom",
+      "start": 8.754,
+      "end": 9.253
+    },
+    {
+      "w": "salt",
+      "start": 9.358,
+      "end": 9.625
+    },
+    {
+      "w": "bridge",
+      "start": 9.671,
+      "end": 10.101
+    },
+    {
+      "w": "with",
+      "start": 10.263,
+      "end": 10.461
+    },
+    {
+      "w": "glutamate",
+      "start": 10.519,
+      "end": 11.122
+    },
+    {
+      "w": "one",
+      "start": 11.32,
+      "end": 11.54
+    },
+    {
+      "w": "hundred",
+      "start": 11.587,
+      "end": 11.877
+    },
+    {
+      "w": "nine,",
+      "start": 11.935,
+      "end": 12.411
+    },
+    {
+      "w": "displacing",
+      "start": 12.899,
+      "end": 13.479
+    },
+    {
+      "w": "arginine",
+      "start": 13.572,
+      "end": 14.106
+    },
+    {
+      "w": "sixty-one",
+      "start": 14.164,
+      "end": 14.814
+    },
+    {
+      "w": "outward",
+      "start": 14.872,
+      "end": 15.36
+    },
+    {
+      "w": "from",
+      "start": 15.662,
+      "end": 15.871
+    },
+    {
+      "w": "three",
+      "start": 15.94,
+      "end": 16.196
+    },
+    {
+      "w": "point",
+      "start": 16.254,
+      "end": 16.486
+    },
+    {
+      "w": "five",
+      "start": 16.544,
+      "end": 16.811
+    },
+    {
+      "w": "three",
+      "start": 16.846,
+      "end": 17.229
+    },
+    {
+      "w": "to",
+      "start": 17.391,
+      "end": 17.508
+    },
+    {
+      "w": "five",
+      "start": 17.6,
+      "end": 17.902
+    },
+    {
+      "w": "point",
+      "start": 17.949,
+      "end": 18.181
+    },
+    {
+      "w": "three",
+      "start": 18.227,
+      "end": 18.471
+    },
+    {
+      "w": "four",
+      "start": 18.529,
+      "end": 18.75
+    },
+    {
+      "w": "Angstroms",
+      "start": 18.819,
+      "end": 19.435
+    },
+    {
+      "w": "compared",
+      "start": 19.737,
+      "end": 20.178
+    },
+    {
+      "w": "to",
+      "start": 20.213,
+      "end": 20.271
+    },
+    {
+      "w": "APOE3",
+      "start": 20.364,
+      "end": 21.35
+    },
+    {
+      "w": "structure",
+      "start": 21.467,
+      "end": 22.105
+    },
+    {
+      "w": "one-N-F-N",
+      "start": 22.407,
+      "end": 23.765
+    },
+    {
+      "w": "and",
+      "start": 24.183,
+      "end": 24.381
+    },
+    {
+      "w": "reprogramming",
+      "start": 24.462,
+      "end": 25.309
+    },
+    {
+      "w": "domain",
+      "start": 25.367,
+      "end": 25.751
+    },
+    {
+      "w": "interactions.",
+      "start": 25.843,
+      "end": 27.539
+    }
+  ]
+}
