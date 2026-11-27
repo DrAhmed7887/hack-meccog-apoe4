@@ -25,5 +25,5 @@ Criteria summarize `official/rules.html` and `official/official-rules.html` (sna
 - **Live 3D Mol* Workbench:** `https://drahmed7887.github.io/hack-meccog-apoe4/` (`14` staged `.cif.gz` models incl. `1B68`, `1NFN`, `2L7B`, `9R8L`, `5XJY`, `3GKH`, `1N7D` + AlphaFold DB v6 CC-BY 4.0) synchronized to all `120` Step 1 quotes & `29` contradicting lines (`scripts/build_explorer_data.py`).
 - **Documentary film:** *The APOE4 Endosome Bottleneck* (`1080p`, `-16 LUFS`, Blender 3D + Remotion V2 + ElevenLabs VO + captions), embedded directly on the workbench page.
 
-## Remaining human items before upload
-- Generate release `.xlsx` files with real team-leader email + final `Commit SHA` in local gitignored `out/release_method.json` and upload staged `.xlsx` files (`H5 v3` & `H2 v1`) on HF Space by `Wed 13 Jan 2027 13:00 Valencia` (`Sat 16 Jan 2027` deadline).
+## Submission status
+- Both `--strict` release workbooks (`H5 v3` & `H2 v1`, built via local gitignored `out/release_method.json` pinned to `origin/main`) are submitted live on `meccog-meccogchallenge.hf.space` as `DrZayed` (Team `Khepri`); only the post-`15 Jan 2027 AoE` organizer survey remains.

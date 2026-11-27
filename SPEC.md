@@ -19,7 +19,7 @@ Quote, `official/rules.html:429`: "Accuracy and relevance over volume. A shorter
 - [x] Phase 2 pipeline upgrades merged (`PAPER_CHARS=None`, `<app-group>`/`<supplementary-material>` + table splitting, `list_and=True` panel grounding, `N-fold -> Nx`, tiered `C1`, review purge, `collab` Method guards)
 - [x] Flagship `H5 v3` & Secondary `H2 v1` extraction, OA figure checks, 100% physician `A3` audits, `FREEZE.md`, `make test && make verify && make validate --strict` PASS
 - [x] AI-use disclosure in `README.md` (`Who did the work: collab`)
-- [ ] Live HF Space rules diff & final release `.xlsx` upload (human verification) before `Wed 13 Jan 2027 13:00 Valencia`
+- [x] Release `.xlsx` workbooks (`H5 v3` & `H2 v1`) built with `--release` and submitted live on `meccog-meccogchallenge.hf.space` as `DrZayed` (Team `Khepri`); post-close organizer survey due after `15 Jan 2027 AoE`
 
 ## Signed scope & decisions
 - **Step 1 only (`Rule C5`):** `.xlsx` workbooks contain strictly primary papers, verbatim quotes, locations, stat provenance, and directness.
