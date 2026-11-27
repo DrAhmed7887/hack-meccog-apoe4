@@ -1,7 +1,7 @@
 import React from "react";
 import { Composition } from "remotion";
 import timeline from "./timeline.json";
-import { Film, Teaser } from "./Film";
+import { Film, Teaser, TEASER_TOTAL_FRAMES } from "./Film";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -17,7 +17,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="MecCogTeaser"
         component={Teaser}
-        durationInFrames={timeline.teaserTotalFrames}
+        durationInFrames={TEASER_TOTAL_FRAMES}
         fps={timeline.fps}
         width={timeline.width}
         height={timeline.height}

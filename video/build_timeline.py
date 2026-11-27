@@ -10,7 +10,6 @@ CFG_PATH = HERE / "narration.json"
 OUT_PATH = HERE / "remotion" / "src" / "timeline.json"
 FPS = 30
 TAIL_SEC = 0.55
-TEASER_IDS = {"s1", "s3", "s7"}
 
 
 _PUNCT = ",.;:"
@@ -32,7 +31,7 @@ _PHONETIC_SPANS: dict[tuple[str, ...], str] = {
     ("tier", "two"): "Tier 2",
     ("twenty-eight",): "28",
     ("twenty-nine",): "29",
-    ("thirty",): "30",
+    ("thirty", "entries"): "30 entries",
     ("zero", "retracted"): "0 retracted",
     ("zero", "errors"): "0 errors",
     ("four", "gated"): "4 gated",
@@ -111,12 +110,6 @@ def main() -> None:
         )
         cursor += dur_frames
 
-    teaser_scenes: list[dict] = []
-    teaser_cursor = 0
-    for s in (s for s in scenes_out if s["id"] in TEASER_IDS):
-        teaser_scenes.append({**s, "from": teaser_cursor})
-        teaser_cursor += s["durationInFrames"]
-
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUT_PATH.write_text(
         json.dumps(
@@ -126,8 +119,6 @@ def main() -> None:
                 "height": 1080,
                 "totalFrames": cursor,
                 "scenes": scenes_out,
-                "teaserTotalFrames": teaser_cursor,
-                "teaserScenes": teaser_scenes,
             },
             indent=2,
         )
@@ -135,8 +126,7 @@ def main() -> None:
         encoding="utf-8",
     )
     print(
-        f"timeline.json: {len(scenes_out)} scenes, {cursor} frames ({cursor / FPS:.2f} s); "
-        f"teaser {len(teaser_scenes)} scenes, {teaser_cursor} frames"
+        f"timeline.json: {len(scenes_out)} scenes, {cursor} frames ({cursor / FPS:.2f} s)"
     )
 
 
